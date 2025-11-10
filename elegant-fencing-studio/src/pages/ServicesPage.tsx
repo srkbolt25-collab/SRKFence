@@ -10,36 +10,42 @@ import { Link } from "react-router-dom";
 
 const coreServices = [
   {
+    id: "high-security",
     icon: ShieldCheck,
     title: "High-Security Perimeters",
     description:
       "Accredited fencing systems engineered for embassies, critical infrastructure, and data centers with integrated monitoring.",
   },
   {
+    id: "commercial-hospitality",
     icon: Building2,
     title: "Commercial & Hospitality Estates",
     description:
       "Tailored solutions that balance guest experience, branding, and safety across resorts, headquarters, and campuses.",
   },
   {
+    id: "architectural-screening",
     icon: Layers,
     title: "Architectural Screening",
     description:
       "Signature privacy screens, sound barriers, and sculptural facades that elevate streetscapes without compromising function.",
   },
   {
+    id: "design-visualisation",
     icon: Palette,
     title: "Design & Visualisation Studio",
     description:
       "Concept boards, finish palettes, and photoreal renders ensure every stakeholder can see the vision before we build.",
   },
   {
+    id: "global-delivery",
     icon: Compass,
     title: "Global Project Delivery",
     description:
       "Multilingual site leads manage permissions, logistics, and compliance across continents to keep momentum seamless.",
   },
   {
+    id: "lifecycle-care",
     icon: Wrench,
     title: "Lifecycle Care & Upgrades",
     description:
@@ -156,6 +162,7 @@ const ServicesPage = () => {
               return (
                 <Card
                   key={service.title}
+                  id={service.id}
                   className="group h-full overflow-hidden border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5 transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-hover"
                 >
                   <CardHeader className="space-y-5">
