@@ -21,12 +21,16 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 w-full bg-primary backdrop-blur-sm z-50 border-b border-primary shadow-elegant">
+    <nav className="fixed top-0 z-50 w-full border-b border-border bg-white shadow-elegant">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <Link to="/" className="text-3xl font-bold text-white tracking-wider hover:text-white/80 transition-colors">
-              SRK FENCE
+            <Link to="/" className="flex items-center gap-3">
+              <img
+                src="/srk_fence-removebg-preview.png"
+                alt="SRK FENCE"
+                className="h-20 w-auto object-contain"
+              />
             </Link>
           </div>
           
@@ -36,15 +40,15 @@ const Navbar = () => {
               <NavLink
                 key={link.to}
                 to={link.to}
-                className="group relative inline-flex items-center font-medium text-white/75 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-white/70 after:transition-all after:duration-300 hover:text-white hover:after:w-full"
-                activeClassName="text-white after:w-full after:bg-white"
+                className="group relative inline-flex items-center font-medium text-[#4a4a4a] transition-colors after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-[#c5162a]/70 after:transition-all after:duration-300 hover:text-[#c5162a] hover:after:w-full"
+                activeClassName="text-[#c5162a] after:w-full after:bg-[#c5162a]"
               >
                 {link.label}
               </NavLink>
             ))}
             <Button
               asChild
-              className="bg-white text-[#c5162a] hover:bg-[#f7d2d7] hover:text-[#9f1122] px-6 py-5 h-auto rounded-xl font-semibold shadow-lg transition"
+              className="px-6 py-5 h-auto rounded-xl font-semibold shadow-lg transition bg-[#c5162a] text-white hover:bg-[#9f1122] hover:text-white"
             >
               <NavLink to="/contact" className="font-medium">
                 Get Quote
@@ -58,7 +62,7 @@ const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-primary-foreground hover:bg-primary-foreground/10"
+              className="text-[#c5162a] hover:bg-[#c5162a]/10"
             >
               <Menu className="h-6 w-6" />
             </Button>
@@ -67,20 +71,20 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-3 bg-primary">
+          <div className="md:hidden space-y-3 bg-white py-4 shadow-elegant">
             {navigationLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
-                className="block py-2 font-medium text-white/80 transition-colors hover:text-white"
-                activeClassName="text-white"
+                className="block py-2 font-medium text-[#4a4a4a] transition-colors hover:text-[#c5162a]"
+                activeClassName="text-[#c5162a]"
               >
                 {link.label}
               </NavLink>
             ))}
             <Button
               asChild
-              className="w-full bg-white text-[#c5162a] hover:bg-[#f7d2d7] hover:text-[#9f1122] h-12 rounded-xl font-semibold shadow-md transition"
+              className="w-full h-12 rounded-xl font-semibold shadow-md transition bg-[#c5162a] text-white hover:bg-[#9f1122] hover:text-white"
             >
               <NavLink to="/contact" className="font-medium">
                 Get Quote
