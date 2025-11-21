@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 import metalFence from "@/assets/metal-fence.jpg";
 import vinylFence from "@/assets/vinyl-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
@@ -45,10 +46,11 @@ const Services = () => {
               className="group overflow-hidden hover:shadow-hover transition-all duration-500 border-border bg-gradient-card hover:-translate-y-2"
             >
               <div className="h-64 overflow-hidden relative">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
