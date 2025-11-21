@@ -11,7 +11,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Gem, Globe2, Handshake, Sparkles } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
