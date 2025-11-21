@@ -17,7 +17,7 @@ const options: any = {
 };
 
 let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
+let clientPromise: Promise<MongoClient> | undefined;
 
 function getMongoUri(): string {
   // Load dotenv if not already loaded

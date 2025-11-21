@@ -119,7 +119,8 @@ const WhyUsPage = () => {
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      className="object-cover scale-105 transition-transform duration-[20s] ease-out"
+                      className="object-cover scale-105 transition-transform ease-out"
+                      style={{ transitionDuration: '20s' }}
                       priority={index === 0}
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#360c13]/96 via-[#360c13]/88 to-[#1f0a0f]/70" />
