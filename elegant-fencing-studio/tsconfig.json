@@ -36,6 +36,7 @@
   "exclude": [
     "node_modules",
     "vite.config.ts",
-    "**/vite-env.d.ts"
+    "**/vite-env.d.ts",
+    "src/pages/**/*"
   ]
 }

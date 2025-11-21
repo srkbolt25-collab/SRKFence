@@ -11,8 +11,6 @@ const nextConfig = {
     ],
     unoptimized: false,
   },
-  // Exclude src/pages from being treated as routes
-  pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
   async headers() {
     return [
       {
