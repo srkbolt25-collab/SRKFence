@@ -2,6 +2,7 @@
 
 import SiteLayout from "@/components/SiteLayout";
 import Benefits from "@/components/Benefits";
+import Image from "next/image";
 import heroFence from "@/assets/hero-fence.jpg";
 import metalFence from "@/assets/metal-fence.jpg";
 import vinylFence from "@/assets/vinyl-fence.jpg";
@@ -215,7 +216,7 @@ const WhyUsPage = () => {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
           <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-elegant">
-            <img src={vinylFence} alt="SRK FENCE team at work" className="w-full h-full object-cover" />
+            <Image src={vinylFence} alt="SRK FENCE team at work" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
             <div className="absolute bottom-6 left-6 text-primary-foreground">
               <p className="text-sm uppercase tracking-[0.2em] text-primary-foreground/70">Heritage Property</p>
