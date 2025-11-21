@@ -2,8 +2,12 @@
 
 export const dynamic = 'force-dynamic';
 
+import dynamic from 'next/dynamic';
 import SiteLayout from '@/components/SiteLayout';
-import ContactPage from '@/pages/ContactPage';
+
+const ContactPage = dynamic(() => import('@/pages/ContactPage'), {
+  ssr: false,
+});
 
 export default function Contact() {
   return (
