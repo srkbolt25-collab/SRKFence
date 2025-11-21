@@ -82,7 +82,8 @@ const Hero = () => {
                     src={slide.image}
                     alt={slide.title}
                     fill
-                    className="object-cover scale-105 transition-transform duration-[20s] ease-out"
+                    className="object-cover scale-105 transition-transform ease-out"
+                    style={{ transitionDuration: '20s' }}
                     priority={index === 0}
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-[#360c13]/96 via-[#360c13]/88 to-[#1f0a0f]/70" />
@@ -147,7 +148,8 @@ const Hero = () => {
                   src={heroSlides[current]?.image || heroImage}
                   alt="Security fencing"
                   fill
-                  className="object-cover transition-transform duration-[20s] ease-out hover:scale-110"
+                  className="object-cover transition-transform ease-out hover:scale-110"
+                  style={{ transitionDuration: '20s' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>

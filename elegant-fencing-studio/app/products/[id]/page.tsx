@@ -174,13 +174,18 @@ const productsData: Record<string, any> = {
 
 export default function ProductDetailsPage() {
   const params = useParams();
-  const productId = params.id as string;
+  const productId = params?.id as string;
   const { toast } = useToast();
   const { addToRFQ, isInRFQ } = useRFQ();
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!productId) {
+      setLoading(false);
+      return;
+    }
+
     const fetchProduct = async () => {
       setLoading(true);
       try {
