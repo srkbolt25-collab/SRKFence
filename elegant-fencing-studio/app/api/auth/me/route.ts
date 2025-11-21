@@ -3,6 +3,8 @@ import { getDatabase } from '@/lib/mongodb';
 import { authenticateRequest } from '@/lib/middleware';
 import { ObjectId } from 'mongodb';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const payload = await authenticateRequest(request);
