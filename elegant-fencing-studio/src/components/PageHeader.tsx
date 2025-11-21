@@ -36,7 +36,7 @@ const PageHeader = ({
   );
 
   return (
-    <section className={cn("relative overflow-hidden", variantStyles[variant], className)}>
+    <section className={cn("relative overflow-hidden -mt-20", variantStyles[variant], className)}>
       {backgroundImage ? (
         <>
           <div className="absolute inset-0">

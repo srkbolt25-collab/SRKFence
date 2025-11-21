@@ -1,73 +1,130 @@
-# Welcome to your Lovable project
+# SRK Fence - Full Stack Next.js Application
 
-## Project info
+A modern, full-stack fencing company website with admin dashboard, built with Next.js, MongoDB, and TypeScript.
 
-**URL**: https://lovable.dev/projects/f1d03487-dd13-4f98-890d-30ce788c02e1
+## 🚀 Quick Start
 
-## How can I edit this code?
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-There are several ways of editing your application.
+### 2. Set Up Environment Variables
 
-**Use Lovable**
+Create a `.env.local` file in the root directory:
+```
+MONGODB_URI=mongodb+srv://srkbolt25_db_user:cVeHGg1xjbs4IGj9@cluster0.z8qkosg.mongodb.net/srkfence_db?retryWrites=true&w=majority&appName=Cluster0
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f1d03487-dd13-4f98-890d-30ce788c02e1) and start prompting.
+### 3. Initialize Database
+```bash
+npm run init-db
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+This will create:
+- Default admin user (admin@srkfence.com / admin123)
+- Sample products
+- Sample testimonials
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 4. Run Development Server
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:3000`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Project Structure
 
-**Use GitHub Codespaces**
+```
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes (backend)
+│   │   ├── auth/         # Authentication endpoints
+│   │   ├── products/     # Product management
+│   │   └── testimonials/ # Testimonial management
+│   ├── admin/            # Admin pages
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── components/            # React components
+│   ├── admin/            # Admin components
+│   └── ui/               # UI components
+├── lib/                   # Utilities
+│   ├── mongodb.ts        # MongoDB connection
+│   ├── auth.ts           # Authentication utilities
+│   └── api.ts            # API client
+├── pages/                 # Page components
+├── scripts/               # Utility scripts
+│   └── init-db.ts        # Database initialization
+└── public/                # Static assets
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🔐 Admin Access
 
-## What technologies are used for this project?
+- **URL**: `/admin/login`
+- **Email**: `admin@srkfence.com`
+- **Password**: `admin123`
 
-This project is built with:
+## 🛠️ Available Scripts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run init-db` - Initialize database with default data
 
-## How can I deploy this project?
+## 📦 Tech Stack
 
-Simply open [Lovable](https://lovable.dev/projects/f1d03487-dd13-4f98-890d-30ce788c02e1) and click on Share -> Publish.
+- **Framework**: Next.js 14 (App Router)
+- **Database**: MongoDB
+- **Authentication**: JWT
+- **UI**: React, Tailwind CSS, shadcn/ui
+- **Language**: TypeScript
 
-## Can I connect a custom domain to my Lovable project?
+## 🚢 Deployment to Vercel
 
-Yes, you can!
+1. Push your code to GitHub
+2. Import project in Vercel
+3. Add environment variables in Vercel dashboard:
+   - `MONGODB_URI`
+   - `JWT_SECRET`
+   - `NEXT_PUBLIC_API_URL` (optional, auto-set by Vercel)
+4. Deploy!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Vercel will automatically:
+- Detect Next.js
+- Run `npm run build`
+- Deploy both frontend and API routes together
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📝 API Endpoints
+
+### Authentication
+- `POST /api/auth/login` - Login
+- `GET /api/auth/me` - Get current user
+
+### Products
+- `GET /api/products` - Get all products
+- `POST /api/products` - Create product (auth required)
+- `PUT /api/products/[id]` - Update product (auth required)
+- `DELETE /api/products/[id]` - Delete product (auth required)
+
+### Testimonials
+- `GET /api/testimonials` - Get all testimonials
+- `POST /api/testimonials` - Create testimonial (auth required)
+- `PUT /api/testimonials/[id]` - Update testimonial (auth required)
+- `DELETE /api/testimonials/[id]` - Delete testimonial (auth required)
+
+## 🎨 Features
+
+- ✅ Modern, responsive design
+- ✅ Admin dashboard with authentication
+- ✅ Product management
+- ✅ Testimonial management
+- ✅ MongoDB integration
+- ✅ JWT authentication
+- ✅ Single command deployment
+- ✅ Vercel-ready
+
+## 📄 License
+
+Private - SRK Fence Industries

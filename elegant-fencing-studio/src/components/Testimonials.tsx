@@ -1,4 +1,13 @@
+'use client';
+
 import { Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -23,40 +32,56 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0f1c43] via-[#122456] to-[#183067] py-20 text-primary-foreground">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#0f1c43] via-[#122456] to-[#183067] py-24 lg:py-32 text-primary-foreground">
       <div className="absolute inset-y-0 right-[-12%] hidden h-[120%] w-[45%] rounded-full bg-[#1f408f]/30 blur-3xl lg:block" />
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(356_70%_40%/_0.1)_0%,transparent_50%)]" />
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="max-w-3xl animate-fade-in">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.3em] text-white/90">
             Client Stories
           </span>
-          <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             Trusted by leaders protecting their most valuable assets
           </h2>
-          <p className="mt-4 text-lg text-white/75">
+          <p className="mt-4 text-lg text-white/80 font-medium">
             Our partners span critical infrastructure, hospitality, education, and global enterprises. Hear how SRK FENCE
             elevates security and aesthetics in every project.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <article
-              key={testimonial.name}
-              className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/10 hover:shadow-2xl hover:shadow-[#122456]/30"
-            >
-              <div className="flex items-center gap-1 text-secondary">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="mt-6 flex-1 text-base leading-relaxed text-white/90">“{testimonial.quote}”</p>
-              <div className="mt-8">
-                <p className="text-lg font-semibold text-white">{testimonial.name}</p>
-                <p className="text-sm uppercase tracking-[0.2em] text-white/60">{testimonial.role}</p>
-              </div>
-            </article>
-          ))}
+        <div className="mt-16 relative">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
+                  <article className="group flex h-full flex-col rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 md:p-10 transition-all duration-500 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl hover:shadow-[#122456]/40 hover:border-white/30">
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-[#fbbf24] text-[#fbbf24]" />
+                      ))}
+                    </div>
+                    <p className="mt-6 flex-1 text-base md:text-lg leading-relaxed text-white/90 font-medium">
+                      "{testimonial.quote}"
+                    </p>
+                    <div className="mt-8 pt-6 border-t border-white/10">
+                      <p className="text-lg md:text-xl font-extrabold text-white">{testimonial.name}</p>
+                      <p className="text-sm md:text-base uppercase tracking-[0.2em] text-white/70 font-semibold mt-1">
+                        {testimonial.role}
+                      </p>
+                    </div>
+                  </article>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 md:-left-12 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300" />
+            <CarouselNext className="right-0 md:-right-12 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300" />
+          </Carousel>
         </div>
       </div>
     </section>

@@ -54,11 +54,16 @@ export default {
         'gradient-subtle': 'var(--gradient-subtle)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-accent': 'var(--gradient-accent)',
+        'gradient-modern': 'var(--gradient-modern)',
+        'gradient-glass': 'var(--gradient-glass)',
       },
       boxShadow: {
         'elegant': 'var(--shadow-elegant)',
         'hover': 'var(--shadow-hover)',
         'glow': 'var(--shadow-glow)',
+        'modern': 'var(--shadow-modern)',
+        'float': 'var(--shadow-float)',
+        'card': 'var(--shadow-card)',
       },
       transitionProperty: {
         'smooth': 'var(--transition-smooth)',
