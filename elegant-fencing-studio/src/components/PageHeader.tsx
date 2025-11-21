@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import type { StaticImageData } from "next/image";
 
 type PageHeaderVariant = "default" | "surface" | "contrast";
 
@@ -10,7 +12,7 @@ interface PageHeaderProps {
   variant?: PageHeaderVariant;
   className?: string;
   children?: ReactNode;
-  backgroundImage?: string;
+  backgroundImage?: string | StaticImageData;
   overlayClassName?: string;
 }
 
@@ -40,7 +42,11 @@ const PageHeader = ({
       {backgroundImage ? (
         <>
           <div className="absolute inset-0">
-            <img src={backgroundImage} alt="" className="w-full h-full object-cover" />
+            {typeof backgroundImage === 'string' ? (
+              <img src={backgroundImage} alt="" className="w-full h-full object-cover" />
+            ) : (
+              <Image src={backgroundImage} alt="" fill className="object-cover" />
+            )}
           </div>
           <div
             className={cn(
