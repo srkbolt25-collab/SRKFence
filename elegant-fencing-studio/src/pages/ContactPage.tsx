@@ -1,3 +1,5 @@
+'use client';
+
 import SiteLayout from "@/components/SiteLayout";
 import PageHeader from "@/components/PageHeader";
 import Contact from "@/components/Contact";

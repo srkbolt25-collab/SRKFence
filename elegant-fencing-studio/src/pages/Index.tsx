@@ -1,3 +1,5 @@
+'use client';
+
 import SiteLayout from "@/components/SiteLayout";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
