@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 import dynamicImport from 'next/dynamic';
 
-const ProductsPage = dynamicImport(() => import('@/pages/ProductsPage'), {
+const ProductsPage = dynamicImport(() => import('@/components/pages/ProductsPage'), {
   ssr: false,
 });
 

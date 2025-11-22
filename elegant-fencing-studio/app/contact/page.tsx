@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 import dynamicImport from 'next/dynamic';
 import SiteLayout from '@/components/SiteLayout';
 
-const ContactPage = dynamicImport(() => import('@/pages/ContactPage'), {
+const ContactPage = dynamicImport(() => import('@/components/pages/ContactPage'), {
   ssr: false,
 });
 

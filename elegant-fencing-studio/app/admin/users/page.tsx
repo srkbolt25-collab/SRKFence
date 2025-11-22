@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 import ProtectedRoute from '@/components/ProtectedRoute';
 import AdminLayout from '@/components/admin/AdminLayout';
-import UsersPage from '@/pages/admin/UsersPage';
+import UsersPage from '@/components/pages/admin/UsersPage';
 
 export default function AdminUsers() {
   return (

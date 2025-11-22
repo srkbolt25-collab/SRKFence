@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 import dynamicImport from 'next/dynamic';
 import SiteLayout from '@/components/SiteLayout';
 
-const WhyUsPage = dynamicImport(() => import('@/pages/WhyUsPage'), {
+const WhyUsPage = dynamicImport(() => import('@/components/pages/WhyUsPage'), {
   ssr: false,
 });
 
