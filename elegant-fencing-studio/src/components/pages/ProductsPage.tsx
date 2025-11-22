@@ -401,3 +401,4 @@ const ProductsPage = () => {
 };
 
 export default ProductsPage;
+export { fallbackProducts };
