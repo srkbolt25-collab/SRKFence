@@ -11,6 +11,8 @@ const nextConfig = {
     ],
     unoptimized: false,
   },
+  // Exclude src/pages from being treated as routes (we use App Router only)
+  pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
   async headers() {
     return [
       {

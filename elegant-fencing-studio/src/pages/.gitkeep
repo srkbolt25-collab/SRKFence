@@ -1,0 +1,3 @@
+# This directory is kept to prevent Next.js from throwing errors
+# All page components have been moved to src/components/pages/
+
