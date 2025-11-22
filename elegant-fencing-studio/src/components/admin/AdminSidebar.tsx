@@ -14,6 +14,7 @@ import {
   Package,
   BarChart3,
   Menu,
+  ShoppingCart,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -22,6 +23,7 @@ const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/admin/dashboard" },
   { icon: Package, label: "Products", path: "/admin/products" },
   { icon: MessageSquare, label: "Testimonials", path: "/admin/testimonials" },
+  { icon: ShoppingCart, label: "Enquiries", path: "/admin/enquiries" },
   { icon: FileText, label: "Content", path: "/admin/content" },
   { icon: Users, label: "Users", path: "/admin/users" },
   { icon: BarChart3, label: "Analytics", path: "/admin/analytics" },
