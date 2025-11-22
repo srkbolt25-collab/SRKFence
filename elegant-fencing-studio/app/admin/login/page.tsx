@@ -2,9 +2,9 @@
 
 export const dynamic = 'force-dynamic';
 
-import dynamic from 'next/dynamic';
+import dynamicImport from 'next/dynamic';
 
-const LoginPage = dynamic(() => import('@/pages/admin/LoginPage'), {
+const LoginPage = dynamicImport(() => import('@/pages/admin/LoginPage'), {
   ssr: false,
 });
 

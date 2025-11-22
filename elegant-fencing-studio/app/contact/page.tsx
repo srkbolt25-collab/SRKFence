@@ -2,10 +2,10 @@
 
 export const dynamic = 'force-dynamic';
 
-import dynamic from 'next/dynamic';
+import dynamicImport from 'next/dynamic';
 import SiteLayout from '@/components/SiteLayout';
 
-const ContactPage = dynamic(() => import('@/pages/ContactPage'), {
+const ContactPage = dynamicImport(() => import('@/pages/ContactPage'), {
   ssr: false,
 });
 
