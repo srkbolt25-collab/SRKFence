@@ -114,6 +114,18 @@ class ApiClient {
     });
   }
 
+  // RFQ methods
+  async submitRFQ(data: any) {
+    return this.request('/rfq', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async getRFQs() {
+    return this.request<{ rfqs: any[] }>('/rfq');
+  }
+
   // Upload methods
   async uploadImages(files: File[], folder: string = 'products') {
     const formData = new FormData();

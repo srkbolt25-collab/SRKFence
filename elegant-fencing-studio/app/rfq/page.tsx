@@ -218,6 +218,15 @@ export default function RFQPage() {
       return;
     }
 
+    if (rfqProducts.length === 0) {
+      toast({
+        title: "No products",
+        description: "Please add products to your RFQ before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setSubmitting(true);
     try {
       // Prepare RFQ data
@@ -229,14 +238,10 @@ export default function RFQPage() {
           quantity: quantities[product.id] || 1,
         })),
         totalItems: rfqProducts.reduce((sum, product) => sum + (quantities[product.id] || 1), 0),
-        submittedAt: new Date().toISOString(),
       };
 
-      // Here you would typically send this to your backend API
-      console.log('RFQ Submission:', rfqData);
-      
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Submit to API
+      await apiClient.submitRFQ(rfqData);
 
       toast({
         title: "RFQ Submitted Successfully",
@@ -246,11 +251,11 @@ export default function RFQPage() {
       // Clear RFQ and redirect
       clearRFQ();
       router.push('/products');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting RFQ:', error);
       toast({
         title: "Error",
-        description: "Failed to submit RFQ. Please try again.",
+        description: error.message || "Failed to submit RFQ. Please try again.",
         variant: "destructive",
       });
     } finally {
