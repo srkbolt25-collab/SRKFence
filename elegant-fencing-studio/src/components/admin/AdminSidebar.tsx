@@ -6,8 +6,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import {
   LayoutDashboard,
-  FileText,
-  Users,
   Settings,
   LogOut,
   MessageSquare,
@@ -24,8 +22,6 @@ const menuItems = [
   { icon: Package, label: "Products", path: "/admin/products" },
   { icon: MessageSquare, label: "Testimonials", path: "/admin/testimonials" },
   { icon: ShoppingCart, label: "Enquiries", path: "/admin/enquiries" },
-  { icon: FileText, label: "Content", path: "/admin/content" },
-  { icon: Users, label: "Users", path: "/admin/users" },
   { icon: BarChart3, label: "Analytics", path: "/admin/analytics" },
   { icon: Settings, label: "Settings", path: "/admin/settings" },
 ];
