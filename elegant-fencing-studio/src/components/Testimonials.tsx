@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from "react";
 import { Star } from "lucide-react";
 import {
   Carousel,
@@ -7,30 +8,104 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
-
-const testimonials = [
-  {
-    quote:
-      "SRK FENCE delivered an impeccable perimeter solution for our headquarters. Their attention to detail and ability to coordinate complex logistics kept the project on schedule and on budget.",
-    name: "Amelia Roberts",
-    role: "Global Facilities Director, Vertex Technologies",
-  },
-  {
-    quote:
-      "From design workshops to installation, the team was proactive and collaborative. The final result elevates our campus while meeting rigorous security requirements.",
-    name: "Colin Stewart",
-    role: "Head of Infrastructure, Northgate University",
-  },
-  {
-    quote:
-      "Their materials knowledge and craftsmanship are second to none. We now have a premium perimeter that enhances the guest experience without compromising protection.",
-    name: "Sofia Martinez",
-    role: "Operations Manager, Azure Resorts",
-  },
-];
+import { apiClient } from "@/lib/api";
 
 const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    loadTestimonials();
+  }, []);
+
+  const loadTestimonials = async () => {
+    try {
+      setLoading(true);
+      const response = await apiClient.getTestimonials();
+      // Only show published testimonials
+      const publishedTestimonials = (response.testimonials || []).filter(
+        (t: any) => t.status === 'Published'
+      );
+      setTestimonials(publishedTestimonials);
+    } catch (error) {
+      console.error('Error loading testimonials:', error);
+      // Fallback to empty array on error
+      setTestimonials([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  // Auto-play functionality - slide every 5 seconds
+  useEffect(() => {
+    if (!api || testimonials.length <= 1) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [api, testimonials.length]);
+
+  // Fallback testimonials if API fails or no testimonials
+  const fallbackTestimonials = [
+    {
+      quote:
+        "SRK FENCE delivered an impeccable perimeter solution for our headquarters. Their attention to detail and ability to coordinate complex logistics kept the project on schedule and on budget.",
+      name: "Amelia Roberts",
+      role: "Global Facilities Director, Vertex Technologies",
+      rating: 5,
+    },
+    {
+      quote:
+        "From design workshops to installation, the team was proactive and collaborative. The final result elevates our campus while meeting rigorous security requirements.",
+      name: "Colin Stewart",
+      role: "Head of Infrastructure, Northgate University",
+      rating: 5,
+    },
+    {
+      quote:
+        "Their materials knowledge and craftsmanship are second to none. We now have a premium perimeter that enhances the guest experience without compromising protection.",
+      name: "Sofia Martinez",
+      role: "Operations Manager, Azure Resorts",
+      rating: 5,
+    },
+  ];
+
+  const displayTestimonials = testimonials.length > 0 ? testimonials : fallbackTestimonials;
+
+  if (loading && testimonials.length === 0) {
+    return (
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0f1c43] via-[#122456] to-[#183067] py-24 lg:py-32 text-primary-foreground">
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="flex items-center justify-center py-16">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (displayTestimonials.length === 0) {
+    return null;
+  }
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#0f1c43] via-[#122456] to-[#183067] py-24 lg:py-32 text-primary-foreground">
       <div className="absolute inset-y-0 right-[-12%] hidden h-[120%] w-[45%] rounded-full bg-[#1f408f]/30 blur-3xl lg:block" />
@@ -51,6 +126,7 @@ const Testimonials = () => {
 
         <div className="mt-16 relative">
           <Carousel
+            setApi={setApi}
             opts={{
               align: "start",
               loop: true,
@@ -58,11 +134,11 @@ const Testimonials = () => {
             className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
+              {displayTestimonials.map((testimonial, index) => (
+                <CarouselItem key={testimonial.id || index} className="pl-2 md:pl-4 basis-full">
                   <article className="group flex h-full flex-col rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 md:p-10 transition-all duration-500 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl hover:shadow-[#122456]/40 hover:border-white/30">
                     <div className="flex items-center gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
+                      {Array.from({ length: testimonial.rating || 5 }).map((_, i) => (
                         <Star key={i} className="h-5 w-5 fill-[#fbbf24] text-[#fbbf24]" />
                       ))}
                     </div>
@@ -82,6 +158,24 @@ const Testimonials = () => {
             <CarouselPrevious className="left-0 md:-left-12 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300" />
             <CarouselNext className="right-0 md:-right-12 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300" />
           </Carousel>
+          
+          {/* Slide indicators */}
+          {displayTestimonials.length > 1 && (
+            <div className="flex justify-center gap-2 mt-8">
+              {displayTestimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => api?.scrollTo(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    current === index
+                      ? "w-8 bg-white"
+                      : "w-2 bg-white/40 hover:bg-white/60"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -89,4 +183,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
