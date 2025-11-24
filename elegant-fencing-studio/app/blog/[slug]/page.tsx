@@ -6,7 +6,7 @@ import PageHeader from '@/components/PageHeader';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock, Share2, Loader2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import heroFence from '@/assets/hero-fence.jpg';
 import metalFence from '@/assets/metal-fence.jpg';
