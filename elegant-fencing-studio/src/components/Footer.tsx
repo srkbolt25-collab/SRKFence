@@ -12,11 +12,11 @@ const quickLinks = [
 ];
 
 const productCategories = [
-  { label: "2.1 Steel & Metal Fencing", to: "/products#2-1-steel-metal-fencing" },
-  { label: "2.2 Welded Mesh Fencing", to: "/products#2-2-welded-mesh-fencing" },
-  { label: "2.3 Wire Fencing", to: "/products#2-3-wire-fencing" },
-  { label: "2.4 ECO / PVC Fencing", to: "/products#2-4-eco-pvc-fencing" },
-  { label: "2.5 Fence Accessories", to: "/products#2-5-fence-accessories" },
+  { label: "Steel & Metal Fencing", to: "/products#steel-metal-fencing" },
+  { label: "Welded Mesh Fencing", to: "/products#welded-mesh-fencing" },
+  { label: "Wire Fencing", to: "/products#wire-fencing" },
+  { label: "ECO / PVC Fencing", to: "/products#eco-pvc-fencing" },
+  { label: "Fence Accessories", to: "/products#fence-accessories" },
 ];
 
 const Footer = () => {

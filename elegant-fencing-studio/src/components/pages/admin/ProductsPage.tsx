@@ -61,11 +61,11 @@ const ProductsPage = () => {
   });
 
   const categoryOptions = [
-    "2.1 Steel & Metal Fencing",
-    "2.2 Welded Mesh Fencing",
-    "2.3 Wire Fencing",
-    "2.4 ECO / PVC Fencing",
-    "2.5 Fence Accessories",
+    "Steel & Metal Fencing",
+    "Welded Mesh Fencing",
+    "Wire Fencing",
+    "ECO / PVC Fencing",
+    "Fence Accessories",
   ];
 
   const applicationOptions = [

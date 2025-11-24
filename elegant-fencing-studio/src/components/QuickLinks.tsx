@@ -5,28 +5,28 @@ import { ArrowRight } from 'lucide-react';
 
 const categoryLinks = [
   {
-    label: "2.1 Steel & Metal Fencing",
-    to: "/products#2-1-steel-metal-fencing",
+    label: "Steel & Metal Fencing",
+    to: "/products#steel-metal-fencing",
     description: "Durable and secure metal fencing solutions",
   },
   {
-    label: "2.2 Welded Mesh Fencing",
-    to: "/products#2-2-welded-mesh-fencing",
+    label: "Welded Mesh Fencing",
+    to: "/products#welded-mesh-fencing",
     description: "Strong welded mesh for maximum security",
   },
   {
-    label: "2.3 Wire Fencing",
-    to: "/products#2-3-wire-fencing",
+    label: "Wire Fencing",
+    to: "/products#wire-fencing",
     description: "Versatile wire fencing options",
   },
   {
-    label: "2.4 ECO / PVC Fencing",
-    to: "/products#2-4-eco-pvc-fencing",
+    label: "ECO / PVC Fencing",
+    to: "/products#eco-pvc-fencing",
     description: "Eco-friendly PVC fencing solutions",
   },
   {
-    label: "2.5 Fence Accessories",
-    to: "/products#2-5-fence-accessories",
+    label: "Fence Accessories",
+    to: "/products#fence-accessories",
     description: "Complete range of fencing accessories",
   },
 ];
