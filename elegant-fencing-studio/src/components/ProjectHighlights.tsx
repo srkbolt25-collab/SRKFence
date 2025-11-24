@@ -1,13 +1,21 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Building2, ShieldCheck, Layers } from 'lucide-react';
 import heroFence from "@/assets/hero-fence.jpg";
 import metalFence from "@/assets/metal-fence.jpg";
 import vinylFence from "@/assets/vinyl-fence.jpg";
 
-const projects = [
+const projects: Array<{
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  image: string | StaticImageData;
+  icon: typeof ShieldCheck;
+  location: string;
+}> = [
   {
     id: 1,
     title: "High Security Data Center",
