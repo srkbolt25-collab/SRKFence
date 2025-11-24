@@ -126,7 +126,7 @@ const Hero = () => {
                   href="/contact"
                   className="group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-10 py-5 text-base font-bold uppercase tracking-wide text-white shadow-glow transition-all duration-300 hover:shadow-hover hover:scale-105 border-0"
                 >
-                  Speak to an Expert
+                  Get a Quote
                   <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
                 <Link

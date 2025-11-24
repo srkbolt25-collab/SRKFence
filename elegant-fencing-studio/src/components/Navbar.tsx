@@ -63,6 +63,9 @@ const staticProducts: Record<string, any> = {
 const navigationLinks = [
   { label: "Home", to: "/" },
   { label: "Products", to: "/products" },
+  { label: "Applications", to: "/applications" },
+  { label: "Projects", to: "/projects" },
+  { label: "Blog", to: "/blog" },
   { label: "Why Us", to: "/why-us" },
   { label: "Contact", to: "/contact" },
 ];

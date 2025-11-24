@@ -6,6 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Plus, Search, Edit, Trash2, X, Upload, FileText, Loader2 } from "lucide-react";
 import {
   Table,
@@ -52,6 +59,14 @@ const ProductsPage = () => {
       content: any;
     }>,
   });
+
+  const categoryOptions = [
+    "2.1 Steel & Metal Fencing",
+    "2.2 Welded Mesh Fencing",
+    "2.3 Wire Fencing",
+    "2.4 ECO / PVC Fencing",
+    "2.5 Fence Accessories",
+  ];
 
   const applicationOptions = [
     "High Security Fence",
@@ -920,14 +935,22 @@ const ProductsPage = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="category">Category *</Label>
-                <Input
-                  id="category"
-                  name="category"
+                <Select
                   value={formData.category}
-                  onChange={handleInputChange}
-                  placeholder="e.g., Security, Commercial, Residential"
+                  onValueChange={(value) => setFormData({ ...formData, category: value })}
                   required
-                />
+                >
+                  <SelectTrigger id="category">
+                    <SelectValue placeholder="Select a category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categoryOptions.map((category) => (
+                      <SelectItem key={category} value={category}>
+                        {category}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="space-y-2">

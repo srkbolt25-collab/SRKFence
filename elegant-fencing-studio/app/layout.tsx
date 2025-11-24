@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'SRK FENCE - High Security Fencing Solutions',
   description: 'Leading manufacturer and supplier of high-quality fencing systems',
+  icons: {
+    icon: '/new_whitelogog.png',
+    apple: '/new_whitelogog.png',
+  },
 };
 
 export default function RootLayout({

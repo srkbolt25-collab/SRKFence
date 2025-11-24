@@ -13,6 +13,9 @@ import {
   BarChart3,
   Menu,
   ShoppingCart,
+  Building2,
+  FolderKanban,
+  BookOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -20,6 +23,9 @@ import { useState } from "react";
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/admin/dashboard" },
   { icon: Package, label: "Products", path: "/admin/products" },
+  { icon: Building2, label: "Applications", path: "/admin/applications" },
+  { icon: FolderKanban, label: "Projects", path: "/admin/projects" },
+  { icon: BookOpen, label: "Blog", path: "/admin/blog" },
   { icon: MessageSquare, label: "Testimonials", path: "/admin/testimonials" },
   { icon: ShoppingCart, label: "Enquiries", path: "/admin/enquiries" },
   { icon: BarChart3, label: "Analytics", path: "/admin/analytics" },

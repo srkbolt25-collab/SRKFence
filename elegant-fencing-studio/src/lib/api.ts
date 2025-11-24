@@ -154,6 +154,93 @@ class ApiClient {
 
     return response.json();
   }
+
+  // Applications methods
+  async getApplications() {
+    return this.request<{ applications: any[] }>('/applications');
+  }
+
+  async getApplication(id: string) {
+    return this.request<any>(`/applications/${id}`);
+  }
+
+  async createApplication(data: any) {
+    return this.request('/applications', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async updateApplication(id: string, data: any) {
+    return this.request(`/applications/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async deleteApplication(id: string) {
+    return this.request(`/applications/${id}`, {
+      method: 'DELETE',
+    });
+  }
+
+  // Projects methods
+  async getProjects() {
+    return this.request<{ projects: any[] }>('/projects');
+  }
+
+  async getProject(id: string) {
+    return this.request<any>(`/projects/${id}`);
+  }
+
+  async createProject(data: any) {
+    return this.request('/projects', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async updateProject(id: string, data: any) {
+    return this.request(`/projects/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async deleteProject(id: string) {
+    return this.request(`/projects/${id}`, {
+      method: 'DELETE',
+    });
+  }
+
+  // Blog methods
+  async getBlogPosts() {
+    return this.request<{ blogPosts: any[] }>('/blog');
+  }
+
+  async getBlogPost(id: string) {
+    return this.request<any>(`/blog/${id}`);
+  }
+
+  async createBlogPost(data: any) {
+    return this.request('/blog', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async updateBlogPost(id: string, data: any) {
+    return this.request(`/blog/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async deleteBlogPost(id: string) {
+    return this.request(`/blog/${id}`, {
+      method: 'DELETE',
+    });
+  }
 }
 
 export const apiClient = new ApiClient();

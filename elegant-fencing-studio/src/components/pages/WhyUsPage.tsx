@@ -1,6 +1,5 @@
 'use client';
 
-import SiteLayout from "@/components/SiteLayout";
 import Benefits from "@/components/Benefits";
 import Image from "next/image";
 import heroFence from "@/assets/hero-fence.jpg";
@@ -9,7 +8,7 @@ import vinylFence from "@/assets/vinyl-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Gem, Globe2, Handshake, Sparkles } from "lucide-react";
+import { CheckCircle2, Gem, Globe2, Handshake, Sparkles, Building2, Target, Factory, Award, Briefcase, Users, Eye, Shield, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import {
   Carousel,
@@ -106,7 +105,7 @@ const WhyUsPage = () => {
   }, [api]);
 
   return (
-    <SiteLayout>
+    <>
       {/* Hero Section with Carousel */}
       <section className="relative min-h-[500px] sm:min-h-[550px] lg:min-h-[600px] w-full overflow-hidden -mt-20">
         <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
@@ -286,27 +285,388 @@ const WhyUsPage = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="space-y-4 max-w-xl">
-            <h2 className="text-3xl sm:text-4xl font-bold">Your perimeter, reimagined.</h2>
-            <p className="text-lg text-primary-foreground/80">
-              Share your vision and we’ll craft a roadmap with visuals, finishes, and milestones tailored to your site.
+      {/* About Us Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+              <span className="text-sm font-bold text-primary uppercase tracking-[0.2em]">About Us</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
+              About SRK FENCE
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Leading the industry in fencing solutions since 1998
             </p>
           </div>
-          <Button
-            asChild
-            size="lg"
-            variant="secondary"
-            className="bg-secondary text-secondary-foreground hover:shadow-glow px-8 py-6 h-auto rounded-xl"
-          >
-            <Link href="/products" className="font-semibold">
-              Discover Our Products
-            </Link>
-          </Button>
+
+          {/* Company Profile */}
+          <div id="company-profile" className="scroll-mt-24 mb-20">
+            <Card className="border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-accent flex items-center justify-center shadow-glow">
+                    <Building2 className="w-8 h-8 text-secondary-foreground" />
+                  </div>
+                  <CardTitle className="text-3xl font-bold text-foreground">Company Profile</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  SRK FENCE Industries is a leading manufacturer and supplier of high-quality fencing systems, serving clients across India and internationally since 1998. With over 25 years of expertise, we have established ourselves as a trusted partner for premium perimeter protection solutions.
+                </p>
+                <div className="grid md:grid-cols-2 gap-6 mt-8">
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                      <Users className="w-5 h-5 text-primary" />
+                      Our Heritage
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Founded in 1998, SRK FENCE has grown from a local manufacturer to an internationally recognized fencing solutions provider, delivering excellence across diverse sectors.
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                      <Globe2 className="w-5 h-5 text-primary" />
+                      Global Reach
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Our products and services extend across 30+ countries, with a strong presence in India and expanding international operations.
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                      <Handshake className="w-5 h-5 text-primary" />
+                      Client Trust
+                    </h4>
+                    <p className="text-muted-foreground">
+                      We have successfully completed 1,200+ signature projects, earning the trust of clients in residential, commercial, industrial, and critical infrastructure sectors.
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                      <Award className="w-5 h-5 text-primary" />
+                      Industry Recognition
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Recognized for excellence in manufacturing, quality standards, and customer service, maintaining a 4.9/5 average client satisfaction rating.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Vision & Mission */}
+          <div id="vision-mission" className="scroll-mt-24 mb-20">
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="border border-border bg-gradient-to-br from-background via-background/90 to-primary/5">
+                <CardHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#c5162a] to-[#e63946] flex items-center justify-center shadow-glow">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-2xl font-bold text-foreground">Our Vision</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                    To be the global leader in fencing solutions, recognized for innovation, quality, and unwavering commitment to customer satisfaction.
+                  </p>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Setting industry standards for quality and innovation</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Expanding our global footprint while maintaining excellence</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Building lasting partnerships with clients worldwide</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5">
+                <CardHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#c5162a] to-[#e63946] flex items-center justify-center shadow-glow">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-2xl font-bold text-foreground">Our Mission</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                    To deliver superior fencing solutions that protect, secure, and enhance properties while exceeding customer expectations through quality craftsmanship and exceptional service.
+                  </p>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Provide premium quality products at competitive prices</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Ensure customer satisfaction through transparent communication</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Maintain the highest standards of safety and compliance</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Manufacturing Capacity */}
+          <div id="manufacturing-capacity" className="scroll-mt-24 mb-20">
+            <Card className="border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-accent flex items-center justify-center shadow-glow">
+                    <Factory className="w-8 h-8 text-secondary-foreground" />
+                  </div>
+                  <CardTitle className="text-3xl font-bold text-foreground">Manufacturing Capacity</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  Our state-of-the-art manufacturing facilities are equipped with advanced machinery and technology, enabling us to produce high-quality fencing systems at scale while maintaining precision and consistency.
+                </p>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="p-6 rounded-xl bg-background border border-border">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Zap className="w-6 h-6 text-primary" />
+                    </div>
+                    <h4 className="text-xl font-bold text-foreground mb-2">Production Volume</h4>
+                    <p className="text-muted-foreground">
+                      Capable of manufacturing large-scale projects with production capacity exceeding 10,000 linear meters per month.
+                    </p>
+                  </div>
+                  <div className="p-6 rounded-xl bg-background border border-border">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Factory className="w-6 h-6 text-primary" />
+                    </div>
+                    <h4 className="text-xl font-bold text-foreground mb-2">Advanced Facilities</h4>
+                    <p className="text-muted-foreground">
+                      Modern manufacturing units with automated production lines, quality control labs, and testing facilities.
+                    </p>
+                  </div>
+                  <div className="p-6 rounded-xl bg-background border border-border">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Users className="w-6 h-6 text-primary" />
+                    </div>
+                    <h4 className="text-xl font-bold text-foreground mb-2">Skilled Workforce</h4>
+                    <p className="text-muted-foreground">
+                      Team of experienced engineers, technicians, and craftsmen ensuring precision in every product.
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-8 p-6 rounded-xl bg-primary/5 border border-primary/20">
+                  <h4 className="text-lg font-semibold text-foreground mb-3">Key Capabilities:</h4>
+                  <div className="grid md:grid-cols-2 gap-4 text-muted-foreground">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Custom fabrication and design services</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Multiple material processing (Steel, Aluminum, PVC)</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Surface treatment and coating facilities</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>Quality testing and certification support</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Quality Standards */}
+          <div id="quality-standards" className="scroll-mt-24 mb-20">
+            <Card className="border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-accent flex items-center justify-center shadow-glow">
+                    <Award className="w-8 h-8 text-secondary-foreground" />
+                  </div>
+                  <CardTitle className="text-3xl font-bold text-foreground">Quality Standards</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  Quality is at the heart of everything we do. We adhere to international standards and certifications, ensuring our products meet the highest quality benchmarks and regulatory requirements.
+                </p>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                        <Shield className="w-6 h-6 text-primary" />
+                        Certifications & Standards
+                      </h4>
+                      <ul className="space-y-3 text-muted-foreground">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>ISO 9001:2015 Quality Management System</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>CPNI & LPS1175 Certified Security Systems</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>ASTM International Standards Compliance</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>BS EN Standards for Fencing Systems</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                        <Eye className="w-6 h-6 text-primary" />
+                        Quality Assurance Process
+                      </h4>
+                      <ul className="space-y-3 text-muted-foreground">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>Rigorous material testing and inspection</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>In-process quality checks at every stage</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>Final inspection and certification before dispatch</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span>Continuous improvement and quality audits</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-8 p-6 rounded-xl bg-primary/5 border border-primary/20">
+                  <p className="text-muted-foreground">
+                    Our commitment to quality extends beyond manufacturing. We provide comprehensive documentation, maintenance guides, and ongoing support to ensure our products perform optimally throughout their lifecycle.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Careers */}
+          <div id="careers" className="scroll-mt-24 mb-20">
+            <Card className="border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-accent flex items-center justify-center shadow-glow">
+                    <Briefcase className="w-8 h-8 text-secondary-foreground" />
+                  </div>
+                  <CardTitle className="text-3xl font-bold text-foreground">Careers</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  Join the SRK FENCE team and be part of an organization that values innovation, excellence, and professional growth. We offer exciting career opportunities for talented individuals passionate about manufacturing and engineering.
+                </p>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-xl font-bold text-foreground mb-4">Why Work With Us?</h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>Competitive compensation and benefits packages</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>Opportunities for professional development and growth</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>Work on diverse and challenging projects</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>Collaborative and inclusive work environment</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-foreground mb-4">Open Positions</h4>
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-lg bg-background border border-border">
+                        <h5 className="font-semibold text-foreground mb-2">Production Engineer</h5>
+                        <p className="text-sm text-muted-foreground mb-2">Mumbai, Maharashtra</p>
+                        <p className="text-sm text-muted-foreground">Manage production processes and quality control</p>
+                      </div>
+                      <div className="p-4 rounded-lg bg-background border border-border">
+                        <h5 className="font-semibold text-foreground mb-2">Sales Executive</h5>
+                        <p className="text-sm text-muted-foreground mb-2">Multiple Locations</p>
+                        <p className="text-sm text-muted-foreground">Build client relationships and drive business growth</p>
+                      </div>
+                      <div className="p-4 rounded-lg bg-background border border-border">
+                        <h5 className="font-semibold text-foreground mb-2">Quality Assurance Specialist</h5>
+                        <p className="text-sm text-muted-foreground mb-2">Mumbai, Maharashtra</p>
+                        <p className="text-sm text-muted-foreground">Ensure product quality and compliance standards</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-8 p-6 rounded-xl bg-primary/5 border border-primary/20 text-center">
+                  <h4 className="text-lg font-semibold text-foreground mb-3">Interested in Joining Our Team?</h4>
+                  <p className="text-muted-foreground mb-4">
+                    Send your resume to <a href="mailto:careers@srkfence.com" className="text-primary hover:underline font-semibold">careers@srkfence.com</a> or contact our HR department for more information.
+                  </p>
+                  <Button asChild className="bg-gradient-accent hover:shadow-glow text-secondary-foreground">
+                    <Link href="/contact">
+                      Contact HR Department
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* CTA Section */}
+          <section className="py-20 bg-primary text-primary-foreground rounded-3xl">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">
+              <div className="space-y-4 max-w-xl">
+                <h2 className="text-3xl sm:text-4xl font-bold">Ready to Work With Us?</h2>
+                <p className="text-lg text-primary-foreground/80">
+                  Contact our team to discuss your fencing requirements and discover how SRK FENCE can help protect and enhance your property.
+                </p>
+              </div>
+              <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="bg-secondary text-secondary-foreground hover:shadow-glow px-8 py-6 h-auto rounded-xl"
+              >
+                <Link href="/contact" className="font-semibold">
+                  Get in Touch
+                  <ArrowRight className="ml-2 h-5 w-5 inline" />
+                </Link>
+              </Button>
+            </div>
+          </section>
         </div>
       </section>
-    </SiteLayout>
+    </>
   );
 };
 

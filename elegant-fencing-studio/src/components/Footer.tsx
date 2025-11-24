@@ -12,12 +12,11 @@ const quickLinks = [
 ];
 
 const productCategories = [
-  { label: "High Security Fencing", to: "/products#high-security" },
-  { label: "MUGAs & Sports Fencing", to: "/products#mugas-sports" },
-  { label: "Playground Fencing", to: "/products#playground" },
-  { label: "Perimeter Fencing", to: "/products#perimeter" },
-  { label: "Hostile Vehicle Mitigation", to: "/products#hvm" },
-  { label: "Commercial & Hospitality", to: "/products#commercial" },
+  { label: "2.1 Steel & Metal Fencing", to: "/products#2-1-steel-metal-fencing" },
+  { label: "2.2 Welded Mesh Fencing", to: "/products#2-2-welded-mesh-fencing" },
+  { label: "2.3 Wire Fencing", to: "/products#2-3-wire-fencing" },
+  { label: "2.4 ECO / PVC Fencing", to: "/products#2-4-eco-pvc-fencing" },
+  { label: "2.5 Fence Accessories", to: "/products#2-5-fence-accessories" },
 ];
 
 const Footer = () => {
