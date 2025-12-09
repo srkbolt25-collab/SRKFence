@@ -40,7 +40,7 @@ const QuickLinks = () => {
             <span className="text-sm font-bold text-primary uppercase tracking-[0.2em]">Quick Links</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
-            Explore Our Product Categories
+            Exploreee Our Products
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Quick access to our main product categories
