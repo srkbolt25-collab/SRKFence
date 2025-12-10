@@ -18,28 +18,34 @@ import { useEffect, useState } from "react";
 
 const heroSlides = [
   {
-    image: heroImage,
-    title: "High Security Fencing and Gates to",
-    highlight: "Secure High Value Assets",
-    badge: "Secure High Value Assets",
-  },
-  {
-    image: metalFence,
-    title: "Premium Metal Fencing Solutions",
+    image: "/SRK FENCE Banners.png",
+    title: "Chain link fence",
     highlight: "Durable & Secure",
-    badge: "Metal Fencing",
+    badge: "Chain link fence",
+    description: "A chain link fence consists of interwoven steel wires forming a diamond-shaped mesh structure. It is cost-effective, durable, and widely used for securing open areas like playgrounds, factories, and sports grounds. It allows clear visibility while offering reliable perimeter protection.",
   },
   {
-    image: vinylFence,
-    title: "Modern Vinyl Fencing Systems",
-    highlight: "Low Maintenance Excellence",
-    badge: "Vinyl Fencing",
+    image: "/SRK FENCE Banners1.jpg",
+    title: "Welded fence (Welded wire fence)",
+    highlight: "Strong & Rigid",
+    badge: "Welded Fence",
+    description: "A welded fence is made from steel wires that are welded together at their intersections to form a strong and rigid mesh. It is commonly used for security, boundary marking, and industrial or residential applications. It provides high strength with minimal maintenance and a long service life.",
   },
   {
-    image: woodFence,
-    title: "Classic Wood Fencing",
-    highlight: "Timeless Elegance",
-    badge: "Wood Fencing",
+    image: "/SRK FENCE Banners2.jpg",
+    title: "Eco PVC hoarding fence",
+    highlight: "Clean & Weather-Resistant",
+    badge: "Eco PVC Hoarding",
+    description:
+      "An Eco PVC hoarding fence is made from lightweight, weather-resistant PVC panels designed mainly for temporary or semi-permanent site enclosures. It offers a clean appearance, easy installation, and is recyclable and environmentally friendly. It is ideal for construction sites where safety, branding, and visual screening are required.",
+  },
+  {
+    image: "/SRK FENCE Banners4.jpg",
+    title: "PPGI corrugated fence",
+    highlight: "Durable & Corrosion-Resistant",
+    badge: "PPGI Corrugated",
+    description:
+      "A PPGI corrugated fence is made from pre-painted galvanized iron sheets with a wavy (corrugated) profile for added strength. It is highly durable, corrosion-resistant, and commonly used for industrial boundaries and construction sites. It provides excellent weather protection and a neat, long-lasting finish.",
   },
 ];
 
@@ -71,12 +77,12 @@ const Hero = () => {
   }, [api]);
 
   return (
-    <section className="relative min-h-[500px] sm:min-h-[550px] lg:min-h-[600px] w-full overflow-hidden pt-0">
+    <section className="relative min-h-[550px] sm:min-h-[650px] lg:min-h-[760px] w-full overflow-hidden pt-0">
       <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
         <CarouselContent className="h-full">
           {heroSlides.map((slide, index) => (
             <CarouselItem key={index} className="h-full pl-0">
-              <div className="relative h-[500px] sm:h-[550px] lg:h-[600px] w-full">
+              <div className="relative h-[550px] sm:h-[650px] lg:h-[760px] w-full">
                 <div className="absolute inset-0">
                   <Image
                     src={slide.image}
@@ -100,8 +106,8 @@ const Hero = () => {
       {/* Content overlay - shows current slide content */}
       <div className="absolute inset-0 z-10 flex h-full w-full items-stretch pointer-events-none">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pointer-events-auto">
-          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] h-full">
-            <div className="flex flex-col justify-center py-12 sm:py-16 lg:py-20 animate-fade-in">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] h-full">
+            <div className="flex flex-col justify-center lg:justify-start py-8 sm:py-12 lg:py-16 animate-fade-in">
               <div className="mb-6 flex items-center gap-2">
                 <span className="h-1.5 w-16 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
                 <span className="h-1.5 w-6 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
@@ -116,10 +122,8 @@ const Hero = () => {
                   {heroSlides[current]?.highlight || "Secure High Value Assets"}
                 </span>
               </h1>
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/90 font-medium">
-                With over 160 years of expertise, SRK FENCE provides tailored, high security fencing solutions to
-                protect your property, people, and reputation. Trusted worldwide, our fencing systems meet the highest
-                international standards for critical infrastructure, data centres, and other high-stake sites.
+              <p className="mt-6 max-w-3xl text-base sm:text-lg leading-relaxed text-white/90 font-medium">
+                {heroSlides[current]?.description || "With over 160 years of expertise, SRK FENCE provides tailored, high security fencing solutions to protect your property, people, and reputation. Trusted worldwide, our fencing systems meet the highest international standards for critical infrastructure, data centres, and other high-stake sites."}
               </p>
               <div className="mt-12 flex flex-col gap-4 sm:flex-row">
                 <Link
@@ -138,12 +142,9 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="relative hidden items-start justify-end lg:flex pt-32">
-              <div className="absolute inset-y-12 right-12 w-3 rounded-full bg-gradient-to-b from-[#c5162a] to-[#e63946] shadow-glow animate-pulse" />
-              <div className="absolute bottom-16 right-12 h-10 w-3 rounded-full bg-gradient-to-b from-[#c5162a] to-[#e63946] shadow-glow" />
-              <div className="absolute top-12 right-12 h-20 w-20 rounded-2xl bg-gradient-to-br from-[#c5162a]/40 to-[#e63946]/40 backdrop-blur-sm border border-white/20 shadow-glow" />
+            <div className="relative hidden items-start justify-end lg:flex pt-40">
               <div className="absolute left-[-60px] top-0 h-full w-[calc(100%+60px)] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-              <div className="relative h-[75%] w-[80%] max-h-[450px] max-w-[550px] overflow-hidden rounded-2xl border-4 border-white/20 shadow-float -mt-4">
+              <div className="relative h-[75%] w-[80%] max-h-[520px] max-w-[600px] overflow-hidden rounded-2xl border-4 border-white/20 shadow-float -mt-4">
                 <Image
                   src={heroSlides[current]?.image || heroImage}
                   alt="Security fencing"
