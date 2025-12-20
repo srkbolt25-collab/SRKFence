@@ -244,18 +244,18 @@ class ApiClient {
 
   // Categories methods
   async getCategories() {
-    return this.request<{ categories: any[] }>('/categories');
+    return this.request<{ categories: Array<{ id: string; name: string; createdAt?: Date; updatedAt?: Date }> }>('/categories');
   }
 
   async createCategory(data: { name: string }) {
-    return this.request('/categories', {
+    return this.request<{ id: string; name: string; createdAt: Date; updatedAt: Date }>('/categories', {
       method: 'POST',
       body: JSON.stringify(data),
     });
   }
 
   async deleteCategory(id: string) {
-    return this.request(`/categories?id=${id}`, {
+    return this.request<{ message: string }>(`/categories?id=${id}`, {
       method: 'DELETE',
     });
   }
