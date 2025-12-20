@@ -40,7 +40,7 @@ const heroSlides = [
       "An Eco PVC hoarding fence is made from lightweight, weather-resistant PVC panels designed mainly for temporary or semi-permanent site enclosures. It offers a clean appearance, easy installation, and is recyclable and environmentally friendly. It is ideal for construction sites where safety, branding, and visual screening are required.",
   },
   {
-    image: "/SRK FENCE Banners4.jpg",
+    image: "/WhatsApp Image 2025-12-20 at 11.22.40 AM.jpeg",
     title: "PPGI corrugated fence",
     highlight: "Durable & Corrosion-Resistant",
     badge: "PPGI Corrugated",

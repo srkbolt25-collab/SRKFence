@@ -55,11 +55,15 @@ const purchaseTeam = [
 
 // Contact information
 const contactInfo = {
-  phone: "+91-9876543210",
-  phoneSecondary: "+91-9876543211",
-  email: "sales@srkfence.com",
-  emailSupport: "support@srkfence.com",
-  whatsapp: "+919876543210",
+  phone: "+971 52 216 0874",
+  phoneSecondary: "+971 52 848 9775",
+  emails: [
+    "sales@srkfencing.com",
+    "bdm@srkfencing.com",
+    "info@srkfencing.com",
+    "Sales@srkmetals.com",
+  ],
+  whatsapp: "+971522160874",
   address: "SRK FENCE Industries, Industrial Area, Phase 1, Mumbai, Maharashtra 400001, India",
   mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.123456789!2d72.8776559!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjUiTiA3MsKwNTInMzkuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
 };
@@ -164,12 +168,11 @@ const ContactPage = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
-                <a href={`mailto:${contactInfo.email}`} className="block text-lg font-semibold text-primary hover:underline">
-                  {contactInfo.email}
-                </a>
-                <a href={`mailto:${contactInfo.emailSupport}`} className="block text-lg font-semibold text-primary hover:underline">
-                  {contactInfo.emailSupport}
-                </a>
+                {contactInfo.emails.map((email, index) => (
+                  <a key={index} href={`mailto:${email}`} className="block text-lg font-semibold text-primary hover:underline">
+                    {email}
+                  </a>
+                ))}
               </CardContent>
             </Card>
           </div>

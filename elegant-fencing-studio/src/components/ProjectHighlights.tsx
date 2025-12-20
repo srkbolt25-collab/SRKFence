@@ -47,7 +47,7 @@ const projects: Array<{
 
 const ProjectHighlights = () => {
   return (
-    <section className="bg-gradient-to-b from-background to-muted/30 py-24 lg:py-32 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-background to-muted/30 pt-6 pb-24 lg:pt-8 lg:pb-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(356_70%_40%/_0.05)_0%,transparent_50%)]" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative max-w-7xl">
         <div className="text-center mb-16 animate-fade-in">

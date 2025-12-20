@@ -33,7 +33,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-lg text-foreground mb-2">Phone</h3>
-                  <p className="text-muted-foreground text-lg font-medium">+1 (555) 123-4567</p>
+                  <a href="tel:+971522160874" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    M: +971 52 216 0874
+                  </a>
+                  <a href="tel:+971528489775" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    +971 52 848 9775
+                  </a>
                 </div>
               </div>
 
@@ -45,7 +50,18 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-lg text-foreground mb-2">Email</h3>
-                  <p className="text-muted-foreground text-lg font-medium">contact@securefence.com</p>
+                  <a href="mailto:sales@srkfencing.com" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    sales@srkfencing.com
+                  </a>
+                  <a href="mailto:bdm@srkfencing.com" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    bdm@srkfencing.com
+                  </a>
+                  <a href="mailto:info@srkfencing.com" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    info@srkfencing.com
+                  </a>
+                  <a href="mailto:Sales@srkmetals.com" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    Sales@srkmetals.com
+                  </a>
                 </div>
               </div>
 

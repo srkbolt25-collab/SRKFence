@@ -16,6 +16,7 @@ import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
 import { apiClient } from "@/lib/api";
 import { useRFQ } from "@/contexts/RFQContext";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Fallback products for when database is empty
 const fallbackProducts = [
@@ -152,11 +153,29 @@ const ProductsPage = () => {
   const router = useRouter();
   const { addToRFQ, isInRFQ } = useRFQ();
   const [products, setProducts] = useState<any[]>([]);
+  const [categories, setCategories] = useState<Array<{ id: string; name: string }>>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadingCategories, setLoadingCategories] = useState(true);
 
   useEffect(() => {
     loadProducts();
+    loadCategories();
   }, []);
+
+  const loadCategories = async () => {
+    try {
+      setLoadingCategories(true);
+      const response = await apiClient.getCategories();
+      if (response.categories && response.categories.length > 0) {
+        setCategories(response.categories);
+      }
+    } catch (error) {
+      console.error('Error loading categories:', error);
+    } finally {
+      setLoadingCategories(false);
+    }
+  };
 
   const loadProducts = async () => {
     try {
@@ -200,6 +219,11 @@ const ProductsPage = () => {
       setLoading(false);
     }
   };
+
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory
+    ? products.filter(p => p.category === selectedCategory)
+    : products;
 
   const handleAddToRFQ = (productId: string, productTitle: string) => {
     // Check if product is already in RFQ
@@ -282,123 +306,164 @@ const ProductsPage = () => {
             </p>
           </div>
 
+          {/* Category Filter Tabs */}
+          {!loadingCategories && categories.length > 0 && (
+            <div className="mb-12">
+              <Tabs 
+                value={selectedCategory || "all"} 
+                onValueChange={(value) => setSelectedCategory(value === "all" ? null : value)}
+                className="w-full"
+              >
+                <div className="flex justify-center">
+                  <TabsList className="inline-flex h-14 items-center justify-center rounded-lg bg-muted p-1.5 text-muted-foreground w-auto">
+                    <TabsTrigger 
+                      value="all" 
+                      className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#c5162a] data-[state=active]:to-[#e63946] data-[state=active]:text-white data-[state=active]:shadow-sm px-8 py-3 rounded-md transition-all duration-300 text-base font-medium"
+                    >
+                      All Products
+                    </TabsTrigger>
+                    {categories.map((category) => {
+                      const categoryProductCount = products.filter(p => p.category === category.name).length;
+                      return (
+                        <TabsTrigger
+                          key={category.id}
+                          value={category.name}
+                          className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#c5162a] data-[state=active]:to-[#e63946] data-[state=active]:text-white data-[state=active]:shadow-sm px-8 py-3 rounded-md transition-all duration-300 text-base font-medium"
+                        >
+                          {category.name}
+                          {categoryProductCount > 0 && (
+                            <span className="ml-2 px-2.5 py-1 rounded-full bg-white/20 text-sm font-semibold">
+                              {categoryProductCount}
+                            </span>
+                          )}
+                        </TabsTrigger>
+                      );
+                    })}
+                  </TabsList>
+                </div>
+              </Tabs>
+              {selectedCategory && (
+                <div className="mt-6 text-center">
+                  <p className="text-muted-foreground">
+                    Showing products in <span className="font-semibold text-foreground">{selectedCategory}</span>
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
           {loading ? (
             <div className="flex items-center justify-center py-24">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
-          ) : products.length === 0 ? (
+          ) : filteredProducts.length === 0 ? (
             <div className="text-center py-24">
-              <p className="text-muted-foreground text-lg">No products available at the moment.</p>
+              <p className="text-muted-foreground text-lg">
+                {selectedCategory 
+                  ? `No products found in ${selectedCategory} category.` 
+                  : "No products available at the moment."}
+              </p>
+              {selectedCategory && (
+                <Button
+                  variant="outline"
+                  onClick={() => setSelectedCategory(null)}
+                  className="mt-4"
+                >
+                  View All Products
+                </Button>
+              )}
             </div>
-          ) : (() => {
-            const groupedProducts = groupProductsByCategory(products);
-            const categoriesToShow = [...categoryOrder, "Other"].filter(cat => groupedProducts[cat]?.length > 0);
-            
-            return (
-              <div className="space-y-16">
-                {categoriesToShow.map((category) => {
-                  const categoryProducts = groupedProducts[category];
-                  if (categoryProducts.length === 0) return null;
-                  
-                  // Create a slug for the category ID
-                  const categorySlug = category.toLowerCase()
-                    .replace(/[^a-z0-9]+/g, '-')
-                    .replace(/^-+|-+$/g, '');
-                  
-                  return (
-                    <div key={category} id={categorySlug} className="scroll-mt-24">
-                      <div className="mb-8 pb-4 border-b border-border">
-                        <h3 className="text-3xl font-bold text-foreground">{category}</h3>
-                        <p className="text-muted-foreground mt-2">
-                          {categoryProducts.length} {categoryProducts.length === 1 ? 'product' : 'products'} in this category
-                        </p>
+          ) : (
+            <div className="grid gap-8 lg:grid-cols-2">
+              {filteredProducts.map((product, index) => {
+                const Icon = product.icon;
+                const isHighlight = index === 0 && filteredProducts.length > 0 && !selectedCategory;
+                return (
+                  <Card
+                    id={`product-${product.id}`}
+                    key={product.id}
+                    className={`group overflow-hidden border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5 transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-hover ${
+                      isHighlight ? "lg:col-span-2" : ""
+                    }`}
+                  >
+                    <div className="grid md:grid-cols-2 gap-0">
+                      <div className="relative h-64 md:h-[400px] w-full overflow-hidden bg-muted flex-shrink-0">
+                        {typeof product.image === 'string' && product.image.startsWith('http') ? (
+                          <img
+                            src={product.image}
+                            alt={product.title}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            style={{ objectFit: 'cover' }}
+                          />
+                        ) : (
+                          <Image
+                            src={product.image}
+                            alt={product.title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                        <div className="absolute top-4 left-4">
+                          <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                            <Icon className="h-6 w-6" />
+                          </div>
+                        </div>
                       </div>
-                      <div className="grid gap-8 lg:grid-cols-2">
-                        {categoryProducts.map((product, index) => {
-                          const Icon = product.icon;
-                          const isHighlight = index === 0 && categoryProducts.length > 0;
-                          return (
-                            <Card
-                              id={`product-${product.id}`}
-                              key={product.id}
-                              className={`group overflow-hidden border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5 transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-hover ${
-                                isHighlight ? "lg:col-span-2" : ""
-                              }`}
-                            >
-                              <div className="grid md:grid-cols-2 gap-0">
-                                <div className="relative h-64 md:h-[400px] w-full overflow-hidden bg-muted flex-shrink-0">
-                                  {typeof product.image === 'string' && product.image.startsWith('http') ? (
-                                    <img
-                                      src={product.image}
-                                      alt={product.title}
-                                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                      style={{ objectFit: 'cover' }}
-                                    />
-                                  ) : (
-                                    <Image
-                                      src={product.image}
-                                      alt={product.title}
-                                      fill
-                                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                      sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                  )}
-                                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                                  <div className="absolute top-4 left-4">
-                                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
-                                      <Icon className="h-6 w-6" />
-                                    </div>
-                                  </div>
-                                </div>
-                                <CardHeader className="space-y-4 p-6 flex flex-col flex-1 min-w-0">
-                                  <div className="flex-1 min-w-0">
-                                    <CardTitle className="text-2xl font-semibold text-foreground mb-2">
-                                      {product.title}
-                                    </CardTitle>
-                                    <CardDescription className="text-base leading-relaxed text-muted-foreground line-clamp-3">
-                                      {product.description}
-                                    </CardDescription>
-                                  </div>
-                                  <div className="space-y-2 pt-4 border-t border-border">
-                                    <h4 className="text-sm font-semibold text-foreground mb-2">Key Features:</h4>
-                                    <ul className="space-y-2">
-                                      {product.features.map((feature) => (
-                                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                          <CheckCircle2 className="h-4 w-4 text-secondary mt-0.5 flex-shrink-0" />
-                                          <span>{feature}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                  <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-border w-full">
-                                    <Button
-                                      onClick={() => handleViewDetails(product.id)}
-                                      variant="outline"
-                                      className="flex-1 min-w-0 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm sm:text-base"
-                                    >
-                                      <Eye className="mr-2 h-4 w-4 flex-shrink-0" />
-                                      <span className="truncate">View Details</span>
-                                    </Button>
-                                    <Button
-                                      onClick={() => handleAddToRFQ(product.id, product.title)}
-                                      className="flex-1 min-w-0 bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow text-white transition-all duration-300 text-sm sm:text-base"
-                                    >
-                                      <FileText className="mr-2 h-4 w-4 flex-shrink-0" />
-                                      <span className="truncate">Add to RFQ</span>
-                                    </Button>
-                                  </div>
-                                </CardHeader>
-                              </div>
-                            </Card>
-                          );
-                        })}
-                      </div>
+                      <CardHeader className="space-y-4 p-6 flex flex-col flex-1 min-w-0">
+                        <div className="flex-1 min-w-0">
+                          <CardTitle className="text-2xl font-semibold text-foreground mb-2">
+                            {product.title}
+                          </CardTitle>
+                          {product.category && (
+                            <span className="inline-block px-2 py-1 mb-2 text-xs font-semibold text-primary bg-primary/10 rounded-md">
+                              {product.category}
+                            </span>
+                          )}
+                          <CardDescription className="text-base leading-relaxed text-muted-foreground line-clamp-3">
+                            {product.description}
+                          </CardDescription>
+                        </div>
+                        <div className="space-y-2 pt-4 border-t border-border">
+                          <h4 className="text-sm font-semibold text-foreground mb-2">Key Features:</h4>
+                          <ul className="space-y-2">
+                            {product.features && product.features.length > 0 ? (
+                              product.features.map((feature: string, idx: number) => (
+                                <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                  <CheckCircle2 className="h-4 w-4 text-secondary mt-0.5 flex-shrink-0" />
+                                  <span>{feature}</span>
+                                </li>
+                              ))
+                            ) : (
+                              <li className="text-sm text-muted-foreground">No features listed</li>
+                            )}
+                          </ul>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-border w-full">
+                          <Button
+                            onClick={() => handleViewDetails(product.id)}
+                            variant="outline"
+                            className="flex-1 min-w-0 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm sm:text-base"
+                          >
+                            <Eye className="mr-2 h-4 w-4 flex-shrink-0" />
+                            <span className="truncate">View Details</span>
+                          </Button>
+                          <Button
+                            onClick={() => handleAddToRFQ(product.id, product.title)}
+                            className="flex-1 min-w-0 bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow text-white transition-all duration-300 text-sm sm:text-base"
+                          >
+                            <FileText className="mr-2 h-4 w-4 flex-shrink-0" />
+                            <span className="truncate">Add to RFQ</span>
+                          </Button>
+                        </div>
+                      </CardHeader>
                     </div>
-                  );
-                })}
-              </div>
-            );
-          })()}
+                  </Card>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 

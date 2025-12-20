@@ -241,6 +241,24 @@ class ApiClient {
       method: 'DELETE',
     });
   }
+
+  // Categories methods
+  async getCategories() {
+    return this.request<{ categories: any[] }>('/categories');
+  }
+
+  async createCategory(data: { name: string }) {
+    return this.request('/categories', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async deleteCategory(id: string) {
+    return this.request(`/categories?id=${id}`, {
+      method: 'DELETE',
+    });
+  }
 }
 
 export const apiClient = new ApiClient();

@@ -27,7 +27,7 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section id="benefits" className="py-24 lg:py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+    <section id="benefits" className="pt-6 pb-24 lg:pt-8 lg:pb-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(356_70%_40%/_0.08)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(356_70%_40%/_0.05)_0%,transparent_50%)]" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative max-w-7xl">

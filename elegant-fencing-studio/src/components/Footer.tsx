@@ -103,9 +103,9 @@ const Footer = () => {
                   <Phone className="h-3 w-3 text-white" />
                 </div>
                 <span className="font-medium group-hover:text-white transition-colors">
-                  +91-9876543210
+                  <a href="tel:+971522160874" className="hover:underline">M: +971 52 216 0874</a>
                   <br />
-                  +91-9876543211
+                  <a href="tel:+971528489775" className="hover:underline">+971 52 848 9775</a>
                 </span>
               </li>
               <li className="flex items-start gap-3 group">
@@ -113,9 +113,10 @@ const Footer = () => {
                   <Mail className="h-3 w-3 text-white" />
                 </div>
                 <span className="font-medium group-hover:text-white transition-colors">
-                  sales@srkfence.com
-                  <br />
-                  support@srkfence.com
+                  <a href="mailto:sales@srkfencing.com" className="hover:underline block">sales@srkfencing.com</a>
+                  <a href="mailto:bdm@srkfencing.com" className="hover:underline block">bdm@srkfencing.com</a>
+                  <a href="mailto:info@srkfencing.com" className="hover:underline block">info@srkfencing.com</a>
+                  <a href="mailto:Sales@srkmetals.com" className="hover:underline block">Sales@srkmetals.com</a>
                 </span>
               </li>
               <li className="flex items-start gap-3 group">

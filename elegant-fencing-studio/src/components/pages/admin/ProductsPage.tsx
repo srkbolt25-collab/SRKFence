@@ -41,6 +41,10 @@ const ProductsPage = () => {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [submitting, setSubmitting] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [categoryOptions, setCategoryOptions] = useState<Array<{ id: string; name: string }>>([]);
+  const [isAddCategoryOpen, setIsAddCategoryOpen] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState("");
+  const [loadingCategories, setLoadingCategories] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     title: "",
@@ -59,14 +63,6 @@ const ProductsPage = () => {
       content: any;
     }>,
   });
-
-  const categoryOptions = [
-    "Steel & Metal Fencing",
-    "Welded Mesh Fencing",
-    "Wire Fencing",
-    "ECO / PVC Fencing",
-    "Fence Accessories",
-  ];
 
   const applicationOptions = [
     "High Security Fence",
@@ -88,7 +84,54 @@ const ProductsPage = () => {
 
   useEffect(() => {
     loadProducts();
+    loadCategories();
   }, []);
+
+  const loadCategories = async () => {
+    try {
+      setLoadingCategories(true);
+      const response = await apiClient.getCategories();
+      if (response.categories && response.categories.length > 0) {
+        setCategoryOptions(response.categories);
+      } else {
+        // Initialize default categories if none exist
+        await initializeDefaultCategories();
+      }
+    } catch (error) {
+      console.error('Error loading categories:', error);
+      // Initialize default categories on error
+      await initializeDefaultCategories();
+    } finally {
+      setLoadingCategories(false);
+    }
+  };
+
+  const initializeDefaultCategories = async () => {
+    const defaultCategories = [
+      "Steel & Metal Fencing",
+      "Welded Mesh Fencing",
+      "Wire Fencing",
+      "ECO / PVC Fencing",
+      "Fence Accessories",
+    ];
+
+    try {
+      for (const categoryName of defaultCategories) {
+        try {
+          await apiClient.createCategory({ name: categoryName });
+        } catch (e: any) {
+          // Ignore if category already exists
+          if (!e.message?.includes('already exists')) {
+            console.error('Error creating default category:', e);
+          }
+        }
+      }
+      // Reload categories after initialization
+      await loadCategories();
+    } catch (error) {
+      console.error('Error initializing default categories:', error);
+    }
+  };
 
   const loadProducts = async () => {
     try {
@@ -787,6 +830,71 @@ const ProductsPage = () => {
     }
   };
 
+  const handleAddCategory = async () => {
+    if (!newCategoryName.trim()) {
+      toast({
+        title: "Error",
+        description: "Category name cannot be empty",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (categoryOptions.some(cat => cat.name.toLowerCase() === newCategoryName.trim().toLowerCase())) {
+      toast({
+        title: "Error",
+        description: "Category already exists",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const newCategory = await apiClient.createCategory({ name: newCategoryName.trim() });
+      setCategoryOptions([...categoryOptions, { id: newCategory.id, name: newCategory.name }]);
+      setFormData({ ...formData, category: newCategory.name });
+      setNewCategoryName("");
+      setIsAddCategoryOpen(false);
+      toast({
+        title: "Success",
+        description: "Category added successfully",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to add category",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleDeleteCategory = async (categoryId: string, categoryName: string) => {
+    if (!confirm(`Are you sure you want to delete the category "${categoryName}"?`)) {
+      return;
+    }
+
+    try {
+      await apiClient.deleteCategory(categoryId);
+      setCategoryOptions(categoryOptions.filter(cat => cat.id !== categoryId));
+      
+      // If the deleted category was selected, clear the selection
+      if (formData.category === categoryName) {
+        setFormData({ ...formData, category: "" });
+      }
+      
+      toast({
+        title: "Success",
+        description: "Category deleted successfully",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to delete category",
+        variant: "destructive",
+      });
+    }
+  };
+
   const filteredProducts = products.filter((product) =>
     product.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -935,22 +1043,57 @@ const ProductsPage = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="category">Category *</Label>
-                <Select
-                  value={formData.category}
-                  onValueChange={(value) => setFormData({ ...formData, category: value })}
-                  required
-                >
-                  <SelectTrigger id="category">
-                    <SelectValue placeholder="Select a category" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {categoryOptions.map((category) => (
-                      <SelectItem key={category} value={category}>
-                        {category}
+                <div className="space-y-2">
+                  <Select
+                    value={formData.category}
+                    onValueChange={(value) => {
+                      if (value === "add-new") {
+                        setIsAddCategoryOpen(true);
+                      } else {
+                        setFormData({ ...formData, category: value });
+                      }
+                    }}
+                    required
+                    disabled={loadingCategories}
+                  >
+                    <SelectTrigger id="category">
+                      <SelectValue placeholder={loadingCategories ? "Loading categories..." : "Select a category"} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {categoryOptions.map((category) => (
+                        <SelectItem key={category.id} value={category.name}>
+                          {category.name}
+                        </SelectItem>
+                      ))}
+                      <SelectItem value="add-new" className="text-primary font-semibold">
+                        <Plus className="inline h-4 w-4 mr-2" />
+                        Add New Category
                       </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                    </SelectContent>
+                  </Select>
+                  {categoryOptions.length > 0 && (
+                    <div className="flex flex-wrap gap-2 p-3 border rounded-lg bg-muted/30">
+                      <span className="text-sm text-muted-foreground font-medium">Manage Categories:</span>
+                      {categoryOptions.map((category) => (
+                        <div
+                          key={category.id}
+                          className="flex items-center gap-1 px-2 py-1 bg-background border rounded-md text-sm"
+                        >
+                          <span>{category.name}</span>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => handleDeleteCategory(category.id, category.name)}
+                            className="h-5 w-5 text-destructive hover:text-destructive hover:bg-destructive/10"
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="space-y-2">
@@ -1451,6 +1594,55 @@ const ProductsPage = () => {
               </Button>
             </div>
           </form>
+        </DialogContent>
+      </Dialog>
+
+      {/* Add Category Dialog */}
+      <Dialog open={isAddCategoryOpen} onOpenChange={setIsAddCategoryOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Add New Category</DialogTitle>
+            <DialogDescription>
+              Enter a name for the new product category
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="newCategory">Category Name *</Label>
+              <Input
+                id="newCategory"
+                value={newCategoryName}
+                onChange={(e) => setNewCategoryName(e.target.value)}
+                placeholder="Enter category name"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleAddCategory();
+                  }
+                }}
+                autoFocus
+              />
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => {
+                  setIsAddCategoryOpen(false);
+                  setNewCategoryName("");
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                type="button"
+                onClick={handleAddCategory}
+                className="bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow"
+              >
+                Add Category
+              </Button>
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
