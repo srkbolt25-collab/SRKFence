@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Table,
   TableBody,
@@ -12,14 +15,16 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Users, Package, MessageSquare, DollarSign, Activity, ShoppingCart, Loader2, Eye } from "lucide-react";
+import { TrendingUp, Users, Package, MessageSquare, DollarSign, Activity, ShoppingCart, Loader2, Eye, Save } from "lucide-react";
 import { apiClient } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
+import { useToast } from "@/hooks/use-toast";
 
 const DashboardPage = () => {
   const router = useRouter();
+  const { toast } = useToast();
   const [stats, setStats] = useState({
     totalProducts: 0,
     totalTestimonials: 0,
@@ -28,9 +33,23 @@ const DashboardPage = () => {
   });
   const [recentEnquiries, setRecentEnquiries] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [metadata, setMetadata] = useState({
+    metaTitle: "",
+    metaDescription: "",
+  });
+  const [savingMetadata, setSavingMetadata] = useState(false);
 
   useEffect(() => {
     loadDashboardData();
+    // Load saved metadata from localStorage
+    try {
+      const saved = localStorage.getItem('siteMetadata');
+      if (saved) {
+        setMetadata(JSON.parse(saved));
+      }
+    } catch (error) {
+      console.error('Error loading metadata:', error);
+    }
   }, []);
 
   const loadDashboardData = async () => {
@@ -266,6 +285,83 @@ const DashboardPage = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Site Metadata Management */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Site Metadata (SEO)</CardTitle>
+          <CardDescription>Manage meta title and description for the website</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={async (e) => {
+            e.preventDefault();
+            setSavingMetadata(true);
+            try {
+              // Store in localStorage for now (can be replaced with API call later)
+              localStorage.setItem('siteMetadata', JSON.stringify(metadata));
+              toast({
+                title: "Success",
+                description: "Site metadata saved successfully",
+              });
+            } catch (error) {
+              toast({
+                title: "Error",
+                description: "Failed to save metadata",
+                variant: "destructive",
+              });
+            } finally {
+              setSavingMetadata(false);
+            }
+          }} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="metaTitle">Meta Title</Label>
+              <Input
+                id="metaTitle"
+                value={metadata.metaTitle}
+                onChange={(e) => setMetadata({ ...metadata, metaTitle: e.target.value })}
+                placeholder="Enter site meta title (50-60 characters recommended)"
+              />
+              <p className="text-xs text-muted-foreground">
+                Recommended: 50-60 characters. Used for search engine results and browser titles.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="metaDescription">Meta Description</Label>
+              <Textarea
+                id="metaDescription"
+                value={metadata.metaDescription}
+                onChange={(e) => setMetadata({ ...metadata, metaDescription: e.target.value })}
+                placeholder="Enter site meta description (150-160 characters recommended)"
+                rows={3}
+              />
+              <p className="text-xs text-muted-foreground">
+                Recommended: 150-160 characters. Used for search engine results.
+              </p>
+            </div>
+
+            <div className="flex justify-end">
+              <Button
+                type="submit"
+                disabled={savingMetadata}
+                className="bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow"
+              >
+                {savingMetadata ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Saving...
+                  </>
+                ) : (
+                  <>
+                    <Save className="mr-2 h-4 w-4" />
+                    Save Metadata
+                  </>
+                )}
+              </Button>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
 
       {/* Quick Actions */}
       <Card>

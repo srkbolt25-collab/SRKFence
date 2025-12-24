@@ -401,6 +401,20 @@ export default function ProductDetailsPage() {
         </section>
       )}
 
+      {/* Description */}
+      {product.description && (
+        <section className="bg-background py-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Description</h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-foreground whitespace-pre-line leading-relaxed">
+                {product.description}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Applications */}
       {product.applications && product.applications.length > 0 && (
         <section className="bg-background py-12">
