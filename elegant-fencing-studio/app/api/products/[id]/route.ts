@@ -57,6 +57,14 @@ export async function GET(
     const db = await getDatabase();
     const productsCollection = db.collection('products');
 
+    // Validation for ObjectId
+    if (!ObjectId.isValid(id)) {
+      return NextResponse.json(
+        { error: 'Product not found (Invalid ID)' },
+        { status: 404 }
+      );
+    }
+
     const product = await productsCollection.findOne({
       _id: new ObjectId(id),
     });

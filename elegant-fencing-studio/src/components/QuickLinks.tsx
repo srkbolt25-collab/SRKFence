@@ -4,28 +4,37 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
+// Helper function to slugify category names (matches ProductsPage slug format)
+// ProductsPage uses: value.replace(/\s+/g, '-')
+// We lowercase it for URL conventions, but the dynamic route matching handles case-insensitive comparison
+const slugifyCategory = (categoryName: string): string => {
+  return categoryName
+    .toLowerCase()
+    .replace(/\s+/g, '-'); // Replace spaces with dashes (matches ProductsPage logic)
+};
+
 const categoryLinks = [
   {
     label: "Steel & Metal Fencing",
-    to: "/products#steel-metal-fencing",
+    categoryName: "Steel & Metal Fencing",
     description: "Durable and secure metal fencing solutions",
     image: "/image1.png",
   },
   {
     label: "Welded Mesh Fencing",
-    to: "/products#welded-mesh-fencing",
+    categoryName: "Welded Mesh Fencing",
     description: "Strong welded mesh for maximum security",
     image: "/image2.png",
   },
   {
     label: "Wire Fencing",
-    to: "/products#wire-fencing",
+    categoryName: "Wire Fencing",
     description: "Versatile wire fencing options",
     image: "/image3.png",
   },
   {
     label: "ECO / PVC Fencing",
-    to: "/products#eco-pvc-fencing",
+    categoryName: "ECO / PVC Fencing",
     description: "Eco-friendly PVC fencing solutions",
     image: "/SRK FENCE Banners2.jpg",
   },
@@ -48,10 +57,12 @@ const QuickLinks = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {categoryLinks.map((link, index) => (
+          {categoryLinks.map((link, index) => {
+            const categorySlug = slugifyCategory(link.categoryName);
+            return (
             <Link
               key={index}
-              href={link.to}
+              href={`/products/${encodeURIComponent(categorySlug)}`}
               className="group relative rounded-xl border border-border hover:border-primary/50 hover:shadow-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
               <div className="relative w-full h-80 rounded-xl overflow-hidden bg-muted">
@@ -77,7 +88,8 @@ const QuickLinks = () => {
                 </div>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

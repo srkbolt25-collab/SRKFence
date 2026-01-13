@@ -148,15 +148,24 @@ const processSteps = [
   },
 ];
 
-const ProductsPage = () => {
+const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
   const { toast } = useToast();
   const router = useRouter();
   const { addToRFQ, isInRFQ } = useRFQ();
   const [products, setProducts] = useState<any[]>([]);
   const [categories, setCategories] = useState<Array<{ id: string; name: string }>>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(initialCategory || null);
   const [loading, setLoading] = useState(true);
   const [loadingCategories, setLoadingCategories] = useState(true);
+
+  // Sync state if prop changes
+  useEffect(() => {
+    if (initialCategory) {
+      setSelectedCategory(initialCategory);
+    } else {
+      setSelectedCategory(null);
+    }
+  }, [initialCategory]);
 
   useEffect(() => {
     loadProducts();
@@ -182,7 +191,7 @@ const ProductsPage = () => {
       setLoading(true);
       const response = await apiClient.getProducts();
       const dbProducts = response.products || [];
-      
+
       // Transform database products to match the expected format
       const transformedProducts = dbProducts
         .filter((p: any) => p.status === 'Active')
@@ -252,15 +261,15 @@ const ProductsPage = () => {
   // Group products by category
   const groupProductsByCategory = (products: any[]) => {
     const grouped: Record<string, any[]> = {};
-    
+
     // Initialize all categories
     categoryOrder.forEach(category => {
       grouped[category] = [];
     });
-    
+
     // Add "Other" category for products that don't match
     grouped["Other"] = [];
-    
+
     products.forEach(product => {
       const category = product.category || "Other";
       if (categoryOrder.includes(category)) {
@@ -269,7 +278,7 @@ const ProductsPage = () => {
         grouped["Other"].push(product);
       }
     });
-    
+
     return grouped;
   };
 
@@ -309,16 +318,24 @@ const ProductsPage = () => {
           {/* Category Filter Tabs */}
           {!loadingCategories && categories.length > 0 && (
             <div className="mb-12">
-              <Tabs 
-                value={selectedCategory || "all"} 
-                onValueChange={(value) => setSelectedCategory(value === "all" ? null : value)}
+              <Tabs
+                value={selectedCategory || "all"}
+                onValueChange={(value) => {
+                  if (value === "all") {
+                    router.push('/products', { scroll: false });
+                  } else {
+                    // Slugify: replace spaces with dashes
+                    const slug = value.replace(/\s+/g, '-');
+                    router.push(`/products/${encodeURIComponent(slug)}`, { scroll: false });
+                  }
+                }}
                 className="w-full"
               >
-                <div className="flex justify-center">
-                  <TabsList className="inline-flex h-14 items-center justify-center rounded-lg bg-muted p-1.5 text-muted-foreground w-auto">
-                    <TabsTrigger 
-                      value="all" 
-                      className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#c5162a] data-[state=active]:to-[#e63946] data-[state=active]:text-white data-[state=active]:shadow-sm px-8 py-3 rounded-md transition-all duration-300 text-base font-medium"
+                <div className="flex justify-center w-full">
+                  <TabsList className="inline-flex flex-wrap h-auto items-center justify-center gap-2 rounded-lg bg-muted p-3 text-muted-foreground w-full max-w-5xl">
+                    <TabsTrigger
+                      value="all"
+                      className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#c5162a] data-[state=active]:to-[#e63946] data-[state=active]:text-white data-[state=active]:shadow-sm px-4 md:px-6 py-2.5 md:py-3 rounded-md transition-all duration-300 text-sm md:text-base font-medium whitespace-nowrap flex-shrink-0"
                     >
                       All Products
                     </TabsTrigger>
@@ -328,11 +345,11 @@ const ProductsPage = () => {
                         <TabsTrigger
                           key={category.id}
                           value={category.name}
-                          className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#c5162a] data-[state=active]:to-[#e63946] data-[state=active]:text-white data-[state=active]:shadow-sm px-8 py-3 rounded-md transition-all duration-300 text-base font-medium"
+                          className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#c5162a] data-[state=active]:to-[#e63946] data-[state=active]:text-white data-[state=active]:shadow-sm px-4 md:px-6 py-2.5 md:py-3 rounded-md transition-all duration-300 text-sm md:text-base font-medium whitespace-nowrap flex-shrink-0"
                         >
-                          {category.name}
+                          <span>{category.name}</span>
                           {categoryProductCount > 0 && (
-                            <span className="ml-2 px-2.5 py-1 rounded-full bg-white/20 text-sm font-semibold">
+                            <span className="ml-2 px-2 py-0.5 rounded-full bg-white/20 text-xs font-semibold">
                               {categoryProductCount}
                             </span>
                           )}
@@ -359,8 +376,8 @@ const ProductsPage = () => {
           ) : filteredProducts.length === 0 ? (
             <div className="text-center py-24">
               <p className="text-muted-foreground text-lg">
-                {selectedCategory 
-                  ? `No products found in ${selectedCategory} category.` 
+                {selectedCategory
+                  ? `No products found in ${selectedCategory} category.`
                   : "No products available at the moment."}
               </p>
               {selectedCategory && (
@@ -382,9 +399,8 @@ const ProductsPage = () => {
                   <Card
                     id={`product-${product.id}`}
                     key={product.id}
-                    className={`group overflow-hidden border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5 transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-hover ${
-                      isHighlight ? "lg:col-span-2" : ""
-                    }`}
+                    className={`group overflow-hidden border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5 transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-hover ${isHighlight ? "lg:col-span-2" : ""
+                      }`}
                   >
                     <div className="grid md:grid-cols-2 gap-0">
                       <div className="relative h-64 md:h-[400px] w-full overflow-hidden bg-muted flex-shrink-0">
