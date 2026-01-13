@@ -53,6 +53,8 @@ const ApplicationsPage = () => {
     useCases: [] as string[],
     metaTitle: "",
     metaDescription: "",
+    focusKeywords: "",
+    metaKeywords: "",
     keywords: "",
     status: "Published" as "Published" | "Draft",
   });
@@ -100,6 +102,8 @@ const ApplicationsPage = () => {
         useCases: application.useCases || [],
         metaTitle: application.metaTitle || "",
         metaDescription: application.metaDescription || "",
+        focusKeywords: application.focusKeywords || "",
+        metaKeywords: application.metaKeywords || "",
         keywords: application.keywords || "",
         status: application.status || "Published",
       });
@@ -118,6 +122,8 @@ const ApplicationsPage = () => {
         useCases: [],
         metaTitle: "",
         metaDescription: "",
+        focusKeywords: "",
+        metaKeywords: "",
         keywords: "",
         status: "Published",
       });
@@ -237,6 +243,8 @@ const ApplicationsPage = () => {
         image: formData.image.trim() || undefined,
         metaTitle: formData.metaTitle.trim() || undefined,
         metaDescription: formData.metaDescription.trim() || undefined,
+        focusKeywords: formData.focusKeywords.trim() || undefined,
+        metaKeywords: formData.metaKeywords.trim() || undefined,
         keywords: formData.keywords.trim() || undefined,
         // Keep arrays as-is (empty arrays are valid)
         images: formData.images,
@@ -705,38 +713,68 @@ const ApplicationsPage = () => {
             </div>
 
             {/* SEO Fields */}
-            <div className="space-y-4 border-t pt-4">
-              <h3 className="font-semibold">SEO Information (optional)</h3>
-              <div className="space-y-2">
-                <Label htmlFor="metaTitle">Meta Title (optional)</Label>
-                <Input
-                  id="metaTitle"
-                  name="metaTitle"
-                  value={formData.metaTitle}
-                  onChange={handleInputChange}
-                  placeholder="SEO title"
-                />
+            <div className="space-y-6 border-t pt-6">
+              <h4 className="text-lg font-semibold text-foreground border-b pb-2">SEO & Ranking Optimization</h4>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="metaTitle">Meta Title</Label>
+                  <Input
+                    id="metaTitle"
+                    name="metaTitle"
+                    value={formData.metaTitle}
+                    onChange={handleInputChange}
+                    placeholder="Enter meta title for SEO"
+                    maxLength={60}
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Recommended: 50-60 characters. Used for search engine results.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="focusKeywords">Focus Keywords</Label>
+                  <Input
+                    id="focusKeywords"
+                    name="focusKeywords"
+                    value={formData.focusKeywords}
+                    onChange={handleInputChange}
+                    placeholder="e.g., fencing applications, security solutions"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Primary keywords for ranking. Separate with commas.
+                  </p>
+                </div>
               </div>
+
               <div className="space-y-2">
-                <Label htmlFor="metaDescription">Meta Description (optional)</Label>
+                <Label htmlFor="metaDescription">Meta Description</Label>
                 <Textarea
                   id="metaDescription"
                   name="metaDescription"
                   value={formData.metaDescription}
                   onChange={handleInputChange}
-                  placeholder="SEO description"
-                  rows={2}
+                  placeholder="Enter meta description for SEO"
+                  rows={3}
+                  maxLength={160}
                 />
+                <p className="text-xs text-muted-foreground">
+                  Recommended: 150-160 characters. Used for search engine results.
+                </p>
               </div>
+
               <div className="space-y-2">
-                <Label htmlFor="keywords">Keywords (optional)</Label>
+                <Label htmlFor="metaKeywords">Meta Keywords</Label>
                 <Input
-                  id="keywords"
-                  name="keywords"
-                  value={formData.keywords}
+                  id="metaKeywords"
+                  name="metaKeywords"
+                  value={formData.metaKeywords}
                   onChange={handleInputChange}
-                  placeholder="Comma-separated keywords"
+                  placeholder="keyword1, keyword2, keyword3"
                 />
+                <p className="text-xs text-muted-foreground">
+                  Additional keywords. Separate with commas (optional).
+                </p>
               </div>
             </div>
 
