@@ -51,7 +51,6 @@ const ProductsPage = () => {
     subtitle: "",
     category: "",
     description: "",
-    price: "",
     metaTitle: "",
     metaDescription: "",
     focusKeywords: "",
@@ -279,7 +278,6 @@ const ProductsPage = () => {
         subtitle: product.subtitle || "",
         category: product.category || "",
         description: product.description || "",
-        price: product.price || "",
         metaTitle: product.metaTitle || "",
         metaDescription: product.metaDescription || "",
         focusKeywords: product.focusKeywords || "",
@@ -334,7 +332,6 @@ const ProductsPage = () => {
         subtitle: "",
         category: "",
         description: "",
-        price: "",
         metaTitle: "",
         metaDescription: "",
         focusKeywords: "",
@@ -796,7 +793,6 @@ const ProductsPage = () => {
         subtitle: formData.subtitle,
         category: formData.category || "General",
         description: formData.description,
-        price: formData.price,
         metaTitle: formData.metaTitle || undefined,
         metaDescription: formData.metaDescription || undefined,
         focusKeywords: formData.focusKeywords || undefined,
@@ -991,7 +987,6 @@ const ProductsPage = () => {
                 <TableHead>ID</TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Category</TableHead>
-                <TableHead>Price</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
@@ -999,13 +994,13 @@ const ProductsPage = () => {
             <TableBody>
               {loading ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center py-8">
+                  <TableCell colSpan={5} className="text-center py-8">
                     <Loader2 className="h-6 w-6 animate-spin mx-auto" />
                   </TableCell>
                 </TableRow>
               ) : filteredProducts.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
+                  <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
                     No products found
                   </TableCell>
                 </TableRow>
@@ -1015,7 +1010,6 @@ const ProductsPage = () => {
                     <TableCell className="font-mono text-xs">{product.id.slice(0, 8)}...</TableCell>
                     <TableCell className="font-medium">{product.title || product.name}</TableCell>
                     <TableCell>{product.category}</TableCell>
-                    <TableCell>{product.price || "N/A"}</TableCell>
                     <TableCell>
                       <span className={`px-2 py-1 rounded-full text-xs ${
                         product.status === "Active" 
@@ -1156,17 +1150,6 @@ const ProductsPage = () => {
                   value={formData.subtitle}
                   onChange={handleInputChange}
                   placeholder="Enter product subtitle (optional)"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="price">Price</Label>
-                <Input
-                  id="price"
-                  name="price"
-                  value={formData.price}
-                  onChange={handleInputChange}
-                  placeholder="Enter product price (optional)"
                 />
               </div>
 
