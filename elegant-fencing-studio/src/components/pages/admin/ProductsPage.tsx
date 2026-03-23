@@ -103,45 +103,12 @@ const ProductsPage = () => {
     try {
       setLoadingCategories(true);
       const response = await apiClient.getCategories();
-      if (response.categories && response.categories.length > 0) {
-        setCategoryOptions(response.categories);
-      } else {
-        // Initialize default categories if none exist
-        await initializeDefaultCategories();
-      }
+      setCategoryOptions(response.categories || []);
     } catch (error) {
       console.error('Error loading categories:', error);
-      // Initialize default categories on error
-      await initializeDefaultCategories();
+      setCategoryOptions([]);
     } finally {
       setLoadingCategories(false);
-    }
-  };
-
-  const initializeDefaultCategories = async () => {
-    const defaultCategories = [
-      "Steel & Metal Fencing",
-      "Welded Mesh Fencing",
-      "Wire Fencing",
-      "ECO / PVC Fencing",
-      "Fence Accessories",
-    ];
-
-    try {
-      for (const categoryName of defaultCategories) {
-        try {
-          await apiClient.createCategory({ name: categoryName });
-        } catch (e: any) {
-          // Ignore if category already exists
-          if (!e.message?.includes('already exists')) {
-            console.error('Error creating default category:', e);
-          }
-        }
-      }
-      // Reload categories after initialization
-      await loadCategories();
-    } catch (error) {
-      console.error('Error initializing default categories:', error);
     }
   };
 

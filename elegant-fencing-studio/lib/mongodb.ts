@@ -131,7 +131,24 @@ export async function getDatabase(): Promise<Db> {
         `Original error: ${error.message || error.cause?.message || 'Unknown error'}`
       );
     }
-    
+
+    // querySrv ENOTFOUND: SRV record missing — wrong/deleted cluster hostname, or broken DNS
+    const msg = String(error?.message ?? '');
+    if (
+      error?.code === 'ENOTFOUND' ||
+      msg.includes('querySrv ENOTFOUND') ||
+      msg.includes('ENOTFOUND')
+    ) {
+      throw new Error(
+        'MongoDB Atlas hostname could not be resolved (DNS error).\n' +
+        '1. In MongoDB Atlas → your Project → Database → Connect, copy a new connection string. ' +
+        'If the cluster was deleted or recreated, the old host (e.g. cluster0.xxxxx.mongodb.net) will no longer exist.\n' +
+        '2. Update MONGODB_URI in .env.local and restart the dev server.\n' +
+        '3. If only your ISP/router DNS fails, try another network or set DNS to 8.8.8.8 (SRV still must exist for mongodb+srv://).\n' +
+        `Original error: ${msg || 'Unknown error'}`
+      );
+    }
+
     throw error;
   }
 }
