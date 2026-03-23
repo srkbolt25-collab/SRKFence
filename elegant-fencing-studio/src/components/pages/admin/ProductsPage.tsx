@@ -41,7 +41,7 @@ const ProductsPage = () => {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [submitting, setSubmitting] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [categoryOptions, setCategoryOptions] = useState<Array<{ id: string; name: string }>>([]);
+  const [categoryOptions, setCategoryOptions] = useState<Array<{ id: string; name: string; displayOrder?: number }>>([]);
   const [isAddCategoryOpen, setIsAddCategoryOpen] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
   const [loadingCategories, setLoadingCategories] = useState(false);
@@ -103,7 +103,11 @@ const ProductsPage = () => {
     try {
       setLoadingCategories(true);
       const response = await apiClient.getCategories();
-      setCategoryOptions(response.categories || []);
+      setCategoryOptions(
+        (response.categories || []).sort(
+          (a, b) => (a.displayOrder ?? 9999) - (b.displayOrder ?? 9999) || a.name.localeCompare(b.name)
+        )
+      );
     } catch (error) {
       console.error('Error loading categories:', error);
       setCategoryOptions([]);
@@ -865,8 +869,18 @@ const ProductsPage = () => {
     }
 
     try {
-      const newCategory = await apiClient.createCategory({ name: newCategoryName.trim() });
-      setCategoryOptions([...categoryOptions, { id: newCategory.id, name: newCategory.name }]);
+      const nextOrder =
+        categoryOptions.length > 0
+          ? Math.max(...categoryOptions.map((cat) => cat.displayOrder ?? 0)) + 1
+          : 1;
+      const newCategory = await apiClient.createCategory({
+        name: newCategoryName.trim(),
+        displayOrder: nextOrder,
+      });
+      setCategoryOptions(
+        [...categoryOptions, { id: newCategory.id, name: newCategory.name, displayOrder: newCategory.displayOrder }]
+          .sort((a, b) => (a.displayOrder ?? 9999) - (b.displayOrder ?? 9999) || a.name.localeCompare(b.name))
+      );
       setFormData({ ...formData, category: newCategory.name });
       setNewCategoryName("");
       setIsAddCategoryOpen(false);
@@ -878,6 +892,39 @@ const ProductsPage = () => {
       toast({
         title: "Error",
         description: error.message || "Failed to add category",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleUpdateCategoryOrder = async (categoryId: string, rawValue: string) => {
+    const parsed = Number(rawValue);
+    if (!Number.isInteger(parsed) || parsed < 0) {
+      toast({
+        title: "Error",
+        description: "Display order must be a non-negative whole number",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const updatedCategory = await apiClient.updateCategoryOrder(categoryId, parsed);
+      setCategoryOptions((prev) =>
+        prev
+          .map((cat) =>
+            cat.id === categoryId ? { ...cat, displayOrder: updatedCategory.displayOrder } : cat
+          )
+          .sort((a, b) => (a.displayOrder ?? 9999) - (b.displayOrder ?? 9999) || a.name.localeCompare(b.name))
+      );
+      toast({
+        title: "Success",
+        description: "Category order updated",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to update category order",
         variant: "destructive",
       });
     }
@@ -1090,9 +1137,17 @@ const ProductsPage = () => {
                       {categoryOptions.map((category) => (
                         <div
                           key={category.id}
-                          className="flex items-center gap-1 px-2 py-1 bg-background border rounded-md text-sm"
+                          className="flex items-center gap-2 px-2 py-1 bg-background border rounded-md text-sm"
                         >
                           <span>{category.name}</span>
+                          <Input
+                            type="number"
+                            min={0}
+                            defaultValue={category.displayOrder ?? 0}
+                            className="h-7 w-20 text-xs"
+                            onBlur={(e) => handleUpdateCategoryOrder(category.id, e.target.value)}
+                            aria-label={`Display order for ${category.name}`}
+                          />
                           <Button
                             type="button"
                             variant="ghost"

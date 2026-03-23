@@ -6,6 +6,12 @@ import { z } from 'zod';
 
 const categorySchema = z.object({
   name: z.string().min(1),
+  displayOrder: z.number().int().nonnegative().optional(),
+});
+
+const updateCategoryOrderSchema = z.object({
+  id: z.string().min(1),
+  displayOrder: z.number().int().nonnegative(),
 });
 
 // GET - Fetch all categories
@@ -14,12 +20,13 @@ export async function GET(request: NextRequest) {
     const db = await getDatabase();
     const categoriesCollection = db.collection('categories');
 
-    const categories = await categoriesCollection.find({}).sort({ name: 1 }).toArray();
+    const categories = await categoriesCollection.find({}).sort({ displayOrder: 1, name: 1 }).toArray();
 
     return NextResponse.json({
       categories: categories.map((category) => ({
         id: category._id.toString(),
         name: category.name,
+        displayOrder: typeof category.displayOrder === 'number' ? category.displayOrder : 9999,
         createdAt: category.createdAt,
         updatedAt: category.updatedAt,
       })),
@@ -63,8 +70,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const maxOrderCategory = await categoriesCollection.find({}).sort({ displayOrder: -1 }).limit(1).toArray();
+    const nextOrder =
+      typeof maxOrderCategory[0]?.displayOrder === 'number'
+        ? maxOrderCategory[0].displayOrder + 1
+        : 1;
+
     const result = await categoriesCollection.insertOne({
       name: categoryData.name,
+      displayOrder: categoryData.displayOrder ?? nextOrder,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -72,6 +86,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       id: result.insertedId.toString(),
       name: categoryData.name,
+      displayOrder: categoryData.displayOrder ?? nextOrder,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -84,6 +99,69 @@ export async function POST(request: NextRequest) {
     }
 
     console.error('Create category error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
+// PATCH - Update category display order
+export async function PATCH(request: NextRequest) {
+  try {
+    const payload = await authenticateRequest(request);
+
+    if (!payload) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const body = await request.json();
+    const { id, displayOrder } = updateCategoryOrderSchema.parse(body);
+
+    const db = await getDatabase();
+    const categoriesCollection = db.collection('categories');
+
+    let objectId: ObjectId;
+    try {
+      objectId = new ObjectId(id);
+    } catch {
+      return NextResponse.json(
+        { error: 'Invalid category ID' },
+        { status: 400 }
+      );
+    }
+
+    const result = await categoriesCollection.findOneAndUpdate(
+      { _id: objectId },
+      { $set: { displayOrder, updatedAt: new Date() } },
+      { returnDocument: 'after' }
+    );
+
+    if (!result) {
+      return NextResponse.json(
+        { error: 'Category not found' },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      id: result._id.toString(),
+      name: result.name,
+      displayOrder: typeof result.displayOrder === 'number' ? result.displayOrder : displayOrder,
+      updatedAt: result.updatedAt,
+    });
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Invalid request data', details: error.errors },
+        { status: 400 }
+      );
+    }
+
+    console.error('Update category order error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

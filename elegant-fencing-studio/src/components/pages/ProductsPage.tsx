@@ -122,14 +122,6 @@ const getIconForCategory = (category: string) => {
   return Building2;
 };
 
-const categoryOrder = [
-  "Steel & Metal Fencing",
-  "Welded Mesh Fencing",
-  "Wire Fencing",
-  "ECO / PVC Fencing",
-  "Fence Accessories",
-];
-
 const processSteps = [
   {
     step: "01",
@@ -153,7 +145,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
   const router = useRouter();
   const { addToRFQ, isInRFQ } = useRFQ();
   const [products, setProducts] = useState<any[]>([]);
-  const [categories, setCategories] = useState<Array<{ id: string; name: string }>>([]);
+  const [categories, setCategories] = useState<Array<{ id: string; name: string; displayOrder?: number }>>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(initialCategory || null);
   const [loading, setLoading] = useState(true);
   const [loadingCategories, setLoadingCategories] = useState(true);
@@ -176,9 +168,11 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
     try {
       setLoadingCategories(true);
       const response = await apiClient.getCategories();
-      if (response.categories && response.categories.length > 0) {
-        setCategories(response.categories);
-      }
+      setCategories(
+        (response.categories || []).sort(
+          (a, b) => (a.displayOrder ?? 9999) - (b.displayOrder ?? 9999) || a.name.localeCompare(b.name)
+        )
+      );
     } catch (error) {
       console.error('Error loading categories:', error);
     } finally {
@@ -256,30 +250,6 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
   const handleViewDetails = (productId: string) => {
     // Navigate to product details page
     router.push(`/products/${productId}`);
-  };
-
-  // Group products by category
-  const groupProductsByCategory = (products: any[]) => {
-    const grouped: Record<string, any[]> = {};
-
-    // Initialize all categories
-    categoryOrder.forEach(category => {
-      grouped[category] = [];
-    });
-
-    // Add "Other" category for products that don't match
-    grouped["Other"] = [];
-
-    products.forEach(product => {
-      const category = product.category || "Other";
-      if (categoryOrder.includes(category)) {
-        grouped[category].push(product);
-      } else {
-        grouped["Other"].push(product);
-      }
-    });
-
-    return grouped;
   };
 
   return (
