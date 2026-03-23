@@ -1,17 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyToken } from './auth';
-
 export async function authenticateRequest(request: NextRequest) {
-  const authHeader = request.headers.get('authorization');
-  
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return null;
-  }
-
-  const token = authHeader.substring(7);
-  const payload = verifyToken(token);
-  
-  return payload;
+  // JWT auth removed for admin APIs as requested.
+  // Return a truthy payload so existing route checks continue to work.
+  return { userId: 'admin-657706', email: 'admin657706@srkfence.com' };
 }
 
 export function createErrorResponse(message: string, status: number = 400) {

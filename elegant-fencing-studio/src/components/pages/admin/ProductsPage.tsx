@@ -49,6 +49,7 @@ const ProductsPage = () => {
     name: "",
     title: "",
     subtitle: "",
+    displayOrder: "0",
     category: "",
     description: "",
     metaTitle: "",
@@ -247,6 +248,11 @@ const ProductsPage = () => {
         name: product.name || "",
         title: product.title || product.name || "",
         subtitle: product.subtitle || "",
+        displayOrder: String(
+          typeof product.displayOrder === "number" && Number.isFinite(product.displayOrder)
+            ? product.displayOrder
+            : 0
+        ),
         category: product.category || "",
         description: product.description || "",
         metaTitle: product.metaTitle || "",
@@ -301,6 +307,7 @@ const ProductsPage = () => {
         name: "",
         title: "",
         subtitle: "",
+        displayOrder: "0",
         category: "",
         description: "",
         metaTitle: "",
@@ -762,6 +769,7 @@ const ProductsPage = () => {
         name: formData.name || formData.title,
         title: formData.title,
         subtitle: formData.subtitle,
+        displayOrder: Math.max(0, Number.parseInt(formData.displayOrder || "0", 10) || 0),
         category: formData.category || "General",
         description: formData.description,
         metaTitle: formData.metaTitle || undefined,
@@ -963,6 +971,26 @@ const ProductsPage = () => {
     product.category?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const groupedFilteredProducts = filteredProducts.reduce<Record<string, any[]>>((acc, product) => {
+    const categoryName = product.category || "Uncategorized";
+    if (!acc[categoryName]) {
+      acc[categoryName] = [];
+    }
+    acc[categoryName].push(product);
+    return acc;
+  }, {});
+
+  const categoryDisplayOrderMap = new Map(
+    categoryOptions.map((category, index) => [category.name, category.displayOrder ?? index + 1])
+  );
+
+  const groupedCategoryNames = Object.keys(groupedFilteredProducts).sort((a, b) => {
+    const aOrder = categoryDisplayOrderMap.get(a) ?? 9999;
+    const bOrder = categoryDisplayOrderMap.get(b) ?? 9999;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    return a.localeCompare(b);
+  });
+
   return (
     <div className="container mx-auto p-6 space-y-6">
       <div className="flex items-center justify-between">
@@ -995,67 +1023,80 @@ const ProductsPage = () => {
           </div>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>ID</TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {loading ? (
-                <TableRow>
-                  <TableCell colSpan={5} className="text-center py-8">
-                    <Loader2 className="h-6 w-6 animate-spin mx-auto" />
-                  </TableCell>
-                </TableRow>
-              ) : filteredProducts.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
-                    No products found
-                  </TableCell>
-                </TableRow>
-              ) : (
-                filteredProducts.map((product) => (
-                  <TableRow key={product.id}>
-                    <TableCell className="font-mono text-xs">{product.id.slice(0, 8)}...</TableCell>
-                    <TableCell className="font-medium">{product.title || product.name}</TableCell>
-                    <TableCell>{product.category}</TableCell>
-                    <TableCell>
-                      <span className={`px-2 py-1 rounded-full text-xs ${
-                        product.status === "Active" 
-                          ? "bg-green-100 text-green-800" 
-                          : "bg-gray-100 text-gray-800"
-                      }`}>
-                        {product.status}
-                      </span>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <div className="flex justify-end gap-2">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => handleOpenModal(product)}
-                        >
-                          <Edit className="h-4 w-4" />
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => handleDelete(product.id)}
-                        >
-                          <Trash2 className="h-4 w-4 text-destructive" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+          {loading ? (
+            <div className="text-center py-8">
+              <Loader2 className="h-6 w-6 animate-spin mx-auto" />
+            </div>
+          ) : filteredProducts.length === 0 ? (
+            <div className="text-center py-8 text-muted-foreground">No products found</div>
+          ) : (
+            <div className="space-y-6">
+              {groupedCategoryNames.map((categoryName) => {
+                const categoryProducts = [...groupedFilteredProducts[categoryName]].sort((a, b) => {
+                  const aOrder = typeof a.displayOrder === "number" ? a.displayOrder : 9999;
+                  const bOrder = typeof b.displayOrder === "number" ? b.displayOrder : 9999;
+                  if (aOrder !== bOrder) return aOrder - bOrder;
+                  return (a.title || a.name || "").localeCompare(b.title || b.name || "");
+                });
+
+                return (
+                  <div key={categoryName} className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-semibold">{categoryName}</h3>
+                      <span className="text-xs text-muted-foreground">{categoryProducts.length} product(s)</span>
+                    </div>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>ID</TableHead>
+                          <TableHead>Name</TableHead>
+                          <TableHead>Order</TableHead>
+                          <TableHead>Status</TableHead>
+                          <TableHead className="text-right">Actions</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {categoryProducts.map((product) => (
+                          <TableRow key={product.id}>
+                            <TableCell className="font-mono text-xs">{product.id.slice(0, 8)}...</TableCell>
+                            <TableCell className="font-medium">{product.title || product.name}</TableCell>
+                            <TableCell>{typeof product.displayOrder === "number" ? product.displayOrder : 9999}</TableCell>
+                            <TableCell>
+                              <span className={`px-2 py-1 rounded-full text-xs ${
+                                product.status === "Active" 
+                                  ? "bg-green-100 text-green-800" 
+                                  : "bg-gray-100 text-gray-800"
+                              }`}>
+                                {product.status}
+                              </span>
+                            </TableCell>
+                            <TableCell className="text-right">
+                              <div className="flex justify-end gap-2">
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleOpenModal(product)}
+                                >
+                                  <Edit className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleDelete(product.id)}
+                                >
+                                  <Trash2 className="h-4 w-4 text-destructive" />
+                                </Button>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </CardContent>
       </Card>
 
@@ -1173,6 +1214,22 @@ const ProductsPage = () => {
                   onChange={handleInputChange}
                   placeholder="Enter product subtitle (optional)"
                 />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="displayOrder">Display Order</Label>
+                <Input
+                  id="displayOrder"
+                  name="displayOrder"
+                  type="number"
+                  min={0}
+                  value={formData.displayOrder}
+                  onChange={handleInputChange}
+                  placeholder="0"
+                />
+                <p className="text-xs text-muted-foreground">
+                  Lower number shows first on products page.
+                </p>
               </div>
 
               <div className="space-y-2">

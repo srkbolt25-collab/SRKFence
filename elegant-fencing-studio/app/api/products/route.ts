@@ -10,6 +10,7 @@ const productSchema = z.object({
   category: z.string().min(1),
   description: z.string().optional(),
   price: z.string().optional(),
+  displayOrder: z.number().int().nonnegative().optional(),
   metaTitle: z.string().optional(),
   metaDescription: z.string().optional(),
   focusKeywords: z.string().optional(),
@@ -52,7 +53,10 @@ export async function GET(request: NextRequest) {
     const db = await getDatabase();
     const productsCollection = db.collection('products');
 
-    const products = await productsCollection.find({}).sort({ createdAt: -1 }).toArray();
+    const products = await productsCollection
+      .find({})
+      .sort({ category: 1, displayOrder: 1, createdAt: -1 })
+      .toArray();
 
     return NextResponse.json({
       products: products.map((product) => ({
@@ -63,6 +67,7 @@ export async function GET(request: NextRequest) {
         category: product.category,
         description: product.description,
         price: product.price,
+        displayOrder: typeof product.displayOrder === 'number' ? product.displayOrder : 9999,
         metaTitle: product.metaTitle,
         metaDescription: product.metaDescription,
         focusKeywords: product.focusKeywords,
@@ -114,8 +119,15 @@ export async function POST(request: NextRequest) {
     const db = await getDatabase();
     const productsCollection = db.collection('products');
 
+    const maxOrderProduct = await productsCollection.find({}).sort({ displayOrder: -1 }).limit(1).toArray();
+    const nextOrder =
+      typeof maxOrderProduct[0]?.displayOrder === 'number'
+        ? maxOrderProduct[0].displayOrder + 1
+        : 1;
+
     const result = await productsCollection.insertOne({
       ...productData,
+      displayOrder: productData.displayOrder ?? nextOrder,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
