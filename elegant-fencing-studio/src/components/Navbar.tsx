@@ -19,6 +19,7 @@ import heroFence from "@/assets/hero-fence.jpg";
 import metalFence from "@/assets/metal-fence.jpg";
 import vinylFence from "@/assets/vinyl-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
+import { getProductSlug } from "@/lib/productSlug";
 
 // Static products data (for fallback)
 const staticProducts: Record<string, any> = {
@@ -249,7 +250,7 @@ const Navbar = () => {
                                 variant="ghost"
                                 size="icon"
                                 className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
-                                onClick={() => router.push(`/products/${product.id}`)}
+                                onClick={() => router.push(`/products/${encodeURIComponent(getProductSlug(product))}`)}
                               >
                                 <FileText className="h-4 w-4" />
                               </Button>

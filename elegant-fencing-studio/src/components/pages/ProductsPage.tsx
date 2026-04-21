@@ -17,6 +17,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiClient } from "@/lib/api";
 import { useRFQ } from "@/contexts/RFQContext";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getProductSlug } from "@/lib/productSlug";
 
 // Fallback products for when database is empty
 const fallbackProducts = [
@@ -193,7 +194,9 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
           id: p.id,
           title: p.title || p.name,
           subtitle: p.subtitle || '',
-          description: p.description || '',
+          description: Array.isArray(p.description) && p.description.length > 0
+            ? p.description.map((d: { title: string; content: string }) => `${d.title}: ${d.content}`).join(' ')
+            : (p.description || ''),
           image: p.images && p.images.length > 0 ? p.images[0] : heroFence,
           images: p.images || [],
           features: p.specifications ? [
@@ -268,9 +271,10 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
     });
   };
 
-  const handleViewDetails = (productId: string) => {
+  const handleViewDetails = (product: { id: string; title?: string; name?: string }) => {
+    const productSlug = getProductSlug(product);
     // Navigate to product details page
-    router.push(`/products/${productId}`);
+    router.push(`/products/${encodeURIComponent(productSlug)}`);
   };
 
   return (
@@ -452,7 +456,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
 
                       <div className="grid grid-cols-2 gap-2">
                         <Button
-                          onClick={() => handleViewDetails(product.id)}
+                          onClick={() => handleViewDetails(product)}
                           variant="outline"
                           className="h-10 rounded-full border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
                         >

@@ -288,9 +288,120 @@ export default function RFQPage() {
             <p className="text-lg text-muted-foreground">Complete your Request for Quotation</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8">
-            {/* Left Section - Form */}
-            <Card>
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-[minmax(280px,1fr)_minmax(0,3fr)] gap-4">
+            {/* Left Section - Summary */}
+            <Card className="h-fit max-w-[350px]">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">Summary</CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 space-y-4">
+                {/* Products List */}
+                <div className="space-y-3">
+                  {rfqProducts.map((product) => (
+                    <div
+                      key={product.id}
+                      className="flex items-center gap-3 p-3 border rounded-lg"
+                    >
+                      {product.image ? (
+                        <div className="relative h-12 w-12 flex-shrink-0 rounded-md overflow-hidden border border-border bg-muted">
+                          {typeof product.image === 'string' && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.startsWith('/')) ? (
+                            <img
+                              src={product.image}
+                              alt={product.title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <Image
+                              src={product.image}
+                              alt={product.title}
+                              fill
+                              className="object-cover"
+                              sizes="48px"
+                            />
+                          )}
+                        </div>
+                      ) : (
+                        <div className="h-12 w-12 flex-shrink-0 rounded-md bg-muted flex items-center justify-center">
+                          <FileText className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-xs font-medium truncate">{product.title}</h4>
+                        {product.category && (
+                          <p className="text-[10px] text-muted-foreground truncate">{product.category}</p>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          className="h-6 w-6"
+                          onClick={() => handleQuantityChange(product.id, -1)}
+                        >
+                          <Minus className="h-3 w-3" />
+                        </Button>
+                        <span className="w-6 text-center text-xs font-medium">
+                          {quantities[product.id] || 1}
+                        </span>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          className="h-6 w-6"
+                          onClick={() => handleQuantityChange(product.id, 1)}
+                        >
+                          <Plus className="h-3 w-3" />
+                        </Button>
+                      </div>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="h-6 w-6 text-destructive hover:text-destructive hover:bg-destructive/10"
+                        onClick={() => handleRemoveItem(product.id)}
+                      >
+                        <Trash2 className="h-3 w-3" />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Summary Details */}
+                <div className="space-y-2 pt-3 border-t">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">Total Items</span>
+                    <span className="font-medium">{totalItems}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">Shipping</span>
+                    <span className="font-medium">To be discussed</span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="space-y-2 pt-3 border-t">
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow"
+                    disabled={submitting}
+                  >
+                    {submitting ? 'Submitting...' : 'PLACE ENQUIRE'}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full border-[#c5162a] text-[#c5162a] hover:bg-[#c5162a]/10"
+                    onClick={() => router.push('/products')}
+                  >
+                    Continue Shopping
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Right Section - Address */}
+            <Card className="flex-1 min-w-0">
               <CardHeader className="bg-primary text-primary-foreground rounded-t-lg">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5" />
@@ -416,117 +527,6 @@ export default function RFQPage() {
                     onChange={handleInputChange}
                     rows={4}
                   />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Right Section - Summary */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Summary</CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 space-y-6">
-                {/* Products List */}
-                <div className="space-y-4">
-                  {rfqProducts.map((product) => (
-                    <div
-                      key={product.id}
-                      className="flex items-center gap-4 p-4 border rounded-lg"
-                    >
-                      {product.image ? (
-                        <div className="relative h-16 w-16 flex-shrink-0 rounded-md overflow-hidden border border-border bg-muted">
-                          {typeof product.image === 'string' && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.startsWith('/')) ? (
-                            <img
-                              src={product.image}
-                              alt={product.title}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <Image
-                              src={product.image}
-                              alt={product.title}
-                              fill
-                              className="object-cover"
-                              sizes="64px"
-                            />
-                          )}
-                        </div>
-                      ) : (
-                        <div className="h-16 w-16 flex-shrink-0 rounded-md bg-muted flex items-center justify-center">
-                          <FileText className="h-6 w-6 text-muted-foreground" />
-                        </div>
-                      )}
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-sm font-medium truncate">{product.title}</h4>
-                        {product.category && (
-                          <p className="text-xs text-muted-foreground truncate">{product.category}</p>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={() => handleQuantityChange(product.id, -1)}
-                        >
-                          <Minus className="h-4 w-4" />
-                        </Button>
-                        <span className="w-8 text-center text-sm font-medium">
-                          {quantities[product.id] || 1}
-                        </span>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={() => handleQuantityChange(product.id, 1)}
-                        >
-                          <Plus className="h-4 w-4" />
-                        </Button>
-                      </div>
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
-                        onClick={() => handleRemoveItem(product.id)}
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Summary Details */}
-                <div className="space-y-3 pt-4 border-t">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Total Items</span>
-                    <span className="font-medium">{totalItems}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Shipping</span>
-                    <span className="font-medium">To be discussed</span>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="space-y-3 pt-4 border-t">
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow"
-                    disabled={submitting}
-                  >
-                    {submitting ? 'Submitting...' : 'PLACE ENQUIRE'}
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="w-full border-[#c5162a] text-[#c5162a] hover:bg-[#c5162a]/10"
-                    onClick={() => router.push('/products')}
-                  >
-                    Continue Shopping
-                  </Button>
                 </div>
               </CardContent>
             </Card>

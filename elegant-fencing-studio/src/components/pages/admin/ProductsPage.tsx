@@ -51,7 +51,7 @@ const ProductsPage = () => {
     subtitle: "",
     displayOrder: "0",
     category: "",
-    description: "",
+    description: [] as Array<{ title: string; content: string }>,
     metaTitle: "",
     metaDescription: "",
     focusKeywords: "",
@@ -75,6 +75,7 @@ const ProductsPage = () => {
       type: 'specifications' | 'panelVariations' | 'bimObjects' | 'custom';
       content: any;
     }>,
+    technicalInfoFiles: {} as Record<string, File[]>, // tabId -> files for upload
   });
 
   const applicationOptions = [
@@ -235,11 +236,24 @@ const ProductsPage = () => {
 
         // Add BIM Objects tab
         if (product.bimObjects && product.bimObjects.trim() !== '') {
+          let bimContent: any = product.bimObjects;
+          // Try to parse if it's JSON string
+          if (product.bimObjects.trim().startsWith('{')) {
+            try {
+              bimContent = JSON.parse(product.bimObjects);
+            } catch {
+              // If parse fails, treat as description
+              bimContent = { title: '', description: product.bimObjects, files: [] };
+            }
+          } else {
+            // Old format - plain text description
+            bimContent = { title: '', description: product.bimObjects, files: [] };
+          }
           technicalInfoTabs.push({
             id: `tab-${Date.now()}-3`,
             name: "BIM Objects",
             type: 'bimObjects',
-            content: product.bimObjects,
+            content: bimContent,
           });
         }
       }
@@ -254,7 +268,7 @@ const ProductsPage = () => {
             : 0
         ),
         category: product.category || "",
-        description: product.description || "",
+        description: Array.isArray(product.description) ? product.description : (product.description ? [{ title: "Description", content: product.description }] : []),
         metaTitle: product.metaTitle || "",
         metaDescription: product.metaDescription || "",
         focusKeywords: product.focusKeywords || "",
@@ -297,9 +311,10 @@ const ProductsPage = () => {
             id: `tab-${Date.now()}-3`,
             name: "BIM Objects",
             type: 'bimObjects',
-            content: "",
+            content: { title: '', description: '', files: [] },
           },
         ],
+        technicalInfoFiles: {},
       });
     } else {
       setSelectedProduct(null);
@@ -309,7 +324,7 @@ const ProductsPage = () => {
         subtitle: "",
         displayOrder: "0",
         category: "",
-        description: "",
+        description: [],
         metaTitle: "",
         metaDescription: "",
         focusKeywords: "",
@@ -338,15 +353,24 @@ const ProductsPage = () => {
             id: `tab-${Date.now()}-2`,
             name: "Panel Variations",
             type: 'panelVariations',
-            content: [],
+            content: {
+              headers: [
+                { key: 'panelType', label: 'Panel Type' },
+                { key: 'coating', label: 'Coating' },
+                { key: 'description', label: 'Description' },
+                { key: 'environmentalSuitability', label: 'Environmental Suitability' },
+              ],
+              rows: [],
+            },
           },
           {
             id: `tab-${Date.now()}-3`,
             name: "BIM Objects",
             type: 'bimObjects',
-            content: "",
+            content: { title: '', description: '', files: [] },
           },
         ],
+        technicalInfoFiles: {},
       });
     }
     setIsModalOpen(true);
@@ -408,6 +432,36 @@ const ProductsPage = () => {
         ? formData.applications.filter(app => app !== application)
         : [...formData.applications, application],
     });
+  };
+
+  // Description section handlers
+  const handleAddDescriptionSection = () => {
+    setFormData({
+      ...formData,
+      description: [
+        ...formData.description,
+        { title: "", content: "" },
+      ],
+    });
+  };
+
+  const handleRemoveDescriptionSection = (index: number) => {
+    setFormData({
+      ...formData,
+      description: formData.description.filter((_, i) => i !== index),
+    });
+  };
+
+  const handleDescriptionTitleChange = (index: number, title: string) => {
+    const updated = [...formData.description];
+    updated[index] = { ...updated[index], title };
+    setFormData({ ...formData, description: updated });
+  };
+
+  const handleDescriptionContentChange = (index: number, content: string) => {
+    const updated = [...formData.description];
+    updated[index] = { ...updated[index], content };
+    setFormData({ ...formData, description: updated });
   };
 
   // Tab management handlers
@@ -548,6 +602,56 @@ const ProductsPage = () => {
           ...content[sectionIndex],
           description,
         };
+        return { ...tab, content };
+      }
+      return tab;
+    });
+    setFormData({
+      ...formData,
+      technicalInfoTabs: updated,
+    });
+  };
+
+  // Specification section file/drawing handlers
+  const handleSpecificationFileUpload = (tabId: string, sectionIndex: number, files: FileList | null) => {
+    if (!files || files.length === 0) return;
+    
+    const fileArray = Array.from(files);
+    const fileKey = `${tabId}-${sectionIndex}`;
+    
+    setFormData({
+      ...formData,
+      technicalInfoFiles: {
+        ...formData.technicalInfoFiles,
+        [fileKey]: [...(formData.technicalInfoFiles[fileKey] || []), ...fileArray],
+      },
+    });
+  };
+
+  const handleRemoveSpecificationFile = (tabId: string, sectionIndex: number, fileIndex: number) => {
+    const fileKey = `${tabId}-${sectionIndex}`;
+    const currentFiles = formData.technicalInfoFiles[fileKey] || [];
+    
+    setFormData({
+      ...formData,
+      technicalInfoFiles: {
+        ...formData.technicalInfoFiles,
+        [fileKey]: currentFiles.filter((_, i) => i !== fileIndex),
+      },
+    });
+  };
+
+  const handleRemoveSpecificationDrawing = (tabId: string, sectionIndex: number, drawingIndex: number) => {
+    const updated = formData.technicalInfoTabs.map(tab => {
+      if (tab.id === tabId && tab.type === 'specifications') {
+        const content = Array.isArray(tab.content) ? [...tab.content] : [];
+        const section = content[sectionIndex];
+        if (section && section.drawings) {
+          content[sectionIndex] = {
+            ...section,
+            drawings: section.drawings.filter((_: any, i: number) => i !== drawingIndex),
+          };
+        }
         return { ...tab, content };
       }
       return tab;
@@ -765,6 +869,40 @@ const ProductsPage = () => {
       // Combine existing images (already Cloudinary URLs) with newly uploaded ones
       const allImages = [...formData.imagePreviews, ...uploadedImageUrls];
 
+      // Upload technical info files and update tabs
+      let technicalInfoTabsWithFiles = formData.technicalInfoTabs;
+      const allTechnicalFiles = Object.values(formData.technicalInfoFiles).flat();
+      
+      if (allTechnicalFiles.length > 0) {
+        const uploadedFileUrls = await uploadImagesToCloudinary(allTechnicalFiles);
+        
+        // Map uploaded files back to their respective sections
+        let fileIndex = 0;
+        technicalInfoTabsWithFiles = formData.technicalInfoTabs.map(tab => {
+          if (tab.type === 'specifications' && Array.isArray(tab.content)) {
+            const updatedContent = tab.content.map((section, sectionIndex) => {
+              const fileKey = `${tab.id}-${sectionIndex}`;
+              const filesForSection = formData.technicalInfoFiles[fileKey] || [];
+              
+              if (filesForSection.length > 0) {
+                const newDrawings = filesForSection.map(() => {
+                  const url = uploadedFileUrls[fileIndex++];
+                  return { url, name: allTechnicalFiles[fileIndex - 1]?.name || 'File' };
+                });
+                
+                return {
+                  ...section,
+                  drawings: [...(section.drawings || []), ...newDrawings],
+                };
+              }
+              return section;
+            });
+            return { ...tab, content: updatedContent };
+          }
+          return tab;
+        });
+      }
+
       const productData = {
         name: formData.name || formData.title,
         title: formData.title,
@@ -788,23 +926,28 @@ const ProductsPage = () => {
         status: formData.status,
         images: allImages,
         applications: formData.applications,
-        technicalInfoTabs: formData.technicalInfoTabs,
+        technicalInfoTabs: technicalInfoTabsWithFiles,
         // Keep old fields for backward compatibility
         specifications: (() => {
-          const specTab = formData.technicalInfoTabs.find(t => t.type === 'specifications');
+          const specTab = technicalInfoTabsWithFiles.find(t => t.type === 'specifications');
           return specTab && Array.isArray(specTab.content) && specTab.content.length > 0 
             ? JSON.stringify(specTab.content) 
             : '';
         })(),
         panelVariations: (() => {
-          const panelTab = formData.technicalInfoTabs.find(t => t.type === 'panelVariations');
+          const panelTab = technicalInfoTabsWithFiles.find(t => t.type === 'panelVariations');
           return panelTab && Array.isArray(panelTab.content) && panelTab.content.length > 0 
             ? JSON.stringify(panelTab.content) 
             : '';
         })(),
         bimObjects: (() => {
-          const bimTab = formData.technicalInfoTabs.find(t => t.type === 'bimObjects');
-          return bimTab && typeof bimTab.content === 'string' ? bimTab.content : '';
+          const bimTab = technicalInfoTabsWithFiles.find(t => t.type === 'bimObjects');
+          if (!bimTab) return '';
+          if (typeof bimTab.content === 'string') return bimTab.content;
+          if (typeof bimTab.content === 'object' && bimTab.content !== null) {
+            return JSON.stringify(bimTab.content);
+          }
+          return '';
         })(),
       };
 
@@ -1232,17 +1375,71 @@ const ProductsPage = () => {
                 </p>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="description">Description *</Label>
-                <Textarea
-                  id="description"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleInputChange}
-                  placeholder="Enter product description"
-                  rows={4}
-                  required
-                />
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <Label>Description Sections *</Label>
+                  <Button
+                    type="button"
+                    onClick={handleAddDescriptionSection}
+                    variant="outline"
+                    size="sm"
+                  >
+                    <Plus className="mr-2 h-4 w-4" />
+                    Add Section
+                  </Button>
+                </div>
+                
+                {formData.description.length === 0 ? (
+                  <div className="p-8 border-2 border-dashed border-border rounded-lg text-center">
+                    <p className="text-muted-foreground mb-4">No description sections added yet.</p>
+                    <Button
+                      type="button"
+                      onClick={handleAddDescriptionSection}
+                      variant="outline"
+                    >
+                      <Plus className="mr-2 h-4 w-4" />
+                      Add First Section
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {formData.description.map((section, index) => (
+                      <Card key={index} className="border border-border">
+                        <CardHeader className="pb-3">
+                          <div className="flex items-center justify-between">
+                            <div className="flex-1 space-y-2">
+                              <Label>Section Title</Label>
+                              <Input
+                                value={section.title}
+                                onChange={(e) => handleDescriptionTitleChange(index, e.target.value)}
+                                placeholder="e.g., Overview, Features, Specifications..."
+                                className="font-semibold"
+                              />
+                            </div>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => handleRemoveDescriptionSection(index)}
+                              className="ml-4 text-destructive hover:text-destructive"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                          <Label>Description</Label>
+                          <Textarea
+                            value={section.content}
+                            onChange={(e) => handleDescriptionContentChange(index, e.target.value)}
+                            placeholder="Enter detailed description for this section..."
+                            rows={4}
+                          />
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="space-y-6 border-t pt-6">
@@ -1723,16 +1920,133 @@ const ProductsPage = () => {
                         </>
                       )}
 
-                      {/* BIM Objects and Custom Content */}
-                      {(tab.type === 'bimObjects' || tab.type === 'custom') && (
+                      {/* BIM Objects Content */}
+                      {tab.type === 'bimObjects' && (() => {
+                        // Parse content to object
+                        let contentObj: { title?: string; description?: string; files?: any[] } = {};
+                        if (typeof tab.content === 'string' && tab.content.trim().startsWith('{')) {
+                          try {
+                            contentObj = JSON.parse(tab.content);
+                          } catch {
+                            contentObj = { title: '', description: tab.content, files: [] };
+                          }
+                        } else if (typeof tab.content === 'object' && tab.content !== null) {
+                          contentObj = tab.content;
+                        } else if (typeof tab.content === 'string') {
+                          contentObj = { title: '', description: tab.content, files: [] };
+                        } else {
+                          contentObj = { title: '', description: '', files: [] };
+                        }
+                        
+                        return (
+                        <div className="space-y-4">
+                          {/* Title Input */}
+                          <div className="space-y-2">
+                            <Label>Title</Label>
+                            <Input
+                              value={contentObj.title || ''}
+                              onChange={(e) => {
+                                handleTabContentChange(tab.id, JSON.stringify({ ...contentObj, title: e.target.value }));
+                              }}
+                              placeholder="Enter BIM Objects title..."
+                            />
+                          </div>
+
+                          {/* Description */}
+                          <div className="space-y-2">
+                            <Label>Description</Label>
+                            <Textarea
+                              value={contentObj.description || ''}
+                              onChange={(e) => {
+                                handleTabContentChange(tab.id, JSON.stringify({ ...contentObj, description: e.target.value }));
+                              }}
+                              placeholder="Enter information about BIM objects, CAD files, and Revit files..."
+                              rows={4}
+                            />
+                          </div>
+
+                          {/* File Upload for DOCX/PDF */}
+                          <div className="space-y-3 border rounded-lg p-4 bg-muted/30">
+                            <div className="flex items-center justify-between">
+                              <Label className="flex items-center gap-2">
+                                <Upload className="h-4 w-4" />
+                                Documents (DOCX, PDF)
+                              </Label>
+                              <span className="text-xs text-muted-foreground">
+                                {(contentObj.files || []).length} / 5 files
+                              </span>
+                            </div>
+
+                            {/* Show existing files */}
+                            {(contentObj.files || []).length > 0 && (
+                              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                {contentObj.files.map((file: any, fileIndex: number) => (
+                                  <div key={`bim-file-${fileIndex}`} className="relative group">
+                                    <div className="aspect-square rounded-lg border overflow-hidden bg-muted flex items-center justify-center">
+                                      <div className="text-center p-2">
+                                        <FileText className="h-8 w-8 mx-auto text-muted-foreground mb-1" />
+                                        <p className="text-xs text-muted-foreground truncate px-1">{file.name || 'File'}</p>
+                                        <p className="text-xs text-muted-foreground">{file.type?.toUpperCase() || 'PDF'}</p>
+                                      </div>
+                                    </div>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        const newFiles = (contentObj.files || []).filter((_: any, i: number) => i !== fileIndex);
+                                        handleTabContentChange(tab.id, JSON.stringify({ ...contentObj, files: newFiles }));
+                                      }}
+                                      className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-destructive text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                                    >
+                                      <X className="h-3 w-3" />
+                                    </button>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+
+                            {/* File upload button */}
+                            {(contentObj.files || []).length < 5 && (
+                              <label className="flex items-center justify-center gap-2 p-4 border-2 border-dashed border-border rounded-lg cursor-pointer hover:border-primary transition-colors bg-background">
+                                <Upload className="h-5 w-5 text-muted-foreground" />
+                                <span className="text-sm text-muted-foreground">Upload DOCX or PDF</span>
+                                <input
+                                  type="file"
+                                  className="hidden"
+                                  accept=".docx,.pdf"
+                                  onChange={async (e) => {
+                                    const files = e.target.files;
+                                    if (!files || files.length === 0) return;
+                                    
+                                    const fileArray = Array.from(files).slice(0, 5);
+                                    const uploadedUrls = await uploadImagesToCloudinary(fileArray);
+                                    
+                                    const newFiles = fileArray.map((file, index) => ({
+                                      url: uploadedUrls[index],
+                                      name: file.name,
+                                      type: file.name.endsWith('.pdf') ? 'pdf' : 'docx',
+                                    }));
+                                    
+                                    handleTabContentChange(tab.id, JSON.stringify({
+                                      ...contentObj,
+                                      files: [...(contentObj.files || []), ...newFiles],
+                                    }));
+                                  }}
+                                />
+                              </label>
+                            )}
+                          </div>
+                        </div>
+                      );
+                      })()}
+
+                      {/* Custom Content */}
+                      {tab.type === 'custom' && (
                         <div className="space-y-2">
-                          <Label>{tab.type === 'bimObjects' ? 'BIM Objects' : 'Custom Content'}</Label>
+                          <Label>Custom Content</Label>
                           <Textarea
                             value={typeof tab.content === 'string' ? tab.content : ''}
                             onChange={(e) => handleTabContentChange(tab.id, e.target.value)}
-                            placeholder={tab.type === 'bimObjects' 
-                              ? "Enter information about BIM objects, CAD files, and Revit files..."
-                              : "Enter custom content for this tab..."}
+                            placeholder="Enter custom content for this tab..."
                             rows={8}
                           />
                         </div>

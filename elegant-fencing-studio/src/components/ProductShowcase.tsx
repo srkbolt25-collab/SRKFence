@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import heroFence from "@/assets/hero-fence.jpg";
+import { getProductSlug } from '@/lib/productSlug';
 
 const ProductShowcase = () => {
   const [products, setProducts] = useState<any[]>([]);
@@ -89,11 +90,12 @@ const ProductShowcase = () => {
             const productTitle = product.title || product.name || 'Product';
             const productSubtitle = product.subtitle || product.category || '';
             const productDescription = product.description || '';
+            const productSlug = getProductSlug(product);
 
             return (
               <Link
                 key={product.id || index}
-                href={`/products/${product.id}`}
+                href={`/products/${encodeURIComponent(productSlug)}`}
                 className={`group relative aspect-[4/3] overflow-hidden rounded-2xl bg-black shadow-modern transition-all duration-500 hover:-translate-y-2 hover:shadow-float ${colSpan} block`}
               >
                 {typeof productImage === 'string' && productImage.startsWith('http') ? (
@@ -145,4 +147,3 @@ const ProductShowcase = () => {
 };
 
 export default ProductShowcase;
-

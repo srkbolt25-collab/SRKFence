@@ -6,6 +6,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+    type CarouselApi,
+} from '@/components/ui/carousel';
+import {
     Table,
     TableBody,
     TableCell,
@@ -34,6 +42,103 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
     const { addToRFQ, isInRFQ } = useRFQ();
     const [product, setProduct] = useState<any>(null);
     const [loading, setLoading] = useState(true);
+    const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const normalizeRichText = (text: string) =>
+        text
+            .replace(/\r\n/g, '\n')
+            .replace(/\u2022/g, '*')
+            .replace(/\s+\*\s+/g, '\n* ')
+            .replace(/\n{3,}/g, '\n\n')
+            .trim();
+
+    const renderInlineBold = (text: string) => {
+        const parts = text.split(/(\*\*[^*]+\*\*)/g);
+        return parts.map((part, index) => {
+            if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+                return (
+                    <strong key={index} className="font-semibold text-foreground">
+                        {part.slice(2, -2)}
+                    </strong>
+                );
+            }
+
+            return <span key={index}>{part.replace(/\*\*/g, '')}</span>;
+        });
+    };
+
+    const renderFormattedText = (text: string, defaultClass = 'text-muted-foreground') => {
+        const normalized = normalizeRichText(text);
+        if (!normalized) return null;
+
+        const lines = normalized
+            .split('\n')
+            .map((line) => line.trim())
+            .filter(Boolean);
+
+        const blocks: any[] = [];
+        let bulletItems: string[] = [];
+        let numberedItems: string[] = [];
+
+        const flushBulletItems = () => {
+            if (bulletItems.length === 0) return;
+            blocks.push(
+                <ul key={`ul-${blocks.length}`} className={`list-disc pl-5 space-y-1 ${defaultClass}`}>
+                    {bulletItems.map((item, index) => (
+                        <li key={index}>{renderInlineBold(item)}</li>
+                    ))}
+                </ul>
+            );
+            bulletItems = [];
+        };
+
+        const flushNumberedItems = () => {
+            if (numberedItems.length === 0) return;
+            blocks.push(
+                <ol key={`ol-${blocks.length}`} className={`list-decimal pl-5 space-y-1 ${defaultClass}`}>
+                    {numberedItems.map((item, index) => (
+                        <li key={index}>{renderInlineBold(item)}</li>
+                    ))}
+                </ol>
+            );
+            numberedItems = [];
+        };
+
+        lines.forEach((line) => {
+            const bulletMatch = line.match(/^[*-]\s+(.+)$/);
+            if (bulletMatch) {
+                flushNumberedItems();
+                bulletItems.push(bulletMatch[1]);
+                return;
+            }
+
+            const numberedMatch = line.match(/^\d+\.\s+(.+)$/);
+            if (numberedMatch) {
+                flushBulletItems();
+                numberedItems.push(numberedMatch[1]);
+                return;
+            }
+
+            flushBulletItems();
+            flushNumberedItems();
+
+            const isHeading = /:$/.test(line);
+            blocks.push(
+                <p
+                    key={`p-${blocks.length}`}
+                    className={`${defaultClass} leading-relaxed ${isHeading ? 'font-semibold text-foreground' : ''}`}
+                >
+                    {renderInlineBold(line)}
+                </p>
+            );
+        });
+
+        flushBulletItems();
+        flushNumberedItems();
+
+        return <div className="space-y-3">{blocks}</div>;
+    };
 
     useEffect(() => {
         if (!productId) {
@@ -55,7 +160,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                         id: data.id,
                         title: data.title || data.name,
                         subtitle: data.subtitle || '',
-                        description: data.description || '',
+                        description: data.description || [],
                         images: data.images && data.images.length > 0 ? data.images : [heroFence],
                         // Extract features from specifications or use empty array
                         features: data.features || [],
@@ -115,6 +220,30 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
         fetchProduct();
     }, [productId]);
 
+    useEffect(() => {
+        if (!carouselApi) {
+            return;
+        }
+
+        setCurrentImageIndex(carouselApi.selectedScrollSnap());
+        const onSelect = () => setCurrentImageIndex(carouselApi.selectedScrollSnap());
+        carouselApi.on('select', onSelect);
+
+        const interval = setInterval(() => {
+            carouselApi.scrollNext();
+        }, 4000);
+
+        return () => {
+            clearInterval(interval);
+            carouselApi.off('select', onSelect);
+        };
+    }, [carouselApi]);
+
+    useEffect(() => {
+        setCurrentImageIndex(0);
+        carouselApi?.scrollTo(0);
+    }, [product?.id, carouselApi]);
+
     // Update document head with SEO metadata when product is loaded
     useEffect(() => {
         if (product) {
@@ -124,7 +253,10 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
 
             // Update or create meta description
             let metaDescription = document.querySelector('meta[name="description"]');
-            const description = product.metaDescription || product.description || 'Leading manufacturer and supplier of high-quality fencing systems';
+            const descriptionContent = Array.isArray(product.description) && product.description.length > 0
+                ? product.description.map((d: { content: string }) => d.content).join(' ')
+                : '';
+            const description = product.metaDescription || descriptionContent || 'Leading manufacturer and supplier of high-quality fencing systems';
 
             if (metaDescription) {
                 metaDescription.setAttribute('content', description);
@@ -152,7 +284,10 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
 
             // Add Open Graph tags
             const ogTitle = product.ogTitle || product.metaTitle || product.title || '';
-            const ogDescription = product.ogDescription || product.metaDescription || product.description || '';
+            const ogDescriptionContent = Array.isArray(product.description) && product.description.length > 0
+                ? product.description.map((d: { content: string }) => d.content).join(' ')
+                : '';
+            const ogDescription = product.ogDescription || product.metaDescription || ogDescriptionContent || '';
             const ogImage = product.ogImage || (product.images && product.images.length > 0 ? product.images[0] : '');
 
             if (ogTitle) {
@@ -294,30 +429,103 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                 </div>
             </section>
 
-            {/* Product Images Gallery */}
-            {product.images && product.images.length > 0 && (
+            {/* Product Images + Applications */}
+            {(product.images?.length > 0 || product.applications?.length > 0) && (
                 <section className="bg-background py-12">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-2xl font-bold text-foreground mb-6">Product Images</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {product.images.map((image: any, index: number) => (
-                                <div key={index} className="relative aspect-video rounded-lg overflow-hidden border border-border">
-                                    {typeof image === 'string' && (image.startsWith('http') || image.startsWith('data:')) ? (
-                                        <img
-                                            src={image}
-                                            alt={`${product.title} - Image ${index + 1}`}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    ) : (
-                                        <Image
-                                            src={image}
-                                            alt={`${product.title} - Image ${index + 1}`}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    )}
-                                </div>
-                            ))}
+                        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+                            {product.images?.length > 0 && (
+                                <Card className="overflow-hidden border border-border/70 shadow-sm">
+                                    <CardHeader className="pb-3">
+                                        <CardTitle className="text-2xl">Product Images</CardTitle>
+                                        <CardDescription>
+                                            Browse product photos using the carousel controls.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,1fr)_120px] md:items-start">
+                                            <Carousel setApi={setCarouselApi} opts={{ loop: true }} className="w-full">
+                                                <CarouselContent>
+                                                    {product.images.map((image: any, index: number) => (
+                                                        <CarouselItem key={index} className="pl-0">
+                                                            <div className="relative aspect-[16/8] overflow-hidden rounded-xl border border-border bg-muted">
+                                                                {typeof image === 'string' && (image.startsWith('http') || image.startsWith('data:') || image.startsWith('/')) ? (
+                                                                    <img
+                                                                        src={image}
+                                                                        alt={`${product.title} - Image ${index + 1}`}
+                                                                        className="h-full w-full object-cover"
+                                                                    />
+                                                                ) : (
+                                                                    <Image
+                                                                        src={image}
+                                                                        alt={`${product.title} - Image ${index + 1}`}
+                                                                        fill
+                                                                        className="object-cover"
+                                                                    />
+                                                                )}
+                                                            </div>
+                                                        </CarouselItem>
+                                                    ))}
+                                                </CarouselContent>
+                                                <CarouselPrevious className="left-4" />
+                                                <CarouselNext className="right-4" />
+                                            </Carousel>
+
+                                            {product.images.length > 1 && (
+                                                <div className="grid grid-cols-3 gap-2 md:grid-cols-1">
+                                                    {product.images.map((image: any, index: number) => (
+                                                        <button
+                                                            key={index}
+                                                            type="button"
+                                                            onClick={() => carouselApi?.scrollTo(index)}
+                                                            className={`relative h-16 w-full overflow-hidden rounded-md border transition-all md:h-20 ${
+                                                                currentImageIndex === index
+                                                                    ? 'border-primary ring-1 ring-primary'
+                                                                    : 'border-border'
+                                                            }`}
+                                                            aria-label={`Go to image ${index + 1}`}
+                                                        >
+                                                            {typeof image === 'string' && (image.startsWith('http') || image.startsWith('data:') || image.startsWith('/')) ? (
+                                                                <img
+                                                                    src={image}
+                                                                    alt={`${product.title} thumbnail ${index + 1}`}
+                                                                    className="h-full w-full object-cover"
+                                                                />
+                                                            ) : (
+                                                                <Image
+                                                                    src={image}
+                                                                    alt={`${product.title} thumbnail ${index + 1}`}
+                                                                    fill
+                                                                    className="object-cover"
+                                                                />
+                                                            )}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            )}
+
+                            {product.applications?.length > 0 && (
+                                <Card className="border border-border/70">
+                                    <CardHeader>
+                                        <CardTitle className="text-2xl">Product by Application</CardTitle>
+                                        <CardDescription>Recommended use cases and deployment areas.</CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            {product.applications.map((application: string) => (
+                                                <div key={application} className="flex items-center gap-2 p-3 rounded-lg bg-muted/50 border border-border hover:bg-muted transition-colors">
+                                                    <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
+                                                    <span className="text-sm text-foreground">{application}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            )}
                         </div>
                     </div>
                 </section>
@@ -327,46 +535,42 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
             {product.features && product.features.length > 0 && (
                 <section className="bg-muted/30 py-12">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-2xl font-bold text-foreground mb-6">Key Features</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {product.features.map((feature: string) => (
-                                <div key={feature} className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
-                                    <CheckCircle2 className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
-                                    <span className="text-foreground">{feature}</span>
+                        <Card className="border border-border/70">
+                            <CardHeader>
+                                <CardTitle className="text-2xl">Key Features</CardTitle>
+                                <CardDescription>Main highlights of this product.</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {product.features.map((feature: string) => (
+                                        <div key={feature} className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+                                            <CheckCircle2 className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                                            <span className="text-foreground">{feature}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
+                            </CardContent>
+                        </Card>
                     </div>
                 </section>
             )}
 
-            {/* Description */}
-            {product.description && (
+            {/* Description Sections */}
+            {product.description && product.description.length > 0 && (
                 <section className="bg-background py-12">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-2xl font-bold text-foreground mb-6">Description</h2>
-                        <div className="prose prose-lg max-w-none">
-                            <p className="text-foreground whitespace-pre-line leading-relaxed">
-                                {product.description}
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            )}
-
-            {/* Applications */}
-            {product.applications && product.applications.length > 0 && (
-                <section className="bg-background py-12">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-2xl font-bold text-foreground mb-6">Product by Application</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                            {product.applications.map((application: string) => (
-                                <div key={application} className="flex items-center gap-2 p-3 rounded-lg bg-muted/50 border border-border hover:bg-muted transition-colors">
-                                    <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                                    <span className="text-sm text-foreground">{application}</span>
-                                </div>
-                            ))}
-                        </div>
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+                        {product.description.map((section: { title: string; content: string }, index: number) => (
+                            <Card key={index} className="border border-border/70">
+                                <CardHeader>
+                                    <CardTitle className="text-2xl">{section.title || `Section ${index + 1}`}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="prose prose-lg max-w-none">
+                                        {renderFormattedText(section.content, 'text-foreground')}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </section>
             )}
@@ -374,9 +578,13 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
             {/* Technical Information */}
             <section className="bg-background py-12">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-foreground mb-8">Technical Information</h2>
-
-                    {(() => {
+                    <Card className="border border-border/70">
+                        <CardHeader>
+                            <CardTitle className="text-3xl">Technical Information</CardTitle>
+                            <CardDescription>Specifications, panel variations, and downloadable product data.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            {(() => {
                         // Get technicalInfoTabs from product or convert from old format
                         let tabs: Array<{
                             id: string;
@@ -493,9 +701,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                                 </CardHeader>
                                                                 <CardContent>
                                                                     {section.description ? (
-                                                                        <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                                                                            {section.description}
-                                                                        </p>
+                                                                        renderFormattedText(section.description)
                                                                     ) : (
                                                                         <p className="text-muted-foreground">No description available for this section.</p>
                                                                     )}
@@ -529,9 +735,11 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                         if (!content && !oldFormat) {
                                                             return (
                                                                 <div className="space-y-4">
-                                                                    <p className="text-muted-foreground whitespace-pre-line">
-                                                                        {typeof tab.content === 'string' ? tab.content : 'No panel variations information available.'}
-                                                                    </p>
+                                                                    {renderFormattedText(
+                                                                        typeof tab.content === 'string'
+                                                                            ? tab.content
+                                                                            : 'No panel variations information available.'
+                                                                    )}
                                                                     <div className="p-4 bg-muted rounded-lg">
                                                                         <p className="text-sm text-muted-foreground">
                                                                             <strong>Note:</strong> All panel variations are available in multiple coating options and can be customized to meet your specific requirements.
@@ -629,39 +837,93 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                         )}
 
                                         {/* BIM Objects and Custom Content */}
-                                        {(tab.type === 'bimObjects' || tab.type === 'custom') && (
+                                        {tab.type === 'bimObjects' && (() => {
+                                            // Parse BIM Objects content
+                                            let bimContent: { title?: string; description?: string; files?: any[] } = {};
+                                            if (typeof tab.content === 'string' && tab.content.trim().startsWith('{')) {
+                                                try {
+                                                    bimContent = JSON.parse(tab.content);
+                                                } catch {
+                                                    bimContent = { description: tab.content, files: [] };
+                                                }
+                                            } else if (typeof tab.content === 'object' && tab.content !== null) {
+                                                bimContent = tab.content;
+                                            } else if (typeof tab.content === 'string') {
+                                                bimContent = { description: tab.content, files: [] };
+                                            }
+                                            
+                                            return (
+                                                <Card>
+                                                    <CardHeader>
+                                                        <CardTitle>{bimContent.title || tab.name}</CardTitle>
+                                                        <CardDescription>
+                                                            {bimContent.description || 'Download product drawings and specifications'}
+                                                        </CardDescription>
+                                                    </CardHeader>
+                                                    <CardContent>
+                                                        <div className="space-y-4">
+                                                            {/* Files List */}
+                                                            {(bimContent.files || []).length > 0 ? (
+                                                                <div className="grid gap-3">
+                                                                    {bimContent.files.map((file: any, fileIndex: number) => (
+                                                                        <div key={fileIndex} className="flex items-center justify-between p-3 border rounded-lg bg-muted/50">
+                                                                            <div className="flex items-center gap-3">
+                                                                                <FileText className="h-5 w-5 text-muted-foreground" />
+                                                                                <div>
+                                                                                    <p className="font-medium text-sm">{file.name || `File ${fileIndex + 1}`}</p>
+                                                                                    <p className="text-xs text-muted-foreground uppercase">{file.type || 'PDF'}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <Button 
+                                                                                variant="outline" 
+                                                                                size="sm"
+                                                                                onClick={async () => {
+                                                                                    try {
+                                                                                        const response = await fetch(file.url);
+                                                                                        const blob = await response.blob();
+                                                                                        const blobUrl = window.URL.createObjectURL(blob);
+                                                                                        const link = document.createElement('a');
+                                                                                        link.href = blobUrl;
+                                                                                        link.download = file.name || `file-${fileIndex + 1}.${file.type || 'pdf'}`;
+                                                                                        document.body.appendChild(link);
+                                                                                        link.click();
+                                                                                        document.body.removeChild(link);
+                                                                                        window.URL.revokeObjectURL(blobUrl);
+                                                                                    } catch (error) {
+                                                                                        // Fallback to opening in new tab if download fails
+                                                                                        window.open(file.url, '_blank');
+                                                                                    }
+                                                                                }}
+                                                                            >
+                                                                                <Download className="mr-2 h-4 w-4" />
+                                                                                Download
+                                                                            </Button>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            ) : (
+                                                                <div className="p-4 bg-muted rounded-lg text-center">
+                                                                    <p className="text-sm text-muted-foreground">
+                                                                        No files available for download.
+                                                                    </p>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    </CardContent>
+                                                </Card>
+                                            );
+                                        })()}
+
+                                        {tab.type === 'custom' && (
                                             <Card>
                                                 <CardHeader>
                                                     <CardTitle>{tab.name}</CardTitle>
-                                                    <CardDescription>
-                                                        {tab.type === 'bimObjects'
-                                                            ? 'Download product drawings and specifications'
-                                                            : 'Additional information'}
-                                                    </CardDescription>
+                                                    <CardDescription>Additional information</CardDescription>
                                                 </CardHeader>
                                                 <CardContent>
                                                     <div className="space-y-4">
-                                                        <p className="text-muted-foreground whitespace-pre-line">
-                                                            {typeof tab.content === 'string' ? tab.content : 'No content available.'}
-                                                        </p>
-                                                        {tab.type === 'bimObjects' && (
-                                                            <div className="flex flex-col sm:flex-row gap-4">
-                                                                <Button variant="outline" className="flex-1">
-                                                                    <Download className="mr-2 h-4 w-4" />
-                                                                    Download CAD Files
-                                                                </Button>
-                                                                <Button variant="outline" className="flex-1">
-                                                                    <Download className="mr-2 h-4 w-4" />
-                                                                    Download Revit Files
-                                                                </Button>
-                                                            </div>
-                                                        )}
-                                                        {tab.type === 'bimObjects' && (
-                                                            <div className="p-4 bg-muted rounded-lg">
-                                                                <p className="text-sm text-muted-foreground">
-                                                                    Access our complete library of free BIM Objects for all product variations. Files are available in both CAD and Revit formats.
-                                                                </p>
-                                                            </div>
+                                                        {renderFormattedText(
+                                                            typeof tab.content === 'string' ? tab.content : 'No content available.'
                                                         )}
                                                     </div>
                                                 </CardContent>
@@ -671,7 +933,9 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                 ))}
                             </Tabs>
                         );
-                    })()}
+                            })()}
+                        </CardContent>
+                    </Card>
                 </div>
             </section>
 

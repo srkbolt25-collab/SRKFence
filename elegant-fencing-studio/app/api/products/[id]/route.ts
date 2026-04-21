@@ -9,7 +9,10 @@ const productSchema = z.object({
   title: z.string().min(1).optional(),
   subtitle: z.string().optional(),
   category: z.string().min(1).optional(),
-  description: z.string().optional(),
+  description: z.union([z.string(), z.array(z.object({
+    title: z.string(),
+    content: z.string(),
+  }))]).optional(),
   price: z.string().optional(),
   displayOrder: z.number().int().nonnegative().optional(),
   metaTitle: z.string().optional(),
