@@ -865,7 +865,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                             {/* Files List */}
                                                             {(bimContent.files || []).length > 0 ? (
                                                                 <div className="grid gap-3">
-                                                                    {bimContent.files.map((file: any, fileIndex: number) => (
+                                                                    {(bimContent.files || []).map((file: any, fileIndex: number) => (
                                                                         <div key={fileIndex} className="flex items-center justify-between p-3 border rounded-lg bg-muted/50">
                                                                             <div className="flex items-center gap-3">
                                                                                 <FileText className="h-5 w-5 text-muted-foreground" />
