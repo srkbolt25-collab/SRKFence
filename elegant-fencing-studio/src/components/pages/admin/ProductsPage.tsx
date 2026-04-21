@@ -1980,7 +1980,7 @@ const ProductsPage = () => {
                             {/* Show existing files */}
                             {(contentObj.files || []).length > 0 && (
                               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                                {contentObj.files.map((file: any, fileIndex: number) => (
+                                {(contentObj.files || []).map((file: any, fileIndex: number) => (
                                   <div key={`bim-file-${fileIndex}`} className="relative group">
                                     <div className="aspect-square rounded-lg border overflow-hidden bg-muted flex items-center justify-center">
                                       <div className="text-center p-2">
