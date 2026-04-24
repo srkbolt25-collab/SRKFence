@@ -64,8 +64,12 @@ const contactInfo = {
     "Sales@srkmetals.com",
   ],
   whatsapp: "+971522160874",
-  address: "SRK FENCE Industries, Industrial Area, Phase 1, Mumbai, Maharashtra 400001, India",
-  mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.123456789!2d72.8776559!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjUiTiA3MsKwNTInMzkuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
+  address:
+    "SRK PVC ECO FENCE Chain Link Fence Welded Fence GI Wire Fence wire Mesh.",
+  googleMapsUrl:
+    "https://www.google.com/maps/place/SRK+PVC+ECO+FENCE+Chain+Link+Fence+Welded+Fence+GI+Wire+Fence+wire+Mesh/@25.319526,55.4558853,734m/data=!3m1!1e3!4m7!3m6!1s0x3e5f5fdd5d8794ad:0x13e4f76bb5a0cfbd!8m2!3d25.3198677!4d55.4585775!15sCglzcmsgZmVuY2WSARBmZW5jZV9jb250cmFjdG9y4AEA!16s%2Fg%2F11mlspkb12!5m1!1e1?entry=tts&g_ep=EgoyMDI2MDQyMS4wIPu8ASoASAFQAw%3D%3D&skid=74874bf8-d298-4a11-8b4f-cb1862c56a86",
+  mapLocation:
+    "https://www.google.com/maps?q=25.3198677,55.4585775&z=17&output=embed",
 };
 
 const ContactPage = () => {
@@ -450,6 +454,13 @@ const ContactPage = () => {
                       referrerPolicy="no-referrer-when-downgrade"
                       title="SRK FENCE Location"
                     />
+                  </div>
+                  <div className="mt-4">
+                    <Button asChild variant="outline" className="w-full">
+                      <a href={contactInfo.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                        View on Google Maps
+                      </a>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>

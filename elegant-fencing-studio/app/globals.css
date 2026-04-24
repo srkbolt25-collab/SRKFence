@@ -138,5 +138,14 @@ All colors MUST be HSL.
   .shadow-float {
     box-shadow: var(--shadow-float);
   }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 

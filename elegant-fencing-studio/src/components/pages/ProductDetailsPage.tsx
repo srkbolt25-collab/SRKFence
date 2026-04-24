@@ -439,11 +439,11 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                     <CardHeader className="pb-3">
                                         <CardTitle className="text-2xl">Product Images</CardTitle>
                                         <CardDescription>
-                                            Browse product photos using the carousel controls.
+                                            Browse product photos using the carousel controls and thumbnail strip below.
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent>
-                                        <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,1fr)_120px] md:items-start">
+                                        <div className="flex flex-col gap-4">
                                             <Carousel setApi={setCarouselApi} opts={{ loop: true }} className="w-full">
                                                 <CarouselContent>
                                                     {product.images.map((image: any, index: number) => (
@@ -472,13 +472,13 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                             </Carousel>
 
                                             {product.images.length > 1 && (
-                                                <div className="grid grid-cols-3 gap-2 md:grid-cols-1">
+                                                <div className="flex gap-3 overflow-x-auto pb-2 pr-1 no-scrollbar">
                                                     {product.images.map((image: any, index: number) => (
                                                         <button
                                                             key={index}
                                                             type="button"
                                                             onClick={() => carouselApi?.scrollTo(index)}
-                                                            className={`relative h-16 w-full overflow-hidden rounded-md border transition-all md:h-20 ${
+                                                            className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-md border transition-all sm:h-24 sm:w-32 ${
                                                                 currentImageIndex === index
                                                                     ? 'border-primary ring-1 ring-primary'
                                                                     : 'border-border'
@@ -558,19 +558,30 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
             {/* Description Sections */}
             {product.description && product.description.length > 0 && (
                 <section className="bg-background py-12">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-                        {product.description.map((section: { title: string; content: string }, index: number) => (
-                            <Card key={index} className="border border-border/70">
-                                <CardHeader>
-                                    <CardTitle className="text-2xl">{section.title || `Section ${index + 1}`}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="prose prose-lg max-w-none">
-                                        {renderFormattedText(section.content, 'text-foreground')}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))}
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                            {product.description.map((section: { title: string; content: string; layout?: 'long' | 'small' }, index: number) => {
+                                const isLongCard = section.layout !== 'small';
+
+                                return (
+                                    <Card
+                                        key={index}
+                                        className={`border border-border/70 ${isLongCard ? 'md:col-span-2 xl:col-span-3' : 'h-full'}`}
+                                    >
+                                        <CardHeader className={isLongCard ? 'pb-3' : 'pb-2'}>
+                                            <CardTitle className={isLongCard ? 'text-2xl uppercase tracking-tight' : 'text-xl uppercase tracking-tight'}>
+                                                {section.title || `Section ${index + 1}`}
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <div className={isLongCard ? 'prose prose-lg max-w-none' : 'prose prose-sm max-w-none'}>
+                                                {renderFormattedText(section.content, 'text-foreground')}
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                );
+                            })}
+                        </div>
                     </div>
                 </section>
             )}

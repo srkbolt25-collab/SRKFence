@@ -51,7 +51,7 @@ const ProductsPage = () => {
     subtitle: "",
     displayOrder: "0",
     category: "",
-    description: [] as Array<{ title: string; content: string }>,
+    description: [] as Array<{ title: string; content: string; layout: 'long' | 'small' }>,
     metaTitle: "",
     metaDescription: "",
     focusKeywords: "",
@@ -268,7 +268,13 @@ const ProductsPage = () => {
             : 0
         ),
         category: product.category || "",
-        description: Array.isArray(product.description) ? product.description : (product.description ? [{ title: "Description", content: product.description }] : []),
+        description: Array.isArray(product.description)
+          ? product.description.map((section: any) => ({
+              title: section.title || "Description",
+              content: section.content || "",
+              layout: section.layout === "small" ? "small" : "long",
+            }))
+          : (product.description ? [{ title: "Description", content: product.description, layout: "long" }] : []),
         metaTitle: product.metaTitle || "",
         metaDescription: product.metaDescription || "",
         focusKeywords: product.focusKeywords || "",
@@ -440,7 +446,7 @@ const ProductsPage = () => {
       ...formData,
       description: [
         ...formData.description,
-        { title: "", content: "" },
+        { title: "", content: "", layout: "long" },
       ],
     });
   };
@@ -454,13 +460,21 @@ const ProductsPage = () => {
 
   const handleDescriptionTitleChange = (index: number, title: string) => {
     const updated = [...formData.description];
-    updated[index] = { ...updated[index], title };
+    const current = updated[index] ?? { title: "", content: "", layout: "long" as const };
+    updated[index] = { ...current, title, layout: current.layout };
     setFormData({ ...formData, description: updated });
   };
 
   const handleDescriptionContentChange = (index: number, content: string) => {
     const updated = [...formData.description];
-    updated[index] = { ...updated[index], content };
+    const current = updated[index] ?? { title: "", content: "", layout: "long" as const };
+    updated[index] = { ...current, content, layout: current.layout };
+    setFormData({ ...formData, description: updated });
+  };
+
+  const handleDescriptionLayoutChange = (index: number, layout: 'long' | 'small') => {
+    const updated = [...formData.description];
+    updated[index] = { ...updated[index], layout };
     setFormData({ ...formData, description: updated });
   };
 
@@ -1427,14 +1441,34 @@ const ProductsPage = () => {
                             </Button>
                           </div>
                         </CardHeader>
-                        <CardContent className="space-y-2">
-                          <Label>Description</Label>
-                          <Textarea
-                            value={section.content}
-                            onChange={(e) => handleDescriptionContentChange(index, e.target.value)}
-                            placeholder="Enter detailed description for this section..."
-                            rows={4}
-                          />
+                        <CardContent className="space-y-4">
+                          <div className="space-y-2">
+                            <Label>Card Type</Label>
+                            <Select
+                              value={section.layout || "long"}
+                              onValueChange={(value) => handleDescriptionLayoutChange(index, value as 'long' | 'small')}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Choose card type" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="long">Long Card</SelectItem>
+                                <SelectItem value="small">Small Card</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <p className="text-xs text-muted-foreground">
+                              Long cards span the full width. Small cards are grouped into a 1 to 3 column layout on the product page.
+                            </p>
+                          </div>
+                          <div className="space-y-2">
+                            <Label>Description</Label>
+                            <Textarea
+                              value={section.content}
+                              onChange={(e) => handleDescriptionContentChange(index, e.target.value)}
+                              placeholder="Enter detailed description for this section..."
+                              rows={4}
+                            />
+                          </div>
                         </CardContent>
                       </Card>
                     ))}

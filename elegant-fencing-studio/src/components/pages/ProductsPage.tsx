@@ -395,7 +395,16 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                   <Card
                     id={`product-${product.id}`}
                     key={product.id}
-                    className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    role="link"
+                    tabIndex={0}
+                    onClick={() => handleViewDetails(product)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleViewDetails(product);
+                      }
+                    }}
+                    className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     <div className="relative h-52 w-full overflow-hidden bg-muted">
                       {typeof product.image === 'string' && product.image.startsWith('http') ? (
@@ -456,7 +465,10 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
 
                       <div className="grid grid-cols-2 gap-2">
                         <Button
-                          onClick={() => handleViewDetails(product)}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            handleViewDetails(product);
+                          }}
                           variant="outline"
                           className="h-10 rounded-full border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
                         >
@@ -464,7 +476,10 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                           View
                         </Button>
                         <Button
-                          onClick={() => handleAddToRFQ(product.id, product.title)}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            handleAddToRFQ(product.id, product.title);
+                          }}
                           className="h-10 rounded-full bg-gradient-to-r from-[#c5162a] to-[#e63946] text-white hover:shadow-glow"
                         >
                           <FileText className="mr-1.5 h-4 w-4" />

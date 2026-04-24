@@ -12,6 +12,7 @@ const productSchema = z.object({
   description: z.union([z.string(), z.array(z.object({
     title: z.string(),
     content: z.string(),
+    layout: z.enum(['long', 'small']).optional(),
   }))]).optional(),
   price: z.string().optional(),
   displayOrder: z.number().int().nonnegative().optional(),
@@ -215,4 +216,3 @@ export async function DELETE(
     );
   }
 }
-
