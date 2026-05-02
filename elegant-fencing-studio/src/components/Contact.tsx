@@ -50,12 +50,6 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-lg text-foreground mb-2">Email</h3>
-                  <a href="mailto:sales@srkfencing.com" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
-                    sales@srkfencing.com
-                  </a>
-                  <a href="mailto:bdm@srkfencing.com" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
-                    bdm@srkfencing.com
-                  </a>
                   <a href="mailto:info@srkfencing.com" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
                     info@srkfencing.com
                   </a>
@@ -73,7 +67,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-lg text-foreground mb-2">Location</h3>
-                  <p className="text-muted-foreground text-lg font-medium">Serving clients internationally</p>
+                  <p className="text-muted-foreground text-lg font-medium">
+                    Sharjah Publication City (SPC), City Center - E311 - opposite Al Zahia - Muwaileh Commercial - Al Zahia - Sharjah - United Arab Emirates
+                  </p>
                 </div>
               </div>
             </div>

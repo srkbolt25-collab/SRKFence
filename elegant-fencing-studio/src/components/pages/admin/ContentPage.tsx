@@ -118,7 +118,7 @@ const ContentPage = () => {
                 <Textarea
                   id="footer-address"
                   rows={3}
-                  defaultValue="SRK FENCE Industries, Industrial Area, Phase 1, Mumbai, Maharashtra 400001, India"
+                  defaultValue="Sharjah Publication City (SPC), City Center - E311 - opposite Al Zahia - Muwaileh Commercial - Al Zahia - Sharjah - United Arab Emirates"
                 />
               </div>
               <Button className="bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow">

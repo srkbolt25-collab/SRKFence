@@ -14,41 +14,48 @@ import { useToast } from "@/hooks/use-toast";
 // Team members data
 const salesTeam = [
   {
-    name: "Rajesh Kumar",
-    position: "Sales Manager",
-    email: "rajesh.kumar@srkfence.com",
-    phone: "+91-9876543210",
+    name: "Vikram Singh",
+    position: "BDM",
+    email: "bdm@srkmetals.com",
+    phone: "",
     department: "Sales",
   },
   {
-    name: "Priya Sharma",
-    position: "Senior Sales Executive",
-    email: "priya.sharma@srkfence.com",
-    phone: "+91-9876543211",
-    department: "Sales",
-  },
-  {
-    name: "Amit Patel",
+    name: "Sandeep Kumar",
     position: "Sales Executive",
-    email: "amit.patel@srkfence.com",
-    phone: "+91-9876543212",
+    email: "sandeep@srkmetals.com",
+    phone: "",
+    department: "Sales",
+  },
+  {
+    name: "Ravi",
+    position: "Sales Executive",
+    email: "Sales@srkmetals.com",
+    phone: "",
+    department: "Sales",
+  },
+  {
+    name: "Kalyan Singh",
+    position: "Sales Manager",
+    email: "kalyan@srkmetals.com",
+    phone: "",
     department: "Sales",
   },
 ];
 
 const purchaseTeam = [
   {
-    name: "Sunil Reddy",
-    position: "Purchase Manager",
-    email: "sunil.reddy@srkfence.com",
-    phone: "+91-9876543213",
+    name: "Pawan Kumar",
+    position: "Purchase Head",
+    email: "procurement@srkmetals.com",
+    phone: "",
     department: "Purchase",
   },
   {
-    name: "Neha Gupta",
-    position: "Purchase Executive",
-    email: "neha.gupta@srkfence.com",
-    phone: "+91-9876543214",
+    name: "Sunil Kumar",
+    position: "Purchase Assistant ",
+    email: "purchase@srkmetals.com",
+    phone: "",
     department: "Purchase",
   },
 ];
@@ -58,18 +65,16 @@ const contactInfo = {
   phone: "+971 52 216 0874",
   phoneSecondary: "+971 52 848 9775",
   emails: [
-    "sales@srkfencing.com",
-    "bdm@srkfencing.com",
     "info@srkfencing.com",
     "Sales@srkmetals.com",
   ],
   whatsapp: "+971522160874",
   address:
-    "SRK PVC ECO FENCE Chain Link Fence Welded Fence GI Wire Fence wire Mesh.",
+    "Sharjah Publication City (SPC), City Center - E311 - opposite Al Zahia - Muwaileh Commercial - Al Zahia - Sharjah - United Arab Emirates",
   googleMapsUrl:
-    "https://www.google.com/maps/place/SRK+PVC+ECO+FENCE+Chain+Link+Fence+Welded+Fence+GI+Wire+Fence+wire+Mesh/@25.319526,55.4558853,734m/data=!3m1!1e3!4m7!3m6!1s0x3e5f5fdd5d8794ad:0x13e4f76bb5a0cfbd!8m2!3d25.3198677!4d55.4585775!15sCglzcmsgZmVuY2WSARBmZW5jZV9jb250cmFjdG9y4AEA!16s%2Fg%2F11mlspkb12!5m1!1e1?entry=tts&g_ep=EgoyMDI2MDQyMS4wIPu8ASoASAFQAw%3D%3D&skid=74874bf8-d298-4a11-8b4f-cb1862c56a86",
+    "https://www.google.com/maps/search/?api=1&query=Sharjah%20Publication%20City%20(SPC)%2C%20City%20Center%20-%20E311%20-%20opposite%20Al%20Zahia%20-%20Muwaileh%20Commercial%20-%20Al%20Zahia%20-%20Sharjah%20-%20United%20Arab%20Emirates",
   mapLocation:
-    "https://www.google.com/maps?q=25.3198677,55.4585775&z=17&output=embed",
+    "https://www.google.com/maps?q=Sharjah%20Publication%20City%20(SPC)%2C%20City%20Center%20-%20E311%20-%20opposite%20Al%20Zahia%20-%20Muwaileh%20Commercial%20-%20Al%20Zahia%20-%20Sharjah%20-%20United%20Arab%20Emirates&z=17&output=embed",
 };
 
 const ContactPage = () => {
@@ -216,10 +221,12 @@ const ContactPage = () => {
                       <Mail className="w-4 h-4" />
                       {member.email}
                     </a>
-                    <a href={`tel:${member.phone}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                      <Phone className="w-4 h-4" />
-                      {member.phone}
-                    </a>
+                    {member.phone ? (
+                      <a href={`tel:${member.phone}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <Phone className="w-4 h-4" />
+                        {member.phone}
+                      </a>
+                    ) : null}
                   </CardContent>
                 </Card>
               ))}
@@ -234,7 +241,7 @@ const ContactPage = () => {
               </div>
               <h3 className="text-2xl font-bold text-foreground">Purchase Team</h3>
             </div>
-            <div className="grid md:grid-cols-2 gap-6 max-w-2xl">
+            <div className="grid md:grid-cols-3 gap-6">
               {purchaseTeam.map((member, idx) => (
                 <Card key={idx} className="border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5">
                   <CardHeader>
@@ -246,10 +253,12 @@ const ContactPage = () => {
                       <Mail className="w-4 h-4" />
                       {member.email}
                     </a>
-                    <a href={`tel:${member.phone}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                      <Phone className="w-4 h-4" />
-                      {member.phone}
-                    </a>
+                    {member.phone ? (
+                      <a href={`tel:${member.phone}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <Phone className="w-4 h-4" />
+                        {member.phone}
+                      </a>
+                    ) : null}
                   </CardContent>
                 </Card>
               ))}
@@ -312,7 +321,7 @@ const ContactPage = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+91-9876543210"
+                      placeholder="+971-522160874"
                       required
                       className="h-12"
                     />

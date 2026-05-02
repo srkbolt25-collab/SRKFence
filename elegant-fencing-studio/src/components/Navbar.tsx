@@ -68,7 +68,7 @@ const navigationLinks = [
   { label: "Projects", to: "/projects" },
   { label: "Blog", to: "/blog" },
   { label: "Why Us", to: "/why-us" },
-  { label: "Contact", to: "/contact" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 const Navbar = () => {
@@ -140,15 +140,15 @@ const Navbar = () => {
   }, [pathname]);
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-border/40 bg-white/80 backdrop-blur-xl shadow-modern transition-all duration-300">
+    <nav className="fixed top-9 z-50 w-full border-b border-border/40 bg-white/80 backdrop-blur-xl shadow-modern transition-all duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-3 group">
               <img
-                src="/srk_fence-removebg-preview.png"
+                src="/WhatsApp%20Image%202026-05-02%20at%2012.40.31%20PM.jpeg"
                 alt="SRK FENCE"
-                className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
           </div>
