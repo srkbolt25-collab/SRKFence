@@ -120,21 +120,13 @@ export default function BlogPage() {
               <Link key={post.slug} href={`/blog/${post.slug}`}>
                 <Card className="group h-full overflow-hidden border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5 transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-hover cursor-pointer">
                   <div className="relative h-64 overflow-hidden">
-                    {typeof imageSrc === 'string' && imageSrc.startsWith('http') ? (
-                      <img
-                        src={imageSrc}
-                        alt={post.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    ) : (
-                      <Image
-                        src={imageSrc}
-                        alt={post.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    )}
+                    <Image
+                      src={imageSrc}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     <div className="absolute top-4 left-4">
                       <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5">

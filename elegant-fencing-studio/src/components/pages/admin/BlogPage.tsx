@@ -29,6 +29,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Image from "next/image";
 import { apiClient } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
 
@@ -470,10 +471,12 @@ const BlogPage = () => {
                 {formData.image && (
                   <div className="relative aspect-video rounded-lg overflow-hidden border border-border max-w-md">
                     {formData.image.startsWith('http') ? (
-                      <img
+                      <Image
                         src={formData.image}
                         alt="Blog post image"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 640px"
                       />
                     ) : (
                       <div className="w-full h-full bg-muted flex items-center justify-center text-xs text-muted-foreground">

@@ -18,21 +18,21 @@ import { useEffect, useState } from "react";
 
 const heroSlides = [
   {
-    image: "/SRK FENCE Banners.png",
+    image: "/SRK FENCE Banners.webp",
     title: "Chain link fence",
     highlight: "Durable & Secure",
     badge: "Chain link fence",
     description: "A chain link fence consists of interwoven steel wires forming a diamond-shaped mesh structure. It is cost-effective, durable, and widely used for securing open areas like playgrounds, factories, and sports grounds. It allows clear visibility while offering reliable perimeter protection.",
   },
   {
-    image: "/SRK FENCE Banners1.jpg",
+    image: "/SRK FENCE Banners1.webp",
     title: "Welded fence (Welded wire fence)",
     highlight: "Strong & Rigid",
     badge: "Welded Fence",
     description: "A welded fence is made from steel wires that are welded together at their intersections to form a strong and rigid mesh. It is commonly used for security, boundary marking, and industrial or residential applications. It provides high strength with minimal maintenance and a long service life.",
   },
   {
-    image: "/SRK FENCE Banners2.jpg",
+    image: "/SRK FENCE Banners2.webp",
     title: "Eco PVC hoarding fence",
     highlight: "Clean & Weather-Resistant",
     badge: "Eco PVC Hoarding",
@@ -40,7 +40,7 @@ const heroSlides = [
       "An Eco PVC hoarding fence is made from lightweight, weather-resistant PVC panels designed mainly for temporary or semi-permanent site enclosures. It offers a clean appearance, easy installation, and is recyclable and environmentally friendly. It is ideal for construction sites where safety, branding, and visual screening are required.",
   },
   {
-    image: "/WhatsApp Image 2025-12-20 at 11.22.40 AM.jpeg",
+    image: "/WhatsApp Image 2025-12-20 at 11.22.40 AM.webp",
     title: "PPGI corrugated fence",
     highlight: "Durable & Corrosion-Resistant",
     badge: "PPGI Corrugated",
@@ -48,6 +48,9 @@ const heroSlides = [
       "A PPGI corrugated fence is made from pre-painted galvanized iron sheets with a wavy (corrugated) profile for added strength. It is highly durable, corrosion-resistant, and commonly used for industrial boundaries and construction sites. It provides excellent weather protection and a neat, long-lasting finish.",
   },
 ];
+
+const heroBlurDataURL =
+  "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoIAAUAAUAmJaACdLoB+AADsAD+8ut//NgVzXPv9//S4P0uD9LgAAAA";
 
 const Hero = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -90,7 +93,12 @@ const Hero = () => {
                     fill
                     className="object-cover scale-105 transition-transform ease-out"
                     style={{ transitionDuration: '20s' }}
+                    sizes="100vw"
                     priority={index === 0}
+                    quality={75}
+                    placeholder="blur"
+                    blurDataURL={heroBlurDataURL}
+                    loading={index === 0 ? undefined : "lazy"}
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-[#360c13]/96 via-[#360c13]/88 to-[#1f0a0f]/70" />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(356_70%_30%/_0.3)_0%,transparent_50%)]" />
@@ -151,6 +159,9 @@ const Hero = () => {
                   fill
                   className="object-cover transition-transform ease-out hover:scale-110"
                   style={{ transitionDuration: '20s' }}
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  loading="lazy"
+                  quality={65}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>

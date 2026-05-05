@@ -1,13 +1,5 @@
-'use client';
-
-export const dynamic = 'force-dynamic';
-
-import dynamicImport from 'next/dynamic';
 import SiteLayout from '@/components/SiteLayout';
-
-const ContactPage = dynamicImport(() => import('@/components/pages/ContactPage'), {
-  ssr: false,
-});
+import ContactPage from '@/components/pages/ContactPage';
 
 export default function Contact() {
   return (

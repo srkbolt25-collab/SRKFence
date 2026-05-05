@@ -28,7 +28,7 @@ const applicationsData: Record<string, {
     title: 'Residential Fencing',
     description: 'Secure and stylish fencing solutions for homes, apartments, and residential communities.',
     longDescription: 'SRK FENCE provides premium residential fencing solutions that combine security, privacy, and aesthetic appeal. Our residential fencing systems are designed to enhance your property value while providing the protection and privacy your family deserves. From elegant picket fences to high-security perimeter systems, we offer a wide range of options to suit every residential need.',
-    image: '/applicartion/temporary-fence-hoarding-uae-construction-site.png',
+    image: '/applicartion/temporary-fence-hoarding-uae-construction-site.webp',
     features: [
       'Enhanced Privacy & Security',
       'Aesthetic Appeal & Curb Appeal',
@@ -66,7 +66,7 @@ const applicationsData: Record<string, {
     title: 'Commercial & Industrial Fencing',
     description: 'Robust fencing systems for commercial properties, factories, and industrial facilities.',
     longDescription: 'Our commercial and industrial fencing solutions are engineered to meet the demanding requirements of business facilities. Whether you need to secure a retail complex, protect an industrial plant, or establish clear boundaries for commercial properties, SRK FENCE delivers durable, cost-effective fencing systems that stand up to heavy use and harsh conditions.',
-    image: '/applicartion/galvanized-welded-wire-mesh-fence-uae.png',
+    image: '/applicartion/galvanized-welded-wire-mesh-fence-uae.webp',
     features: [
       'High Security & Durability',
       'Cost-Effective Solutions',
@@ -104,7 +104,7 @@ const applicationsData: Record<string, {
     title: 'Oil & Gas Sector Fencing',
     description: 'Specialized fencing for oil refineries, gas plants, and energy facilities.',
     longDescription: 'The oil and gas industry requires specialized fencing solutions that can withstand extreme conditions while maintaining strict security standards. SRK FENCE provides corrosion-resistant, high-security fencing systems designed specifically for refineries, gas plants, pipelines, and energy facilities. Our solutions meet industry safety standards and regulatory requirements.',
-    image: '/applicartion/heavy-duty-chain-link-fence-gcc-supplier.png',
+    image: '/applicartion/heavy-duty-chain-link-fence-gcc-supplier.webp',
     features: [
       'Corrosion Resistant Materials',
       'Safety Compliance & Standards',
@@ -142,7 +142,7 @@ const applicationsData: Record<string, {
     title: 'Data Centers Fencing',
     description: 'High-security fencing solutions for data centers and critical IT infrastructure.',
     longDescription: 'Data centers house critical IT infrastructure that requires the highest levels of security. SRK FENCE provides CPNI and LPS1175 certified fencing systems specifically designed for data centers and critical infrastructure facilities. Our solutions integrate with advanced monitoring systems and provide multiple layers of security to protect sensitive information and equipment.',
-    image: '/applicartion/razor-barbed-wire-fence-high-security-gcc.png',
+    image: '/applicartion/razor-barbed-wire-fence-high-security-gcc.webp',
     features: [
       'CPNI & LPS1175 Certified',
       'Integrated Monitoring Systems',
@@ -180,7 +180,7 @@ const applicationsData: Record<string, {
     title: 'Schools & Public Parks Fencing',
     description: 'Safe and secure fencing for educational institutions and public recreational areas.',
     longDescription: 'Creating safe environments for children and communities is our priority. SRK FENCE provides child-safe, high-visibility fencing solutions for schools, playgrounds, and public parks. Our systems are designed to ensure safety while maintaining visibility for supervision. We use materials and designs that meet child safety standards and provide durable solutions for high-traffic public areas.',
-    image: '/applicartion/construction-site-temporary-fence-gcc.png',
+    image: '/applicartion/construction-site-temporary-fence-gcc.webp',
     features: [
       'Child-Safe Design Standards',
       'High Visibility Mesh',
@@ -218,7 +218,7 @@ const applicationsData: Record<string, {
     title: 'Farms & Animal Enclosures',
     description: 'Specialized fencing for agricultural properties, livestock management, and animal enclosures.',
     longDescription: 'Agricultural and livestock operations require specialized fencing that can contain animals while withstanding weather and wear. SRK FENCE provides durable, weather-resistant fencing solutions designed for farms, ranches, and animal enclosures. Our systems are engineered to handle the unique challenges of agricultural environments while providing reliable containment and protection.',
-    image: '/applicartion/marine-grade-fencing-ss316l-uae.png',
+    image: '/applicartion/marine-grade-fencing-ss316l-uae.webp',
     features: [
       'Animal Containment Design',
       'Weather Resistant Materials',
@@ -256,7 +256,7 @@ const applicationsData: Record<string, {
     title: 'Boundary & Security Fencing',
     description: 'Perimeter security fencing for critical infrastructure, military bases, and high-security facilities.',
     longDescription: 'Critical infrastructure and high-security facilities require perimeter fencing that provides maximum protection against unauthorized access. SRK FENCE delivers advanced security fencing systems designed for military installations, government facilities, and critical infrastructure. Our solutions incorporate anti-climb, anti-cut, and anti-ram features with integrated surveillance capabilities.',
-    image: '/applicartion/powder-coated-wire-mesh-fence-uae.png',
+    image: '/applicartion/powder-coated-wire-mesh-fence-uae.webp',
     features: [
       'Maximum Security Standards',
       'Anti-Climb & Anti-Cut Design',
@@ -294,7 +294,7 @@ const applicationsData: Record<string, {
     title: 'Warehouses & Logistic Centers',
     description: 'Secure fencing solutions for warehouses, distribution centers, and logistics facilities.',
     longDescription: 'Warehouses and logistics centers require fencing that protects valuable inventory while allowing efficient operations. SRK FENCE provides secure, scalable fencing solutions designed for distribution centers, warehouses, and logistics facilities. Our systems balance security needs with operational efficiency, providing access control while protecting assets.',
-    image: '/applicartion/complete-fencing-solutions-gcc-middle-east.png',
+    image: '/applicartion/complete-fencing-solutions-gcc-middle-east.webp',
     features: [
       'Asset Protection',
       'Access Control Integration',
@@ -332,7 +332,7 @@ const applicationsData: Record<string, {
     title: 'Country Border Fencing',
     description: 'Large-scale border security fencing systems for national boundaries.',
     longDescription: 'National border security requires large-scale fencing systems engineered for extreme conditions and maximum security. SRK FENCE provides comprehensive border fencing solutions designed for national boundaries, incorporating advanced security features, surveillance integration, and durable construction to withstand harsh environmental conditions over vast distances.',
-    image: '/applicartion/industrial-fencing-solutions-uae-ksa-qatar.png',
+    image: '/applicartion/industrial-fencing-solutions-uae-ksa-qatar.webp',
     features: [
       'National Security Standards',
       'Extreme Durability',
@@ -444,6 +444,8 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
         variant="contrast"
         backgroundImage={application.image}
         overlayClassName="from-black/85 via-black/75 to-black/60"
+        className="mt-0 min-h-[520px] md:min-h-[620px] lg:min-h-[720px] bg-black"
+        imageClassName="object-contain object-top"
       />
 
       <section className="bg-background py-24">
@@ -554,6 +556,8 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
                             fill
                             className="object-cover transition-transform duration-300 group-hover:scale-110"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            loading="lazy"
+                            quality={65}
                           />
                         )}
                       </div>

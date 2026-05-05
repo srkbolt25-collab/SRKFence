@@ -9,6 +9,8 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    formats: ['image/webp'],
+    minimumCacheTTL: 2678400,
     unoptimized: false,
   },
   // Exclude src/pages from being treated as routes (we use App Router only)

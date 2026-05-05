@@ -449,20 +449,13 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                     {product.images.map((image: any, index: number) => (
                                                         <CarouselItem key={index} className="pl-0">
                                                             <div className="relative aspect-[16/8] overflow-hidden rounded-xl border border-border bg-muted">
-                                                                {typeof image === 'string' && (image.startsWith('http') || image.startsWith('data:') || image.startsWith('/')) ? (
-                                                                    <img
-                                                                        src={image}
-                                                                        alt={`${product.title} - Image ${index + 1}`}
-                                                                        className="h-full w-full object-cover"
-                                                                    />
-                                                                ) : (
-                                                                    <Image
-                                                                        src={image}
-                                                                        alt={`${product.title} - Image ${index + 1}`}
-                                                                        fill
-                                                                        className="object-cover"
-                                                                    />
-                                                                )}
+                                                                <Image
+                                                                    src={image}
+                                                                    alt={`${product.title} - Image ${index + 1}`}
+                                                                    fill
+                                                                    className="object-cover"
+                                                                    sizes="(max-width: 768px) 100vw, 70vw"
+                                                                />
                                                             </div>
                                                         </CarouselItem>
                                                     ))}
@@ -485,20 +478,13 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                             }`}
                                                             aria-label={`Go to image ${index + 1}`}
                                                         >
-                                                            {typeof image === 'string' && (image.startsWith('http') || image.startsWith('data:') || image.startsWith('/')) ? (
-                                                                <img
-                                                                    src={image}
-                                                                    alt={`${product.title} thumbnail ${index + 1}`}
-                                                                    className="h-full w-full object-cover"
-                                                                />
-                                                            ) : (
-                                                                <Image
-                                                                    src={image}
-                                                                    alt={`${product.title} thumbnail ${index + 1}`}
-                                                                    fill
-                                                                    className="object-cover"
-                                                                />
-                                                            )}
+                                                            <Image
+                                                                src={image}
+                                                                alt={`${product.title} thumbnail ${index + 1}`}
+                                                                fill
+                                                                className="object-cover"
+                                                                sizes="128px"
+                                                            />
                                                         </button>
                                                     ))}
                                                 </div>

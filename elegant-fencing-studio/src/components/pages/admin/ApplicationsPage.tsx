@@ -29,6 +29,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Image from "next/image";
 import { apiClient } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
 
@@ -542,10 +543,12 @@ const ApplicationsPage = () => {
                         <div key={idx} className="relative group">
                           <div className="relative aspect-video rounded-lg overflow-hidden border border-border">
                             {imageUrl.startsWith('http') ? (
-                              <img
+                              <Image
                                 src={imageUrl}
                                 alt={`Image ${idx + 1}`}
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 33vw"
                               />
                             ) : (
                               <div className="w-full h-full bg-muted flex items-center justify-center text-xs text-muted-foreground">

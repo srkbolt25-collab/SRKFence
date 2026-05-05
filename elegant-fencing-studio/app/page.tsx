@@ -1,7 +1,3 @@
-'use client';
-
-export const dynamic = 'force-dynamic';
-
 import SiteLayout from '@/components/SiteLayout';
 import Hero from '@/components/Hero'; 
 import Benefits from '@/components/Benefits';

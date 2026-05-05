@@ -71,21 +71,13 @@ const ProjectHighlights = () => {
                 className="group relative overflow-hidden rounded-2xl bg-background border border-border hover:border-primary/50 hover:shadow-float transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="relative h-64 overflow-hidden">
-                  {typeof project.image === 'string' && project.image.startsWith('http') ? (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  ) : (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  )}
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2">

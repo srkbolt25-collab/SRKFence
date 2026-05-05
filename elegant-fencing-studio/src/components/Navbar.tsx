@@ -151,7 +151,8 @@ const Navbar = () => {
                 width={180}
                 height={64}
                 className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                priority
+                loading="lazy"
+                quality={65}
               />
             </Link>
           </div>
@@ -221,21 +222,15 @@ const Navbar = () => {
                           >
                             {product.image ? (
                               <div className="relative h-16 w-16 flex-shrink-0 rounded-md overflow-hidden border border-border bg-muted">
-                                {typeof product.image === 'string' && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.startsWith('/')) ? (
-                                  <img
-                                    src={product.image}
-                                    alt={product.title}
-                                    className="w-full h-full object-cover"
-                                  />
-                                ) : (
-                                  <Image
-                                    src={product.image}
-                                    alt={product.title}
-                                    fill
-                                    className="object-cover"
-                                    sizes="64px"
-                                  />
-                                )}
+                                <Image
+                                  src={product.image}
+                                  alt={product.title}
+                                  fill
+                                  className="object-cover"
+                                  sizes="64px"
+                                  loading="lazy"
+                                  quality={65}
+                                />
                               </div>
                             ) : (
                               <div className="h-16 w-16 flex-shrink-0 rounded-md bg-muted flex items-center justify-center">
@@ -376,21 +371,15 @@ const Navbar = () => {
                             >
                               {product.image ? (
                                 <div className="relative h-16 w-16 flex-shrink-0 rounded-md overflow-hidden border border-border bg-muted">
-                                  {typeof product.image === 'string' && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.startsWith('/')) ? (
-                                    <img
-                                      src={product.image}
-                                      alt={product.title}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  ) : (
-                                    <Image
-                                      src={product.image}
-                                      alt={product.title}
-                                      fill
-                                      className="object-cover"
-                                      sizes="64px"
-                                    />
-                                  )}
+                                  <Image
+                                    src={product.image}
+                                    alt={product.title}
+                                    fill
+                                    className="object-cover"
+                                    sizes="64px"
+                                    loading="lazy"
+                                    quality={65}
+                                  />
                                 </div>
                               ) : (
                                 <div className="h-16 w-16 flex-shrink-0 rounded-md bg-muted flex items-center justify-center">

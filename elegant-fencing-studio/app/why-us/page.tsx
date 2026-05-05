@@ -1,13 +1,5 @@
-'use client';
-
-export const dynamic = 'force-dynamic';
-
-import dynamicImport from 'next/dynamic';
 import SiteLayout from '@/components/SiteLayout';
-
-const WhyUsPage = dynamicImport(() => import('@/components/pages/WhyUsPage'), {
-  ssr: false,
-});
+import WhyUsPage from '@/components/pages/WhyUsPage';
 
 export default function WhyUs() {
   return (

@@ -70,9 +70,10 @@ const WhyUsPage = () => {
                 src={slide}
                 alt={`Why SRK Fence hero ${index + 1}`}
                 fill
-                priority={index === 0}
                 className="object-cover object-[center_top]"
                 sizes="100vw"
+                loading="lazy"
+                quality={65}
               />
             </div>
           ))}
@@ -133,6 +134,8 @@ const WhyUsPage = () => {
               alt="SRK FENCE team at work"
               fill
               className="object-cover"
+              loading="lazy"
+              quality={65}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
             <div className="absolute bottom-6 left-6 text-primary-foreground">

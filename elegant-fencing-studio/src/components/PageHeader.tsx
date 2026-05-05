@@ -14,6 +14,8 @@ interface PageHeaderProps {
   children?: ReactNode;
   backgroundImage?: string | StaticImageData;
   overlayClassName?: string;
+  imageClassName?: string;
+  priority?: boolean;
 }
 
 const variantStyles: Record<PageHeaderVariant, string> = {
@@ -31,6 +33,8 @@ const PageHeader = ({
   children,
   backgroundImage,
   overlayClassName,
+  imageClassName,
+  priority = false,
 }: PageHeaderProps) => {
   const descriptionClasses = cn(
     "text-lg sm:text-xl mb-8 max-w-2xl",
@@ -42,11 +46,16 @@ const PageHeader = ({
       {backgroundImage ? (
         <>
           <div className="absolute inset-0">
-            {typeof backgroundImage === 'string' ? (
-              <img src={backgroundImage} alt="" className="w-full h-full object-cover" />
-            ) : (
-              <Image src={backgroundImage} alt="" fill className="object-cover" />
-            )}
+            <Image
+              src={backgroundImage}
+              alt=""
+              fill
+              className={cn("object-cover", imageClassName)}
+              sizes="100vw"
+              priority={priority}
+              loading={priority ? undefined : "lazy"}
+              quality={65}
+            />
           </div>
           <div
             className={cn(

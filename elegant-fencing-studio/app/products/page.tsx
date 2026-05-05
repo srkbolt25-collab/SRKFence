@@ -1,12 +1,4 @@
-'use client';
-
-export const dynamic = 'force-dynamic';
-
-import dynamicImport from 'next/dynamic';
-
-const ProductsPage = dynamicImport(() => import('@/components/pages/ProductsPage'), {
-  ssr: false,
-});
+import ProductsPage from '@/components/pages/ProductsPage';
 
 export default function Products() {
   return <ProductsPage />;

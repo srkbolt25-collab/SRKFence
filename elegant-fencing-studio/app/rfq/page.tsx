@@ -304,21 +304,13 @@ export default function RFQPage() {
                     >
                       {product.image ? (
                         <div className="relative h-12 w-12 flex-shrink-0 rounded-md overflow-hidden border border-border bg-muted">
-                          {typeof product.image === 'string' && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.startsWith('/')) ? (
-                            <img
-                              src={product.image}
-                              alt={product.title}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <Image
-                              src={product.image}
-                              alt={product.title}
-                              fill
-                              className="object-cover"
-                              sizes="48px"
-                            />
-                          )}
+                          <Image
+                            src={product.image}
+                            alt={product.title}
+                            fill
+                            className="object-cover"
+                            sizes="48px"
+                          />
                         </div>
                       ) : (
                         <div className="h-12 w-12 flex-shrink-0 rounded-md bg-muted flex items-center justify-center">

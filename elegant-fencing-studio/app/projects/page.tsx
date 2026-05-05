@@ -244,21 +244,13 @@ export default function ProjectsPage() {
                     onClick={() => setSelectedProject(project)}
                   >
                     <div className="relative h-64 overflow-hidden">
-                      {typeof projectImages[0] === 'string' && projectImages[0].startsWith('http') ? (
-                        <img
-                          src={projectImages[0]}
-                          alt={project.title}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                      ) : (
-                        <Image
-                          src={projectImages[0]}
-                          alt={project.title}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                      )}
+                      <Image
+                        src={projectImages[0]}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       <div className="absolute top-4 left-4">
                         <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5">
@@ -319,41 +311,25 @@ export default function ProjectsPage() {
                         <div className="grid grid-cols-2 gap-4">
                           <div>
                             <div className="relative h-48 rounded-lg overflow-hidden mb-2">
-                              {typeof item.before === 'string' && item.before.startsWith('http') ? (
-                                <img
-                                  src={item.before}
-                                  alt="Before"
-                                  className="h-full w-full object-cover"
-                                />
-                              ) : (
-                                <Image
-                                  src={item.before}
-                                  alt="Before"
-                                  fill
-                                  className="object-cover"
-                                  sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                              )}
+                              <Image
+                                src={item.before}
+                                alt="Before"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                              />
                             </div>
                             <p className="text-sm font-semibold text-muted-foreground text-center">Before</p>
                           </div>
                           <div>
                             <div className="relative h-48 rounded-lg overflow-hidden mb-2">
-                              {typeof item.after === 'string' && item.after.startsWith('http') ? (
-                                <img
-                                  src={item.after}
-                                  alt="After"
-                                  className="h-full w-full object-cover"
-                                />
-                              ) : (
-                                <Image
-                                  src={item.after}
-                                  alt="After"
-                                  fill
-                                  className="object-cover"
-                                  sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                              )}
+                              <Image
+                                src={item.after}
+                                alt="After"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                              />
                             </div>
                             <p className="text-sm font-semibold text-primary text-center">After</p>
                           </div>
@@ -525,21 +501,13 @@ export default function ProjectsPage() {
                         className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
                         onClick={() => setSelectedImage(typeof image === 'string' ? image : image.src || '')}
                       >
-                        {typeof image === 'string' && image.startsWith('http') ? (
-                          <img
-                            src={image}
-                            alt={`${selectedProject.title} - Image ${idx + 1}`}
-                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                        ) : (
-                          <Image
-                            src={image}
-                            alt={`${selectedProject.title} - Image ${idx + 1}`}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                          />
-                        )}
+                        <Image
+                          src={image}
+                          alt={`${selectedProject.title} - Image ${idx + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
                       </div>
                     ))}
                   </div>
@@ -566,21 +534,13 @@ export default function ProjectsPage() {
         <DialogContent className="max-w-5xl">
           {selectedImage && (
             <div className="relative aspect-video w-full">
-              {selectedImage.startsWith('http') ? (
-                <img
-                  src={selectedImage}
-                  alt="Project image"
-                  className="w-full h-full object-contain rounded-lg"
-                />
-              ) : (
-                <Image
-                  src={selectedImage}
-                  alt="Project image"
-                  fill
-                  className="object-contain rounded-lg"
-                  sizes="100vw"
-                />
-              )}
+              <Image
+                src={selectedImage}
+                alt="Project image"
+                fill
+                className="object-contain rounded-lg"
+                sizes="100vw"
+              />
             </div>
           )}
         </DialogContent>
