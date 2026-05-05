@@ -30,7 +30,7 @@ const defaultApplications = [
     title: 'Residential Fencing',
     description: 'Secure and stylish fencing solutions for homes, apartments, and residential communities. Enhance privacy, security, and property value.',
     icon: Home,
-    image: metalFence,
+    image: '/applicartion/temporary-fence-hoarding-uae-construction-site.png',
     features: ['Privacy & Security', 'Aesthetic Appeal', 'Property Value Enhancement', 'Custom Designs'],
   },
   {
@@ -38,7 +38,7 @@ const defaultApplications = [
     title: 'Commercial & Industrial',
     description: 'Robust fencing systems for commercial properties, factories, and industrial facilities. Designed for durability and maximum security.',
     icon: Building2,
-    image: heroFence,
+    image: '/applicartion/galvanized-welded-wire-mesh-fence-uae.png',
     features: ['High Security', 'Durability', 'Cost-Effective', 'Custom Solutions'],
   },
   {
@@ -46,7 +46,7 @@ const defaultApplications = [
     title: 'Oil & Gas Sector',
     description: 'Specialized fencing for oil refineries, gas plants, and energy facilities. Meeting strict safety and security standards.',
     icon: Fuel,
-    image: heroFence,
+    image: '/applicartion/heavy-duty-chain-link-fence-gcc-supplier.png',
     features: ['Safety Compliance', 'Corrosion Resistant', 'High Security', 'Industry Standards'],
   },
   {
@@ -54,7 +54,7 @@ const defaultApplications = [
     title: 'Data Centers',
     description: 'High-security fencing solutions for data centers and critical IT infrastructure. CPNI and LPS1175 certified systems.',
     icon: Server,
-    image: heroFence,
+    image: '/applicartion/razor-barbed-wire-fence-high-security-gcc.png',
     features: ['CPNI Certified', 'LPS1175 Compliant', 'Integrated Monitoring', 'Maximum Security'],
   },
   {
@@ -62,7 +62,7 @@ const defaultApplications = [
     title: 'Schools & Public Parks',
     description: 'Safe and secure fencing for educational institutions and public recreational areas. Child-safe designs with high visibility.',
     icon: GraduationCap,
-    image: metalFence,
+    image: '/applicartion/construction-site-temporary-fence-gcc.png',
     features: ['Child Safety', 'High Visibility', 'Durable Construction', 'Compliance Certified'],
   },
   {
@@ -70,7 +70,7 @@ const defaultApplications = [
     title: 'Farms & Animal Enclosures',
     description: 'Specialized fencing for agricultural properties, livestock management, and animal enclosures. Weather-resistant and durable.',
     icon: Trees,
-    image: metalFence,
+    image: '/applicartion/marine-grade-fencing-ss316l-uae.png',
     features: ['Animal Containment', 'Weather Resistant', 'Agricultural Grade', 'Long-Lasting'],
   },
   {
@@ -78,7 +78,7 @@ const defaultApplications = [
     title: 'Boundary & Security Fencing',
     description: 'Perimeter security fencing for critical infrastructure, military bases, and high-security facilities. Maximum protection guaranteed.',
     icon: Shield,
-    image: heroFence,
+    image: '/applicartion/powder-coated-wire-mesh-fence-uae.png',
     features: ['Maximum Security', 'Perimeter Protection', 'Anti-Climb Design', 'Surveillance Ready'],
   },
   {
@@ -86,7 +86,7 @@ const defaultApplications = [
     title: 'Warehouses & Logistic Centers',
     description: 'Secure fencing solutions for warehouses, distribution centers, and logistics facilities. Protect valuable inventory and assets.',
     icon: Warehouse,
-    image: heroFence,
+    image: '/applicartion/complete-fencing-solutions-gcc-middle-east.png',
     features: ['Asset Protection', 'Access Control', 'Scalable Solutions', 'Cost-Effective'],
   },
   {
@@ -94,7 +94,7 @@ const defaultApplications = [
     title: 'Country Border Fencing',
     description: 'Large-scale border security fencing systems for national boundaries. Engineered for extreme conditions and maximum security.',
     icon: Globe,
-    image: heroFence,
+    image: '/applicartion/industrial-fencing-solutions-uae-ksa-qatar.png',
     features: ['National Security', 'Extreme Durability', 'Large-Scale Projects', 'Government Approved'],
   },
 ];

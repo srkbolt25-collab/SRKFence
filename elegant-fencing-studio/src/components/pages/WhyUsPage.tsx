@@ -2,22 +2,11 @@
 
 import Benefits from "@/components/Benefits";
 import Image from "next/image";
-import heroFence from "@/assets/hero-fence.jpg";
-import metalFence from "@/assets/metal-fence.jpg";
-import vinylFence from "@/assets/vinyl-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Gem, Globe2, Handshake, Sparkles, Building2, Target, Factory, Award, Briefcase, Users, Eye, Shield, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
 const globalStats = [
@@ -51,126 +40,51 @@ const carePoints = [
 ];
 
 const heroSlides = [
-  {
-    image: heroFence,
-    eyebrow: "Why SRK FENCE",
-    title: "Craftsmanship and Confidence in Every Line",
-    description: "We partner with design-forward property owners to deliver fencing that protects, impresses, and performs for decades.",
-  },
-  {
-    image: metalFence,
-    eyebrow: "Why SRK FENCE",
-    title: "Premium Quality Materials",
-    description: "We curate long-life finishes and textures that feel bespoke to your architecture and microclimate.",
-  },
-  {
-    image: vinylFence,
-    eyebrow: "Why SRK FENCE",
-    title: "Worldwide Delivery & Service",
-    description: "Multilingual teams manage travel, logistics, and compliance so international installs stay on track.",
-  },
-  {
-    image: woodFence,
-    eyebrow: "Why SRK FENCE",
-    title: "Transparent Partnership",
-    description: "Dedicated project leads deliver clear timelines, weekly touchpoints, and concierge coordination.",
-  },
+  "/Why-US/barbed-wire-fencing-security-gcc-middle-east.png",
+  "/Why-US/chain-link-fence-supplier-uae-saudi-gcc.png",
+  "/Why-US/corrugated-metal-fence-panel-gcc.png",
+  "/Why-US/welded-mesh-fence-uae-gcc-industrial.png",
 ];
 
 const WhyUsPage = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!api) return;
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [api]);
+    if (heroSlides.length <= 1) return;
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
-      {/* Hero Section with Carousel */}
-      <section className="relative min-h-[500px] sm:min-h-[550px] lg:min-h-[600px] w-full overflow-hidden -mt-20">
-        <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
-          <CarouselContent className="h-full">
-            {heroSlides.map((slide, index) => (
-              <CarouselItem key={index} className="h-full pl-0">
-                <div className="relative h-[500px] sm:h-[550px] lg:h-[600px] w-full">
-                  <div className="absolute inset-0">
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover scale-105 transition-transform ease-out"
-                      style={{ transitionDuration: '20s' }}
-                      priority={index === 0}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#360c13]/96 via-[#360c13]/88 to-[#1f0a0f]/70" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(356_70%_30%/_0.3)_0%,transparent_50%)]" />
-                  </div>
-                  
-                  {/* Content overlay */}
-                  <div className="absolute inset-0 z-10 flex h-full w-full items-center pointer-events-none">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pointer-events-auto">
-                      <div className="max-w-3xl animate-fade-in">
-                        <div className="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-                          <span className="text-sm font-semibold text-white uppercase tracking-wide">
-                            {slide.eyebrow}
-                          </span>
-                        </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight text-white">
-                          {slide.title}
-                        </h1>
-                        <p className="text-lg sm:text-xl mb-8 max-w-2xl text-white/90">
-                          {slide.description}
-                        </p>
-                        <Button
-                          asChild
-                          size="lg"
-                          className="bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow text-white px-8 py-6 h-auto rounded-xl"
-                        >
-                          <Link href="/products" className="font-semibold">
-                            Explore Our Products
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-4 md:left-8 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 z-20" />
-          <CarouselNext className="right-4 md:right-8 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 z-20" />
-        </Carousel>
-
-        {/* Slide indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <section className="relative w-full aspect-video overflow-hidden bg-black">
+        <div
+          className="flex h-full w-full transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+        >
+          {heroSlides.map((slide, index) => (
+            <div key={slide} className="relative h-full min-w-full">
+              <Image
+                src={slide}
+                alt={`Why SRK Fence hero ${index + 1}`}
+                fill
+                priority={index === 0}
+                className="object-cover object-[center_top]"
+                sizes="100vw"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
-              onClick={() => api?.scrollTo(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                current === index
-                  ? "w-8 bg-white"
-                  : "w-2 bg-white/40 hover:bg-white/60"
+              type="button"
+              onClick={() => setActiveSlide(index)}
+              className={`h-2 rounded-full transition-all ${
+                index === activeSlide ? "w-8 bg-white" : "w-2 bg-white/60"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -212,9 +126,14 @@ const WhyUsPage = () => {
       </div>
 
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
           <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-elegant">
-            <Image src={vinylFence} alt="SRK FENCE team at work" fill className="object-cover" />
+            <Image
+              src={woodFence}
+              alt="SRK FENCE team at work"
+              fill
+              className="object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
             <div className="absolute bottom-6 left-6 text-primary-foreground">
               <p className="text-sm uppercase tracking-[0.2em] text-primary-foreground/70">Heritage Property</p>
