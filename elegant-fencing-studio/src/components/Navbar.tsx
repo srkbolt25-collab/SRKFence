@@ -145,10 +145,13 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-3 group">
-              <img
-                src="/WhatsApp%20Image%202026-05-02%20at%2012.40.31%20PM.jpeg"
+              <Image
+                src="/WhatsApp_Image_2026-05-05_at_12.08.13_PM-removebg-preview.png"
                 alt="SRK FENCE"
+                width={180}
+                height={64}
                 className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                priority
               />
             </Link>
           </div>

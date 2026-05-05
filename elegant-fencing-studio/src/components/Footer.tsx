@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { NavLink } from "@/components/NavLink";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Clock, Twitter, Youtube } from "lucide-react";
 
@@ -43,9 +44,11 @@ const Footer = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(356_70%_40%/_0.1)_0%,transparent_50%)]" />
         <div className="container mx-auto grid gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:px-8 relative">
           <div className="space-y-6">
-            <img
-              src="/WhatsApp%20Image%202026-05-02%20at%2012.40.31%20PM.jpeg"
+            <Image
+              src="/WhatsApp_Image_2026-05-05_at_12.08.13_PM-removebg-preview.png"
               alt="SRK FENCE"
+              width={180}
+              height={64}
               className="h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
             <p className="text-sm leading-relaxed text-white/80 font-medium">
