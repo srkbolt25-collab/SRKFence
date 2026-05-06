@@ -443,9 +443,10 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
         description={application.description}
         variant="contrast"
         backgroundImage={application.image}
-        overlayClassName="from-black/85 via-black/75 to-black/60"
-        className="mt-0 min-h-[520px] md:min-h-[620px] lg:min-h-[720px] bg-black"
-        imageClassName="object-contain object-top"
+        overlayClassName="hidden"
+        className="mt-0 min-h-[520px] md:min-h-[620px] lg:min-h-[720px]"
+        imageClassName="object-cover object-center"
+        hideContent
       />
 
       <section className="bg-background py-24">
