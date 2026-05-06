@@ -20,7 +20,13 @@ export default function ProductIdPage({ params }: { params: { id: string } }) {
   const [realCategoryName, setRealCategoryName] = useState<string | null>(null);
   const [resolvedProductId, setResolvedProductId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const decodedSlug = decodeURIComponent(params.id);
+  const rawSegment = params?.id ?? '';
+  let decodedSlug = rawSegment;
+  try {
+    decodedSlug = decodeURIComponent(rawSegment);
+  } catch {
+    decodedSlug = rawSegment;
+  }
   const normalizedSlug = slugifyProductName(decodedSlug);
 
   useEffect(() => {
@@ -71,8 +77,8 @@ export default function ProductIdPage({ params }: { params: { id: string } }) {
 
           if (matchedProduct?.id) {
             setResolvedProductId(matchedProduct.id);
-          } else if (/^[0-9a-fA-F]{24}$/.test(params.id)) {
-            setResolvedProductId(params.id);
+          } else if (/^[0-9a-fA-F]{24}$/.test(rawSegment)) {
+            setResolvedProductId(rawSegment);
           } else {
             setResolvedProductId(null);
           }
@@ -80,7 +86,7 @@ export default function ProductIdPage({ params }: { params: { id: string } }) {
       } catch (error) {
         console.error('Error checking slug type:', error);
         setIsCategory(false);
-        setResolvedProductId(/^[0-9a-fA-F]{24}$/.test(params.id) ? params.id : null);
+        setResolvedProductId(/^[0-9a-fA-F]{24}$/.test(rawSegment) ? rawSegment : null);
       } finally {
         setLoading(false);
       }

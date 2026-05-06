@@ -37,6 +37,46 @@ interface ProductDetailsPageProps {
     productId: string;
 }
 
+type DescriptionSection = { title: string; content: string; layout?: 'long' | 'small' };
+
+/** DB/API may return description as string, JSON string, or section array — UI expects an array. */
+function normalizeProductDescription(raw: unknown): DescriptionSection[] {
+    if (raw == null || raw === '') return [];
+    if (Array.isArray(raw)) {
+        return raw.map((section: any, i: number) => ({
+            title: typeof section?.title === 'string' ? section.title : `Section ${i + 1}`,
+            content:
+                typeof section?.content === 'string'
+                    ? section.content
+                    : section?.content != null
+                      ? String(section.content)
+                      : '',
+            layout: section?.layout === 'small' ? 'small' : section?.layout === 'long' ? 'long' : undefined,
+        }));
+    }
+    if (typeof raw === 'string') {
+        const trimmed = raw.trim();
+        if (!trimmed) return [];
+        try {
+            const parsed = JSON.parse(trimmed);
+            if (Array.isArray(parsed)) {
+                return normalizeProductDescription(parsed);
+            }
+        } catch {
+            /* plain text */
+        }
+        return [{ title: 'Description', content: trimmed, layout: 'long' }];
+    }
+    return [];
+}
+
+function normalizeImages(raw: unknown, fallback: typeof heroFence): (string | typeof heroFence)[] {
+    if (!raw) return [fallback];
+    const list = Array.isArray(raw) ? raw : [raw];
+    const filtered = list.filter((x) => x != null && x !== '');
+    return filtered.length > 0 ? (filtered as (string | typeof heroFence)[]) : [fallback];
+}
+
 export default function ProductDetailsPage({ productId }: ProductDetailsPageProps) {
     const { toast } = useToast();
     const { addToRFQ, isInRFQ } = useRFQ();
@@ -68,8 +108,9 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
         });
     };
 
-    const renderFormattedText = (text: string, defaultClass = 'text-muted-foreground') => {
-        const normalized = normalizeRichText(text);
+    const renderFormattedText = (text: unknown, defaultClass = 'text-muted-foreground') => {
+        const str = typeof text === 'string' ? text : text == null ? '' : String(text);
+        const normalized = normalizeRichText(str);
         if (!normalized) return null;
 
         const lines = normalized
@@ -160,10 +201,10 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                         id: data.id,
                         title: data.title || data.name,
                         subtitle: data.subtitle || '',
-                        description: data.description || [],
-                        images: data.images && data.images.length > 0 ? data.images : [heroFence],
+                        description: normalizeProductDescription(data.description),
+                        images: normalizeImages(data.images, heroFence),
                         // Extract features from specifications or use empty array
-                        features: data.features || [],
+                        features: Array.isArray(data.features) ? data.features : [],
                         // Use technicalInfoTabs if available, otherwise convert old format
                         technicalInfoTabs: data.technicalInfoTabs,
                         specifications: (() => {
@@ -195,7 +236,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                         })(),
                         panelVariations: data.panelVariations || '',
                         bimObjects: data.bimObjects || '',
-                        applications: data.applications || [],
+                        applications: Array.isArray(data.applications) ? data.applications : [],
                         category: data.category,
                         price: data.price,
                         // SEO metadata
@@ -542,7 +583,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
             )}
 
             {/* Description Sections */}
-            {product.description && product.description.length > 0 && (
+            {Array.isArray(product.description) && product.description.length > 0 && (
                 <section className="bg-background py-12">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -644,7 +685,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                 }
                             }
 
-                            if (product.bimObjects && product.bimObjects.trim() !== '') {
+                            if (typeof product.bimObjects === 'string' && product.bimObjects.trim() !== '') {
                                 tabs.push({
                                     id: 'bim-objects',
                                     name: 'BIM Objects',
