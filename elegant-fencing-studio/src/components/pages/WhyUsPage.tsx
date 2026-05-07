@@ -1,13 +1,18 @@
 'use client';
 
 import Benefits from "@/components/Benefits";
+import PageHeader from "@/components/PageHeader";
+import {
+  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
+  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
+} from "@/lib/pageHeaderHeroClass";
 import Image from "next/image";
+import heroFence from "@/assets/hero-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Gem, Globe2, Handshake, Sparkles, Building2, Target, Factory, Award, Briefcase, Users, Eye, Shield, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const globalStats = [
   { value: "1,200+", label: "Signature projects delivered" },
@@ -39,59 +44,20 @@ const carePoints = [
   "Priority service plans for seasonal refreshes and upgrades",
 ];
 
-const heroSlides = [
-  "/Why-US/barbed-wire-fencing-security-gcc-middle-east.png",
-  "/Why-US/chain-link-fence-supplier-uae-saudi-gcc.png",
-  "/Why-US/corrugated-metal-fence-panel-gcc.png",
-  "/Why-US/welded-mesh-fence-uae-gcc-industrial.png",
-];
-
 const WhyUsPage = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  useEffect(() => {
-    if (heroSlides.length <= 1) return;
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
-      <section className="relative w-full aspect-video overflow-hidden bg-black">
-        <div
-          className="flex h-full w-full transition-transform duration-700 ease-out"
-          style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-        >
-          {heroSlides.map((slide, index) => (
-            <div key={slide} className="relative h-full min-w-full">
-              <Image
-                src={slide}
-                alt={`Why SRK Fence hero ${index + 1}`}
-                fill
-                className="object-cover object-[center_top]"
-                sizes="100vw"
-                loading="lazy"
-                quality={65}
-              />
-            </div>
-          ))}
-        </div>
-        <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => setActiveSlide(index)}
-              className={`h-2 rounded-full transition-all ${
-                index === activeSlide ? "w-8 bg-white" : "w-2 bg-white/60"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Why Us"
+        title="Why SRK FENCE"
+        description="We deliver fencing solutions that protect, impress, and perform for decades. Craftsmanship and confidence in every line."
+        variant="contrast"
+        backgroundImage={heroFence}
+        overlayClassName="from-black/85 via-black/75 to-black/60"
+        fixedHero
+        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
+        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
+      />
 
       <section className="py-20 bg-card border-y border-border/60">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">

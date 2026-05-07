@@ -6,6 +6,10 @@ import PageHeader from '@/components/PageHeader';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import {
+  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
+  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
+} from '@/lib/pageHeaderHeroClass';
 import { ArrowRight, Home, Building2, Fuel, Server, GraduationCap, Trees, Shield, Warehouse, Globe, Loader2 } from 'lucide-react';
 import metalFence from '@/assets/metal-fence.jpg';
 import heroFence from '@/assets/hero-fence.jpg';
@@ -130,6 +134,9 @@ export default function ApplicationsPage() {
         variant="contrast"
         backgroundImage={heroFence}
         overlayClassName="from-black/85 via-black/75 to-black/60"
+        fixedHero
+        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
+        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
       />
 
       <section className="bg-background py-24">

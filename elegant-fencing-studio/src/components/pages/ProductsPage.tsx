@@ -3,6 +3,10 @@
 import { useState, useEffect, useMemo } from "react";
 import SiteLayout from "@/components/SiteLayout";
 import PageHeader from "@/components/PageHeader";
+import {
+  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
+  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
+} from "@/lib/pageHeaderHeroClass";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import heroFence from "@/assets/hero-fence.jpg";
@@ -286,6 +290,9 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
         variant="contrast"
         backgroundImage={metalFence}
         overlayClassName="from-black/85 via-black/75 to-black/60"
+        fixedHero
+        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
+        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
       >
         <Button
           asChild

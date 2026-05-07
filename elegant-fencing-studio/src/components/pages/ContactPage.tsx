@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
+import {
+  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
+  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
+} from "@/lib/pageHeaderHeroClass";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -136,6 +140,9 @@ const ContactPage = () => {
         description="Contact our sales or purchase team for inquiries, quotes, and support. We're here to help with all your fencing needs."
         backgroundImage={heroFence}
         variant="contrast"
+        fixedHero
+        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
+        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
       />
 
       {/* Phone / Email Section */}

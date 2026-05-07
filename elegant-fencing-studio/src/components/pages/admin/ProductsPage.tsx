@@ -1202,53 +1202,53 @@ const ProductsPage = () => {
                       <h3 className="text-lg font-semibold">{categoryName}</h3>
                       <span className="text-xs text-muted-foreground">{categoryProducts.length} product(s)</span>
                     </div>
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead>ID</TableHead>
-                          <TableHead>Name</TableHead>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>ID</TableHead>
+                <TableHead>Name</TableHead>
                           <TableHead>Order</TableHead>
-                          <TableHead>Status</TableHead>
-                          <TableHead className="text-right">Actions</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
+                <TableHead>Status</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
                         {categoryProducts.map((product) => (
-                          <TableRow key={product.id}>
-                            <TableCell className="font-mono text-xs">{product.id.slice(0, 8)}...</TableCell>
-                            <TableCell className="font-medium">{product.title || product.name}</TableCell>
+                  <TableRow key={product.id}>
+                    <TableCell className="font-mono text-xs">{product.id.slice(0, 8)}...</TableCell>
+                    <TableCell className="font-medium">{product.title || product.name}</TableCell>
                             <TableCell>{typeof product.displayOrder === "number" ? product.displayOrder : 9999}</TableCell>
-                            <TableCell>
-                              <span className={`px-2 py-1 rounded-full text-xs ${
-                                product.status === "Active" 
-                                  ? "bg-green-100 text-green-800" 
-                                  : "bg-gray-100 text-gray-800"
-                              }`}>
-                                {product.status}
-                              </span>
-                            </TableCell>
-                            <TableCell className="text-right">
-                              <div className="flex justify-end gap-2">
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  onClick={() => handleOpenModal(product)}
-                                >
-                                  <Edit className="h-4 w-4" />
-                                </Button>
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  onClick={() => handleDelete(product.id)}
-                                >
-                                  <Trash2 className="h-4 w-4 text-destructive" />
-                                </Button>
-                              </div>
-                            </TableCell>
-                          </TableRow>
+                    <TableCell>
+                      <span className={`px-2 py-1 rounded-full text-xs ${
+                        product.status === "Active" 
+                          ? "bg-green-100 text-green-800" 
+                          : "bg-gray-100 text-gray-800"
+                      }`}>
+                        {product.status}
+                      </span>
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <div className="flex justify-end gap-2">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => handleOpenModal(product)}
+                        >
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => handleDelete(product.id)}
+                        >
+                          <Trash2 className="h-4 w-4 text-destructive" />
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
                         ))}
-                      </TableBody>
-                    </Table>
+            </TableBody>
+          </Table>
                   </div>
                 );
               })}
@@ -1466,7 +1466,7 @@ const ProductsPage = () => {
                               value={section.content}
                               onChange={(e) => handleDescriptionContentChange(index, e.target.value)}
                               placeholder="Enter detailed description for this section..."
-                              rows={4}
+                  rows={4}
                             />
                           </div>
                         </CardContent>
@@ -1975,7 +1975,7 @@ const ProductsPage = () => {
                         return (
                         <div className="space-y-4">
                           {/* Title Input */}
-                          <div className="space-y-2">
+                        <div className="space-y-2">
                             <Label>Title</Label>
                             <Input
                               value={contentObj.title || ''}

@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import SiteLayout from '@/components/SiteLayout';
-import PageHeader from '@/components/PageHeader';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -28,7 +27,7 @@ const applicationsData: Record<string, {
     title: 'Residential Fencing',
     description: 'Secure and stylish fencing solutions for homes, apartments, and residential communities.',
     longDescription: 'SRK FENCE provides premium residential fencing solutions that combine security, privacy, and aesthetic appeal. Our residential fencing systems are designed to enhance your property value while providing the protection and privacy your family deserves. From elegant picket fences to high-security perimeter systems, we offer a wide range of options to suit every residential need.',
-    image: '/applicartion/temporary-fence-hoarding-uae-construction-site.webp',
+    image: '/applicartion/banner22.jpeg',
     features: [
       'Enhanced Privacy & Security',
       'Aesthetic Appeal & Curb Appeal',
@@ -180,7 +179,7 @@ const applicationsData: Record<string, {
     title: 'Schools & Public Parks Fencing',
     description: 'Safe and secure fencing for educational institutions and public recreational areas.',
     longDescription: 'Creating safe environments for children and communities is our priority. SRK FENCE provides child-safe, high-visibility fencing solutions for schools, playgrounds, and public parks. Our systems are designed to ensure safety while maintaining visibility for supervision. We use materials and designs that meet child safety standards and provide durable solutions for high-traffic public areas.',
-    image: '/applicartion/construction-site-temporary-fence-gcc.webp',
+    image: '/resized-image.jpeg',
     features: [
       'Child-Safe Design Standards',
       'High Visibility Mesh',
@@ -368,6 +367,12 @@ const applicationsData: Record<string, {
   },
 };
 
+/** Hero background overrides by slug (paths under `public/`). */
+const APPLICATION_HERO_IMAGE_OVERRIDES: Partial<Record<string, string>> = {
+  'residential-fencing': '/applicartion/banner22.jpeg',
+  'schools-public-parks': '/resized-image.jpeg',
+};
+
 export default function ApplicationPage({ params }: { params: Promise<{ slug: string }> }) {
   const [application, setApplication] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -391,10 +396,22 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
       if (!found) {
         // Fallback to static data
         const staticApp = applicationsData[appSlug];
-        setApplication(staticApp || null);
+        setApplication(
+          staticApp
+            ? {
+                ...staticApp,
+                image:
+                  APPLICATION_HERO_IMAGE_OVERRIDES[appSlug] ?? staticApp.image,
+              }
+            : null,
+        );
       } else {
         // Use API data, but fallback to static image if needed
-        const imageSrc = found.image || (applicationsData[appSlug]?.image || heroFence);
+        const imageSrc =
+          APPLICATION_HERO_IMAGE_OVERRIDES[appSlug] ??
+          found.image ??
+          applicationsData[appSlug]?.image ??
+          heroFence;
         setApplication({
           ...found,
           image: imageSrc,
@@ -405,7 +422,15 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
       console.error('Error loading application:', error);
       // Fallback to static data
       const staticApp = applicationsData[appSlug];
-      setApplication(staticApp || null);
+      setApplication(
+        staticApp
+          ? {
+              ...staticApp,
+              image:
+                APPLICATION_HERO_IMAGE_OVERRIDES[appSlug] ?? staticApp.image,
+            }
+          : null,
+      );
     } finally {
       setLoading(false);
     }
@@ -435,19 +460,25 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
     );
   }
 
+  const heroImageSrc =
+    APPLICATION_HERO_IMAGE_OVERRIDES[slug] ??
+    applicationsData[slug]?.image ??
+    application.image;
+
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Application"
-        title={application.title}
-        description={application.description}
-        variant="contrast"
-        backgroundImage={application.image}
-        overlayClassName="hidden"
-        className="mt-0 min-h-[520px] md:min-h-[620px] lg:min-h-[720px]"
-        imageClassName="object-cover object-center"
-        hideContent
-      />
+      <section className="relative w-full !mt-0 bg-background">
+        <Image
+          src={heroImageSrc}
+          alt={`${application.title} hero banner`}
+          width={1920}
+          height={600}
+          className="block w-full h-auto"
+          sizes="100vw"
+          priority
+          quality={85}
+        />
+      </section>
 
       <section className="bg-background py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

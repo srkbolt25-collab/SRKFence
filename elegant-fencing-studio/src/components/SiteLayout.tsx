@@ -14,7 +14,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
     <div className="min-h-screen bg-background text-foreground flex flex-col antialiased">
       <TopBar />
       <Navbar />
-      <main className="flex-1 pt-[116px] overflow-hidden">{children}</main>
+      <main className="flex-1 pt-[116px] overflow-x-hidden">{children}</main>
       <Footer />
     </div>
   );
