@@ -34,7 +34,7 @@ const defaultApplications = [
     title: 'Residential Fencing',
     description: 'Secure and stylish fencing solutions for homes, apartments, and residential communities. Enhance privacy, security, and property value.',
     icon: Home,
-    image: '/Applicationsnew/residential-security-fencing-solutions-uae-dubai.png',
+    image: '/Applicationsnew/premium-residential-fencing-solutions-installation-uae.png',
     features: ['Privacy & Security', 'Aesthetic Appeal', 'Property Value Enhancement', 'Custom Designs'],
   },
   {
@@ -50,7 +50,7 @@ const defaultApplications = [
     title: 'Oil & Gas Sector',
     description: 'Specialized fencing for oil refineries, gas plants, and energy facilities. Meeting strict safety and security standards.',
     icon: Fuel,
-    image: '/Applicationsnew/home-back-yard-fencing-in-uae.png',
+    image: '/Applicationsnew/oil.jpeg',
     features: ['Safety Compliance', 'Corrosion Resistant', 'High Security', 'Industry Standards'],
   },
   {

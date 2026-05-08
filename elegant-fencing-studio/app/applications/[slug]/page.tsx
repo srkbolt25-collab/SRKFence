@@ -27,7 +27,7 @@ const applicationsData: Record<string, {
     title: 'Residential Fencing',
     description: 'Secure and stylish fencing solutions for homes, apartments, and residential communities.',
     longDescription: 'SRK FENCE provides premium residential fencing solutions that combine security, privacy, and aesthetic appeal. Our residential fencing systems are designed to enhance your property value while providing the protection and privacy your family deserves. From elegant picket fences to high-security perimeter systems, we offer a wide range of options to suit every residential need.',
-    image: '/Applicationsnew/residential-security-fencing-solutions-uae-dubai.png',
+    image: '/Applicationsnew/premium-residential-fencing-solutions-installation-uae.png',
     features: [
       'Enhanced Privacy & Security',
       'Aesthetic Appeal & Curb Appeal',
@@ -103,7 +103,7 @@ const applicationsData: Record<string, {
     title: 'Oil & Gas Sector Fencing',
     description: 'Specialized fencing for oil refineries, gas plants, and energy facilities.',
     longDescription: 'The oil and gas industry requires specialized fencing solutions that can withstand extreme conditions while maintaining strict security standards. SRK FENCE provides corrosion-resistant, high-security fencing systems designed specifically for refineries, gas plants, pipelines, and energy facilities. Our solutions meet industry safety standards and regulatory requirements.',
-    image: '/Applicationsnew/home-back-yard-fencing-in-uae.png',
+    image: '/Applicationsnew/oil.jpeg',
     features: [
       'Corrosion Resistant Materials',
       'Safety Compliance & Standards',
@@ -369,9 +369,9 @@ const applicationsData: Record<string, {
 
 /** Hero background overrides by slug (paths under `public/`). */
 const APPLICATION_HERO_IMAGE_OVERRIDES: Partial<Record<string, string>> = {
-  'residential-fencing': '/Applicationsnew/residential-security-fencing-solutions-uae-dubai.png',
+  'residential-fencing': '/Applicationsnew/premium-residential-fencing-solutions-installation-uae.png',
   'commercial-industrial': '/Applicationsnew/galvanized-welded-wire-mesh-fence-uae.png',
-  'oil-gas-sector': '/Applicationsnew/home-back-yard-fencing-in-uae.png',
+  'oil-gas-sector': '/Applicationsnew/oil.jpeg',
   'data-centers': '/Applicationsnew/razor-barbed-wire-fence-high-security-gcc.png',
   'farms-animal-enclosures': '/Applicationsnew/marine-grade-fencing-ss316l-uae.png',
   'boundary-security-fencing': '/Applicationsnew/powder-coated-wire-mesh-fence-uae.png',
