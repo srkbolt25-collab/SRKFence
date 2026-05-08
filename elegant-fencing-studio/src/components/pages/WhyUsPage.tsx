@@ -1,18 +1,21 @@
 'use client';
 
 import Benefits from "@/components/Benefits";
-import PageHeader from "@/components/PageHeader";
-import {
-  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
-  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
-} from "@/lib/pageHeaderHeroClass";
 import Image from "next/image";
-import heroFence from "@/assets/hero-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Gem, Globe2, Handshake, Sparkles, Building2, Target, Factory, Award, Briefcase, Users, Eye, Shield, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const globalStats = [
   { value: "1,200+", label: "Signature projects delivered" },
@@ -44,20 +47,76 @@ const carePoints = [
   "Priority service plans for seasonal refreshes and upgrades",
 ];
 
+const whyUsHeroSlides = [
+  "/Whyusnew/barbed-wire-fencing-security-gcc-middle-east.png",
+  "/Whyusnew/chain-link-fence-supplier-uae-saudi-gcc.png",
+  "/Whyusnew/corrugated-metal-fence-panel-gcc.png",
+  "/Whyusnew/welded-mesh-fence-uae-gcc-industrial.png",
+];
+
 const WhyUsPage = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrentSlide(api.selectedScrollSnap());
+    const onSelect = () => setCurrentSlide(api.selectedScrollSnap());
+    api.on("select", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const timer = setInterval(() => {
+      api.scrollNext();
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [api]);
+
   return (
     <>
-      <PageHeader
-        eyebrow="Why Us"
-        title="Why SRK FENCE"
-        description="We deliver fencing solutions that protect, impress, and perform for decades. Craftsmanship and confidence in every line."
-        variant="contrast"
-        backgroundImage={heroFence}
-        overlayClassName="from-black/85 via-black/75 to-black/60"
-        fixedHero
-        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
-        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
-      />
+      <section className="relative w-full !mt-0 bg-background">
+        <div className="mx-auto w-full max-w-[1920px]">
+          <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
+            <CarouselContent className="ml-0">
+              {whyUsHeroSlides.map((slide, index) => (
+                <CarouselItem key={slide} className="pl-0">
+                  <Image
+                    src={slide}
+                    alt={`Why SRK FENCE banner ${index + 1}`}
+                    width={1856}
+                    height={576}
+                    className="block w-full h-auto"
+                    sizes="100vw"
+                    priority={index === 0}
+                    quality={85}
+                    loading={index === 0 ? undefined : "lazy"}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-3 sm:left-4 h-9 w-9 border-white/30 bg-black/35 text-white hover:bg-black/55" />
+            <CarouselNext className="right-3 sm:right-4 h-9 w-9 border-white/30 bg-black/35 text-white hover:bg-black/55" />
+          </Carousel>
+          <div className="pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+            {whyUsHeroSlides.map((_, index) => (
+              <span
+                key={index}
+                className={`h-2 rounded-full transition-all ${
+                  currentSlide === index ? "w-7 bg-white" : "w-2 bg-white/55"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="py-20 bg-card border-y border-border/60">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">

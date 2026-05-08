@@ -34,7 +34,7 @@ const defaultApplications = [
     title: 'Residential Fencing',
     description: 'Secure and stylish fencing solutions for homes, apartments, and residential communities. Enhance privacy, security, and property value.',
     icon: Home,
-    image: '/applicartion/temporary-fence-hoarding-uae-construction-site.webp',
+    image: '/Applicationsnew/residential-security-fencing-solutions-uae-dubai.png',
     features: ['Privacy & Security', 'Aesthetic Appeal', 'Property Value Enhancement', 'Custom Designs'],
   },
   {
@@ -42,7 +42,7 @@ const defaultApplications = [
     title: 'Commercial & Industrial',
     description: 'Robust fencing systems for commercial properties, factories, and industrial facilities. Designed for durability and maximum security.',
     icon: Building2,
-    image: '/applicartion/galvanized-welded-wire-mesh-fence-uae.webp',
+    image: '/Applicationsnew/galvanized-welded-wire-mesh-fence-uae.png',
     features: ['High Security', 'Durability', 'Cost-Effective', 'Custom Solutions'],
   },
   {
@@ -50,7 +50,7 @@ const defaultApplications = [
     title: 'Oil & Gas Sector',
     description: 'Specialized fencing for oil refineries, gas plants, and energy facilities. Meeting strict safety and security standards.',
     icon: Fuel,
-    image: '/applicartion/heavy-duty-chain-link-fence-gcc-supplier.webp',
+    image: '/Applicationsnew/home-back-yard-fencing-in-uae.png',
     features: ['Safety Compliance', 'Corrosion Resistant', 'High Security', 'Industry Standards'],
   },
   {
@@ -58,7 +58,7 @@ const defaultApplications = [
     title: 'Data Centers',
     description: 'High-security fencing solutions for data centers and critical IT infrastructure. CPNI and LPS1175 certified systems.',
     icon: Server,
-    image: '/applicartion/razor-barbed-wire-fence-high-security-gcc.webp',
+    image: '/Applicationsnew/razor-barbed-wire-fence-high-security-gcc.png',
     features: ['CPNI Certified', 'LPS1175 Compliant', 'Integrated Monitoring', 'Maximum Security'],
   },
   {
@@ -74,7 +74,7 @@ const defaultApplications = [
     title: 'Farms & Animal Enclosures',
     description: 'Specialized fencing for agricultural properties, livestock management, and animal enclosures. Weather-resistant and durable.',
     icon: Trees,
-    image: '/applicartion/marine-grade-fencing-ss316l-uae.webp',
+    image: '/Applicationsnew/marine-grade-fencing-ss316l-uae.png',
     features: ['Animal Containment', 'Weather Resistant', 'Agricultural Grade', 'Long-Lasting'],
   },
   {
@@ -82,7 +82,7 @@ const defaultApplications = [
     title: 'Boundary & Security Fencing',
     description: 'Perimeter security fencing for critical infrastructure, military bases, and high-security facilities. Maximum protection guaranteed.',
     icon: Shield,
-    image: '/applicartion/powder-coated-wire-mesh-fence-uae.webp',
+    image: '/Applicationsnew/powder-coated-wire-mesh-fence-uae.png',
     features: ['Maximum Security', 'Perimeter Protection', 'Anti-Climb Design', 'Surveillance Ready'],
   },
   {
@@ -90,7 +90,7 @@ const defaultApplications = [
     title: 'Warehouses & Logistic Centers',
     description: 'Secure fencing solutions for warehouses, distribution centers, and logistics facilities. Protect valuable inventory and assets.',
     icon: Warehouse,
-    image: '/applicartion/complete-fencing-solutions-gcc-middle-east.webp',
+    image: '/Applicationsnew/high-security-boundary-fencing-contractors-gcc.png',
     features: ['Asset Protection', 'Access Control', 'Scalable Solutions', 'Cost-Effective'],
   },
   {
@@ -98,7 +98,7 @@ const defaultApplications = [
     title: 'Country Border Fencing',
     description: 'Large-scale border security fencing systems for national boundaries. Engineered for extreme conditions and maximum security.',
     icon: Globe,
-    image: '/applicartion/industrial-fencing-solutions-uae-ksa-qatar.webp',
+    image: '/Applicationsnew/border-fencing-solutions-uae-ksa-qatar.png',
     features: ['National Security', 'Extreme Durability', 'Large-Scale Projects', 'Government Approved'],
   },
 ];

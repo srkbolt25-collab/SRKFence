@@ -27,7 +27,7 @@ const applicationsData: Record<string, {
     title: 'Residential Fencing',
     description: 'Secure and stylish fencing solutions for homes, apartments, and residential communities.',
     longDescription: 'SRK FENCE provides premium residential fencing solutions that combine security, privacy, and aesthetic appeal. Our residential fencing systems are designed to enhance your property value while providing the protection and privacy your family deserves. From elegant picket fences to high-security perimeter systems, we offer a wide range of options to suit every residential need.',
-    image: '/applicartion/banner22.jpeg',
+    image: '/Applicationsnew/residential-security-fencing-solutions-uae-dubai.png',
     features: [
       'Enhanced Privacy & Security',
       'Aesthetic Appeal & Curb Appeal',
@@ -65,7 +65,7 @@ const applicationsData: Record<string, {
     title: 'Commercial & Industrial Fencing',
     description: 'Robust fencing systems for commercial properties, factories, and industrial facilities.',
     longDescription: 'Our commercial and industrial fencing solutions are engineered to meet the demanding requirements of business facilities. Whether you need to secure a retail complex, protect an industrial plant, or establish clear boundaries for commercial properties, SRK FENCE delivers durable, cost-effective fencing systems that stand up to heavy use and harsh conditions.',
-    image: '/applicartion/galvanized-welded-wire-mesh-fence-uae.webp',
+    image: '/Applicationsnew/galvanized-welded-wire-mesh-fence-uae.png',
     features: [
       'High Security & Durability',
       'Cost-Effective Solutions',
@@ -103,7 +103,7 @@ const applicationsData: Record<string, {
     title: 'Oil & Gas Sector Fencing',
     description: 'Specialized fencing for oil refineries, gas plants, and energy facilities.',
     longDescription: 'The oil and gas industry requires specialized fencing solutions that can withstand extreme conditions while maintaining strict security standards. SRK FENCE provides corrosion-resistant, high-security fencing systems designed specifically for refineries, gas plants, pipelines, and energy facilities. Our solutions meet industry safety standards and regulatory requirements.',
-    image: '/applicartion/heavy-duty-chain-link-fence-gcc-supplier.webp',
+    image: '/Applicationsnew/home-back-yard-fencing-in-uae.png',
     features: [
       'Corrosion Resistant Materials',
       'Safety Compliance & Standards',
@@ -141,7 +141,7 @@ const applicationsData: Record<string, {
     title: 'Data Centers Fencing',
     description: 'High-security fencing solutions for data centers and critical IT infrastructure.',
     longDescription: 'Data centers house critical IT infrastructure that requires the highest levels of security. SRK FENCE provides CPNI and LPS1175 certified fencing systems specifically designed for data centers and critical infrastructure facilities. Our solutions integrate with advanced monitoring systems and provide multiple layers of security to protect sensitive information and equipment.',
-    image: '/applicartion/razor-barbed-wire-fence-high-security-gcc.webp',
+    image: '/Applicationsnew/razor-barbed-wire-fence-high-security-gcc.png',
     features: [
       'CPNI & LPS1175 Certified',
       'Integrated Monitoring Systems',
@@ -217,7 +217,7 @@ const applicationsData: Record<string, {
     title: 'Farms & Animal Enclosures',
     description: 'Specialized fencing for agricultural properties, livestock management, and animal enclosures.',
     longDescription: 'Agricultural and livestock operations require specialized fencing that can contain animals while withstanding weather and wear. SRK FENCE provides durable, weather-resistant fencing solutions designed for farms, ranches, and animal enclosures. Our systems are engineered to handle the unique challenges of agricultural environments while providing reliable containment and protection.',
-    image: '/applicartion/marine-grade-fencing-ss316l-uae.webp',
+    image: '/Applicationsnew/marine-grade-fencing-ss316l-uae.png',
     features: [
       'Animal Containment Design',
       'Weather Resistant Materials',
@@ -255,7 +255,7 @@ const applicationsData: Record<string, {
     title: 'Boundary & Security Fencing',
     description: 'Perimeter security fencing for critical infrastructure, military bases, and high-security facilities.',
     longDescription: 'Critical infrastructure and high-security facilities require perimeter fencing that provides maximum protection against unauthorized access. SRK FENCE delivers advanced security fencing systems designed for military installations, government facilities, and critical infrastructure. Our solutions incorporate anti-climb, anti-cut, and anti-ram features with integrated surveillance capabilities.',
-    image: '/applicartion/powder-coated-wire-mesh-fence-uae.webp',
+    image: '/Applicationsnew/powder-coated-wire-mesh-fence-uae.png',
     features: [
       'Maximum Security Standards',
       'Anti-Climb & Anti-Cut Design',
@@ -293,7 +293,7 @@ const applicationsData: Record<string, {
     title: 'Warehouses & Logistic Centers',
     description: 'Secure fencing solutions for warehouses, distribution centers, and logistics facilities.',
     longDescription: 'Warehouses and logistics centers require fencing that protects valuable inventory while allowing efficient operations. SRK FENCE provides secure, scalable fencing solutions designed for distribution centers, warehouses, and logistics facilities. Our systems balance security needs with operational efficiency, providing access control while protecting assets.',
-    image: '/applicartion/complete-fencing-solutions-gcc-middle-east.webp',
+    image: '/Applicationsnew/high-security-boundary-fencing-contractors-gcc.png',
     features: [
       'Asset Protection',
       'Access Control Integration',
@@ -331,7 +331,7 @@ const applicationsData: Record<string, {
     title: 'Country Border Fencing',
     description: 'Large-scale border security fencing systems for national boundaries.',
     longDescription: 'National border security requires large-scale fencing systems engineered for extreme conditions and maximum security. SRK FENCE provides comprehensive border fencing solutions designed for national boundaries, incorporating advanced security features, surveillance integration, and durable construction to withstand harsh environmental conditions over vast distances.',
-    image: '/applicartion/industrial-fencing-solutions-uae-ksa-qatar.webp',
+    image: '/Applicationsnew/border-fencing-solutions-uae-ksa-qatar.png',
     features: [
       'National Security Standards',
       'Extreme Durability',
@@ -369,7 +369,14 @@ const applicationsData: Record<string, {
 
 /** Hero background overrides by slug (paths under `public/`). */
 const APPLICATION_HERO_IMAGE_OVERRIDES: Partial<Record<string, string>> = {
-  'residential-fencing': '/applicartion/banner22.jpeg',
+  'residential-fencing': '/Applicationsnew/residential-security-fencing-solutions-uae-dubai.png',
+  'commercial-industrial': '/Applicationsnew/galvanized-welded-wire-mesh-fence-uae.png',
+  'oil-gas-sector': '/Applicationsnew/home-back-yard-fencing-in-uae.png',
+  'data-centers': '/Applicationsnew/razor-barbed-wire-fence-high-security-gcc.png',
+  'farms-animal-enclosures': '/Applicationsnew/marine-grade-fencing-ss316l-uae.png',
+  'boundary-security-fencing': '/Applicationsnew/powder-coated-wire-mesh-fence-uae.png',
+  'warehouses-logistic-centers': '/Applicationsnew/high-security-boundary-fencing-contractors-gcc.png',
+  'country-border-fencing': '/Applicationsnew/border-fencing-solutions-uae-ksa-qatar.png',
   'schools-public-parks': '/resized-image.jpeg',
 };
 
@@ -468,16 +475,18 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
   return (
     <SiteLayout>
       <section className="relative w-full !mt-0 bg-background">
-        <Image
-          src={heroImageSrc}
-          alt={`${application.title} hero banner`}
-          width={1920}
-          height={600}
-          className="block w-full h-auto"
-          sizes="100vw"
-          priority
-          quality={85}
-        />
+        <div className="mx-auto w-full max-w-[1920px]">
+          <Image
+            src={heroImageSrc}
+            alt={`${application.title} hero banner`}
+            width={1920}
+            height={600}
+            className="block w-full h-auto"
+            sizes="100vw"
+            priority
+            quality={85}
+          />
+        </div>
       </section>
 
       <section className="bg-background py-24">
