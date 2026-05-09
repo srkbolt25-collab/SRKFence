@@ -2,11 +2,8 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import SiteLayout from '@/components/SiteLayout';
-import PageHeader from '@/components/PageHeader';
-import {
-  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
-  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
-} from '@/lib/pageHeaderHeroClass';
+import HeroBannerSlider from '@/components/HeroBannerSlider';
+import { UNUSED_BANNERS_SLIDES } from '@/lib/unusedHeroBanners';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -217,20 +214,21 @@ export default function ProjectsPage() {
 
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Our Projects"
-        title="Completed Projects Gallery"
-        description="Explore our portfolio of successful fencing projects across various sectors, showcasing our expertise and commitment to excellence."
-        variant="contrast"
-        backgroundImage={heroFence}
-        overlayClassName="from-black/85 via-black/75 to-black/60"
-        fixedHero
-        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
-        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
-      />
+      <HeroBannerSlider slides={UNUSED_BANNERS_SLIDES} altPrefix="Projects banner" />
 
       <section className="bg-background py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+              <span className="text-sm font-bold text-primary uppercase tracking-[0.2em]">Our Projects</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
+              Completed Projects Gallery
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Explore our portfolio of successful fencing projects across various sectors, showcasing our expertise and commitment to excellence.
+            </p>
+          </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-4 mb-12">
               <TabsTrigger value="gallery">Projects Gallery</TabsTrigger>

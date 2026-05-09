@@ -1,17 +1,13 @@
 'use client';
 
 import { useState } from "react";
-import PageHeader from "@/components/PageHeader";
-import {
-  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
-  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
-} from "@/lib/pageHeaderHeroClass";
+import HeroBannerSlider from "@/components/HeroBannerSlider";
+import { UNUSED_BANNERS_SLIDES } from "@/lib/unusedHeroBanners";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import heroFence from "@/assets/hero-fence.jpg";
 import { Phone, Mail, MapPin, MessageCircle, Users, ShoppingCart, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -134,16 +130,20 @@ const ContactPage = () => {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Contact Us"
-        title="Get in Touch with Our Team"
-        description="Contact our sales or purchase team for inquiries, quotes, and support. We're here to help with all your fencing needs."
-        backgroundImage={heroFence}
-        variant="contrast"
-        fixedHero
-        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
-        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
-      />
+      <HeroBannerSlider slides={UNUSED_BANNERS_SLIDES} altPrefix="Contact banner" />
+
+      <section className="border-b border-border bg-background py-12 md:py-16">
+        <div className="container mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-secondary">Contact Us</p>
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            Get in Touch with Our Team
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Contact our sales or purchase team for inquiries, quotes, and support. We&apos;re here to help with all your
+            fencing needs.
+          </p>
+        </div>
+      </section>
 
       {/* Phone / Email Section */}
       <section className="bg-background py-16 border-b border-border">

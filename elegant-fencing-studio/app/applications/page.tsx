@@ -2,16 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import SiteLayout from '@/components/SiteLayout';
-import PageHeader from '@/components/PageHeader';
+import HeroBannerSlider from '@/components/HeroBannerSlider';
+import { UNUSED_BANNERS_SLIDES } from '@/lib/unusedHeroBanners';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import {
-  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
-  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
-} from '@/lib/pageHeaderHeroClass';
 import { ArrowRight, Home, Building2, Fuel, Server, GraduationCap, Trees, Shield, Warehouse, Globe, Loader2 } from 'lucide-react';
-import metalFence from '@/assets/metal-fence.jpg';
 import heroFence from '@/assets/hero-fence.jpg';
 import Image from 'next/image';
 import { apiClient } from '@/lib/api';
@@ -127,20 +123,21 @@ export default function ApplicationsPage() {
 
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Applications"
-        title="Fencing Solutions for Every Sector"
-        description="From residential properties to critical infrastructure, we provide specialized fencing solutions tailored to your specific industry needs."
-        variant="contrast"
-        backgroundImage={heroFence}
-        overlayClassName="from-black/85 via-black/75 to-black/60"
-        fixedHero
-        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
-        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
-      />
+      <HeroBannerSlider slides={UNUSED_BANNERS_SLIDES} altPrefix="Applications banner" />
 
       <section className="bg-background py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+              <span className="text-sm font-bold text-primary uppercase tracking-[0.2em]">Applications</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
+              Fencing Solutions for Every Sector
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              From residential properties to critical infrastructure, we provide specialized fencing solutions tailored to your specific industry needs.
+            </p>
+          </div>
           {loading ? (
             <div className="flex items-center justify-center py-24">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />

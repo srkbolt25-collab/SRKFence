@@ -1,21 +1,13 @@
 'use client';
 
 import Benefits from "@/components/Benefits";
+import HeroBannerSlider from "@/components/HeroBannerSlider";
 import Image from "next/image";
 import woodFence from "@/assets/wood-fence.jpg";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Gem, Globe2, Handshake, Sparkles, Building2, Target, Factory, Award, Briefcase, Users, Eye, Shield, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const globalStats = [
   { value: "1,200+", label: "Signature projects delivered" },
@@ -55,68 +47,9 @@ const whyUsHeroSlides = [
 ];
 
 const WhyUsPage = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-
-    setCurrentSlide(api.selectedScrollSnap());
-    const onSelect = () => setCurrentSlide(api.selectedScrollSnap());
-    api.on("select", onSelect);
-
-    return () => {
-      api.off("select", onSelect);
-    };
-  }, [api]);
-
-  useEffect(() => {
-    if (!api) return;
-
-    const timer = setInterval(() => {
-      api.scrollNext();
-    }, 4500);
-
-    return () => clearInterval(timer);
-  }, [api]);
-
   return (
     <>
-      <section className="relative w-full !mt-0 bg-background">
-        <div className="mx-auto w-full max-w-[1920px]">
-          <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
-            <CarouselContent className="ml-0">
-              {whyUsHeroSlides.map((slide, index) => (
-                <CarouselItem key={slide} className="pl-0">
-                  <Image
-                    src={slide}
-                    alt={`Why SRK FENCE banner ${index + 1}`}
-                    width={1856}
-                    height={576}
-                    className="block w-full h-auto"
-                    sizes="100vw"
-                    priority={index === 0}
-                    quality={85}
-                    loading={index === 0 ? undefined : "lazy"}
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-3 sm:left-4 h-9 w-9 border-white/30 bg-black/35 text-white hover:bg-black/55" />
-            <CarouselNext className="right-3 sm:right-4 h-9 w-9 border-white/30 bg-black/35 text-white hover:bg-black/55" />
-          </Carousel>
-          <div className="pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-            {whyUsHeroSlides.map((_, index) => (
-              <span
-                key={index}
-                className={`h-2 rounded-full transition-all ${
-                  currentSlide === index ? "w-7 bg-white" : "w-2 bg-white/55"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <HeroBannerSlider slides={whyUsHeroSlides} altPrefix="Why SRK FENCE banner" />
 
       <section className="py-20 bg-card border-y border-border/60">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">

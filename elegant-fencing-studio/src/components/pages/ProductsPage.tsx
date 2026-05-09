@@ -2,11 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import SiteLayout from "@/components/SiteLayout";
-import PageHeader from "@/components/PageHeader";
-import {
-  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
-  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
-} from "@/lib/pageHeaderHeroClass";
+import HeroBannerSlider from "@/components/HeroBannerSlider";
+import { UNUSED_BANNERS_SLIDES } from "@/lib/unusedHeroBanners";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import heroFence from "@/assets/hero-fence.jpg";
@@ -283,28 +280,29 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
 
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Our Products"
-        title="Premium Fencing Solutions for Every Need"
-        description="From high-security perimeters to playground boundaries, discover our comprehensive range of engineered fencing systems designed for durability, aesthetics, and performance."
-        variant="contrast"
-        backgroundImage={metalFence}
-        overlayClassName="from-black/85 via-black/75 to-black/60"
-        fixedHero
-        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
-        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
-      >
-        <Button
-          asChild
-          size="lg"
-          className="bg-gradient-accent hover:shadow-glow text-secondary-foreground px-8 py-6 h-auto rounded-xl"
-        >
-          <Link href="/contact" className="font-semibold">
-            Get a Quote
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </Button>
-      </PageHeader>
+      <HeroBannerSlider slides={UNUSED_BANNERS_SLIDES} altPrefix="Products banner" />
+
+      <section className="border-b border-border/60 bg-background py-12 md:py-16">
+        <div className="container mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-secondary">Our Products</p>
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            Premium Fencing Solutions for Every Need
+          </h1>
+          <p className="mx-auto mb-8 max-w-3xl text-lg text-muted-foreground">
+            From high-security perimeters to playground boundaries, discover our comprehensive range of engineered fencing systems designed for durability, aesthetics, and performance.
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="bg-gradient-accent hover:shadow-glow h-auto rounded-xl px-8 py-6 text-secondary-foreground"
+          >
+            <Link href="/contact" className="font-semibold">
+              Get a Quote
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
 
       <section className="bg-background py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
