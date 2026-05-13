@@ -11,7 +11,7 @@ const TopBar = () => {
           className="inline-flex items-center gap-2 transition-opacity hover:opacity-90"
         >
           <Phone className="h-4 w-4" />
-          <span>+971 528489775</span>
+          <span> +971 522160874</span>
         </a>
         <a
           href="mailto:sales@srkmetals.com"
