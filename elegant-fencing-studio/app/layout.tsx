@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     images: ['/SRK FENCE Banners.webp'],
   },
   other: {
+    'google-site-verification': 'zAawJDJWiYNHxUS39Ori02q8wkXtLLZKxr6qmo9YPCo',
     'geo.region': 'AE-SH',
     'geo.placename': 'Dubai, Sharjah, United Arab Emirates',
     'business:contact_data:country_name': 'United Arab Emirates',
@@ -77,6 +78,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <StructuredData data={[buildOrganizationSchema(), buildLocalBusinessSchema(), buildWebsiteSchema()]} />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4XRKFGTQEP" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4XRKFGTQEP');
+          `}
+        </Script>
         <Script id="tawk-to-widget" strategy="afterInteractive">
           {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
