@@ -50,7 +50,6 @@ export const metadata: Metadata = {
     'geo.placename': 'Dubai, Sharjah, United Arab Emirates',
     'business:contact_data:country_name': 'United Arab Emirates',
     'ai-search-intent': staticSeoProfiles.home.intent,
-    'target-keywords': staticSeoProfiles.home.keywords.slice(0, 30).join(', '),
   },
   robots: {
     index: true,

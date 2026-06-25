@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { countryPages, productSeoPages, siteUrl } from '@/lib/seo';
+import { getAllGccLandingPaths } from '@/lib/gccPages';
 
 const staticRoutes = [
   '',
@@ -42,12 +43,14 @@ const blogRoutes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const productRoutes = productSeoPages.map((product) => `/products/${product.slug}`);
-  const countryRoutes = countryPages.map((country) => `/countries/${country.slug}`);
+  const baseCountryRoutes = countryPages.map((country) => `/countries/${country.slug}`);
+  const gccLandingRoutes = getAllGccLandingPaths();
+  const routes = Array.from(new Set([...staticRoutes, ...productRoutes, ...applicationRoutes, ...baseCountryRoutes, ...gccLandingRoutes, ...blogRoutes]));
 
-  return [...staticRoutes, ...productRoutes, ...applicationRoutes, ...countryRoutes, ...blogRoutes].map((route) => ({
+  return routes.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: now,
     changeFrequency: route === '' ? ('weekly' as const) : ('monthly' as const),
-    priority: route === '' ? 1 : route.startsWith('/products') || route.startsWith('/countries') ? 0.85 : 0.7,
+    priority: route === '' ? 1 : route.startsWith('/countries') ? 0.9 : route.startsWith('/products') ? 0.85 : 0.7,
   }));
 }

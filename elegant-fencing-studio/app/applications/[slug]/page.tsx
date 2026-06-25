@@ -9,7 +9,7 @@ import Image from 'next/image';
 import heroFence from '@/assets/hero-fence.jpg';
 import metalFence from '@/assets/metal-fence.jpg';
 import { apiClient } from '@/lib/api';
-import { applicationSeoContent, getApplicationKeywordSet } from '@/lib/seo';
+import { applicationSeoContent } from '@/lib/seo';
 
 const applicationsData: Record<string, {
   title: string;
@@ -473,7 +473,6 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
     applicationsData[slug]?.image ??
     application.image;
   const seoContent = applicationSeoContent[slug];
-  const targetedKeywords = getApplicationKeywordSet(slug);
 
   return (
     <SiteLayout>
@@ -510,15 +509,12 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground leading-relaxed">{seoContent.answer}</p>
-                  <div>
-                    <h3 className="mb-3 text-lg font-bold text-foreground">Buyer Search Terms</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {targetedKeywords.slice(0, 12).map((keyword) => (
-                        <span key={keyword} className="rounded-full bg-muted px-3 py-1.5 text-xs font-semibold text-muted-foreground">
-                          {keyword}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="rounded-lg bg-muted p-5">
+                    <h3 className="mb-3 text-lg font-bold text-foreground">Project Planning Guidance</h3>
+                    <p className="leading-relaxed text-muted-foreground">
+                      Share the site location, boundary length, required fence height, security level, coating preference,
+                      gate/access-control requirement and drawings or site photos so SRK Fence can recommend suitable products.
+                    </p>
                   </div>
                   <div>
                     <h3 className="mb-3 text-lg font-bold text-foreground">Recommended Products</h3>
@@ -642,14 +638,14 @@ export default function ApplicationPage({ params }: { params: Promise<{ slug: st
                           <img
                             src={imageUrl}
                             alt={`${application.title} - Image ${idx + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            className="w-full h-full object-contain bg-muted p-2 transition-transform duration-300 group-hover:scale-105"
                           />
                         ) : (
                           <Image
                             src={imageUrl}
                             alt={`${application.title} - Image ${idx + 1}`}
                             fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                            className="object-contain bg-muted p-2 transition-transform duration-300 group-hover:scale-105"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             loading="lazy"
                             quality={65}

@@ -13,7 +13,6 @@ import heroFence from '@/assets/hero-fence.jpg';
 import Image from 'next/image';
 import { apiClient } from '@/lib/api';
 import {
-  applicationKeywordProfiles,
   applicationSeoContent,
   buildItemListSchema,
   buildWebPageSchema,
@@ -179,14 +178,14 @@ export default function ApplicationsPage() {
                             <img
                               src={imageSrc}
                               alt={`${application.title} fencing application`}
-                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              className="h-full w-full object-contain bg-muted transition-transform duration-700 group-hover:scale-105"
                             />
                           ) : (
                             <Image
                               src={imageSrc}
                               alt={`${application.title} fencing application`}
                               fill
-                              className="object-cover transition-transform duration-700 group-hover:scale-110"
+                              className="object-contain bg-muted p-1 transition-transform duration-700 group-hover:scale-105"
                               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             />
                           )}
@@ -221,7 +220,7 @@ export default function ApplicationsPage() {
                           )}
                           {applicationSeoContent[application.slug] && (
                             <p className="mb-4 text-xs font-bold uppercase tracking-wide text-primary">
-                              {applicationSeoContent[application.slug].primaryKeyword}
+                              Project Application
                             </p>
                           )}
                           <div className="flex items-center text-primary font-semibold text-sm mt-4 group-hover:gap-2 transition-all">
@@ -236,32 +235,6 @@ export default function ApplicationsPage() {
               </div>
             )}
 
-            <div className="mt-16 rounded-lg border border-border bg-card p-6">
-              <div className="mb-6 max-w-3xl">
-                <h2 className="text-2xl font-extrabold text-foreground">Application Buyer Searches</h2>
-                <p className="mt-3 text-muted-foreground">
-                  These application pages help buyers describe the site problem first, then compare suitable fencing
-                  products, specifications and quotation requirements.
-                </p>
-              </div>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {Object.entries(applicationSeoContent).map(([slug, content]) => (
-                  <Link key={slug} href={`/applications/${slug}`} className="rounded-md border border-border p-4 transition hover:border-primary hover:shadow-sm">
-                    <h3 className="font-bold text-foreground">{content.primaryKeyword}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {applicationKeywordProfiles[slug]?.buyerIntent}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {applicationKeywordProfiles[slug]?.secondaryKeywords.slice(0, 3).map((keyword) => (
-                        <span key={keyword} className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
-                          {keyword}
-                        </span>
-                      ))}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
