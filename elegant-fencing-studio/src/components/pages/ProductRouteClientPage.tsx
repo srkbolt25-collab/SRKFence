@@ -1,0 +1,109 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import dynamicImport from 'next/dynamic';
+import { apiClient } from '@/lib/api';
+import { getProductSlug, slugifyProductName } from '@/lib/productSlug';
+
+const ProductsPage = dynamicImport(() => import('@/components/pages/ProductsPage'), {
+  ssr: false,
+});
+
+const ProductDetailsPage = dynamicImport(() => import('@/components/pages/ProductDetailsPage'), {
+  ssr: false,
+});
+
+export default function ProductRouteClientPage({ params }: { params: { id: string } }) {
+  const [isCategory, setIsCategory] = useState<boolean | null>(null);
+  const [realCategoryName, setRealCategoryName] = useState<string | null>(null);
+  const [resolvedProductId, setResolvedProductId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const rawSegment = params?.id ?? '';
+  let decodedSlug = rawSegment;
+  try {
+    decodedSlug = decodeURIComponent(rawSegment);
+  } catch {
+    decodedSlug = rawSegment;
+  }
+  const normalizedSlug = slugifyProductName(decodedSlug);
+
+  useEffect(() => {
+    const checkSlugType = async () => {
+      setLoading(true);
+      try {
+        const [categoriesResponse, productsResponse] = await Promise.all([
+          apiClient.getCategories(),
+          apiClient.getProducts(),
+        ]);
+
+        const categories = categoriesResponse.categories || [];
+        const products = productsResponse.products || [];
+
+        let matchedCategory = categories.find(
+          (c) => c.name.toLowerCase() === decodedSlug.toLowerCase()
+        );
+
+        if (!matchedCategory) {
+          const normalizedCategory = decodedSlug.replace(/-/g, ' ');
+          matchedCategory = categories.find(
+            (c) => c.name.toLowerCase() === normalizedCategory.toLowerCase()
+          );
+        }
+
+        if (!matchedCategory) {
+          matchedCategory = categories.find(
+            (c) => c.name.toLowerCase().replace(/\s+/g, '-') === decodedSlug.toLowerCase()
+          );
+        }
+
+        if (matchedCategory) {
+          setIsCategory(true);
+          setRealCategoryName(matchedCategory.name);
+          setResolvedProductId(null);
+        } else {
+          setIsCategory(false);
+          setRealCategoryName(null);
+
+          const matchedProduct = products.find((product: any) => {
+            const productSlug = getProductSlug(product);
+            return (
+              product.id === decodedSlug ||
+              productSlug === decodedSlug.toLowerCase() ||
+              productSlug === normalizedSlug
+            );
+          });
+
+          if (matchedProduct?.id) {
+            setResolvedProductId(matchedProduct.id);
+          } else if (/^[0-9a-fA-F]{24}$/.test(rawSegment)) {
+            setResolvedProductId(rawSegment);
+          } else {
+            setResolvedProductId(null);
+          }
+        }
+      } catch (error) {
+        console.error('Error checking slug type:', error);
+        setIsCategory(false);
+        setResolvedProductId(/^[0-9a-fA-F]{24}$/.test(rawSegment) ? rawSegment : null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkSlugType();
+  }, [decodedSlug, normalizedSlug, rawSegment]);
+
+  if (loading) {
+    return <div className="min-h-screen bg-background" />;
+  }
+
+  if (isCategory && realCategoryName) {
+    return <ProductsPage initialCategory={realCategoryName} />;
+  }
+
+  if (resolvedProductId) {
+    return <ProductDetailsPage productId={resolvedProductId} />;
+  }
+
+  return <ProductsPage />;
+}
