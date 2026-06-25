@@ -40,9 +40,13 @@ const productCategories = [
 
 const countryLinks = [
   { label: "UAE", to: "/countries/uae" },
+  { label: "Bahrain", to: "/countries/bahrain" },
   { label: "Qatar", to: "/countries/qatar" },
+  { label: "Kuwait", to: "/countries/kuwait" },
   { label: "Saudi Arabia", to: "/countries/saudi-arabia" },
+  { label: "Iraq", to: "/countries/iraq" },
   { label: "Oman", to: "/countries/oman" },
+  { label: "Jordan", to: "/countries/jordan" },
 ];
 
 const Footer = () => {

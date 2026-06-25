@@ -495,7 +495,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                                     src={image}
                                                                     alt={`${product.title} - Image ${index + 1}`}
                                                                     fill
-                                                                    className="object-cover"
+                                                                    className="object-contain bg-muted p-2"
                                                                     sizes="(max-width: 768px) 100vw, 70vw"
                                                                 />
                                                             </div>
@@ -524,7 +524,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                                 src={image}
                                                                 alt={`${product.title} thumbnail ${index + 1}`}
                                                                 fill
-                                                                className="object-cover"
+                                                                className="object-contain bg-muted p-2"
                                                                 sizes="128px"
                                                             />
                                                         </button>
@@ -700,7 +700,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                             return (
                                 <Card>
                                     <CardContent className="pt-6">
-                                        <p className="text-muted-foreground text-center">No technical information available for this product.</p>
+                                        <p className="text-muted-foreground text-center">Technical data for this product is available on request. Please share your project drawings, required height, coating, quantity and delivery location so our team can confirm the correct specification.</p>
                                     </CardContent>
                                 </Card>
                             );
@@ -728,7 +728,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                             <CardDescription>Detailed technical specifications for {product.title}</CardDescription>
                                                         </CardHeader>
                                                         <CardContent>
-                                                            <p className="text-muted-foreground">No specifications available for this product.</p>
+                                                            <p className="text-muted-foreground">Detailed specification data is available on request. Send your project requirement and our team will confirm suitable material, coating, height, accessories and installation scope.</p>
                                                         </CardContent>
                                                     </Card>
                                                 ) : (
@@ -891,6 +891,13 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                 bimContent = { description: tab.content, files: [] };
                                             }
                                             
+                                            const safeFiles = (bimContent.files || []).filter((file: any) => {
+                                                const name = String(file?.name || '').toLowerCase();
+                                                const url = String(file?.url || '').toLowerCase();
+                                                const blocked = ['audit-report', 'hsdetectives', 'test', 'sample', 'dummy', 'fake'];
+                                                return file?.url && !blocked.some((term) => name.includes(term) || url.includes(term));
+                                            });
+
                                             return (
                                                 <Card>
                                                     <CardHeader>
@@ -902,9 +909,9 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                     <CardContent>
                                                         <div className="space-y-4">
                                                             {/* Files List */}
-                                                            {(bimContent.files || []).length > 0 ? (
+                                                            {safeFiles.length > 0 ? (
                                                                 <div className="grid gap-3">
-                                                                    {(bimContent.files || []).map((file: any, fileIndex: number) => (
+                                                                    {safeFiles.map((file: any, fileIndex: number) => (
                                                                         <div key={fileIndex} className="flex items-center justify-between p-3 border rounded-lg bg-muted/50">
                                                                             <div className="flex items-center gap-3">
                                                                                 <FileText className="h-5 w-5 text-muted-foreground" />
@@ -943,7 +950,7 @@ export default function ProductDetailsPage({ productId }: ProductDetailsPageProp
                                                             ) : (
                                                                 <div className="p-4 bg-muted rounded-lg text-center">
                                                                     <p className="text-sm text-muted-foreground">
-                                                                        No files available for download.
+                                                                        Product drawings, BIM files or technical PDFs are available on request after specification review.
                                                                     </p>
                                                                 </div>
                                                             )}

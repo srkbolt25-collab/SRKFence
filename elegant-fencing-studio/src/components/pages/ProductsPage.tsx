@@ -330,16 +330,6 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                   <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
                     {product.shortDescription}
                   </p>
-                  <p className="mt-3 text-xs font-bold uppercase tracking-wide text-primary">
-                    {product.primaryKeyword}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {product.secondaryKeywords.slice(0, 3).map((keyword) => (
-                      <span key={keyword} className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
                   <div className="mt-4 flex items-center text-sm font-bold text-primary">
                     View Product Page
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -460,14 +450,14 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                         <img
                           src={product.image}
                           alt={product.title}
-                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="absolute inset-0 h-full w-full object-contain bg-muted p-2 transition-transform duration-500 group-hover:scale-105"
                         />
                       ) : (
                         <Image
                           src={product.image}
                           alt={product.title}
                           fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="object-contain bg-muted p-2 transition-transform duration-500 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         />
                       )}

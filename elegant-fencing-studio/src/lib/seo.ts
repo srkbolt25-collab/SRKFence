@@ -1421,7 +1421,6 @@ export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
       'business:contact_data:country_name': 'United Arab Emirates',
       'ai-search-intent': profile.intent,
       'answer-engine-topic': keywords.slice(0, 8).join(', '),
-      'target-keywords': keywords.slice(0, 30).join(', '),
     },
   };
 }

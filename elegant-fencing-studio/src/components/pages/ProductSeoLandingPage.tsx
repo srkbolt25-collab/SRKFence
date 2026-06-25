@@ -47,7 +47,7 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
               </Button>
               <div>
                 <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-primary">
-                  {product.primaryKeyword}
+                  {product.category}
                 </p>
                 <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
                   {product.h1}
@@ -80,7 +80,7 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
                 src={product.image}
                 alt={`${product.name} supplier in Dubai UAE`}
                 fill
-                className="object-cover"
+                className="object-contain p-2"
                 sizes="(max-width: 1024px) 100vw, 520px"
                 priority
               />
@@ -172,34 +172,6 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
                       {link.label}
                     </Link>
                   ))}
-                </CardContent>
-              </Card>
-
-              <Card className="rounded-lg border-border">
-                <CardHeader>
-                  <CardTitle className="text-xl">Target Keywords</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-wrap gap-2">
-                  {targetedKeywords.slice(0, 18).map((keyword) => (
-                    <span key={keyword} className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground">
-                      {keyword}
-                    </span>
-                  ))}
-                </CardContent>
-              </Card>
-
-              <Card className="rounded-lg border-border">
-                <CardHeader>
-                  <CardTitle className="text-xl">Buyer Search Guidance</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
-                  <p>
-                    This page is built for buyers searching for {product.primaryKeyword}. Related requirements often include {product.secondaryKeywords.join(', ')}.
-                  </p>
-                  <p>
-                    SRK Fence supports UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and
-                    Jordan project enquiries for {product.name.toLowerCase()}, specifications, accessories, delivery and installation scope.
-                  </p>
                 </CardContent>
               </Card>
             </aside>
