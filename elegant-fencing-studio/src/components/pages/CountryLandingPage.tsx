@@ -38,13 +38,13 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
         <section className="border-b border-border bg-background">
           <div className="container mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.85fr)] lg:px-8">
             <div className="space-y-6">
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary">GCC Market Coverage</p>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary">Project Fencing Support</p>
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
                 Fencing Supplier in {country.country}
               </h1>
               <p className="text-lg leading-relaxed text-muted-foreground">{country.intro}</p>
               <p className="leading-relaxed text-muted-foreground">
-                This page is designed for real project buyers, contractors, consultants, facility managers and procurement teams comparing fencing options for supply, installation, accessories, delivery and quotation scope.
+                SRK Fence helps contractors, consultants, facility managers and procurement teams compare fencing options for supply, installation, accessories, delivery and quotation scope.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="h-auto rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-8 py-5 font-bold uppercase tracking-wide text-white">
@@ -55,8 +55,8 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
                 </Button>
               </div>
             </div>
-            <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm">
-              <Image src={heroImage} alt={`Fencing supplier in ${country.country}`} fill className="object-contain p-2" sizes="(max-width: 1024px) 100vw, 520px" priority />
+            <div className="relative min-h-[260px] overflow-hidden rounded-2xl border border-border bg-white shadow-sm lg:min-h-[360px]">
+              <Image src={heroImage} alt={`Fencing supplier in ${country.country}`} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" priority />
             </div>
           </div>
         </section>
@@ -77,7 +77,7 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
               </Card>
 
               <Card className="rounded-2xl border-border bg-background shadow-sm">
-                <CardHeader><CardTitle className="text-2xl">Application Coverage</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="text-2xl">Fencing Solutions by Application</CardTitle></CardHeader>
                 <CardContent className="grid gap-3 sm:grid-cols-2">
                   {country.applications.map((application) => (
                     <div key={application} className="flex items-start gap-3 rounded-lg border border-border p-4">
@@ -101,13 +101,13 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
               </Card>
 
               <Card className="rounded-2xl border-border bg-background shadow-sm">
-                <CardHeader><CardTitle className="text-2xl">Country RFQ Guidance</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="text-2xl">Request a Fencing Quote</CardTitle></CardHeader>
                 <CardContent className="space-y-4 text-muted-foreground">
                   <p>
                     Request a fencing quotation for {country.country}. Share fence length, height, mesh size, wire diameter, coating requirement, delivery city, gate requirement, installation scope, project timeline and any drawings or specifications.
                   </p>
                   <p>
-                    Typical buyer intent includes {country.buyerIntent.toLowerCase()} SRK Fence can review supply-only and project installation discussions based on the final site requirement.
+                    Typical project requirements include {country.buyerIntent.toLowerCase()} SRK Fence can review supply-only and installation discussions based on the final site requirement.
                   </p>
                 </CardContent>
               </Card>
@@ -127,7 +127,7 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
               </Card>
 
               <Card className="rounded-2xl border-border bg-background shadow-sm">
-                <CardHeader><CardTitle className="text-xl">Product Pages for {country.country}</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="text-xl">Fencing Products in {country.country}</CardTitle></CardHeader>
                 <CardContent className="grid gap-2">
                   {gccProductPages.map((product) => (
                     <Link key={product.slug} href={getCountryProductUrl(country.slug, product.slug)} className="rounded-lg bg-muted px-4 py-3 text-sm font-semibold text-muted-foreground hover:bg-primary hover:text-primary-foreground">
@@ -143,12 +143,12 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
         <section className="bg-muted/30 py-16">
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 text-center">
-              <h2 className="text-3xl font-extrabold text-foreground">Complete {country.country} GCC Page Setup</h2>
-              <p className="mt-3 text-muted-foreground">Dedicated pages for priority fencing products and project applications.</p>
+              <h2 className="text-3xl font-extrabold text-foreground">Explore Fencing Options for {country.country}</h2>
+              <p className="mt-3 text-muted-foreground">Select a fencing product or project application to view details, quote requirements and suitable systems for this market.</p>
             </div>
             <div className="grid gap-8 lg:grid-cols-2">
               <Card className="rounded-2xl border-border bg-background shadow-sm">
-                <CardHeader><CardTitle className="text-2xl">Product Landing Pages</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="text-2xl">Fencing Products Available</CardTitle></CardHeader>
                 <CardContent className="grid gap-3 sm:grid-cols-2">
                   {gccProductPages.map((product) => (
                     <Link key={product.slug} href={getCountryProductUrl(country.slug, product.slug)} className="rounded-lg border border-border p-4 font-semibold hover:border-primary hover:text-primary">
@@ -158,7 +158,7 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
                 </CardContent>
               </Card>
               <Card className="rounded-2xl border-border bg-background shadow-sm">
-                <CardHeader><CardTitle className="text-2xl">Application Landing Pages</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="text-2xl">Fencing Solutions by Application</CardTitle></CardHeader>
                 <CardContent className="grid gap-3 sm:grid-cols-2">
                   {gccApplicationPages.map((application) => (
                     <Link key={application.slug} href={getCountryApplicationUrl(country.slug, application.slug)} className="rounded-lg border border-border p-4 font-semibold hover:border-primary hover:text-primary">
@@ -174,8 +174,8 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
         <section className="bg-background py-16">
           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 text-center">
-              <h2 className="text-3xl font-extrabold text-foreground">Fencing Buyer Questions for {country.country}</h2>
-              <p className="mt-3 text-muted-foreground">Helpful, answer-first information for procurement and project teams.</p>
+              <h2 className="text-3xl font-extrabold text-foreground">Common Buyer Questions for {country.country}</h2>
+              <p className="mt-3 text-muted-foreground">Helpful answers for contractors, procurement teams and project owners planning fencing requirements.</p>
             </div>
             <div className="grid gap-4">
               {country.faqs.map((faq) => (

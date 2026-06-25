@@ -661,9 +661,9 @@ export const countryPages: CountryPage[] = [
     country: 'UAE',
     primaryKeyword: 'fencing supplier in UAE',
     secondaryKeywords: ['fencing supplier Dubai', 'fence contractor UAE', 'security fencing UAE', 'chain link fence UAE'],
-    buyerIntent: 'Local supplier, contractor, installation and urgent quotation support.',
+    buyerIntent: 'local fencing supply, installation support, project quotation and urgent site requirements.',
     intro:
-      'SRK Fence supports UAE fencing projects from Dubai and Sharjah with supply, quotation and installation support for residential, commercial, industrial, warehouse, school, construction and security sites. Buyers in Dubai, Abu Dhabi, Sharjah and other emirates can request chain link fence, welded mesh fence, anti-climb fencing, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories with project-specific specifications.',
+      'SRK Fence supplies and installs fencing systems for contractors, consultants, facility managers and project owners across Dubai, Abu Dhabi, Sharjah and the wider UAE. Our range includes chain link fencing, welded mesh fencing, anti-climb fencing, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories for residential, commercial, industrial and high-security projects.',
     products: ['Chain link fence', 'Welded mesh fence', 'Anti-climb 358 fence', 'PVC fencing', 'Temporary fence panels', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Construction sites', 'Warehouses', 'Industrial facilities', 'Schools', 'Farms', 'Commercial properties', 'Residential communities', 'Security perimeters'],
     whySource: ['Dubai and Sharjah based support', 'Wide fencing product range', 'RFQ support for custom specifications', 'Supply and installation coordination', 'GCC project experience'],
