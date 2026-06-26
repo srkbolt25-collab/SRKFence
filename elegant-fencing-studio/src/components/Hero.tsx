@@ -1,9 +1,6 @@
 'use client';
 
 import heroImage from "@/assets/hero-fence.jpg";
-import metalFence from "@/assets/metal-fence.jpg";
-import vinylFence from "@/assets/vinyl-fence.jpg";
-import woodFence from "@/assets/wood-fence.jpg";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -19,33 +16,27 @@ import { useEffect, useState } from "react";
 const heroSlides = [
   {
     image: "/SRK FENCE Banners.webp",
-    title: "Chain link fence",
-    highlight: "Durable & Secure",
-    badge: "Chain link fence",
-    description: "Cost-effective boundary fencing for factories, warehouses, farms, schools and open-site perimeter protection.",
+    title: "Chain Link Fence",
+    badge: "Boundary Fencing",
+    description: "Cost-effective fencing for warehouses, factories, farms and open-site perimeters.",
   },
   {
     image: "/SRK FENCE Banners1.webp",
-    title: "Welded fence (Welded wire fence)",
-    highlight: "Strong & Rigid",
-    badge: "Welded Fence",
-    description: "Strong welded mesh fencing for commercial, industrial and residential boundaries with good visibility and low maintenance.",
+    title: "Welded Mesh Fence",
+    badge: "Industrial Security",
+    description: "Rigid mesh fencing for commercial, industrial and high-visibility boundary projects.",
   },
   {
     image: "/SRK FENCE Banners2.webp",
-    title: "Eco PVC hoarding fence",
-    highlight: "Clean & Weather-Resistant",
-    badge: "Eco PVC Hoarding",
-    description:
-      "Clean, weather-resistant hoarding panels for construction sites, temporary enclosures, safety screening and project branding.",
+    title: "Eco PVC Hoarding",
+    badge: "Construction Projects",
+    description: "Clean, weather-resistant hoarding for temporary enclosures, site screening and branding.",
   },
   {
     image: "/WhatsApp Image 2025-12-20 at 11.22.40 AM.webp",
-    title: "PPGI corrugated fence",
-    highlight: "Durable & Corrosion-Resistant",
-    badge: "PPGI Corrugated",
-    description:
-      "Durable corrugated fencing for industrial boundaries, construction sites and long-term weather-resistant perimeter coverage.",
+    title: "PPGI Corrugated Fence",
+    badge: "Weather Resistant",
+    description: "Durable corrugated fencing for industrial boundaries and construction site coverage.",
   },
 ];
 
@@ -57,41 +48,32 @@ const Hero = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
-
+    if (!api) return;
     setCurrent(api.selectedScrollSnap());
-
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
 
-  // Auto-play functionality
   useEffect(() => {
     if (!api) return;
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 5000); // Change slide every 5 seconds
-
+    const interval = setInterval(() => api.scrollNext(), 5000);
     return () => clearInterval(interval);
   }, [api]);
 
   return (
-    <section className="relative min-h-[430px] sm:min-h-[500px] lg:min-h-[580px] w-full overflow-hidden pt-0">
+    <section className="relative h-[360px] sm:h-[420px] lg:h-[460px] w-full overflow-hidden pt-0">
       <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
         <CarouselContent className="h-full">
           {heroSlides.map((slide, index) => (
             <CarouselItem key={index} className="h-full pl-0">
-              <div className="relative h-[430px] sm:h-[500px] lg:h-[580px] w-full">
+              <div className="relative h-[360px] sm:h-[420px] lg:h-[460px] w-full">
                 <div className="absolute inset-0">
                   <Image
                     src={slide.image}
                     alt={slide.title}
                     fill
-                    className="object-cover scale-105 transition-transform ease-out"
+                    className="object-cover scale-[1.02] transition-transform ease-out"
                     style={{ transitionDuration: '20s' }}
                     sizes="100vw"
                     priority={index === 0}
@@ -100,84 +82,72 @@ const Hero = () => {
                     blurDataURL={heroBlurDataURL}
                     loading={index === 0 ? undefined : "lazy"}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#360c13]/96 via-[#360c13]/88 to-[#1f0a0f]/70" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(356_70%_30%/_0.3)_0%,transparent_50%)]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#2a0b10]/92 via-[#2a0b10]/76 to-[#2a0b10]/28" />
                 </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-4 md:left-8 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 z-20" />
-        <CarouselNext className="right-4 md:right-8 h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 z-20" />
+        <CarouselPrevious className="left-3 md:left-6 h-11 w-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 z-20" />
+        <CarouselNext className="right-3 md:right-6 h-11 w-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 z-20" />
       </Carousel>
 
-      {/* Content overlay - shows current slide content */}
       <div className="absolute inset-0 z-10 flex h-full w-full items-stretch pointer-events-none">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pointer-events-auto">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] h-full">
-            <div className="flex flex-col justify-center lg:justify-start py-7 sm:py-9 lg:py-11 animate-fade-in">
-              <div className="mb-4 flex items-center gap-2">
-                <span className="h-1.5 w-16 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
-                <span className="h-1.5 w-6 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
-                <span className="h-1.5 w-3 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
-              </div>
-              <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.3em] text-white/90 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                {heroSlides[current]?.badge || "Secure High Value Assets"}
+          <div className="grid h-full items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="flex max-w-[560px] flex-col justify-center py-6 sm:py-8 lg:py-10">
+              <span className="mb-3 inline-block w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm">
+                {heroSlides[current]?.badge || 'GCC Fencing Solutions'}
               </span>
-              <h1 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl leading-tight tracking-tight">
+              <h1 className="text-4xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-[56px]">
                 Fencing Supplier in Dubai for Security & Industrial Projects
               </h1>
-              <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-white/90 font-medium">
-                <span className="font-bold text-white">{heroSlides[current]?.title || "Security fencing"}:</span>{" "}
-                {heroSlides[current]?.description || "SRK Fence provides tailored fencing solutions for residential, commercial, industrial, construction, infrastructure, warehouse, oil and gas, data center, farm and high-security perimeter projects across UAE and GCC."}
+              <p className="mt-3 max-w-[540px] text-sm leading-6 text-white/90 sm:text-[15px]">
+                {heroSlides[current]?.description || 'Reliable fencing solutions for industrial, commercial and project sites across UAE and GCC.'}
               </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-glow transition-all duration-300 hover:shadow-hover hover:scale-105 border-0"
+                  className="group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-glow transition-all duration-300 hover:shadow-hover border-0"
                 >
                   Get a Quote
                   <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
                 <Link
                   href="/products"
-                  className="group inline-flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-modern transition-all duration-300 hover:bg-white/20 hover:scale-105"
+                  className="group inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
                 >
-                  View Our Products
+                  View Products
                 </Link>
               </div>
             </div>
 
-            <div className="relative hidden items-start justify-end lg:flex pt-28">
-              <div className="absolute left-[-60px] top-0 h-full w-[calc(100%+60px)] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-              <div className="relative h-[62%] w-[78%] max-h-[380px] max-w-[600px] overflow-hidden rounded-2xl border-4 border-white/20 shadow-float -mt-4">
+            <div className="relative hidden items-center justify-end lg:flex">
+              <div className="relative h-[250px] w-[420px] overflow-hidden rounded-2xl border-4 border-white/20 shadow-float xl:h-[270px] xl:w-[460px]">
                 <Image
                   src={heroSlides[current]?.image || heroImage}
-                  alt="Security fencing"
+                  alt={heroSlides[current]?.title || 'Security fencing'}
                   fill
-                  className="object-cover transition-transform ease-out hover:scale-110"
+                  className="object-cover object-center transition-transform ease-out hover:scale-105"
                   style={{ transitionDuration: '20s' }}
-                  sizes="(max-width: 1024px) 100vw, 600px"
+                  sizes="(max-width: 1024px) 100vw, 460px"
                   loading="lazy"
                   quality={65}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => api?.scrollTo(index)}
             className={`h-2 rounded-full transition-all duration-300 ${
-              current === index
-                ? "w-8 bg-white"
-                : "w-2 bg-white/40 hover:bg-white/60"
+              current === index ? 'w-8 bg-white' : 'w-2 bg-white/45 hover:bg-white/70'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
