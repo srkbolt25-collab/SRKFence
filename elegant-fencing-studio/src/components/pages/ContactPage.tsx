@@ -10,7 +10,28 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, MessageCircle, Users, ShoppingCart, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { productSeoPages, rfqKeywords } from "@/lib/seo";
+
+
+const quickQuoteOptions = [
+  "Chain Link Fence Quote",
+  "GI Chain Link Fence Quote",
+  "PVC Coated Chain Link Fence Quote",
+  "Welded Mesh Fence Quote",
+  "Anti-Climb Fence Quote",
+  "Temporary Fence Quote",
+  "PVC Hoarding Fence Quote",
+  "Barbed Wire Quote",
+  "Razor Wire Quote",
+  "Installation Quote",
+  "Request UAE Quote",
+  "Request Qatar Quote",
+  "Request Saudi Arabia Quote",
+  "Request Bahrain Quote",
+  "Request Kuwait Quote",
+  "Request Oman Quote",
+  "Request Iraq Quote",
+  "Request Jordan Quote",
+];
 
 // Team members data
 const salesTeam = [
@@ -153,7 +174,7 @@ const ContactPage = () => {
               <CardHeader>
                 <CardTitle className="text-2xl">What to Include in Your Fencing RFQ</CardTitle>
                 <CardDescription>
-                  Clear specifications help us quote faster for UAE, GCC and Middle East fencing projects.
+                  Share these project details so our team can prepare a faster and more accurate fencing quotation.
                 </CardDescription>
               </CardHeader>
               <CardContent className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
@@ -175,13 +196,20 @@ const ContactPage = () => {
             </Card>
             <Card className="border border-border bg-background">
               <CardHeader>
-                <CardTitle className="text-2xl">Common Quote Requests</CardTitle>
+                <CardTitle className="text-2xl">Quick Quote Options</CardTitle>
+                <CardDescription>
+                  Choose a fencing product, service, or GCC market to request a custom quotation.
+                </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
-                {[...productSeoPages.slice(0, 8).map((product) => product.primaryKeyword), ...rfqKeywords.slice(0, 4)].map((keyword) => (
-                  <span key={keyword} className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground">
-                    {keyword}
-                  </span>
+                {quickQuoteOptions.map((option) => (
+                  <a
+                    key={option}
+                    href={`#quote-form`}
+                    className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-secondary hover:bg-secondary/10 hover:text-secondary"
+                  >
+                    {option}
+                  </a>
                 ))}
               </CardContent>
             </Card>
@@ -319,7 +347,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form - Quote Request */}
-      <section className="bg-gradient-subtle py-24 relative overflow-hidden">
+      <section id="quote-form" className="bg-gradient-subtle py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(356_70%_40%/_0.05)_0%,transparent_50%)]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative">
           <div className="text-center mb-12">
