@@ -69,7 +69,7 @@ function CountryLinks({ country, currentSlug }: { country: CountryPage; currentS
   return (
     <Card className="rounded-2xl border-border bg-background shadow-sm">
       <CardHeader>
-        <CardTitle className="text-xl">Related {country.country} Pages</CardTitle>
+        <CardTitle className="text-xl">Products & Applications You May Need in {country.country}</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
         <Link className="rounded-lg border border-border px-4 py-3 font-semibold hover:border-primary hover:text-primary" href={`/countries/${country.slug}`}>
@@ -142,8 +142,8 @@ export default function GccMarketLandingPage(props: Props) {
                   </Button>
                 </div>
               </div>
-              <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm">
-                <Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} supplier in ${country.country}`} fill className="object-contain p-2" sizes="(max-width: 1024px) 100vw, 520px" priority />
+              <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
+                <Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} supplier in ${country.country}`} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" priority />
               </div>
             </div>
           </section>
@@ -184,7 +184,7 @@ export default function GccMarketLandingPage(props: Props) {
 
               <aside className="space-y-6">
                 <Card className="rounded-2xl border-border bg-background shadow-sm">
-                  <CardHeader><CardTitle className="text-xl">Related Product Options</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-xl">Products You May Also Need</CardTitle></CardHeader>
                   <CardContent className="grid gap-2">
                     {getRelatedProductLinks(page).map((link) => <Link key={link.href} href={link.href} className="rounded-lg bg-muted px-4 py-3 font-semibold text-muted-foreground hover:bg-primary hover:text-primary-foreground">{link.label}</Link>)}
                   </CardContent>
@@ -245,7 +245,7 @@ export default function GccMarketLandingPage(props: Props) {
                 <Button asChild size="lg" variant="outline" className="h-auto rounded-xl px-8 py-5 font-bold"><Link href="/applications">View Applications <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
               </div>
             </div>
-            <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm"><Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} in ${country.country}`} fill className="object-contain p-2" sizes="(max-width: 1024px) 100vw, 520px" priority /></div>
+            <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-border bg-white shadow-sm"><Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} in ${country.country}`} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" priority /></div>
           </div>
         </section>
 

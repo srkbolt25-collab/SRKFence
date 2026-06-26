@@ -116,7 +116,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <h4 className="text-lg font-extrabold text-white mb-4 mt-8">Country Pages</h4>
+            <h4 className="text-lg font-extrabold text-white mb-4 mt-8">Countries We Serve</h4>
             <ul className="space-y-3 text-white/80">
               {countryLinks.map((item) => (
                 <li key={item.label}>

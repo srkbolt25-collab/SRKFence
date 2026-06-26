@@ -47,37 +47,36 @@ const QuickLinks = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {categoryLinks.map((link, index) => {
             return (
-            <Link
-              key={index}
-              href={link.href}
-              className="group relative rounded-xl border border-border hover:border-primary/50 hover:shadow-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden"
-            >
-              <div className="relative w-full h-80 rounded-xl overflow-hidden bg-muted">
-                <Image
-                  src={link.image}
-                  alt={link.label}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+              <Link
+                key={index}
+                href={link.href}
+                className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-hover"
+              >
+                <div className="relative h-56 w-full overflow-hidden bg-white">
+                  <Image
+                    src={link.image}
+                    alt={link.label}
+                    fill
+                    className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="border-t border-border p-5">
+                  <h3 className="mb-2 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
                     {link.label}
                   </h3>
-                  <p className="text-sm text-white/90 mb-4 line-clamp-2">
+                  <p className="mb-4 min-h-[44px] text-sm leading-relaxed text-muted-foreground">
                     {link.description}
                   </p>
-                  <div className="flex items-center text-white font-semibold text-sm">
+                  <div className="flex items-center text-sm font-bold text-primary">
                     <span>View Products</span>
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
             );
           })}
         </div>

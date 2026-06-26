@@ -37,10 +37,10 @@ export default function CountriesPage() {
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-primary">Markets Served</p>
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-                Fencing Supply Across GCC & Middle East
+                Countries We Serve
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Choose your market to view fencing products, project applications and RFQ guidance for chain link fencing, welded mesh fencing, PVC fencing, anti-climb fencing, temporary fencing, barbed wire, razor wire, gates and accessories.
+                SRK Fence supports fencing projects across UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan with product supply, installation guidance and RFQ support.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 SRK Fence supports project buyers across UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan with quotation guidance for fence length, height, mesh opening, coating, posts, gates, delivery city and installation scope.

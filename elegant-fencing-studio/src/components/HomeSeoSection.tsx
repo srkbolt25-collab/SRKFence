@@ -82,7 +82,7 @@ export default function HomeSeoSection() {
             </div>
 
             <div className="rounded-lg border border-border bg-card p-5">
-              <h3 className="mb-4 text-xl font-bold text-foreground">Country Pages</h3>
+              <h3 className="mb-4 text-xl font-bold text-foreground">Countries We Serve</h3>
               <div className="flex flex-wrap gap-2">
                 {priorityCountries.map((country) => (
                   <Link
