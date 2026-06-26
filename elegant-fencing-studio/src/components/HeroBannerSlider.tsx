@@ -63,7 +63,7 @@ export default function HeroBannerSlider({
                   alt={`${altPrefix} ${index + 1}`}
                   width={imageWidth}
                   height={imageHeight}
-                  className="block h-auto w-full"
+                  className="block h-auto max-h-[360px] w-full object-cover object-center"
                   sizes="100vw"
                   priority={index === 0}
                   quality={85}
@@ -75,7 +75,7 @@ export default function HeroBannerSlider({
           <CarouselPrevious className="left-3 sm:left-4 h-9 w-9 border-white/30 bg-black/35 text-white hover:bg-black/55" />
           <CarouselNext className="right-3 sm:right-4 h-9 w-9 border-white/30 bg-black/35 text-white hover:bg-black/55" />
         </Carousel>
-        <div className="pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        <div className="pointer-events-none absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
           {slides.map((_, index) => (
             <span
               key={index}

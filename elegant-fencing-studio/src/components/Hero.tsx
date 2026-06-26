@@ -22,14 +22,14 @@ const heroSlides = [
     title: "Chain link fence",
     highlight: "Durable & Secure",
     badge: "Chain link fence",
-    description: "A chain link fence consists of interwoven steel wires forming a diamond-shaped mesh structure. It is cost-effective, durable, and widely used for securing open areas like playgrounds, factories, and sports grounds. It allows clear visibility while offering reliable perimeter protection.",
+    description: "Cost-effective boundary fencing for factories, warehouses, farms, schools and open-site perimeter protection.",
   },
   {
     image: "/SRK FENCE Banners1.webp",
     title: "Welded fence (Welded wire fence)",
     highlight: "Strong & Rigid",
     badge: "Welded Fence",
-    description: "A welded fence is made from steel wires that are welded together at their intersections to form a strong and rigid mesh. It is commonly used for security, boundary marking, and industrial or residential applications. It provides high strength with minimal maintenance and a long service life.",
+    description: "Strong welded mesh fencing for commercial, industrial and residential boundaries with good visibility and low maintenance.",
   },
   {
     image: "/SRK FENCE Banners2.webp",
@@ -37,7 +37,7 @@ const heroSlides = [
     highlight: "Clean & Weather-Resistant",
     badge: "Eco PVC Hoarding",
     description:
-      "An Eco PVC hoarding fence is made from lightweight, weather-resistant PVC panels designed mainly for temporary or semi-permanent site enclosures. It offers a clean appearance, easy installation, and is recyclable and environmentally friendly. It is ideal for construction sites where safety, branding, and visual screening are required.",
+      "Clean, weather-resistant hoarding panels for construction sites, temporary enclosures, safety screening and project branding.",
   },
   {
     image: "/WhatsApp Image 2025-12-20 at 11.22.40 AM.webp",
@@ -45,7 +45,7 @@ const heroSlides = [
     highlight: "Durable & Corrosion-Resistant",
     badge: "PPGI Corrugated",
     description:
-      "A PPGI corrugated fence is made from pre-painted galvanized iron sheets with a wavy (corrugated) profile for added strength. It is highly durable, corrosion-resistant, and commonly used for industrial boundaries and construction sites. It provides excellent weather protection and a neat, long-lasting finish.",
+      "Durable corrugated fencing for industrial boundaries, construction sites and long-term weather-resistant perimeter coverage.",
   },
 ];
 
@@ -80,12 +80,12 @@ const Hero = () => {
   }, [api]);
 
   return (
-    <section className="relative min-h-[550px] sm:min-h-[650px] lg:min-h-[760px] w-full overflow-hidden pt-0">
+    <section className="relative min-h-[430px] sm:min-h-[500px] lg:min-h-[580px] w-full overflow-hidden pt-0">
       <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
         <CarouselContent className="h-full">
           {heroSlides.map((slide, index) => (
             <CarouselItem key={index} className="h-full pl-0">
-              <div className="relative h-[550px] sm:h-[650px] lg:h-[760px] w-full">
+              <div className="relative h-[430px] sm:h-[500px] lg:h-[580px] w-full">
                 <div className="absolute inset-0">
                   <Image
                     src={slide.image}
@@ -115,42 +115,42 @@ const Hero = () => {
       <div className="absolute inset-0 z-10 flex h-full w-full items-stretch pointer-events-none">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pointer-events-auto">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] h-full">
-            <div className="flex flex-col justify-center lg:justify-start py-8 sm:py-12 lg:py-16 animate-fade-in">
-              <div className="mb-6 flex items-center gap-2">
+            <div className="flex flex-col justify-center lg:justify-start py-7 sm:py-9 lg:py-11 animate-fade-in">
+              <div className="mb-4 flex items-center gap-2">
                 <span className="h-1.5 w-16 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
                 <span className="h-1.5 w-6 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
                 <span className="h-1.5 w-3 bg-gradient-to-r from-[#c5162a] to-[#e63946] rounded-full" />
               </div>
-              <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.3em] text-white/90 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+              <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.3em] text-white/90 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
                 {heroSlides[current]?.badge || "Secure High Value Assets"}
               </span>
-              <h1 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-7xl leading-tight tracking-tight">
-                Fencing Supplier in Dubai for Security, Industrial & Commercial Projects
+              <h1 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl leading-tight tracking-tight">
+                Fencing Supplier in Dubai for Security & Industrial Projects
               </h1>
-              <p className="mt-6 max-w-3xl text-base sm:text-lg leading-relaxed text-white/90 font-medium">
+              <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-white/90 font-medium">
                 <span className="font-bold text-white">{heroSlides[current]?.title || "Security fencing"}:</span>{" "}
                 {heroSlides[current]?.description || "SRK Fence provides tailored fencing solutions for residential, commercial, industrial, construction, infrastructure, warehouse, oil and gas, data center, farm and high-security perimeter projects across UAE and GCC."}
               </p>
-              <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-10 py-5 text-base font-bold uppercase tracking-wide text-white shadow-glow transition-all duration-300 hover:shadow-hover hover:scale-105 border-0"
+                  className="group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-glow transition-all duration-300 hover:shadow-hover hover:scale-105 border-0"
                 >
                   Get a Quote
                   <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
                 <Link
                   href="/products"
-                  className="group inline-flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 text-base font-bold uppercase tracking-wide text-white shadow-modern transition-all duration-300 hover:bg-white/20 hover:scale-105"
+                  className="group inline-flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-modern transition-all duration-300 hover:bg-white/20 hover:scale-105"
                 >
                   View Our Products
                 </Link>
               </div>
             </div>
 
-            <div className="relative hidden items-start justify-end lg:flex pt-40">
+            <div className="relative hidden items-start justify-end lg:flex pt-28">
               <div className="absolute left-[-60px] top-0 h-full w-[calc(100%+60px)] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-              <div className="relative h-[75%] w-[80%] max-h-[520px] max-w-[600px] overflow-hidden rounded-2xl border-4 border-white/20 shadow-float -mt-4">
+              <div className="relative h-[62%] w-[78%] max-h-[380px] max-w-[600px] overflow-hidden rounded-2xl border-4 border-white/20 shadow-float -mt-4">
                 <Image
                   src={heroSlides[current]?.image || heroImage}
                   alt="Security fencing"
@@ -169,7 +169,7 @@ const Hero = () => {
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {heroSlides.map((_, index) => (
           <button
             key={index}
