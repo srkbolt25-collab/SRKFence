@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${staticSeoProfiles.home.title} - SRK Fence`,
+    default: `${staticSeoProfiles.home.title} | SRK Fence`,
     template: '%s | SRK Fence',
   },
   description: staticSeoProfiles.home.description || entityDescription,

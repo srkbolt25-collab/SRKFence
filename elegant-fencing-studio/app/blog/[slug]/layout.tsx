@@ -40,27 +40,27 @@ const blogPostsData: Record<string, {
     keywords: '358 mesh vs welded mesh UAE, prison mesh fencing, welded mesh comparison, security mesh types, anti-climb mesh',
   },
   'chain-link-vs-welded-mesh-fence': {
-    metaTitle: 'Chain Link Fence vs Welded Mesh Fence | SRK Fence UAE',
+    metaTitle: 'Chain Link Fence vs Welded Mesh Fence UAE',
     metaDescription: 'Compare chain link fence and welded mesh fence for UAE projects. Learn differences in cost, strength, security, visibility, applications and RFQ details.',
     keywords: 'chain link vs welded mesh fence, chain link fence UAE, welded mesh fence UAE, fencing comparison',
   },
   'pvc-coated-vs-galvanized-chain-link-fence': {
-    metaTitle: 'PVC Coated vs Galvanized Chain Link Fence UAE | SRK Fence',
+    metaTitle: 'PVC Coated vs Galvanized Chain Link Fence UAE',
     metaDescription: 'Compare PVC coated chain link fence and galvanized GI chain link fence for outdoor UAE and GCC fencing projects.',
     keywords: 'PVC coated vs galvanized fence, PVC coated chain link fence, GI chain link fence, galvanized chain link fence',
   },
   'best-fencing-for-construction-sites-in-dubai': {
-    metaTitle: 'Best Fencing for Construction Sites in Dubai | SRK Fence',
+    metaTitle: 'Best Fencing for Construction Sites in Dubai',
     metaDescription: 'Guide to construction site fencing in Dubai, including temporary fence panels, PVC hoarding, chain link fence, gates and RFQ details.',
     keywords: 'construction site fencing Dubai, temporary fence supplier UAE, PVC hoarding fence Dubai, site boundary fence',
   },
   'warehouse-security-fencing-guide': {
-    metaTitle: 'Warehouse Security Fencing Guide UAE | SRK Fence',
+    metaTitle: 'Warehouse Security Fencing Guide UAE',
     metaDescription: 'Learn how to choose warehouse security fencing in UAE with chain link, welded mesh, anti-climb fence, steel fencing, gates and access control.',
     keywords: 'warehouse security fencing UAE, warehouse fencing Dubai, chain link fence warehouse, welded mesh warehouse fence',
   },
   'barbed-wire-vs-razor-wire': {
-    metaTitle: 'Barbed Wire vs Razor Wire | SRK Fence UAE',
+    metaTitle: 'Barbed Wire vs Razor Wire UAE',
     metaDescription: 'Compare barbed wire and razor wire for farms, industrial sites, fence toppings and high-security perimeter projects in UAE and GCC.',
     keywords: 'barbed wire vs razor wire, barbed wire supplier UAE, razor wire supplier UAE, perimeter security wire',
   },

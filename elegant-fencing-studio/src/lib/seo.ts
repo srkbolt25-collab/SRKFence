@@ -1299,7 +1299,7 @@ export const staticSeoProfiles = {
     intent: 'RFQ and contact page for quote-ready fencing buyers.',
   },
   whyUs: {
-    title: 'Why Choose SRK Fence | UAE Fencing Supplier, Contractor & Installation Partner',
+    title: 'UAE Fencing Supplier, Contractor & Installation Partner',
     description:
       'Choose SRK Fence for UAE and GCC fencing projects: chain link, welded mesh, PVC, anti-climb, temporary fencing, barbed wire, razor wire, gates, accessories, RFQ support and installation guidance.',
     path: '/why-us',
@@ -1383,12 +1383,22 @@ export function getBlogKeywordSet(slug: string, fallbackKeywords: string[] = [])
   return dedupeKeywords([...(blogKeywordProfiles[slug] ?? []), ...fallbackKeywords]);
 }
 
+
+function cleanSeoTitle(title: string) {
+  return title
+    .replace(/\s*[|—-]\s*SRK\s*FENCE\s*$/i, '')
+    .replace(/\s*[|—-]\s*SRK\s*Fence\s*$/i, '')
+    .replace(/^SRK\s*Fence\s*[|—-]\s*/i, 'UAE Fencing Supplier | ')
+    .trim();
+}
+
 export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
   const keywords = dedupeKeywords(profile.keywords);
   const image = profile.image || '/SRK FENCE Banners.webp';
+  const displayTitle = cleanSeoTitle(profile.title);
 
   return {
-    title: profile.title,
+    title: displayTitle,
     description: profile.description,
     keywords,
     alternates: {
@@ -1397,7 +1407,7 @@ export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
     openGraph: {
       type: 'website',
       url: profile.path,
-      title: profile.title,
+      title: displayTitle,
       description: profile.description,
       siteName: companyName,
       images: [
@@ -1405,13 +1415,13 @@ export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
           url: image,
           width: 1200,
           height: 630,
-          alt: `${companyName} - ${profile.title}`,
+          alt: `${companyName} - ${displayTitle}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: profile.title,
+      title: displayTitle,
       description: profile.description,
       images: [image],
     },

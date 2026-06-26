@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string; pag
     const { country, productPage } = productResult;
     const market = countryNameForKeyword(country);
     return buildSeoMetadata({
-      title: `${productPage.name} Supplier in ${country.country} | SRK Fence`,
+      title: `${productPage.name} Supplier in ${country.country}`,
       description: `SRK Fence supports ${productPage.shortName} RFQs for ${market} buyers with product specification guidance, accessories, delivery scope and project quotation support.`,
       path: `/countries/${country.slug}/${productPage.slug}`,
       keywords: getCountryProductKeywords(country, productPage),
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: { slug: string; pag
     const { country, applicationPage } = applicationResult;
     const market = countryNameForKeyword(country);
     return buildSeoMetadata({
-      title: `${applicationPage.name} in ${country.country} | SRK Fence`,
+      title: `${applicationPage.name} in ${country.country}`,
       description: `SRK Fence supports ${applicationPage.name.toLowerCase()} RFQs for ${market} projects with recommended fence systems, specification guidance and quotation support.`,
       path: `/countries/${country.slug}/${applicationPage.slug}`,
       keywords: getCountryApplicationKeywords(country, applicationPage),

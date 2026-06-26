@@ -62,18 +62,18 @@ const Hero = () => {
   }, [api]);
 
   return (
-    <section className="relative h-[360px] sm:h-[420px] lg:h-[460px] w-full overflow-hidden pt-0">
+    <section className="relative h-[330px] sm:h-[380px] lg:h-[420px] w-full overflow-hidden pt-0">
       <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
         <CarouselContent className="h-full">
           {heroSlides.map((slide, index) => (
             <CarouselItem key={index} className="h-full pl-0">
-              <div className="relative h-[360px] sm:h-[420px] lg:h-[460px] w-full">
+              <div className="relative h-[330px] sm:h-[380px] lg:h-[420px] w-full">
                 <div className="absolute inset-0">
                   <Image
                     src={slide.image}
                     alt={slide.title}
                     fill
-                    className="object-cover scale-[1.02] transition-transform ease-out"
+                    className="object-cover object-center scale-[1.01] transition-transform ease-out"
                     style={{ transitionDuration: '20s' }}
                     sizes="100vw"
                     priority={index === 0}
@@ -95,14 +95,14 @@ const Hero = () => {
       <div className="absolute inset-0 z-10 flex h-full w-full items-stretch pointer-events-none">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pointer-events-auto">
           <div className="grid h-full items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="flex max-w-[560px] flex-col justify-center py-6 sm:py-8 lg:py-10">
+            <div className="flex max-w-[520px] flex-col justify-center py-5 sm:py-6 lg:py-8">
               <span className="mb-3 inline-block w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm">
                 {heroSlides[current]?.badge || 'GCC Fencing Solutions'}
               </span>
-              <h1 className="text-4xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-[56px]">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-[46px]">
                 Fencing Supplier in Dubai for Security & Industrial Projects
               </h1>
-              <p className="mt-3 max-w-[540px] text-sm leading-6 text-white/90 sm:text-[15px]">
+              <p className="mt-3 max-w-[500px] text-sm leading-6 text-white/90">
                 {heroSlides[current]?.description || 'Reliable fencing solutions for industrial, commercial and project sites across UAE and GCC.'}
               </p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row">

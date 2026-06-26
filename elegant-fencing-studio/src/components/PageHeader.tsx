@@ -73,7 +73,7 @@ const PageHeader = ({
               src={backgroundImage}
               alt=""
               fill
-              className={cn("object-cover", imageClassName)}
+              className={cn("object-cover object-center", imageClassName)}
               sizes="100vw"
               priority={priority}
               loading={priority ? undefined : "lazy"}
