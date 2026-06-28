@@ -1,45 +1,44 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
+
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export type HeroBannerSliderProps = {
   slides: readonly string[];
-  altPrefix?: string;
-  imageWidth?: number;
-  imageHeight?: number;
+  altPrefix: string;
 };
+
+const BANNER_WIDTH = 1856;
+const BANNER_HEIGHT = 576;
 
 export default function HeroBannerSlider({
   slides,
-  altPrefix = "Banner",
+  altPrefix,
 }: HeroBannerSliderProps) {
-  const [api, setApi] = useState<CarouselApi>();
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [api, setApi] = React.useState<any>();
+  const [current, setCurrent] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!api) return;
-    setCurrentSlide(api.selectedScrollSnap());
-    const onSelect = () => setCurrentSlide(api.selectedScrollSnap());
-    api.on("select", onSelect);
-    return () => api.off("select", onSelect);
+
+    const updateCurrent = () => setCurrent(api.selectedScrollSnap());
+
+    updateCurrent();
+    api.on("select", updateCurrent);
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 4500);
+
+    return () => {
+      api.off("select", updateCurrent);
+      clearInterval(interval);
+    };
   }, [api]);
 
-  useEffect(() => {
-    if (!api) return;
-    const timer = setInterval(() => api.scrollNext(), 4500);
-    return () => clearInterval(timer);
-  }, [api]);
-
-  if (!slides.length) return null;
+  if (!slides?.length) return null;
 
   return (
     <section className="relative w-full bg-white py-2 sm:py-3">
@@ -48,19 +47,19 @@ export default function HeroBannerSlider({
           <CarouselContent className="ml-0">
             {slides.map((slide, index) => (
               <CarouselItem key={slide} className="pl-0">
-                <div className="relative mx-auto w-full overflow-hidden bg-white">
-                  <div className="relative mx-auto aspect-[1856/576] w-full max-h-[420px] min-h-[180px] sm:min-h-[220px] md:min-h-[260px] lg:min-h-[300px]">
-                    <Image
-                      src={slide}
-                      alt={`${altPrefix} ${index + 1}`}
-                      fill
-                      className="object-contain object-center"
-                      sizes="100vw"
-                      priority={index === 0}
-                      quality={92}
-                      loading={index === 0 ? undefined : "lazy"}
-                    />
-                  </div>
+                <div className="flex w-full items-center justify-center bg-white">
+                  <Image
+                    src={slide}
+                    alt={`${altPrefix} ${index + 1}`}
+                    width={BANNER_WIDTH}
+                    height={BANNER_HEIGHT}
+                    className="block h-auto max-h-[420px] max-w-full w-auto object-contain object-center"
+                    sizes="100vw"
+                    priority={index === 0}
+                    quality={92}
+                    loading={index === 0 ? undefined : "lazy"}
+                    draggable={false}
+                  />
                 </div>
               </CarouselItem>
             ))}
@@ -72,7 +71,7 @@ export default function HeroBannerSlider({
           {slides.map((_, index) => (
             <span
               key={index}
-              className={`h-2 rounded-full transition-all ${currentSlide === index ? "w-7 bg-white shadow" : "w-2 bg-white/70"}`}
+              className={`h-2.5 w-2.5 rounded-full ${current === index ? "bg-primary" : "bg-primary/30"}`}
             />
           ))}
         </div>
