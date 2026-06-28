@@ -55,7 +55,7 @@ const QuickLinks = () => {
                   src={link.image}
                   alt={link.label}
                   fill
-                  className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                  className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
               </div>

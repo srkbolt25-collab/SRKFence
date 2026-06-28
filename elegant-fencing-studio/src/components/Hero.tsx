@@ -60,17 +60,18 @@ const Hero = () => {
   }, [api]);
 
   return (
-    <section className="relative h-[340px] w-full overflow-hidden sm:h-[400px] lg:h-[430px]">
-      <Carousel setApi={setApi} className="h-full w-full" opts={{ loop: true }}>
-        <CarouselContent className="h-full">
-          {heroSlides.map((slide, index) => (
-            <CarouselItem key={index} className="h-full pl-0">
-              <div className="relative h-[340px] w-full sm:h-[400px] lg:h-[430px]">
-                <Image
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  className="object-cover object-center"
+    <section className="relative w-full overflow-hidden bg-white">
+      <div className="relative mx-auto w-full max-h-[420px] min-h-[280px] sm:min-h-[320px] lg:min-h-[360px]">
+        <Carousel setApi={setApi} className="h-full w-full" opts={{ loop: true }}>
+          <CarouselContent className="h-full">
+            {heroSlides.map((slide, index) => (
+              <CarouselItem key={index} className="h-full pl-0">
+                <div className="relative aspect-[1856/576] h-full w-full max-h-[420px] min-h-[280px] sm:min-h-[320px] lg:min-h-[360px] bg-white">
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-contain object-center"
                   sizes="100vw"
                   priority={index === 0}
                   quality={78}
@@ -78,24 +79,25 @@ const Hero = () => {
                   blurDataURL={heroBlurDataURL}
                   loading={index === 0 ? undefined : "lazy"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#25080d]/92 via-[#25080d]/72 to-[#25080d]/24" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#25080d]/78 via-[#25080d]/48 to-transparent" />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-3 md:left-6 h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 z-20" />
-        <CarouselNext className="right-3 md:right-6 h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 z-20" />
-      </Carousel>
+          <CarouselPrevious className="left-3 md:left-6 h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 z-20" />
+          <CarouselNext className="right-3 md:right-6 h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 z-20" />
+        </Carousel>
+      </div>
 
       <div className="absolute inset-0 z-10 flex items-center pointer-events-none">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pointer-events-auto">
           <div className="grid items-center gap-6 lg:grid-cols-[1fr_0.82fr]">
-            <div className="max-w-[560px]">
+            <div className="max-w-[560px] rounded-2xl bg-black/35 p-4 shadow-lg backdrop-blur-[2px] sm:p-5">
               <span className="mb-3 inline-block rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm">
                 {heroSlides[current]?.badge || 'GCC Fencing Solutions'}
               </span>
-              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-[46px]">
-                Fencing Supplier in Dubai for Security & Industrial Projects
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-[42px]">
+                Fencing Supplier in Dubai for Security, Industrial & Commercial Projects
               </h1>
               <p className="mt-3 max-w-[520px] text-sm leading-6 text-white/90 sm:text-[15px]">
                 {heroSlides[current]?.description || 'Reliable fencing solutions for industrial, commercial and project sites across UAE and GCC.'}
@@ -111,12 +113,12 @@ const Hero = () => {
             </div>
 
             <div className="relative hidden justify-end lg:flex">
-              <div className="relative h-[220px] w-[400px] overflow-hidden rounded-2xl border-4 border-white/20 bg-white/5 shadow-float xl:h-[240px] xl:w-[440px]">
+              <div className="relative h-[200px] w-[360px] overflow-hidden rounded-2xl border-4 border-white/20 bg-white/5 shadow-float xl:h-[220px] xl:w-[400px]">
                 <Image
                   src={heroSlides[current]?.image || heroImage}
                   alt={heroSlides[current]?.title || 'Security fencing'}
                   fill
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                   sizes="440px"
                   loading="lazy"
                   quality={65}
