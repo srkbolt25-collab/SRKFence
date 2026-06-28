@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeroBannerSlider from "@/components/HeroBannerSlider";
 import { UNUSED_BANNERS_SLIDES } from "@/lib/unusedHeroBanners";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,15 +22,32 @@ const quickQuoteOptions = [
   "Barbed Wire Quote",
   "Razor Wire Quote",
   "Installation Quote",
-  "Request UAE Quote",
-  "Request Qatar Quote",
-  "Request Saudi Arabia Quote",
-  "Request Bahrain Quote",
-  "Request Kuwait Quote",
-  "Request Oman Quote",
-  "Request Iraq Quote",
-  "Request Jordan Quote",
 ];
+
+const projectCountries = [
+  { label: "United Arab Emirates", shortLabel: "UAE", value: "UAE", iso: "AE", phoneCode: "+971", timeZones: ["Asia/Dubai"] },
+  { label: "Qatar", shortLabel: "Qatar", value: "Qatar", iso: "QA", phoneCode: "+974", timeZones: ["Asia/Qatar"] },
+  { label: "Saudi Arabia", shortLabel: "Saudi Arabia", value: "Saudi Arabia", iso: "SA", phoneCode: "+966", timeZones: ["Asia/Riyadh"] },
+  { label: "Bahrain", shortLabel: "Bahrain", value: "Bahrain", iso: "BH", phoneCode: "+973", timeZones: ["Asia/Bahrain"] },
+  { label: "Kuwait", shortLabel: "Kuwait", value: "Kuwait", iso: "KW", phoneCode: "+965", timeZones: ["Asia/Kuwait"] },
+  { label: "Oman", shortLabel: "Oman", value: "Oman", iso: "OM", phoneCode: "+968", timeZones: ["Asia/Muscat"] },
+  { label: "Iraq", shortLabel: "Iraq", value: "Iraq", iso: "IQ", phoneCode: "+964", timeZones: ["Asia/Baghdad"] },
+  { label: "Jordan", shortLabel: "Jordan", value: "Jordan", iso: "JO", phoneCode: "+962", timeZones: ["Asia/Amman"] },
+];
+
+const getCountryByIso = (iso?: string | null) => {
+  if (!iso) return null;
+  return projectCountries.find((country) => country.iso.toLowerCase() === iso.toLowerCase()) || null;
+};
+
+const getCountryByTimeZone = () => {
+  try {
+    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return projectCountries.find((country) => country.timeZones.includes(userTimeZone)) || null;
+  } catch {
+    return null;
+  }
+};
 
 const quoteChecklist = [
   "Project type and site location",
@@ -70,18 +87,59 @@ const contactInfo = {
 
 const ContactPage = () => {
   const { toast } = useToast();
+  const defaultCountry = projectCountries[0];
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phoneCode: defaultCountry.phoneCode,
     phone: "",
+    country: defaultCountry.value,
     company: "",
     subject: "Quote Request",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const setDetectedCountry = (country: (typeof projectCountries)[number] | null) => {
+      if (!country || !isMounted) return;
+      setFormData((prev) => ({
+        ...prev,
+        country: country.value,
+        phoneCode: country.phoneCode,
+      }));
+    };
+
+    fetch("/api/geo", { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data) => {
+        const detected = getCountryByIso(data?.countryCode) || getCountryByTimeZone();
+        setDetectedCountry(detected);
+      })
+      .catch(() => {
+        setDetectedCountry(getCountryByTimeZone());
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+
+    if (name === "country") {
+      const selectedCountry = projectCountries.find((country) => country.value === value);
+      setFormData((prev) => ({
+        ...prev,
+        country: value,
+        phoneCode: selectedCountry?.phoneCode || prev.phoneCode,
+      }));
+      return;
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -100,7 +158,9 @@ const ContactPage = () => {
       setFormData({
         name: "",
         email: "",
+        phoneCode: formData.phoneCode,
         phone: "",
+        country: formData.country,
         company: "",
         subject: "Quote Request",
         message: "",
@@ -124,11 +184,10 @@ const ContactPage = () => {
         <div className="container mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-secondary">Contact Us</p>
           <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            Request a Fencing Quote in Dubai and UAE
+            Request a Fencing Quote for UAE & GCC Projects
           </h1>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            Send your fencing requirement or start a WhatsApp chat. Our team can quote chain link fence, welded mesh fence,
-            PVC fencing, anti-climb fencing, temporary fencing, barbed wire, razor wire, gates and installation support.
+            Share your fencing requirement or start a WhatsApp chat for a quick project quote.
           </p>
         </div>
       </section>
@@ -170,12 +229,47 @@ const ContactPage = () => {
 
                   <div className="grid gap-5 md:grid-cols-2">
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number *</Label>
-                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} placeholder="+971 52 216 0874" required className="h-12" />
+                      <Label htmlFor="country">Project Country *</Label>
+                      <select
+                        id="country"
+                        name="country"
+                        value={formData.country}
+                        onChange={handleInputChange}
+                        required
+                        className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      >
+                        {projectCountries.map((country) => (
+                          <option key={country.value} value={country.value}>
+                            {country.label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="company">Company Name</Label>
                       <Input id="company" name="company" value={formData.company} onChange={handleInputChange} placeholder="Company name optional" className="h-12" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number *</Label>
+                    <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-3">
+                      <select
+                        id="phoneCode"
+                        name="phoneCode"
+                        value={formData.phoneCode}
+                        onChange={handleInputChange}
+                        required
+                        aria-label="Phone country code"
+                        className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      >
+                        {projectCountries.map((country) => (
+                          <option key={`${country.iso}-${country.phoneCode}`} value={country.phoneCode}>
+                            {country.phoneCode} {country.shortLabel}
+                          </option>
+                        ))}
+                      </select>
+                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} placeholder="52 216 0874" required className="h-12" />
                     </div>
                   </div>
 
@@ -317,7 +411,7 @@ const ContactPage = () => {
               <CardHeader>
                 <CardTitle className="text-2xl">Quick Quote Options</CardTitle>
                 <CardDescription>
-                  Choose a product, service or GCC market to request a custom quotation.
+                  Choose a product or service. Select the GCC market inside the form.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
