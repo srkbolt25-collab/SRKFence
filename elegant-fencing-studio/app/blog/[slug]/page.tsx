@@ -819,10 +819,10 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
           {buyerSearchTerms.length > 0 && (
             <Card className="mt-8 border border-border bg-background">
               <CardContent className="p-6">
-                <h2 className="mb-3 text-2xl font-bold text-foreground">Related Buyer Searches</h2>
-                <div className="flex flex-wrap gap-2">
-                  {buyerSearchTerms.slice(0, 10).map((keyword) => (
-                    <span key={keyword} className="rounded-full bg-muted px-3 py-1.5 text-xs font-semibold text-muted-foreground">
+                <h2 className="mb-3 text-2xl font-bold text-foreground">Helpful Related Topics</h2>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {buyerSearchTerms.slice(0, 8).map((keyword) => (
+                    <span key={keyword} className="rounded-lg bg-muted px-3 py-2 text-sm font-semibold text-muted-foreground">
                       {keyword}
                     </span>
                   ))}

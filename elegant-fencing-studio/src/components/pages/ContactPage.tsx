@@ -172,7 +172,7 @@ const ContactPage = () => {
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)]">
             <Card className="border border-border bg-background">
               <CardHeader>
-                <CardTitle className="text-2xl">What to Include in Your Fencing RFQ</CardTitle>
+                <CardTitle className="text-2xl">What to Include in Your Fencing Quote</CardTitle>
                 <CardDescription>
                   Share these project details so our team can prepare a faster and more accurate fencing quotation.
                 </CardDescription>

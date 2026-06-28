@@ -27,7 +27,7 @@ export default function HomeSeoSection() {
             </div>
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               <p>
-                {entityDescription} The company supports buyers who need practical RFQ guidance, product
+                {entityDescription} The company works with project teams that need practical quotation guidance, product
                 specifications, delivery coordination and installation support for demanding site conditions.
               </p>
               <p>

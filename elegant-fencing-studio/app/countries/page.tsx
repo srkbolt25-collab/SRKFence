@@ -40,10 +40,10 @@ export default function CountriesPage() {
                 Countries We Serve
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                SRK Fence supports fencing projects across UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan with product supply, installation guidance and RFQ support.
+                SRK Fence works with project teams across the UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan for fencing supply, installation guidance and project quotation support.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                SRK Fence supports project buyers across UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan with quotation guidance for fence length, height, mesh opening, coating, posts, gates, delivery city and installation scope.
+                Share your fence length, height, mesh opening, coating, post and gate requirements, delivery city and installation scope so the team can guide you toward the right fencing system.
               </p>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

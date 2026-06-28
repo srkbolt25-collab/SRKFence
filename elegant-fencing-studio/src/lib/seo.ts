@@ -666,7 +666,7 @@ export const countryPages: CountryPage[] = [
       'SRK Fence supplies and installs fencing systems for contractors, consultants, facility managers and project owners across Dubai, Abu Dhabi, Sharjah and the wider UAE. Our range includes chain link fencing, welded mesh fencing, anti-climb fencing, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories for residential, commercial, industrial and high-security projects.',
     products: ['Chain link fence', 'Welded mesh fence', 'Anti-climb 358 fence', 'PVC fencing', 'Temporary fence panels', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Construction sites', 'Warehouses', 'Industrial facilities', 'Schools', 'Farms', 'Commercial properties', 'Residential communities', 'Security perimeters'],
-    whySource: ['Dubai and Sharjah based support', 'Wide fencing product range', 'RFQ support for custom specifications', 'Supply and installation coordination', 'GCC project experience'],
+    whySource: ['Dubai and Sharjah based support', 'Wide fencing product range', 'Clear quotation support for custom specifications', 'Supply and installation coordination', 'GCC project experience'],
     cities: ['Dubai', 'Sharjah', 'Abu Dhabi', 'Ajman', 'Ras Al Khaimah', 'Fujairah'],
     faqs: [
       {
@@ -691,12 +691,12 @@ export const countryPages: CountryPage[] = [
     country: 'Bahrain',
     primaryKeyword: 'fencing supplier in Bahrain',
     secondaryKeywords: ['fence supplier Bahrain', 'chain link fence Bahrain', 'security fencing Bahrain', 'PVC fence Bahrain'],
-    buyerIntent: 'Importer and project supply for fencing products.',
+    buyerIntent: 'importers, contractors and project teams looking for practical fencing supply from the UAE.',
     intro:
-      'SRK Fence supplies fencing products and perimeter security solutions from UAE for Bahrain projects that need reliable product sourcing, specification support and RFQ response. The Bahrain page focuses on construction, commercial, school, industrial, farm and security fencing buyers looking for chain link fence, welded mesh fence, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories for project delivery.',
+      'SRK Fence supplies fencing products and perimeter security solutions from the UAE for projects in Bahrain. Contractors and procurement teams can request chain link fence, welded mesh fence, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories for construction, commercial, school, industrial, farm and security requirements.',
     products: ['Chain link fence', 'Welded mesh fence', 'PVC coated fencing', 'Temporary fence panels', 'Barbed wire', 'Razor wire', 'Fence posts', 'Gates and accessories'],
     applications: ['Construction projects', 'Industrial sites', 'Commercial properties', 'Schools', 'Warehouses', 'Farms', 'Security boundaries'],
-    whySource: ['UAE-based regional sourcing', 'Product and accessory package support', 'RFQ support for project quantities', 'Custom height and coating options', 'GCC delivery coordination'],
+    whySource: ['UAE-based regional sourcing', 'Product and accessory package support', 'Quotation support for project quantities', 'Custom height and coating options', 'GCC delivery coordination'],
     cities: ['Manama', 'Riffa', 'Muharraq', 'Sitra', 'Hamad Town'],
     faqs: [
       {
@@ -707,7 +707,7 @@ export const countryPages: CountryPage[] = [
       {
         question: 'What fencing products are commonly requested for Bahrain?',
         answer:
-          'Common Bahrain RFQs include chain link fence, welded mesh fence, PVC coated fencing, temporary fence panels, barbed wire, razor wire and fence accessories.',
+          'Common Bahrain quote requests include chain link fence, welded mesh fence, PVC coated fencing, temporary fence panels, barbed wire, razor wire and fence accessories.',
       },
       {
         question: 'How do I request a fencing quotation for Bahrain?',
@@ -721,12 +721,12 @@ export const countryPages: CountryPage[] = [
     country: 'Qatar',
     primaryKeyword: 'fencing supplier in Qatar',
     secondaryKeywords: ['fencing supplier Doha', 'fence contractor Doha', 'chain link fence Qatar', 'security fencing Qatar'],
-    buyerIntent: 'Construction, infrastructure, warehouse, oil and gas and Doha project supply.',
+    buyerIntent: 'construction, infrastructure, warehouse, oil and gas and Doha-based project requirements.',
     intro:
-      'SRK Fence supports Qatar and Doha buyers with fencing products for construction sites, warehouses, logistics yards, commercial properties, oil and gas facilities, infrastructure works and high-security perimeters. From UAE, SRK Fence can help project teams compare chain link, welded mesh, anti-climb, temporary, PVC, barbed wire and razor wire options based on security level, coating, height, length and delivery requirements.',
+      'SRK Fence supplies fencing products from the UAE for projects in Qatar and Doha, including construction sites, warehouses, logistics yards, commercial properties, oil and gas facilities, infrastructure works and high-security perimeters. Project teams can compare chain link, welded mesh, anti-climb, temporary, PVC, barbed wire and razor wire options based on security level, coating, height, length and delivery requirements.',
     products: ['Chain link fence', 'Welded mesh fence', 'Anti-climb 358 fence', 'Temporary fence panels', 'PVC hoarding', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Doha construction sites', 'Warehouses', 'Oil and gas facilities', 'Industrial yards', 'Commercial compounds', 'Data centers', 'Infrastructure projects'],
-    whySource: ['Dubai/UAE product range', 'High-security and construction fencing focus', 'Specification-led RFQ support', 'Custom coating and height options', 'Regional GCC project supply'],
+    whySource: ['Dubai/UAE product range', 'High-security and construction fencing focus', 'Specification-led quotation support', 'Custom coating and height options', 'Regional GCC project supply'],
     cities: ['Doha', 'Al Rayyan', 'Al Wakrah', 'Lusail', 'Mesaieed', 'Ras Laffan'],
     faqs: [
       {
@@ -737,7 +737,7 @@ export const countryPages: CountryPage[] = [
       {
         question: 'Does SRK Fence support fencing projects in Doha?',
         answer:
-          'Yes, SRK Fence can support RFQs for Doha construction, warehouse, commercial, infrastructure and security fencing projects with product and specification guidance.',
+          'Yes, SRK Fence can support quote requests for Doha construction, warehouse, commercial, infrastructure and security fencing projects with product and specification guidance.',
       },
       {
         question: 'What fence is best for Qatar construction sites?',
@@ -751,12 +751,12 @@ export const countryPages: CountryPage[] = [
     country: 'Kuwait',
     primaryKeyword: 'fencing supplier in Kuwait',
     secondaryKeywords: ['fence supplier Kuwait', 'temporary fencing Kuwait', 'security fencing Kuwait', 'industrial fencing Kuwait'],
-    buyerIntent: 'Industrial, security, temporary fencing and construction project supply.',
+    buyerIntent: 'industrial, security, temporary fencing and construction-site requirements.',
     intro:
-      'SRK Fence supplies fencing systems from UAE for Kuwait projects that require construction site control, industrial boundaries, temporary fencing, warehouse security and perimeter protection. Buyers can request chain link fencing, welded mesh fencing, anti-climb fencing, temporary fence panels, PVC hoarding, barbed wire, razor wire, gates and fence accessories with project-specific heights, coatings and quantities.',
+      'SRK Fence supplies fencing systems from the UAE for Kuwait projects that need construction site control, industrial boundaries, temporary fencing, warehouse security and perimeter protection. Available options include chain link fencing, welded mesh fencing, anti-climb fencing, temporary fence panels, PVC hoarding, barbed wire, razor wire, gates and fence accessories with project-specific heights, coatings and quantities.',
     products: ['Temporary fence panels', 'PVC hoarding', 'Chain link fence', 'Welded mesh fence', 'Anti-climb fence', 'Barbed wire', 'Razor wire', 'Fence accessories'],
     applications: ['Construction sites', 'Industrial facilities', 'Warehouses', 'Oil and gas support sites', 'Commercial compounds', 'Security perimeters'],
-    whySource: ['Strong temporary and industrial fencing range', 'RFQ support for project drawings', 'Custom specification and coating options', 'UAE to Kuwait supply capability', 'Fencing accessories and gates support'],
+    whySource: ['Strong temporary and industrial fencing range', 'Quotation support for drawings and BOQs', 'Custom specification and coating options', 'UAE to Kuwait supply capability', 'Fencing accessories and gates support'],
     cities: ['Kuwait City', 'Ahmadi', 'Hawally', 'Farwaniya', 'Jahra'],
     faqs: [
       {
@@ -781,12 +781,12 @@ export const countryPages: CountryPage[] = [
     country: 'Saudi Arabia',
     primaryKeyword: 'fencing supplier in Saudi Arabia',
     secondaryKeywords: ['fence supplier KSA', 'security fencing Saudi Arabia', 'perimeter fencing KSA'],
-    buyerIntent: 'Large-scale infrastructure, oil and gas, industrial and high-security project supply.',
+    buyerIntent: 'large infrastructure, oil and gas, industrial and high-security perimeter projects.',
     intro:
-      'SRK Fence supports Saudi Arabia and KSA project buyers with fencing products for infrastructure, oil and gas, warehouses, logistics, construction, industrial and high-security perimeter requirements. From UAE, SRK Fence can help project teams source chain link, welded mesh, anti-climb 358 fence, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories based on drawings, BOQ and site security requirements.',
+      'SRK Fence supplies fencing products from the UAE for Saudi Arabia and KSA projects, including infrastructure, oil and gas, warehouses, logistics, construction, industrial sites and high-security perimeters. Project teams can source chain link, welded mesh, anti-climb 358 fence, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories based on drawings, BOQ and site security requirements.',
     products: ['Anti-climb 358 fence', 'Welded mesh fence', 'Chain link fence', 'Steel fencing', 'Temporary fencing', 'Barbed wire', 'Razor wire', 'Gate systems and accessories'],
     applications: ['Infrastructure projects', 'Oil and gas facilities', 'Warehouses', 'Industrial cities', 'Construction sites', 'Data centers', 'Security perimeters'],
-    whySource: ['High-security product capability', 'UAE-based GCC supply support', 'RFQ support for BOQs and drawings', 'Custom heights, coatings and gates', 'Project-focused quotation process'],
+    whySource: ['High-security product capability', 'UAE-based GCC supply support', 'Quotation support for BOQs and drawings', 'Custom heights, coatings and gates', 'Project-focused quotation process'],
     cities: ['Riyadh', 'Jeddah', 'Dammam', 'Khobar', 'Jubail', 'Neom'],
     faqs: [
       {
@@ -811,12 +811,12 @@ export const countryPages: CountryPage[] = [
     country: 'Iraq',
     primaryKeyword: 'fencing supplier in Iraq',
     secondaryKeywords: ['fence supplier Iraq', 'barbed wire Iraq', 'razor wire Iraq', 'perimeter fencing Iraq'],
-    buyerIntent: 'Security, oil and gas, construction and perimeter protection project supply.',
+    buyerIntent: 'security, oil and gas, construction and perimeter-protection projects.',
     intro:
-      'SRK Fence supplies fencing products from UAE for Iraq projects where security, perimeter protection, oil and gas facilities, construction boundaries and industrial compounds are priorities. Buyers can request chain link fence, welded mesh fence, anti-climb fence, steel fencing, barbed wire, razor wire, gates, posts and accessories with project-specific security levels, heights, coatings and delivery requirements.',
+      'SRK Fence supplies fencing products from the UAE for Iraq projects where security, perimeter protection, oil and gas facilities, construction boundaries and industrial compounds are priorities. Project teams can request chain link fence, welded mesh fence, anti-climb fence, steel fencing, barbed wire, razor wire, gates, posts and accessories with project-specific security levels, heights, coatings and delivery requirements.',
     products: ['Barbed wire', 'Razor wire', 'Chain link fence', 'Anti-climb fence', 'Welded mesh fence', 'Steel fencing', 'Gates and accessories'],
     applications: ['Oil and gas facilities', 'Security perimeters', 'Construction sites', 'Industrial yards', 'Warehouses', 'Infrastructure boundaries'],
-    whySource: ['Strong security wire and perimeter range', 'UAE sourcing for regional projects', 'RFQ support for custom specifications', 'High-security fence options', 'Project package support with accessories'],
+    whySource: ['Strong security wire and perimeter range', 'UAE sourcing for regional projects', 'Clear quotation support for custom specifications', 'High-security fence options', 'Project package support with accessories'],
     cities: ['Baghdad', 'Basra', 'Erbil', 'Mosul', 'Najaf', 'Kirkuk'],
     faqs: [
       {
@@ -830,9 +830,9 @@ export const countryPages: CountryPage[] = [
           'Yes, SRK Fence can quote barbed wire, razor wire, support arms, posts and compatible fencing systems for Iraq perimeter security requirements.',
       },
       {
-        question: 'What details are needed for an Iraq fencing RFQ?',
+        question: 'What details are needed for an Iraq fencing quote?',
         answer:
-          'Share product type, fence length, height, mesh size, wire diameter, coating, security level, delivery city, timeline and drawings or BOQ if available.',
+          'Share product type, fence length, height, mesh size, wire diameter, coating, security level, delivery city, timeline and drawings or a BOQ if available.',
       },
     ],
   },
@@ -841,12 +841,12 @@ export const countryPages: CountryPage[] = [
     country: 'Oman',
     primaryKeyword: 'fencing supplier in Oman',
     secondaryKeywords: ['fence supplier Oman', 'chain link fence Oman', 'security fencing Oman'],
-    buyerIntent: 'Construction, industrial, marine, warehouse and farm project supply.',
+    buyerIntent: 'construction, industrial, marine, warehouse and farm fencing projects.',
     intro:
-      'SRK Fence supports Oman fencing buyers with chain link, welded mesh, steel, PVC, temporary, anti-climb, barbed wire and razor wire products for construction, industrial, warehouse, farm, commercial and coastal projects. From UAE, SRK Fence can help buyers review coating, material and installation requirements for sites in Muscat, Sohar, Salalah and other project locations.',
+      'SRK Fence supplies chain link, welded mesh, steel, PVC, temporary, anti-climb, barbed wire and razor wire fencing products from the UAE for Oman projects. These systems can be specified for construction, industrial, warehouse, farm, commercial and coastal sites in Muscat, Sohar, Salalah and other project locations.',
     products: ['Chain link fence', 'Welded mesh fence', 'Steel fencing', 'PVC coated fencing', 'Temporary fencing', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Construction sites', 'Industrial facilities', 'Warehouses', 'Farms', 'Marine and coastal sites', 'Commercial compounds', 'Security perimeters'],
-    whySource: ['Regional UAE supply support', 'Coating guidance for coastal exposure', 'Farm and industrial fencing range', 'Custom RFQ support', 'Fencing accessories and gate options'],
+    whySource: ['Regional UAE supply support', 'Coating guidance for coastal exposure', 'Farm and industrial fencing range', 'Custom quotation support', 'Fencing accessories and gate options'],
     cities: ['Muscat', 'Sohar', 'Salalah', 'Nizwa', 'Duqm', 'Sur'],
     faqs: [
       {
@@ -871,12 +871,12 @@ export const countryPages: CountryPage[] = [
     country: 'Jordan',
     primaryKeyword: 'fencing supplier in Jordan',
     secondaryKeywords: ['fence supplier Jordan', 'industrial fencing Jordan', 'perimeter fencing Jordan'],
-    buyerIntent: 'Industrial, commercial, construction and perimeter fencing project supply.',
+    buyerIntent: 'industrial, commercial, construction and perimeter fencing projects.',
     intro:
-      'SRK Fence supplies fencing products from UAE for Jordan projects that need industrial boundaries, commercial fencing, construction site control, warehouse security and perimeter protection. Buyers can request chain link fencing, welded mesh fencing, anti-climb fencing, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories with project-specific dimensions, coating and delivery requirements.',
+      'SRK Fence supplies fencing products from the UAE for Jordan projects that need industrial boundaries, commercial fencing, construction site control, warehouse security and perimeter protection. Available options include chain link fencing, welded mesh fencing, anti-climb fencing, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories with project-specific dimensions, coating and delivery requirements.',
     products: ['Chain link fence', 'Welded mesh fence', 'Anti-climb fence', 'Temporary fence panels', 'Steel fencing', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Industrial sites', 'Commercial properties', 'Warehouses', 'Construction projects', 'Schools', 'Farms', 'Security perimeters'],
-    whySource: ['UAE regional sourcing support', 'Industrial and commercial product range', 'RFQ support for custom specifications', 'Accessory and gate package support', 'Project-focused quotation workflow'],
+    whySource: ['UAE regional sourcing support', 'Industrial and commercial product range', 'Clear quotation support for custom specifications', 'Accessory and gate package support', 'Project-focused quotation workflow'],
     cities: ['Amman', 'Zarqa', 'Irbid', 'Aqaba', 'Mafraq'],
     faqs: [
       {
@@ -1386,16 +1386,24 @@ export function getBlogKeywordSet(slug: string, fallbackKeywords: string[] = [])
 
 function cleanSeoTitle(title: string) {
   return title
+    // Remove any existing brand suffix so Next.js never outputs "SRK Fence | SRK Fence".
     .replace(/\s*[|—-]\s*SRK\s*FENCE\s*$/i, '')
     .replace(/\s*[|—-]\s*SRK\s*Fence\s*$/i, '')
+    // If a title starts with the brand, replace that first brand mention with a buyer keyword.
     .replace(/^SRK\s*Fence\s*[|—-]\s*/i, 'UAE Fencing Supplier | ')
+    .replace(/\s+/g, ' ')
     .trim();
+}
+
+function withBrandSuffix(title: string) {
+  const cleanTitle = cleanSeoTitle(title);
+  return /\|\s*SRK\s*Fence$/i.test(cleanTitle) ? cleanTitle : `${cleanTitle} | SRK Fence`;
 }
 
 export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
   const keywords = dedupeKeywords(profile.keywords);
   const image = profile.image || '/SRK FENCE Banners.webp';
-  const displayTitle = cleanSeoTitle(profile.title);
+  const displayTitle = withBrandSuffix(profile.title);
 
   return {
     title: displayTitle,

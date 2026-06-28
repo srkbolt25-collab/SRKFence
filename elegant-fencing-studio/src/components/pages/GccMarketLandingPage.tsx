@@ -32,7 +32,7 @@ type Props =
   | { type: 'application'; country: CountryPage; applicationPage: GccApplicationPage };
 
 function countryBuyerLine(country: CountryPage) {
-  return `SRK Fence supports buyers in ${country.country} through Dubai/UAE-based quotation support, product specification guidance, and project-led supply coordination for ${country.cities.slice(0, 4).join(', ')} and other locations by requirement.`;
+  return `SRK Fence works with contractors, consultants and procurement teams in ${country.country}, helping them choose suitable fencing systems and prepare clear project quotations from its Dubai/UAE base.`;
 }
 
 function RfqBox({ country, checklist, title }: { country: CountryPage; checklist: string[]; title: string }) {
@@ -46,8 +46,7 @@ function RfqBox({ country, checklist, title }: { country: CountryPage; checklist
       </CardHeader>
       <CardContent className="space-y-5">
         <p className="leading-relaxed text-muted-foreground">
-          Request a quotation for {country.country}. Share project details clearly so the team can review the
-          correct fencing system, accessories, delivery scope and installation requirement.
+          Request a quotation for {country.country}. Share the site location, fence length, height and coating requirement so our team can recommend the right system, accessories, delivery scope and installation option.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           {checklist.map((item) => (
@@ -101,7 +100,7 @@ export default function GccMarketLandingPage(props: Props) {
     const faqs: FaqItem[] = [
       {
         question: `Does SRK Fence supply ${page.shortName} to ${country.country}?`,
-        answer: `Yes, SRK Fence supports ${page.shortName} RFQs for ${country.country} buyers from its Dubai/UAE base, including project review for length, height, material, coating, accessories, delivery city and installation scope.`,
+        answer: `Yes. SRK Fence can review ${page.shortName} requirements for ${country.country} projects, including fence length, height, material, coating, accessories, delivery city and installation scope.`,
       },
       {
         question: `What details are required for a ${page.shortName} quote in ${country.country}?`,
@@ -154,7 +153,7 @@ export default function GccMarketLandingPage(props: Props) {
                 <Card className="rounded-2xl border-border bg-background shadow-sm">
                   <CardHeader><CardTitle className="text-2xl">Product Specification Guidance</CardTitle></CardHeader>
                   <CardContent className="space-y-5">
-                    <p className="leading-relaxed text-muted-foreground">For {country.country} projects, {page.shortName} should be specified based on site use, exposure, required height, security risk, maintenance expectations and access points. The table below helps procurement teams prepare a clear RFQ before final engineering review.</p>
+                    <p className="leading-relaxed text-muted-foreground">For {country.country} projects, the right {page.shortName} specification depends on the site use, exposure, required height, security level, maintenance expectations and access points. Use the points below to prepare clear information for quotation review.</p>
                     <div className="overflow-x-auto rounded-xl border border-border">
                       <table className="w-full min-w-[560px] text-left text-sm">
                         <tbody className="divide-y divide-border">
@@ -179,7 +178,7 @@ export default function GccMarketLandingPage(props: Props) {
                   </CardContent>
                 </Card>
 
-                <RfqBox country={country} checklist={page.quoteChecklist} title={`${page.name} RFQ Checklist`} />
+                <RfqBox country={country} checklist={page.quoteChecklist} title={`${page.name} Quote Checklist`} />
               </div>
 
               <aside className="space-y-6">
@@ -216,7 +215,7 @@ export default function GccMarketLandingPage(props: Props) {
   const keywords = getCountryApplicationKeywords(country, page);
   const faqs = page.buyerQuestions.map((faq) => ({
     question: faq.question.replace(/\?$/, ` in ${country.country}?`),
-    answer: `${faq.answer} SRK Fence can review ${country.country} RFQs based on site layout, delivery city, material exposure and installation scope.`,
+    answer: `${faq.answer} SRK Fence can review ${country.country} project requirements based on site layout, delivery city, material exposure and installation scope.`,
   }));
   const productLinks = getApplicationProductLinks(page);
 
@@ -256,7 +255,7 @@ export default function GccMarketLandingPage(props: Props) {
 
               <Card className="rounded-2xl border-border bg-background shadow-sm"><CardHeader><CardTitle className="text-2xl">Recommended Fencing Systems</CardTitle></CardHeader><CardContent className="grid gap-3 sm:grid-cols-2">{productLinks.map((link) => <Link key={link.href} href={link.href} className="flex items-start gap-3 rounded-lg border border-border p-4 font-semibold hover:border-primary hover:text-primary"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />{link.label}</Link>)}</CardContent></Card>
 
-              <RfqBox country={country} checklist={page.projectRequirements} title={`${page.name} RFQ Checklist`} />
+              <RfqBox country={country} checklist={page.projectRequirements} title={`${page.name} Quote Checklist`} />
             </div>
             <aside className="space-y-6">
               <Card className="rounded-2xl border-border bg-background shadow-sm"><CardHeader><CardTitle className="text-xl">Service Areas</CardTitle></CardHeader><CardContent className="space-y-3">{country.cities.map((city) => <div key={city} className="flex items-center gap-3 rounded-lg border border-border px-4 py-3"><MapPin className="h-4 w-4 text-primary" /><span className="font-semibold text-foreground">{city}</span></div>)}</CardContent></Card>

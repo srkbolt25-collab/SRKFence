@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: `${staticSeoProfiles.home.title} | SRK Fence`,
-    template: '%s | SRK Fence',
+    template: '%s',
   },
   description: staticSeoProfiles.home.description || entityDescription,
   keywords: staticSeoProfiles.home.keywords,
