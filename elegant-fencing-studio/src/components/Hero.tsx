@@ -1,41 +1,51 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Users, Globe, Award } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Award, Globe, Shield, Users } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 const heroSlides = [
   {
     image: "/Applicationsnew/unused%20banners/residential-security-fencing-solutions-uae-dubai.png",
-    badge: 'Residential & Commercial',
-    description: 'Reliable fencing solutions for residential, commercial and industrial projects across Dubai, UAE and GCC markets.',
+    badge: "Residential & Commercial Fencing",
+    title: "Fencing Supplier in Dubai for Security, Industrial & Commercial Projects",
+    description:
+      "SRK Fence supplies chain link, welded mesh, anti-climb, PVC, temporary and perimeter security fencing for UAE and GCC projects.",
   },
   {
     image: "/Applicationsnew/unused%20banners/eco-pvc-welded-pvc-coated-fence-uae-supplier.png",
-    badge: 'Oil, Gas & Infrastructure',
-    description: 'PVC, welded mesh and coated fencing options for industrial, energy and perimeter security projects.',
+    badge: "Industrial & Infrastructure Fencing",
+    title: "Project-Ready Fencing for UAE and GCC Sites",
+    description:
+      "Get specification-led support for warehouses, oil and gas facilities, logistics centres, construction sites and boundary security requirements.",
   },
   {
     image: "/Applicationsnew/unused%20banners/home-back-yard-fencing-in-uae.png",
-    badge: 'Temporary & Site Fencing',
-    description: 'Fast project support for temporary fencing, site hoarding and practical boundary control solutions.',
+    badge: "Temporary & Site Fencing",
+    title: "Fence Supply, Installation Guidance and Fast Quotes",
+    description:
+      "Share site location, fence height, running meters, coating, posts, gates and delivery scope for a practical project quotation.",
   },
 ];
 
-const BANNER_WIDTH = 1856;
-const BANNER_HEIGHT = 576;
-
 const stats = [
-  { icon: Shield, value: '1,200+', label: 'Projects Supported' },
-  { icon: Users, value: '30+', label: 'Markets Served' },
-  { icon: Globe, value: '24/7', label: 'Quote Support' },
-  { icon: Award, value: '4.9/5', label: 'Client Rating' },
+  { icon: Shield, value: "1,200+", label: "Projects Supported" },
+  { icon: Users, value: "30+", label: "Markets Served" },
+  { icon: Globe, value: "24/7", label: "Quote Support" },
+  { icon: Award, value: "4.9/5", label: "Client Rating" },
 ];
 
 const Hero = () => {
-  const [api, setApi] = useState<any>();
+  const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -43,112 +53,95 @@ const Hero = () => {
 
     const onSelect = () => setCurrent(api.selectedScrollSnap());
     onSelect();
-    api.on('select', onSelect);
+    api.on("select", onSelect);
 
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 5000);
+    const interval = setInterval(() => api.scrollNext(), 5000);
 
     return () => {
-      api.off('select', onSelect);
+      api.off("select", onSelect);
       clearInterval(interval);
     };
   }, [api]);
 
-  const activeSlide = heroSlides[current] || heroSlides[0];
-
   return (
-    <section className="relative w-full overflow-hidden bg-white">
-      <div className="relative mx-auto w-full">
-        <Carousel setApi={setApi} className="w-full overflow-hidden bg-white" opts={{ loop: true }}>
-          <CarouselContent className="ml-0">
-            {heroSlides.map((slide, index) => (
-              <CarouselItem key={index} className="pl-0">
-                <div className="relative flex w-full items-center justify-center bg-white">
-                  <Image
-                    src={slide.image}
-                    alt={slide.badge}
-                    width={BANNER_WIDTH}
-                    height={BANNER_HEIGHT}
-                    className="block h-auto max-h-[430px] max-w-full w-auto object-contain object-center"
-                    sizes="100vw"
-                    priority={index === 0}
-                    quality={92}
-                    draggable={false}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/35 to-transparent" />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-3 md:left-6 h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 z-20" />
-          <CarouselNext className="right-3 md:right-6 h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 z-20" />
-        </Carousel>
-
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-6 lg:grid-cols-[1fr_0.82fr]">
-              <div className="max-w-[560px] rounded-2xl bg-black/35 p-4 shadow-lg backdrop-blur-[2px] sm:p-5">
-                <div className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/90 ring-1 ring-white/25">
-                  {activeSlide.badge}
-                </div>
-                <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-[42px]">
-                  Fencing Supplier in Dubai for Security, Industrial & Commercial Projects
-                </h1>
-                <p className="mt-3 max-w-[520px] text-sm leading-6 text-white/90 sm:text-[15px]">
-                  {activeSlide.description}
-                </p>
-                <div className="pointer-events-auto mt-6 flex flex-col gap-3 sm:flex-row">
-                  <Button asChild size="lg" className="rounded-full bg-primary px-7 text-white hover:bg-primary/90">
-                    <a href="/contact">Request a Quote <ArrowRight className="ml-2 h-4 w-4" /></a>
-                  </Button>
-                  <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 bg-white/10 px-7 text-white hover:bg-white/15">
-                    <a href="/products">View Products</a>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="relative hidden justify-end lg:flex">
-                <div className="relative h-[200px] w-[360px] overflow-hidden rounded-2xl border-4 border-white/20 bg-white/5 shadow-float xl:h-[220px] xl:w-[400px]">
-                  <Image
-                    src={activeSlide.image}
-                    alt="Featured fencing solution"
-                    fill
-                    className="object-contain object-center"
-                    sizes="(max-width: 1280px) 360px, 400px"
-                    quality={92}
-                  />
-                </div>
-              </div>
+    <section className="overflow-hidden bg-gradient-to-br from-[#fff7f7] via-white to-[#f8f8f8]">
+      <div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="order-2 lg:order-1">
+            <div className="mb-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              {heroSlides[current]?.badge || "GCC Fencing Solutions"}
+            </div>
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-[56px]">
+              {heroSlides[current]?.title || heroSlides[0].title}
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+              {heroSlides[current]?.description || heroSlides[0].description}
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-glow transition hover:bg-primary/90"
+              >
+                Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center rounded-xl border border-border bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground transition hover:border-primary/40 hover:text-primary"
+              >
+                View Products
+              </Link>
             </div>
           </div>
-        </div>
 
-        <div className="pointer-events-none absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-          {heroSlides.map((_, index) => (
-            <span
-              key={index}
-              className={`h-2.5 w-2.5 rounded-full ${current === index ? 'bg-white' : 'bg-white/35'}`}
-            />
-          ))}
+          <div className="order-1 lg:order-2">
+            <Carousel setApi={setApi} opts={{ loop: true }} className="relative w-full overflow-hidden rounded-3xl border border-border bg-white p-2 shadow-float">
+              <CarouselContent className="ml-0">
+                {heroSlides.map((slide, index) => (
+                  <CarouselItem key={slide.image} className="pl-0">
+                    <div className="flex aspect-[1856/576] w-full items-center justify-center overflow-hidden rounded-2xl bg-white">
+                      <Image
+                        src={slide.image}
+                        alt={slide.badge}
+                        width={1856}
+                        height={576}
+                        className="h-auto w-full object-contain"
+                        sizes="(max-width: 1024px) 100vw, 760px"
+                        priority={index === 0}
+                        quality={92}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-4 h-10 w-10 border-white/40 bg-black/35 text-white hover:bg-black/55" />
+              <CarouselNext className="right-4 h-10 w-10 border-white/40 bg-black/35 text-white hover:bg-black/55" />
+              <div className="pointer-events-none absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+                {heroSlides.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`h-2.5 rounded-full transition-all ${current === index ? "w-8 bg-primary" : "w-2.5 bg-primary/35"}`}
+                  />
+                ))}
+              </div>
+            </Carousel>
+          </div>
         </div>
       </div>
 
-      <section className="bg-card py-14 border-y border-border/60">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {stats.map((stat, index) => {
+      <section className="border-y border-border/60 bg-white/80 py-5 backdrop-blur-sm">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {stats.map((stat) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="group relative overflow-hidden rounded-3xl border border-border bg-background/90 p-6 shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-modern">
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-modern transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/15">
-                      <Icon className="h-6 w-6 text-primary" />
+                <div key={stat.label} className="rounded-2xl border border-border bg-white p-4 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                      <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                      <div className="text-sm text-muted-foreground">{stat.label}</div>
+                      <div className="text-xl font-extrabold text-foreground">{stat.value}</div>
+                      <div className="text-xs font-medium text-muted-foreground sm:text-sm">{stat.label}</div>
                     </div>
                   </div>
                 </div>
