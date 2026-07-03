@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 export const siteUrl = 'https://www.srkfencing.com';
 export const companyName = 'SRK Fence';
 export const companyLegalName = 'SRK FENCE Industries';
-export const primaryPhone = '+971522160874';
-export const secondaryPhone = '+971528489775';
+export const primaryPhone = '+971586600183';
+export const secondaryPhone = '+971522160874';
 export const primaryEmail = 'info@srkfencing.com';
 export const salesEmail = 'Sales@srkmetals.com';
 

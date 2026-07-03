@@ -65,6 +65,7 @@ const salesTeam = [
   { name: "Sandeep Kumar", position: "Sales Executive", email: "sandeep@srkmetals.com", phone: "", department: "Sales" },
   { name: "Ravi", position: "Sales Executive", email: "Sales@srkmetals.com", phone: "", department: "Sales" },
   { name: "Kalyan Singh", position: "Sales Manager", email: "kalyan@srkmetals.com", phone: "", department: "Sales" },
+  { name: "Ms Navjeet Kaur", position: "Assist. Sales Manager", email: "asm@srkmetals.com", phone: "", department: "Sales" },
 ];
 
 const purchaseTeam = [
@@ -73,10 +74,10 @@ const purchaseTeam = [
 ];
 
 const contactInfo = {
-  phone: "+971 52 216 0874",
-  phoneSecondary: "+971 52 848 9775",
+  phone: "+971 58 660 0183",
+  phoneSecondary: "+971 52 216 0874",
   emails: ["info@srkfencing.com", "Sales@srkmetals.com"],
-  whatsapp: "+971522160874",
+  whatsapp: "+971586600183",
   address:
     "Sharjah Publication City (SPC), City Center - E311 - opposite Al Zahia - Muwaileh Commercial - Al Zahia - Sharjah - United Arab Emirates",
   googleMapsUrl:
@@ -269,7 +270,7 @@ const ContactPage = () => {
                           </option>
                         ))}
                       </select>
-                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} placeholder="52 216 0874" required className="h-12" />
+                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} placeholder="Enter phone number" required className="h-12" />
                     </div>
                   </div>
 
@@ -360,8 +361,8 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground">Call Us</h3>
-                      <a href={`tel:${contactInfo.phone}`} className="mt-2 block font-semibold text-primary hover:underline">{contactInfo.phone}</a>
-                      <a href={`tel:${contactInfo.phoneSecondary}`} className="block font-semibold text-primary hover:underline">{contactInfo.phoneSecondary}</a>
+                      <a href={`tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`} className="mt-2 block font-semibold text-primary hover:underline">Main: {contactInfo.phone}</a>
+                      <a href={`tel:${contactInfo.phoneSecondary.replace(/[^0-9+]/g, '')}`} className="block font-semibold text-primary hover:underline">Quick Support: {contactInfo.phoneSecondary}</a>
                     </div>
                   </CardContent>
                 </Card>

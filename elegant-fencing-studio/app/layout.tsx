@@ -64,8 +64,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/new_whitelogog.png',
-    apple: '/new_whitelogog.png',
+    icon: '/favicon.ico',
+    apple: '/favicon.png',
   },
 };
 

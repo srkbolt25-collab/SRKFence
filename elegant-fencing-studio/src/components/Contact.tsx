@@ -33,11 +33,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-lg text-foreground mb-2">Phone</h3>
-                  <a href="tel:+971522160874" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
-                    M: +971 52 216 0874
+                  <a href="tel:+971586600183" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    Main: +971 58 660 0183
                   </a>
-                  <a href="tel:+971528489775" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
-                    +971 52 848 9775
+                  <a href="tel:+971522160874" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
+                    Quick Support: +971 52 216 0874
                   </a>
                 </div>
               </div>
