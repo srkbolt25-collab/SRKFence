@@ -12,6 +12,8 @@ const staticRoutes = [
   '/rfq',
   '/why-us',
   '/contact',
+  '/privacy-policy',
+  '/terms-of-use',
 ];
 
 const applicationRoutes = [

@@ -34,7 +34,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-extrabold text-lg text-foreground mb-2">Phone</h3>
                   <a href="tel:+971586600183" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
-                    Main: +971 58 660 0183
+                    Sales & Purchase Team: +971 58 660 0183
                   </a>
                   <a href="tel:+971522160874" className="block text-muted-foreground text-lg font-medium hover:text-primary transition-colors">
                     Quick Support: +971 52 216 0874

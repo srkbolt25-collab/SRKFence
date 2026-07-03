@@ -156,7 +156,7 @@ const Footer = () => {
                   <Phone className="h-3 w-3 text-white" />
                 </div>
                 <span className="font-medium group-hover:text-white transition-colors">
-                  <a href="tel:+971586600183" className="hover:underline">Main: +971 58 660 0183</a>
+                  <a href="tel:+971586600183" className="hover:underline">Sales & Purchase Team: +971 58 660 0183</a>
                   <br />
                   <a href="tel:+971522160874" className="hover:underline">Quick Support: +971 52 216 0874</a>
                 </span>
@@ -191,11 +191,11 @@ const Footer = () => {
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-white/70 sm:flex-row sm:px-6 lg:px-8">
           <p className="font-medium">&copy; {currentYear} <a href="https://www.srkfencing.com/" className="hover:underline">SRK FENCE Industries</a>. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="transition-all duration-300 hover:text-white hover:underline font-medium">
+            <a href="/privacy-policy" className="transition-all duration-300 hover:text-white hover:underline font-medium">
               Privacy Policy
             </a>
-            <a href="#" className="transition-all duration-300 hover:text-white hover:underline font-medium">
-              Terms of Service
+            <a href="/terms-of-use" className="transition-all duration-300 hover:text-white hover:underline font-medium">
+              Terms of Use
             </a>
             <a href="/sitemap.xml" className="transition-all duration-300 hover:text-white hover:underline font-medium">
               Sitemap

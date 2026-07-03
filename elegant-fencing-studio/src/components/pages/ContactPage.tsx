@@ -361,7 +361,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground">Call Us</h3>
-                      <a href={`tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`} className="mt-2 block font-semibold text-primary hover:underline">Main: {contactInfo.phone}</a>
+                      <a href={`tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`} className="mt-2 block font-semibold text-primary hover:underline">Sales & Purchase Team: {contactInfo.phone}</a>
                       <a href={`tel:${contactInfo.phoneSecondary.replace(/[^0-9+]/g, '')}`} className="block font-semibold text-primary hover:underline">Quick Support: {contactInfo.phoneSecondary}</a>
                     </div>
                   </CardContent>
