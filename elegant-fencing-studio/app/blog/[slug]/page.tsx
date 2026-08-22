@@ -31,26 +31,26 @@ const blogPostsData: Record<string, {
     date: "2026-08-21",
     keywords: "fencing suppliers Abu Dhabi, fencing supplier Abu Dhabi, fence contractor Abu Dhabi, chain link fence Abu Dhabi, welded mesh fence Abu Dhabi, Abu Dhabi fencing quotation",
     content: `<p>A construction site, logistics yard, school and high-security facility can all need fencing in Abu Dhabi. They do not need the same fence. That is the most important point to establish before you compare suppliers.</p>
-<p>SRK Fence is a UAE-based business with its published address in Sharjah and project support across the UAE, including Abu Dhabi. Our range includes chain link, welded mesh, Anti-Climb 358, steel fencing, temporary systems, barbed wire, razor wire, gates and accessories.</p>
+<p>SRK Fence is a UAE-based business with its published address in Sharjah and <a href="/countries/uae">project support across the UAE</a>, including Abu Dhabi. Our range includes chain link, welded mesh, Anti-Climb 358, steel fencing, temporary systems, barbed wire, razor wire, gates and accessories.</p>
 <p>For an Abu Dhabi project, start with the perimeter&#x27;s job. Product selection and pricing should come after you define security, visibility, access and operating requirements.</p>
 <h2>What does the perimeter need to achieve?</h2>
 <p>Before choosing a fencing system, define what sits behind the fence, who needs access, whether trucks or equipment will pass through, whether security teams need visibility, whether the boundary is permanent or temporary, whether visual screening matters and whether resistance to climbing is a major requirement.</p>
 <p>If a consultant has already issued a specification, use that as the starting point. If the design is still open, describe the site&#x27;s function and risk clearly so the supplier can recommend a suitable system without guessing.</p>
 <p>This approach narrows the product choice much faster than starting with a catalogue.</p>
 <h2>When does chain link make sense in Abu Dhabi?</h2>
-<p>Chain link can be a practical option for open boundaries where visibility, airflow and long-run perimeter control matter. SRK supplies chain link fencing for applications such as construction sites, warehouses, farms, schools, sports areas and industrial yards.</p>
+<p>Chain link can be a practical option for open boundaries where visibility, airflow and long-run perimeter control matter. SRK supplies <a href="/products/chain-link-fence">chain link fencing</a> for applications such as construction sites, warehouses, farms, schools, sports areas and industrial yards.</p>
 <p>For an Abu Dhabi project, define the finished height, mesh opening, wire diameter, finish, post system and gate requirements before asking for a final price. A generic “chain link per metre” request leaves too much room for different supplier assumptions.</p>
-<p>For UAE-specific supply and installation context, the SRK UAE chain link page provides additional information on project requirements and accessories.</p>
+<p>For UAE-specific supply and installation context, the <a href="/countries/uae/chain-link-fence">SRK UAE chain link page</a> provides additional information on project requirements and accessories.</p>
 <h2>When should you consider welded mesh?</h2>
 <p>Welded mesh uses steel wires welded at each intersection to create rigid panels. It can suit commercial, warehouse, school, industrial and infrastructure perimeters where buyers want a structured modular system and clear visibility.</p>
-<p>SRK&#x27;s welded mesh fencing can be reviewed with project-specific panel heights, wire diameters, finishes, posts and gates. The system can make sense where panel rigidity and a consistent repeated appearance matter more than the flexibility of chain link.</p>
+<p>SRK&#x27;s <a href="/products/welded-mesh-fence">welded mesh fencing</a> can be reviewed with project-specific panel heights, wire diameters, finishes, posts and gates. The system can make sense where panel rigidity and a consistent repeated appearance matter more than the flexibility of chain link.</p>
 <p>It is not automatically better than chain link. It solves a different design problem.</p>
 <h2>Where does steel fencing fit?</h2>
-<p>Some Abu Dhabi projects need the perimeter to contribute to the appearance of the property. Fabricated steel and metal fencing provides more freedom around panel style, pickets, rails, colour, custom height and coordinated gates.</p>
+<p>Some Abu Dhabi projects need the perimeter to contribute to the appearance of the property. Fabricated <a href="/products/steel-metal-fencing">steel and metal fencing</a> provides more freedom around panel style, pickets, rails, colour, custom height and coordinated gates.</p>
 <p>This can be useful at public-facing entrances, commercial frontages and other visible sections. A large project does not necessarily need the same architectural treatment around every metre. Steel can define the entrance while another system serves less visible areas.</p>
 <p>That approach can improve both design and commercial efficiency when each material has a clear function.</p>
 <h2>What about higher-security sites?</h2>
-<p>Some facilities require more than conventional boundary control. SRK&#x27;s Anti-Climb 358 system uses narrow welded-mesh openings designed to reduce climbing and cutting access. The system can be coordinated with secure posts, gates, tamper-resistant fixings and security toppings depending on the requirement.</p>
+<p>Some facilities require more than conventional boundary control. SRK&#x27;s <a href="/products/anti-climb-358-fence">Anti-Climb 358 system</a> uses narrow welded-mesh openings designed to reduce climbing and cutting access. The system can be coordinated with secure posts, gates, tamper-resistant fixings and security toppings depending on the requirement.</p>
 <p>Relevant applications can include data centres, utilities, industrial compounds, oil and gas facilities, warehouses and restricted areas.</p>
 <p>Higher security should still follow actual risk. A site should not choose 358 simply because the product sounds more secure. The project team should consider the asset, threat level, visibility, gate arrangement and wider security strategy before finalising the system.</p>
 <h2>Temporary construction fencing is a different problem</h2>
@@ -79,7 +79,7 @@ const blogPostsData: Record<string, {
 <p>A useful enquiry can be simple and still provide enough information. For example: an industrial facility in Abu Dhabi, approximately 750 running metres, welded mesh to consultant specification, height as drawing, approved finish, two vehicle gates, three pedestrian gates, supply and installation, with BOQ and layout attached.</p>
 <p>Compare that with “Need fencing in Abu Dhabi. Please send best price.” The first version gives every supplier a common basis for review.</p>
 <p>Include the project name and location, perimeter length and layout, fence type, finished height, mesh or panel details, wire diameter where applicable, finish, post requirement, gate schedule, security topping, delivery requirement, installation scope and drawings or BOQ.</p>
-<p>If your internal procurement team wants a wider selection framework, our guide to <a href="/blog/how-to-compare-fencing-suppliers-uae">comparing fencing suppliers in the UAE</a> explains how to review technical compliance before commercial ranking.</p>
+<p>If your internal procurement team wants a wider selection framework, our <a href="/blog/how-to-compare-fencing-suppliers-uae">guide to comparing fencing suppliers in the UAE</a> explains how to review technical compliance before commercial ranking.</p>
 <h2>How should you shortlist fencing suppliers in Abu Dhabi?</h2>
 <p>Evaluate technical understanding, product suitability, quotation clarity, project support and delivery/installation capability. A suitable supplier should understand the application, match the required specification, state finishes and posts clearly, coordinate gates, work from drawings where needed and explain exclusions.</p>
 <p>Price still matters, but it should not be the only filter. A lower total has little value if the material or installation scope does not match the project.</p>
@@ -102,14 +102,7 @@ const blogPostsData: Record<string, {
 <p>Send the project location, perimeter length, height, fence type, material specification, coating, post and gate details, installation requirement and any available drawings or BOQ documents.</p>
 <h3>Planning an Abu Dhabi fencing project?</h3>
 <p>Start with the function of the perimeter and the information already available from the project team. Send SRK Fence the drawings, BOQ or requirement summary so we can review the system, gates, delivery and installation scope together.</p>
-<p>Share your Abu Dhabi fencing requirement with SRK Fence for project quotation review.</p>
-<h2>Useful SRK Fence Pages</h2>
-<ul>
-  <li><a href="/products">View fencing products</a></li>
-  <li><a href="/applications">View fencing applications</a></li>
-  <li><a href="/countries">View GCC market pages</a></li>
-  <li><a href="/contact">Request a fencing quotation</a></li>
-</ul>
+<p><a href="/contact">Share your Abu Dhabi fencing requirement with SRK Fence</a> for project quotation review.</p>
 `,
   },
   'how-to-compare-fencing-suppliers-uae': {
@@ -122,7 +115,7 @@ const blogPostsData: Record<string, {
     keywords: "fencing suppliers UAE, best fencing supplier Dubai, fence contractor UAE, fencing quotation comparison UAE, fencing procurement guide, supplier evaluation UAE",
     content: `<p>Search for fencing suppliers in the UAE and you will find plenty of companies describing themselves as leading, trusted, premium or best. Those claims do not help a contractor decide who should receive a purchase order.</p>
 <p>The more useful question is simple: which supplier can meet the technical, commercial and delivery requirements of this particular project?</p>
-<p>SRK Fence is a UAE-based supplier with project support across the UAE and regional supply coverage across GCC markets and selected Middle East countries. Our fencing range includes chain link, welded mesh, anti-climb 358, steel systems, temporary fencing, barbed wire, razor wire, gates and accessories.</p>
+<p>SRK Fence is a UAE-based supplier with <a href="/countries/uae">project support across the UAE</a> and regional supply coverage across GCC markets and selected Middle East countries. Our fencing range includes chain link, <a href="/products/welded-mesh-fence">welded mesh</a>, anti-climb 358, steel systems, temporary fencing, barbed wire, razor wire, gates and accessories.</p>
 <p>For procurement teams, we recommend evaluating the requirement first and the supplier second.</p>
 <h2>What should you define before you contact suppliers?</h2>
 <p>Start with the function of the perimeter. A supplier cannot recommend the right fence if the enquiry does not explain what the fence needs to achieve.</p>
@@ -130,7 +123,7 @@ const blogPostsData: Record<string, {
 <p>Defining the purpose first reduces the number of supplier assumptions and gives you a better basis for comparing proposals.</p>
 <h2>Give every shortlisted supplier the same RFQ</h2>
 <p>This is one of the simplest procurement controls and one of the most valuable. Send each company the same drawings, BOQ, fence length, height, mesh or panel specification, wire diameter, coating, post details, gate schedule, delivery requirement and installation scope.</p>
-<p>SRK&#x27;s fencing RFQ guide provides a practical structure for this information. If something remains undecided, mark it clearly as open rather than allowing each supplier to make a different assumption.</p>
+<p>SRK&#x27;s <a href="/blog/how-to-prepare-a-fencing-rfq">fencing RFQ guide</a> provides a practical structure for this information. If something remains undecided, mark it clearly as open rather than allowing each supplier to make a different assumption.</p>
 <p>When every bidder receives the same brief, technical and commercial differences become much easier to identify.</p>
 <h2>Check technical compliance before you compare price</h2>
 <p>Suppose the BOQ specifies a welded-mesh fence. Supplier A quotes the requested wire and finish. Supplier B uses a lighter wire. Supplier C does not state the coating. Supplier B has the lowest total.</p>
@@ -138,7 +131,7 @@ const blogPostsData: Record<string, {
 <p>Create a simple technical review column: compliant, deviation or not stated. Resolve those differences before commercial ranking. A lower price only has meaning when the offer satisfies the same requirement.</p>
 <p>Our <a href="/blog/fencing-cost-dubai-guide">Dubai fencing cost guide</a> explains in more detail how wire, mesh, posts, gates, coatings and installation can change the final number even when the perimeter length is identical.</p>
 <h2>Does the proposed fence actually fit the site?</h2>
-<p>A supplier should be able to explain why it recommends a product. SRK&#x27;s range includes chain link fencing, welded mesh, steel and metal fencing and Anti-Climb 358 because different applications need different systems.</p>
+<p>A supplier should be able to explain why it recommends a product. SRK&#x27;s range includes <a href="/products/chain-link-fence">chain link fencing</a>, welded mesh, <a href="/products/steel-metal-fencing">steel and metal fencing</a> and <a href="/products/anti-climb-358-fence">Anti-Climb 358</a> because different applications need different systems.</p>
 <p>If a supplier recommends the same product for every project, ask why. Product suitability matters more than catalogue size.</p>
 <p>For example, chain link can make sense for long open boundaries, welded mesh for rigid modular perimeters, fabricated steel for architectural or custom sections and 358 for higher-security applications. The project should drive the recommendation.</p>
 <h2>Look at the complete perimeter system</h2>
@@ -151,7 +144,7 @@ const blogPostsData: Record<string, {
 <p>This improves both technical control and trust.</p>
 <h2>Review gates as a separate technical package</h2>
 <p>Gates often deserve their own commercial and technical section. For every opening, record the location, clear width, height, pedestrian or vehicle use, swing or sliding operation, locking system and any access-control requirement.</p>
-<p>SRK&#x27;s steel fencing systems can coordinate pedestrian, swing, sliding and vehicle-access gates depending on the project. Gate posts and foundations may differ from ordinary line-fence details, so the supplier should not treat them as an afterthought.</p>
+<p>SRK&#x27;s <a href="/products/steel-metal-fencing">steel fencing systems</a> can coordinate pedestrian, swing, sliding and vehicle-access gates depending on the project. Gate posts and foundations may differ from ordinary line-fence details, so the supplier should not treat them as an afterthought.</p>
 <p>A company that understands the gate schedule usually understands the perimeter more completely.</p>
 <h2>Clarify installation responsibility</h2>
 <p>“Supply and install” can still mean different things. Define who handles site measurement, setting out, excavation, concrete foundations, post installation, mesh or panel fixing, gates, disposal, coordination and handover.</p>
@@ -178,7 +171,7 @@ const blogPostsData: Record<string, {
 <p>Return to the project requirement. If the consultant drawing clearly specifies welded mesh and alternatives are not permitted, Supplier B may be the only compliant offer. If alternatives are allowed, compare security, visibility, material, gates, consultant approval and commercial cost.</p>
 <p>Procurement starts with the requirement, not the supplier&#x27;s preferred product.</p>
 <h2>Can a UAE-based supplier support GCC projects?</h2>
-<p>Yes, provided the supplier can support the required product, documentation, delivery location and commercial scope. SRK Fence is UAE-based and targets the GCC through dedicated market pages for Saudi Arabia, Qatar, Kuwait, Bahrain and Oman, with additional Middle East coverage for Iraq and Jordan.</p>
+<p>Yes, provided the supplier can support the required product, documentation, delivery location and commercial scope. SRK Fence is UAE-based and targets the GCC through dedicated market pages for <a href="/countries/saudi-arabia">Saudi Arabia</a>, <a href="/countries/qatar">Qatar</a>, <a href="/countries/kuwait">Kuwait</a>, <a href="/countries/bahrain">Bahrain</a> and <a href="/countries/oman">Oman</a>, with additional Middle East coverage for Iraq and Jordan.</p>
 <p>For regional enquiries, clarify the delivery city, quantities, programme, documentation requirements, gate and accessory scope and installation responsibility. Do not assume a UAE quotation can simply be copied into another market without reviewing logistics and site requirements.</p>
 <p>This regional reach supports the wider positioning of SRK Fence as a UAE-based supplier serving GCC projects without implying physical offices in every country.</p>
 <h2>Why does supplier location still matter?</h2>
@@ -203,14 +196,7 @@ const blogPostsData: Record<string, {
 <p>Yes, when the supplier can support the required materials, documentation, delivery and project scope. Regional supply should still be reviewed market by market rather than assumed to be identical to a domestic UAE order.</p>
 <h3>Comparing fencing suppliers for a UAE project?</h3>
 <p>Send the same specification to every shortlisted company and make technical compliance visible before you negotiate price. That simple approach produces clearer procurement decisions and reduces the risk of treating a lower-specification offer as better value.</p>
-<p>If your project is in Abu Dhabi, our <a href="/blog/fencing-supplier-abu-dhabi-guide">Abu Dhabi fencing buyer guide</a> adds local project-selection context. When you are ready, send your BOQ or fencing specification to SRK Fence for quotation review.</p>
-<h2>Useful SRK Fence Pages</h2>
-<ul>
-  <li><a href="/products">View fencing products</a></li>
-  <li><a href="/applications">View fencing applications</a></li>
-  <li><a href="/countries">View GCC market pages</a></li>
-  <li><a href="/contact">Request a fencing quotation</a></li>
-</ul>
+<p>If your project is in Abu Dhabi, our <a href="/blog/fencing-supplier-abu-dhabi-guide">Abu Dhabi fencing buyer guide</a> adds local project-selection context. When you are ready, <a href="/contact">send your BOQ or fencing specification to SRK Fence</a> for quotation review.</p>
 `,
   },
   'chain-link-fencing-dubai-buyer-guide': {
@@ -222,7 +208,7 @@ const blogPostsData: Record<string, {
     date: "2026-08-19",
     keywords: "chain link fencing Dubai, chain link fence supplier Dubai, galvanized chain link fence UAE, PVC coated chain link fence Dubai, chain link fence specification, fence mesh opening",
     content: `<p>Chain link fencing looks straightforward until you start comparing quotations. Two suppliers can both offer “chain link fence” while using different mesh openings, wire diameters, coatings, posts and accessories. From a distance, the finished systems may look similar. Commercially and technically, they may be different products.</p>
-<p>SRK Fence supplies chain link fencing for Dubai, UAE and regional projects with project-specific options for height, mesh opening, wire diameter, galvanized or PVC-coated wire, posts, gates and installation. If you want a quotation that you can compare properly, start with the specification rather than the price per metre.</p>
+<p>SRK Fence supplies <a href="/products/chain-link-fence">chain link fencing</a> for Dubai, UAE and regional projects with project-specific options for height, mesh opening, wire diameter, galvanized or PVC-coated wire, posts, gates and installation. If you want a quotation that you can compare properly, start with the specification rather than the price per metre.</p>
 <h2>Where does chain link fencing work well?</h2>
 <p>Chain link works well on open perimeters where buyers want boundary control, airflow and visibility without creating a solid barrier. SRK currently supplies it for construction sites, warehouses, farms, schools, parks, sports areas, residential properties and industrial perimeters.</p>
 <p>That versatility explains why chain link remains common, but it does not make the product suitable for every site. A higher-security facility may need anti-climb fencing. A public-facing commercial entrance may benefit from fabricated steel. A project that specifically calls for rigid modular panels may need welded mesh.</p>
@@ -256,12 +242,12 @@ const blogPostsData: Record<string, {
 <p>For each gate, specify the quantity, width, height, use and locking requirement. A vehicle gate may need a different frame, post and foundation arrangement from the line fence.</p>
 <p>Leaving gates until later can force revisions to adjacent posts and fence sections. Include them from the beginning so the supplier can price the perimeter as one system.</p>
 <h2>Should chain link include security wire?</h2>
-<p>Some projects use barbed wire, razor wire or another approved topping above the main fence. SRK supplies these products as part of its wider UAE boundary security solutions.</p>
-<p>The important question is not whether you can add them. Ask whether the site actually needs them. If the security requirement is substantially higher, compare chain link with a purpose-designed system such as Anti-Climb 358 fencing instead of continuously adding features to general boundary fencing.</p>
+<p>Some projects use barbed wire, razor wire or another approved topping above the main fence. SRK supplies these products as part of its wider <a href="/countries/uae/boundary-security-fencing">UAE boundary security solutions</a>.</p>
+<p>The important question is not whether you can add them. Ask whether the site actually needs them. If the security requirement is substantially higher, compare chain link with a purpose-designed system such as <a href="/products/anti-climb-358-fence">Anti-Climb 358 fencing</a> instead of continuously adding features to general boundary fencing.</p>
 <p>Security should follow a risk-based requirement, not a catalogue of available accessories.</p>
 <h2>Chain link or welded mesh: which should you choose?</h2>
 <p>Chain link is flexible woven mesh. Welded mesh uses rigid panels. Both maintain visibility, but they behave differently in design and installation.</p>
-<p>Chain link can make sense when the boundary is long, flexibility is useful and practical perimeter coverage is the priority. Welded mesh fencing can make sense where rigid panels and a more structured modular appearance fit the site better.</p>
+<p>Chain link can make sense when the boundary is long, flexibility is useful and practical perimeter coverage is the priority. <a href="/products/welded-mesh-fence">Welded mesh fencing</a> can make sense where rigid panels and a more structured modular appearance fit the site better.</p>
 <p>SRK already publishes a detailed <a href="/blog/chain-link-vs-welded-mesh-fence">chain link vs welded mesh comparison</a> for buyers who need to evaluate the two systems more closely.</p>
 <h2>When may chain link not be the best option?</h2>
 <p>Chain link may not be your first choice when the project needs a strong architectural frontage, rigid panels are part of the consultant specification, the site requires a higher-security anti-climb perimeter or the boundary needs solid visual screening.</p>
@@ -273,7 +259,7 @@ const blogPostsData: Record<string, {
 <p>Now three suppliers can price the same basic fence. That makes the commercial comparison meaningful instead of collecting three unrelated “chain link” prices.</p>
 <h2>What should a chain-link quotation contain?</h2>
 <p>A useful quotation should identify the running metres, finished mesh height, exact mesh opening, wire diameter, finish, post type and spacing, accessories, gate quantities and dimensions, any security topping, delivery location and whether installation is included.</p>
-<p>If the project team is still developing the specification, SRK&#x27;s fencing RFQ guide can help organise the information before it goes to suppliers.</p>
+<p>If the project team is still developing the specification, SRK&#x27;s <a href="/blog/how-to-prepare-a-fencing-rfq">fencing RFQ guide</a> can help organise the information before it goes to suppliers.</p>
 <p>When price becomes the next question, our <a href="/blog/fencing-cost-dubai-guide">Dubai fencing cost guide</a> explains why posts, gates, coatings and installation can change the total even when the perimeter length stays the same.</p>
 <h2>Review the material submittal before the order is released</h2>
 <p>For contractor-led projects, the quotation is only one part of the approval process. Before the purchase order moves into production, compare the supplier&#x27;s material submittal with the BOQ, drawing and consultant requirement. Check the proposed mesh opening, wire diameter, coating, post section, fittings and gate details together.</p>
@@ -295,14 +281,7 @@ const blogPostsData: Record<string, {
 <p>Yes. Chain link is commonly used for warehouse, construction and industrial boundary applications where visibility and practical perimeter control are important. Sites with a higher security requirement may need another system.</p>
 <h3>Need chain link fencing in Dubai?</h3>
 <p>Send SRK Fence the specification rather than only the perimeter length. When we can review the height, mesh, wire, coating, posts, gates and installation scope together, the quotation becomes clearer and easier to compare.</p>
-<p>Send your chain-link requirement or BOQ to SRK Fence for a project-specific quotation.</p>
-<h2>Useful SRK Fence Pages</h2>
-<ul>
-  <li><a href="/products">View fencing products</a></li>
-  <li><a href="/applications">View fencing applications</a></li>
-  <li><a href="/countries">View GCC market pages</a></li>
-  <li><a href="/contact">Request a fencing quotation</a></li>
-</ul>
+<p><a href="/contact">Send your chain-link requirement or BOQ to SRK Fence</a> for a project-specific quotation.</p>
 `,
   },
   'steel-metal-fencing-dubai-guide': {
@@ -314,7 +293,7 @@ const blogPostsData: Record<string, {
     date: "2026-08-18",
     keywords: "steel fencing Dubai, metal fencing supplier in Dubai, fabricated steel fence UAE, steel fence gates Dubai, powder coated steel fencing, galvanized steel fence UAE",
     content: `<p>Steel fencing can serve very different purposes. A villa owner may care most about appearance. A logistics facility may focus on durability and vehicle access. An industrial compound may need a perimeter that supports a broader security plan. All three buyers can ask for “steel fencing”, yet they are not asking for the same system.</p>
-<p>At SRK Fence, we support steel and metal fencing for residential, commercial, warehouse, factory, school, infrastructure and security applications. Project options can include galvanized steel, powder-coated finishes, custom heights, fabricated panels, compatible posts and different gate arrangements.</p>
+<p>At SRK Fence, we support <a href="/products/steel-metal-fencing">steel and metal fencing</a> for residential, commercial, warehouse, factory, school, infrastructure and security applications. Project options can include galvanized steel, powder-coated finishes, custom heights, fabricated panels, compatible posts and different gate arrangements.</p>
 <p>Before choosing a steel fencing supplier in Dubai, define what the perimeter needs to do. That decision will shape the design, finish, posts, gates and price far more effectively than choosing from a product photograph.</p>
 <h2>What does “metal fencing” actually mean?</h2>
 <p>Metal fencing is a broad category. Steel fencing is one type of metal fencing, but the phrase alone does not define the profile, panel design, height, coating, post system or fixing method.</p>
@@ -327,7 +306,7 @@ const blogPostsData: Record<string, {
 <h2>Where does steel fencing make sense?</h2>
 <p>Steel works particularly well when a project needs structural rigidity, design flexibility, a permanent boundary and coordinated access points. SRK&#x27;s steel range supports commercial compounds, warehouses, industrial facilities, schools, infrastructure sites and residential applications.</p>
 <p>The material can be fabricated into pickets, rails, framed panels and other project-specific profiles. That makes steel useful where the perimeter contributes to the appearance of the site rather than simply marking its edge.</p>
-<p>However, a long industrial boundary may still be better served by welded mesh fencing or chain link fencing if the project prioritises visibility, modular installation or practical long-run coverage. The correct system depends on function, not hierarchy.</p>
+<p>However, a long industrial boundary may still be better served by <a href="/products/welded-mesh-fence">welded mesh fencing</a> or <a href="/products/chain-link-fence">chain link fencing</a> if the project prioritises visibility, modular installation or practical long-run coverage. The correct system depends on function, not hierarchy.</p>
 <h2>How should you think about galvanizing and powder coating?</h2>
 <p>The finish should appear clearly in the project specification. SRK can review galvanized steel, powder-coated systems and other project-specific finishes depending on the design and exposure.</p>
 <p>Do not rely on broad phrases such as “premium coating”, “weather resistant” or “rust proof”. A contractor or consultant needs to know what the supplier actually proposes. Ask whether the steel is galvanized, whether powder coating is required, what colour or reference applies, and how fabricated or welded areas will be treated.</p>
@@ -347,7 +326,7 @@ const blogPostsData: Record<string, {
 <h2>Steel fencing or welded mesh: which is the better fit?</h2>
 <p>Welded mesh uses steel wires welded at their intersections to form rigid panels. Fabricated steel allows greater freedom in panel shape, rails, pickets and architectural details.</p>
 <p>Consider welded mesh when you need a repeatable modular system, good visibility and a long commercial or industrial perimeter. Consider fabricated steel when the project needs custom appearance, coordinated gates or a specific architectural language.</p>
-<p>If you want a more detailed product comparison, SRK&#x27;s existing chain link vs welded mesh guide explains how flexible mesh and rigid panels differ in practical use. For steel, the same principle applies: choose the system that solves the job rather than the one that sounds more premium.</p>
+<p>If you want a more detailed product comparison, SRK&#x27;s existing <a href="/blog/chain-link-vs-welded-mesh-fence">chain link vs welded mesh guide</a> explains how flexible mesh and rigid panels differ in practical use. For steel, the same principle applies: choose the system that solves the job rather than the one that sounds more premium.</p>
 <h2>Steel fencing or chain link: when does each make sense?</h2>
 <p>Chain link uses flexible woven wire and remains useful for many open boundaries, yards and industrial perimeters. Fabricated steel offers greater rigidity and design control.</p>
 <p>For a long rear boundary where appearance is secondary, chain link may be a sensible option. For a public-facing entrance where the fence becomes part of the site&#x27;s visual identity, fabricated steel may make more sense.</p>
@@ -355,7 +334,7 @@ const blogPostsData: Record<string, {
 <p>Our <a href="/blog/fencing-cost-dubai-guide">Dubai fencing cost guide</a> explains how material choice, gates, posts, coating and installation can change the commercial picture across different fence systems.</p>
 <h2>When should you evaluate anti-climb fencing instead?</h2>
 <p>A heavy steel fence does not automatically become a high-security fence. Security depends on climbability, openings, height, fixings, posts, gates and access-control design.</p>
-<p>SRK&#x27;s Anti-Climb 358 system uses narrow welded-mesh openings designed to reduce climbing and cutting opportunities. If the primary objective is protection of a sensitive facility rather than architectural appearance, compare a purpose-designed anti-climb system before finalising conventional steel fencing.</p>
+<p>SRK&#x27;s <a href="/products/anti-climb-358-fence">Anti-Climb 358 system</a> uses narrow welded-mesh openings designed to reduce climbing and cutting opportunities. If the primary objective is protection of a sensitive facility rather than architectural appearance, compare a purpose-designed anti-climb system before finalising conventional steel fencing.</p>
 <p>This is especially relevant for data centres, utilities, restricted industrial compounds and other sites where the security requirement drives the perimeter design.</p>
 <h2>A practical example: a Dubai warehouse</h2>
 <p>Imagine a warehouse with a customer-facing entrance, long side boundaries and a rear service zone. The front needs a clean permanent appearance, two vehicle gates and a pedestrian entrance. The side boundaries need visibility and efficient coverage. The rear has a higher security concern.</p>
@@ -363,7 +342,7 @@ const blogPostsData: Record<string, {
 <p>That is not a recommendation to mix products by default. It is a reminder to assess each perimeter section by function before selecting one material for the whole site.</p>
 <h2>What should a steel fencing RFQ include?</h2>
 <p>A useful RFQ includes the project location, total running metres, finished height, drawings or reference design, steel specification, finish, post details, gate schedule, installation scope and BOQ where available.</p>
-<p>SRK&#x27;s existing guide on <a href="/blog/how-to-prepare-a-fencing-rfq">how to prepare a fencing RFQ</a> can help contractors structure this information before requesting quotations. If you are comparing several companies, our UAE fencing supplier comparison guide provides a framework for reviewing technical compliance and commercial scope.</p>
+<p>SRK&#x27;s existing guide on <a href="/blog/how-to-prepare-a-fencing-rfq">how to prepare a fencing RFQ</a> can help contractors structure this information before requesting quotations. If you are comparing several companies, our <a href="/blog/how-to-compare-fencing-suppliers-uae">UAE fencing supplier comparison guide</a> provides a framework for reviewing technical compliance and commercial scope.</p>
 <p>The clearer the RFQ, the less room each supplier has to make different assumptions.</p>
 <h2>How should you evaluate a metal fencing supplier in Dubai?</h2>
 <p>Look for clarity before sales language. A useful quotation should tell you what material will be used, which profiles form the fence, what finish is included, what post system is proposed, which gates are included, what the installation covers and what the supplier has excluded.</p>
@@ -385,14 +364,7 @@ const blogPostsData: Record<string, {
 <p>Welded mesh can suit long, uniform commercial or industrial perimeters where panel rigidity and visibility matter. Fabricated steel usually provides greater freedom for architectural designs and coordinated entrances.</p>
 <h3>Planning steel or metal fencing in Dubai?</h3>
 <p>Send SRK Fence the drawings, reference design or BOQ you already have. We can review the fence, posts, finish and access points as one coordinated requirement rather than pricing each item in isolation.</p>
-<p>Share your steel fencing drawings or RFQ with SRK Fence for project review.</p>
-<h2>Useful SRK Fence Pages</h2>
-<ul>
-  <li><a href="/products">View fencing products</a></li>
-  <li><a href="/applications">View fencing applications</a></li>
-  <li><a href="/countries">View GCC market pages</a></li>
-  <li><a href="/contact">Request a fencing quotation</a></li>
-</ul>
+<p><a href="/contact">Share your steel fencing drawings or RFQ with SRK Fence</a> for project review.</p>
 `,
   },
   'fencing-cost-dubai-guide': {
@@ -404,7 +376,7 @@ const blogPostsData: Record<string, {
     date: "2026-08-17",
     keywords: "fencing cost Dubai, fencing supplier in Dubai price, fence quotation Dubai, fencing price per metre Dubai, chain link fence cost Dubai, welded mesh fence quotation UAE, fence supplier Dubai",
     content: `<p>Fencing is often discussed as if it has a simple price per metre. In real projects, that number only becomes useful after the specification is clear. A 300-metre chain link boundary around an open yard does not use the same material, posts, gates or installation method as 300 metres of welded mesh around a warehouse. A higher-security perimeter changes the specification again.</p>
-<p>At SRK Fence, we prefer to price the fence you actually need rather than give you a headline number that changes once the technical details arrive. Our UAE fencing project support covers Dubai, Sharjah, Abu Dhabi and other emirates, with project requirements reviewed against the fence type, dimensions, material, posts, gates, delivery and installation scope.</p>
+<p>At SRK Fence, we prefer to price the fence you actually need rather than give you a headline number that changes once the technical details arrive. Our <a href="/countries/uae">UAE fencing project support</a> covers Dubai, Sharjah, Abu Dhabi and other emirates, with project requirements reviewed against the fence type, dimensions, material, posts, gates, delivery and installation scope.</p>
 <p>This guide explains what changes the cost of fencing in Dubai, why two quotations can be far apart even for the same perimeter, and what information helps you compare suppliers fairly.</p>
 <h2>Why can two fencing quotations for the same project be so different?</h2>
 <p>Two suppliers may appear to be pricing the same fence while actually quoting different materials or scopes. Wire diameter, mesh opening, coating, post size, gates, foundations, transport and installation can all change the final number.</p>
@@ -412,14 +384,14 @@ const blogPostsData: Record<string, {
 <p>Before you compare the totals, make sure every supplier has priced the same technical requirement. If you are shortlisting several companies, our guide on <a href="/blog/how-to-compare-fencing-suppliers-uae">how to compare fencing suppliers in the UAE</a> takes that supplier-evaluation process further.</p>
 <h2>Start with the job the fence needs to do</h2>
 <p>Price should not decide the fence type before the project requirement does. SRK Fence supplies several systems because different sites need different solutions.</p>
-<p>Chain link fencing works well for many open boundaries where visibility, airflow and practical long-run coverage matter. Welded mesh fencing uses rigid panels and can suit commercial, warehouse, school and industrial perimeters. Steel and metal fencing offers greater design flexibility where appearance, fabricated sections or coordinated gates matter. Sites with a higher risk profile may need Anti-Climb 358 fencing or another purpose-designed security system.</p>
+<p><a href="/products/chain-link-fence">Chain link fencing</a> works well for many open boundaries where visibility, airflow and practical long-run coverage matter. <a href="/products/welded-mesh-fence">Welded mesh fencing</a> uses rigid panels and can suit commercial, warehouse, school and industrial perimeters. <a href="/products/steel-metal-fencing">Steel and metal fencing</a> offers greater design flexibility where appearance, fabricated sections or coordinated gates matter. Sites with a higher risk profile may need <a href="/products/anti-climb-358-fence">Anti-Climb 358 fencing</a> or another purpose-designed security system.</p>
 <p>Choosing the lowest-priced product before defining the job can create false savings. The better sequence is purpose, specification, scope and then price.</p>
 <h2>Perimeter length matters, but layout matters too</h2>
 <p>Running metres clearly affect material quantity, but length alone does not describe the work. A mostly straight 400-metre boundary with one entrance can be simpler than a 350-metre perimeter with nine corners, changing ground levels and several access points.</p>
 <p>For early budgeting, an approximate perimeter may be enough. For a final quotation, provide a site layout, BOQ, drawing or measured quantities whenever possible. Mark corners, changes in height and all gate positions. That allows our team to review the actual perimeter rather than make assumptions from a single number.</p>
 <p>This is also why a very simple “price per metre” can be misleading. A rate may work for an indicative budget, but it cannot always represent gates, complex corners, specialist post arrangements and site-specific installation conditions.</p>
 <h2>Fence height affects more than the amount of mesh</h2>
-<p>A taller fence needs more material, but height can also influence the post specification, post spacing, gate dimensions, bracing, foundations and security toppings. Our current chain link fence range commonly covers project heights from about 1.2 m to 3.0 m, with custom heights reviewed according to the requirement.</p>
+<p>A taller fence needs more material, but height can also influence the post specification, post spacing, gate dimensions, bracing, foundations and security toppings. Our current <a href="/products/chain-link-fence">chain link fence range</a> commonly covers project heights from about 1.2 m to 3.0 m, with custom heights reviewed according to the requirement.</p>
 <p>The correct height comes from the site use and risk, not from whichever standard size happens to be cheapest. A landscape boundary, warehouse perimeter and restricted industrial facility do not have the same objective.</p>
 <p>If barbed wire, razor wire or another topping sits above the main fence, show that separately in the RFQ. A clear finished-height definition helps the supplier select compatible posts and gates.</p>
 <h2>Wire diameter and mesh opening can change the quotation</h2>
@@ -436,11 +408,11 @@ const blogPostsData: Record<string, {
 <p>When you review a quotation, ask what post size has been included, what spacing the supplier has assumed, how corners are handled and whether concrete foundations are part of the scope. If Supplier A includes a more complete support system than Supplier B, the totals should not be expected to match.</p>
 <h2>Gates can change the budget quickly</h2>
 <p>A long perimeter may repeat the same fence detail hundreds of times. A gate does not. Every access point brings its own frame, posts, hinges or sliding mechanism, locking requirements and sometimes access-control coordination.</p>
-<p>SRK&#x27;s steel and metal fencing systems can incorporate pedestrian, swing, sliding and vehicle-access gates depending on the design. For every opening, define the clear width, height, pedestrian or vehicle use, operating type and any locking or access-control requirement.</p>
+<p>SRK&#x27;s <a href="/products/steel-metal-fencing">steel and metal fencing systems</a> can incorporate pedestrian, swing, sliding and vehicle-access gates depending on the design. For every opening, define the clear width, height, pedestrian or vehicle use, operating type and any locking or access-control requirement.</p>
 <p>Do this before the main quotation is finalised. Adding several gates later can materially change the post and foundation requirements around those openings.</p>
 <h2>Higher-security sites need a different conversation</h2>
 <p>Some projects need more than a conventional boundary. Barbed wire, razor wire, anti-climb mesh, tamper-resistant fixings, secure gate arrangements and access-control interfaces can all become part of the perimeter strategy.</p>
-<p>SRK&#x27;s Anti-Climb 358 fence system uses a narrow mesh aperture designed to make climbing and cutting more difficult. That does not mean every industrial site needs 358. Security should follow the actual risk. Over-specification wastes budget; under-specification can leave the perimeter unsuitable for its purpose.</p>
+<p>SRK&#x27;s <a href="/products/anti-climb-358-fence">Anti-Climb 358 fence system</a> uses a narrow mesh aperture designed to make climbing and cutting more difficult. That does not mean every industrial site needs 358. Security should follow the actual risk. Over-specification wastes budget; under-specification can leave the perimeter unsuitable for its purpose.</p>
 <p>If a buyer starts with “the strongest fence available”, we recommend first clarifying the asset, threat, visibility, gate and access requirements. The best-value system is the one that matches the required performance without unnecessary specification.</p>
 <h2>Supply-only and installed prices are different offers</h2>
 <p>Another common pricing problem comes from scope. Supplier A may quote material delivered to site. Supplier B may include setting out, excavation, concrete foundations, post installation, mesh or panel fixing and gates.</p>
@@ -466,14 +438,7 @@ const blogPostsData: Record<string, {
 <h3>Should material, delivery and installation be shown separately?</h3>
 <p>For many commercial projects, separating these items improves transparency. It allows the buyer to see what portion of the quotation relates to the fencing material, logistics and site work.</p>
 <h3>Planning a fencing project in Dubai?</h3>
-<p>Send SRK Fence the information you already have, including drawings or BOQ. We can identify missing details and review the project scope. Send your drawings, BOQ or fencing requirement to SRK Fence for quotation review.</p>
-<h2>Useful SRK Fence Pages</h2>
-<ul>
-  <li><a href="/products">View fencing products</a></li>
-  <li><a href="/applications">View fencing applications</a></li>
-  <li><a href="/countries">View GCC market pages</a></li>
-  <li><a href="/contact">Request a fencing quotation</a></li>
-</ul>
+<p>Send SRK Fence the information you already have, including drawings or BOQ. We can identify missing details and review the project scope. <a href="/contact">Send your drawings, BOQ or fencing requirement to SRK Fence</a> for quotation review.</p>
 `,
   },
   'how-to-choose-the-right-fence': {
@@ -1239,39 +1204,41 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
   return (
     <SiteLayout>
-      <section className="border-b border-border/70 bg-white py-10 sm:py-14">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog"
-            className="mb-6 inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Blog
-          </Link>
+      <section className="bg-background py-10 sm:py-14">
+        <div className="container mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_330px] lg:px-8">
+          <main className="min-w-0">
+            <Link
+              href="/blog"
+              className="mb-6 inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Blog
+            </Link>
 
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_330px]">
-            <main className="min-w-0">
-              <div className="mb-4 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                {post.category}
-              </div>
-              <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
-                {post.title}
-              </h1>
-              <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
-                {post.description}
-              </p>
-              <div className="mt-5 flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
-                <span className="inline-flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
-                  {post.readTime}
-                </span>
+            <article className="overflow-hidden rounded-sm border border-border bg-white shadow-sm">
+              <div className="p-6 sm:p-8 lg:p-10">
+                <div className="mb-4 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                  {post.category}
+                </div>
+                <h1 className="max-w-4xl text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+                  {post.title}
+                </h1>
+                <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+                  {post.description}
+                </p>
+                <div className="mt-5 flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+                  <span className="inline-flex items-center gap-2">
+                    <Calendar className="h-4 w-4" />
+                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    {post.readTime}
+                  </span>
+                </div>
               </div>
 
-              <div className="mt-8 rounded-sm border border-border bg-white p-2 shadow-sm">
+              <div className="border-y border-border bg-white px-4 py-4 sm:px-6 lg:px-8">
                 <div className="relative aspect-[1200/628] w-full overflow-hidden rounded-sm bg-white">
                   <Image
                     src={post.image || heroFence}
@@ -1283,69 +1250,23 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                   />
                 </div>
               </div>
-            </main>
 
-            <aside className="space-y-6 lg:pt-14">
-              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
-                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Search</h3>
-                <div className="mt-5 flex rounded-sm border border-border bg-background px-3 py-2">
-                  <input className="w-full bg-transparent text-sm outline-none" placeholder="Search articles..." />
-                  <Search className="h-5 w-5 text-muted-foreground" />
-                </div>
-              </div>
-
-              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
-                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Popular Topics</h3>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {buyerSearchTerms.slice(0, 8).map((keyword) => (
-                    <span key={keyword} className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground">
-                      {keyword}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
-                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Recent Posts</h3>
-                <div className="mt-5 space-y-4">
-                  {recentPosts.map((item) => (
-                    <Link key={item.slug} href={`/blog/${item.slug}`} className="block text-sm font-semibold leading-6 text-foreground transition-colors hover:text-primary">
-                      {item.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-sm bg-primary p-6 text-white shadow-sm">
-                <h3 className="text-xl font-extrabold">Need a fencing quote?</h3>
-                <p className="mt-3 text-sm leading-6 text-white/90">Share your fence length, height, location and installation scope for a quick quotation.</p>
-                <Button asChild className="mt-5 w-full bg-white text-primary hover:bg-white/90">
-                  <Link href="/contact">Get a Quote</Link>
-                </Button>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-background py-12 sm:py-16">
-        <div className="container mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_330px] lg:px-8">
-          <main className="min-w-0">
-            <article
-              className="rounded-sm border border-border bg-white p-6 shadow-sm sm:p-8 lg:p-10
-                         [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-primary [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:leading-tight
-                         [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:leading-snug
-                         [&_p]:text-base [&_p]:text-muted-foreground [&_p]:mb-5 [&_p]:leading-8
-                         [&_ul]:my-5 [&_ul]:pl-7 [&_ul]:list-disc [&_ul]:text-muted-foreground
-                         [&_ol]:my-5 [&_ol]:pl-7 [&_ol]:list-decimal [&_ol]:text-muted-foreground
-                         [&_li]:mb-2 [&_li]:leading-7
-                         [&_strong]:text-foreground [&_strong]:font-semibold
-                         [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse
-                         [&_table_th]:p-3 [&_table_th]:border [&_table_th]:border-border [&_table_th]:bg-muted [&_table_th]:text-foreground [&_table_th]:font-semibold [&_table_th]:text-left
-                         [&_table_td]:p-3 [&_table_td]:border [&_table_td]:border-border [&_table_td]:text-muted-foreground
-                         [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+              <div
+                className="p-6 sm:p-8 lg:p-10
+                           [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-primary [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:leading-tight
+                           [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:leading-snug
+                           [&_p]:text-base [&_p]:text-muted-foreground [&_p]:mb-5 [&_p]:leading-8
+                           [&_ul]:my-5 [&_ul]:pl-7 [&_ul]:list-disc [&_ul]:text-muted-foreground
+                           [&_ol]:my-5 [&_ol]:pl-7 [&_ol]:list-decimal [&_ol]:text-muted-foreground
+                           [&_li]:mb-2 [&_li]:leading-7
+                           [&_strong]:text-foreground [&_strong]:font-semibold
+                           [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse
+                           [&_table_th]:p-3 [&_table_th]:border [&_table_th]:border-border [&_table_th]:bg-muted [&_table_th]:text-foreground [&_table_th]:font-semibold [&_table_th]:text-left
+                           [&_table_td]:p-3 [&_table_td]:border [&_table_td]:border-border [&_table_td]:text-muted-foreground
+                           [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+            </article>
 
             {relatedPosts.length > 0 && (
               <section className="mt-10 rounded-sm border border-border bg-white p-6 shadow-sm sm:p-7">
@@ -1434,7 +1355,37 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             </div>
           </main>
 
-          <aside className="hidden space-y-6 lg:block">
+          <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+            <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+              <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Search</h3>
+              <div className="mt-5 flex rounded-sm border border-border bg-background px-3 py-2">
+                <input className="w-full bg-transparent text-sm outline-none" placeholder="Search articles..." />
+                <Search className="h-5 w-5 text-muted-foreground" />
+              </div>
+            </div>
+
+            <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+              <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Popular Topics</h3>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {buyerSearchTerms.slice(0, 8).map((keyword) => (
+                  <span key={keyword} className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+              <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Recent Posts</h3>
+              <div className="mt-5 space-y-4">
+                {recentPosts.map((item) => (
+                  <Link key={item.slug} href={`/blog/${item.slug}`} className="block text-sm font-semibold leading-6 text-foreground transition-colors hover:text-primary">
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
               <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Our Products</h3>
               <div className="mt-5 divide-y divide-border">
@@ -1451,6 +1402,14 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                   </Link>
                 ))}
               </div>
+            </div>
+
+            <div className="rounded-sm bg-primary p-6 text-white shadow-sm">
+              <h3 className="text-xl font-extrabold">Need a fencing quote?</h3>
+              <p className="mt-3 text-sm leading-6 text-white/90">Share your fence length, height, location and installation scope for a quick quotation.</p>
+              <Button asChild className="mt-5 w-full bg-white text-primary hover:bg-white/90">
+                <Link href="/contact">Get a Quote</Link>
+              </Button>
             </div>
           </aside>
         </div>
