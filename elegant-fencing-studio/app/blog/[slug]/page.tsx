@@ -203,7 +203,7 @@ const blogPostsData: Record<string, {
 <p>Yes, when the supplier can support the required materials, documentation, delivery and project scope. Regional supply should still be reviewed market by market rather than assumed to be identical to a domestic UAE order.</p>
 <h3>Comparing fencing suppliers for a UAE project?</h3>
 <p>Send the same specification to every shortlisted company and make technical compliance visible before you negotiate price. That simple approach produces clearer procurement decisions and reduces the risk of treating a lower-specification offer as better value.</p>
-<p>If your project is in Abu Dhabi, our planned <a href="/blog/fencing-supplier-abu-dhabi-guide">Abu Dhabi fencing buyer guide</a> adds local project-selection context. When you are ready, send your BOQ or fencing specification to SRK Fence for quotation review.</p>
+<p>If your project is in Abu Dhabi, our <a href="/blog/fencing-supplier-abu-dhabi-guide">Abu Dhabi fencing buyer guide</a> adds local project-selection context. When you are ready, send your BOQ or fencing specification to SRK Fence for quotation review.</p>
 <h2>Useful SRK Fence Pages</h2>
 <ul>
   <li><a href="/products">View fencing products</a></li>
@@ -242,7 +242,7 @@ const blogPostsData: Record<string, {
 <h2>Galvanized or PVC-coated chain link?</h2>
 <p>SRK supplies both galvanized steel wire and PVC-coated galvanized wire for chain-link requirements. Galvanized chain link provides a metallic finish and suits many practical outdoor boundaries. PVC-coated mesh adds an exterior polymer coating and can provide a coloured, more finished appearance.</p>
 <p>The choice should follow the project specification, visual requirement, site exposure, maintenance expectations and budget. Do not assume PVC automatically means “better”. Choose the finish that fits the job.</p>
-<p>SRK already has a dedicated guide comparing <a href="/blog/pvc-coated-vs-galvanized-chain-link-fence"><a href="/blog/pvc-coated-vs-galvanized-chain-link-fence">PVC-coated and galvanized chain link</a> fencing</a>. Use that article when you need a deeper finish comparison instead of repeating the entire subject inside every chain-link page.</p>
+<p>SRK already has a dedicated guide comparing <a href="/blog/pvc-coated-vs-galvanized-chain-link-fence">PVC-coated and galvanized chain link fencing</a>. Use that article when you need a deeper finish comparison instead of repeating the entire subject inside every chain-link page.</p>
 <h2>The post system matters as much as the mesh</h2>
 <p>Mesh cannot create a complete perimeter by itself. SRK&#x27;s chain-link range can use round or square steel posts depending on the project, together with suitable arrangements for corners, ends and gates.</p>
 <p>A complete system may include line posts, corner posts, end posts, gate posts, bracing, base or foundation details, clamps and connectors.</p>
@@ -363,7 +363,7 @@ const blogPostsData: Record<string, {
 <p>That is not a recommendation to mix products by default. It is a reminder to assess each perimeter section by function before selecting one material for the whole site.</p>
 <h2>What should a steel fencing RFQ include?</h2>
 <p>A useful RFQ includes the project location, total running metres, finished height, drawings or reference design, steel specification, finish, post details, gate schedule, installation scope and BOQ where available.</p>
-<p>SRK&#x27;s existing guide on <a href="/blog/how-to-prepare-a-fencing-rfq">how to prepare a fencing RFQ</a> can help contractors structure this information before requesting quotations. If you are comparing several companies, the planned UAE fencing supplier comparison guide provides a framework for reviewing technical compliance and commercial scope.</p>
+<p>SRK&#x27;s existing guide on <a href="/blog/how-to-prepare-a-fencing-rfq">how to prepare a fencing RFQ</a> can help contractors structure this information before requesting quotations. If you are comparing several companies, our UAE fencing supplier comparison guide provides a framework for reviewing technical compliance and commercial scope.</p>
 <p>The clearer the RFQ, the less room each supplier has to make different assumptions.</p>
 <h2>How should you evaluate a metal fencing supplier in Dubai?</h2>
 <p>Look for clarity before sales language. A useful quotation should tell you what material will be used, which profiles form the fence, what finish is included, what post system is proposed, which gates are included, what the installation covers and what the supplier has excluded.</p>
@@ -409,7 +409,7 @@ const blogPostsData: Record<string, {
 <h2>Why can two fencing quotations for the same project be so different?</h2>
 <p>Two suppliers may appear to be pricing the same fence while actually quoting different materials or scopes. Wire diameter, mesh opening, coating, post size, gates, foundations, transport and installation can all change the final number.</p>
 <p>Imagine a contractor sends one line to three companies: “Please quote 300 metres of fencing in Dubai.” Supplier A assumes basic galvanized chain link. Supplier B includes a heavier wire, concrete foundations and a vehicle gate. Supplier C prices PVC-coated mesh with supply and installation. All three have technically answered the enquiry, but they are not pricing the same job.</p>
-<p>Before you compare the totals, make sure every supplier has priced the same technical requirement. If you are shortlisting several companies, our planned guide on <a href="/blog/how-to-compare-fencing-suppliers-uae">how to compare fencing suppliers in the UAE</a> takes that supplier-evaluation process further.</p>
+<p>Before you compare the totals, make sure every supplier has priced the same technical requirement. If you are shortlisting several companies, our guide on <a href="/blog/how-to-compare-fencing-suppliers-uae">how to compare fencing suppliers in the UAE</a> takes that supplier-evaluation process further.</p>
 <h2>Start with the job the fence needs to do</h2>
 <p>Price should not decide the fence type before the project requirement does. SRK Fence supplies several systems because different sites need different solutions.</p>
 <p>Chain link fencing works well for many open boundaries where visibility, airflow and practical long-run coverage matter. Welded mesh fencing uses rigid panels and can suit commercial, warehouse, school and industrial perimeters. Steel and metal fencing offers greater design flexibility where appearance, fabricated sections or coordinated gates matter. Sites with a higher risk profile may need Anti-Climb 358 fencing or another purpose-designed security system.</p>
@@ -1205,10 +1205,37 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
   }
 
   const buyerSearchTerms = getBlogKeywordSet(slug, post.keywords ? post.keywords.split(',').map((keyword: string) => keyword.trim()) : []);
-  const recentPosts = Object.entries(blogPostsData)
+  const allStaticPosts = Object.entries(blogPostsData)
     .map(([postSlug, data]) => ({ slug: postSlug, ...data }))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  const currentIndex = allStaticPosts.findIndex((item) => item.slug === slug);
+  const newerPost = currentIndex > 0 ? allStaticPosts[currentIndex - 1] : null;
+  const olderPost = currentIndex >= 0 && currentIndex < allStaticPosts.length - 1 ? allStaticPosts[currentIndex + 1] : null;
+
+  const currentKeywords = new Set(
+    (post.keywords ? post.keywords.split(',') : [])
+      .map((keyword: string) => keyword.toLowerCase().trim())
+      .filter(Boolean)
+  );
+
+  const recentPosts = allStaticPosts
     .filter((item) => item.slug !== slug)
-    .slice(0, 5);
+    .slice(0, 6);
+
+  const relatedPosts = allStaticPosts
+    .filter((item) => item.slug !== slug)
+    .map((item) => {
+      const itemKeywords = (item.keywords ? item.keywords.split(',') : [])
+        .map((keyword: string) => keyword.toLowerCase().trim())
+        .filter(Boolean);
+      const keywordScore = itemKeywords.filter((keyword: string) => currentKeywords.has(keyword)).length;
+      const categoryScore = item.category === post.category ? 2 : 0;
+      const titleScore = item.title.toLowerCase().includes(slug.split('-')[0] || '') ? 1 : 0;
+      return { ...item, score: keywordScore + categoryScore + titleScore };
+    })
+    .sort((a, b) => b.score - a.score || new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
   return (
     <SiteLayout>
@@ -1320,7 +1347,64 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            <div className="mt-10 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+            {relatedPosts.length > 0 && (
+              <section className="mt-10 rounded-sm border border-border bg-white p-6 shadow-sm sm:p-7">
+                <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <h2 className="text-2xl font-extrabold text-foreground">Related fencing guides</h2>
+                    <p className="mt-1 text-sm text-muted-foreground">Continue reading with relevant SRK Fence blog articles.</p>
+                  </div>
+                  <Link href="/blog" className="inline-flex items-center text-sm font-bold text-primary hover:underline">
+                    View all posts <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-3">
+                  {relatedPosts.map((item) => (
+                    <article key={item.slug} className="group overflow-hidden rounded-sm border border-border bg-background transition hover:border-primary/40 hover:shadow-sm">
+                      <Link href={`/blog/${item.slug}`} className="block">
+                        <div className="relative aspect-[1200/628] w-full overflow-hidden bg-white">
+                          <Image
+                            src={item.image || heroFence}
+                            alt={item.title}
+                            fill
+                            className="object-contain object-center bg-white transition-transform duration-500 group-hover:scale-[1.01]"
+                            sizes="(max-width: 768px) 100vw, 260px"
+                          />
+                        </div>
+                      </Link>
+                      <div className="p-4">
+                        <div className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{item.category}</div>
+                        <Link href={`/blog/${item.slug}`}>
+                          <h3 className="line-clamp-2 text-sm font-extrabold leading-6 text-foreground transition-colors group-hover:text-primary">{item.title}</h3>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            <div className="mt-8 grid gap-4 border-t border-border pt-8 sm:grid-cols-2">
+              {newerPost ? (
+                <Link href={`/blog/${newerPost.slug}`} className="rounded-sm border border-border bg-white p-5 shadow-sm transition hover:border-primary/40 hover:shadow-hover">
+                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">Newer guide</span>
+                  <h3 className="mt-2 text-base font-extrabold leading-6 text-foreground hover:text-primary">{newerPost.title}</h3>
+                </Link>
+              ) : (
+                <div className="hidden sm:block" />
+              )}
+              {olderPost ? (
+                <Link href={`/blog/${olderPost.slug}`} className="rounded-sm border border-border bg-white p-5 shadow-sm transition hover:border-primary/40 hover:shadow-hover sm:text-right">
+                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">Older guide</span>
+                  <h3 className="mt-2 text-base font-extrabold leading-6 text-foreground hover:text-primary">{olderPost.title}</h3>
+                </Link>
+              ) : (
+                <div className="hidden sm:block" />
+              )}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
               <Link
                 href="/blog"
                 className="inline-flex items-center font-semibold text-primary hover:text-primary/80 transition-colors"
