@@ -29,6 +29,11 @@ const applicationRoutes = [
 ];
 
 const blogRoutes = [
+  '/blog/fencing-supplier-abu-dhabi-guide',
+  '/blog/how-to-compare-fencing-suppliers-uae',
+  '/blog/chain-link-fencing-dubai-buyer-guide',
+  '/blog/steel-metal-fencing-dubai-guide',
+  '/blog/fencing-cost-dubai-guide',
   '/blog/how-to-choose-the-right-fence',
   '/blog/ppgi-vs-pvc-fencing-which-is-better',
   '/blog/fence-height-rules-in-uae',

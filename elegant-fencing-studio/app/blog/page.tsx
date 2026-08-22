@@ -22,6 +22,51 @@ import {
 
 const defaultBlogPosts = [
   {
+    slug: 'fencing-supplier-abu-dhabi-guide',
+    title: "Planning a Fencing Project in Abu Dhabi: How to Choose the Right Supplier and System",
+    description: "Planning fencing in Abu Dhabi? Learn how to choose chain link, welded mesh, steel or security fencing and prepare a clear project quotation.",
+    image: '/blog/fencing-supplier-abu-dhabi-guide.webp',
+    category: "Project Guide",
+    readTime: "13 min read",
+    date: "2026-08-21",
+  },
+  {
+    slug: 'how-to-compare-fencing-suppliers-uae',
+    title: "How to Compare Fencing Suppliers in the UAE: A Procurement Guide",
+    description: "Comparing fencing suppliers in the UAE? Use this practical procurement guide to assess specifications, quotations, gates, installation and technical support.",
+    image: '/blog/how-to-compare-fencing-suppliers-uae.webp',
+    category: "Procurement Guide",
+    readTime: "14 min read",
+    date: "2026-08-20",
+  },
+  {
+    slug: 'chain-link-fencing-dubai-buyer-guide',
+    title: "Choosing Chain Link Fencing in Dubai: A Specification Guide for Buyers",
+    description: "Buying chain link fencing in Dubai? Learn what to check before ordering, including mesh size, wire diameter, coating, posts, gates and installation.",
+    image: '/blog/chain-link-fencing-dubai-buyer-guide.webp',
+    category: "Specification Guide",
+    readTime: "13 min read",
+    date: "2026-08-19",
+  },
+  {
+    slug: 'steel-metal-fencing-dubai-guide',
+    title: "Steel Fencing in Dubai: How to Choose the Right System for Your Project",
+    description: "Choosing steel or metal fencing in Dubai? Learn how to compare designs, coatings, posts, gates and security requirements before requesting a quote.",
+    image: '/blog/steel-metal-fencing-dubai-guide.webp',
+    category: "Buyer Guide",
+    readTime: "13 min read",
+    date: "2026-08-18",
+  },
+  {
+    slug: 'fencing-cost-dubai-guide',
+    title: "How Much Does Fencing Cost in Dubai? A Practical Buyer’s Guide",
+    description: "Planning a fencing project in Dubai? Learn what affects fencing prices, how to compare quotations and what to send SRK Fence for an accurate project quote.",
+    image: '/blog/fencing-cost-dubai-guide.webp',
+    category: "Cost Guide",
+    readTime: "12 min read",
+    date: "2026-08-17",
+  },
+  {
     slug: 'how-to-choose-the-right-fence',
     title: 'How to Choose the Right Fence?',
     description: 'A comprehensive guide to selecting the perfect fencing solution for your property. Learn about materials, security levels, and design considerations.',
@@ -135,7 +180,12 @@ export default function BlogPage() {
       setLoading(true);
       const response = await apiClient.getBlogPosts();
       const publishedPosts = (response.blogPosts || []).filter((post: any) => post.status === 'Published');
-      setBlogPosts(publishedPosts.length > 0 ? publishedPosts : defaultBlogPosts);
+      const publishedSlugs = new Set(publishedPosts.map((post: any) => post.slug));
+      const mergedPosts = [
+        ...publishedPosts,
+        ...defaultBlogPosts.filter((post) => !publishedSlugs.has(post.slug)),
+      ];
+      setBlogPosts(mergedPosts);
     } catch (error) {
       console.error('Error loading blog posts:', error);
       setBlogPosts(defaultBlogPosts);
@@ -148,6 +198,28 @@ export default function BlogPage() {
     <>
       <StructuredData
         data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            name: 'SRK Fence Blog',
+            description: staticSeoProfiles.blog.description,
+            url: 'https://www.srkfencing.com/blog',
+            inLanguage: 'en',
+            publisher: {
+              '@type': 'Organization',
+              name: 'SRK Fence',
+              url: 'https://www.srkfencing.com',
+            },
+            blogPost: defaultBlogPosts.map((post) => ({
+              '@type': 'BlogPosting',
+              headline: post.title,
+              description: post.description,
+              url: `https://www.srkfencing.com/blog/${post.slug}`,
+              datePublished: post.date,
+              dateModified: post.date,
+              image: typeof post.image === 'string' ? `https://www.srkfencing.com${post.image}` : undefined,
+            })),
+          },
           buildWebPageSchema(
             staticSeoProfiles.blog.title,
             staticSeoProfiles.blog.description,
