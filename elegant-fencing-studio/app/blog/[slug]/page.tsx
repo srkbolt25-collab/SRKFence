@@ -2,15 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import SiteLayout from '@/components/SiteLayout';
-import PageHeader from '@/components/PageHeader';
-import {
-  PAGE_HEADER_FIXED_HERO_INNER_CLASS,
-  PAGE_HEADER_HERO_FIXED_SIZE_CLASS,
-} from '@/lib/pageHeaderHeroClass';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Loader2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Loader2, Search } from 'lucide-react';
 import Image from 'next/image';
 import heroFence from '@/assets/hero-fence.jpg';
 import metalFence from '@/assets/metal-fence.jpg';
@@ -1210,144 +1205,170 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
   }
 
   const buyerSearchTerms = getBlogKeywordSet(slug, post.keywords ? post.keywords.split(',').map((keyword: string) => keyword.trim()) : []);
+  const recentPosts = Object.entries(blogPostsData)
+    .map(([postSlug, data]) => ({ slug: postSlug, ...data }))
+    .filter((item) => item.slug !== slug)
+    .slice(0, 5);
 
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Blog"
-        title={post.title}
-        description={post.description}
-        variant="contrast"
-        backgroundImage={post.image}
-        overlayClassName="from-black/85 via-black/75 to-black/60"
-        fixedHero
-        className={PAGE_HEADER_HERO_FIXED_SIZE_CLASS}
-        innerClassName={PAGE_HEADER_FIXED_HERO_INNER_CLASS}
-      />
+      <section className="border-b border-border/70 bg-white py-10 sm:py-14">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/blog"
+            className="mb-6 inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Blog
+          </Link>
 
-      <section className="bg-background py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <div className="mb-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-6"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </Link>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_330px]">
+            <main className="min-w-0">
+              <div className="mb-4 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                {post.category}
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>{post.readTime}</span>
-              </div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1">
-                <span className="text-xs font-bold uppercase tracking-wide text-primary">
-                  {post.category}
+              <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
+                {post.title}
+              </h1>
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
+                {post.description}
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Clock className="h-4 w-4" />
+                  {post.readTime}
                 </span>
               </div>
-            </div>
-          </div>
 
-          <Card className="border border-border bg-background">
-            <CardContent className="p-8 md:p-12">
-              <article
-                className="[&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-foreground [&_h2]:mt-8 [&_h2]:mb-4 [&_h2]:leading-tight
-                           [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-foreground [&_h3]:mt-6 [&_h3]:mb-3 [&_h3]:leading-snug
-                           [&_p]:text-lg [&_p]:text-muted-foreground [&_p]:mb-5 [&_p]:leading-relaxed
-                           [&_ul]:my-5 [&_ul]:pl-7 [&_ul]:list-disc [&_ul]:text-muted-foreground
-                           [&_ol]:my-5 [&_ol]:pl-7 [&_ol]:list-decimal [&_ol]:text-muted-foreground
-                           [&_li]:mb-2 [&_li]:leading-relaxed
-                           [&_strong]:text-foreground [&_strong]:font-semibold
-                           [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse
-                           [&_table_th]:p-3 [&_table_th]:border [&_table_th]:border-border [&_table_th]:bg-muted [&_table_th]:text-foreground [&_table_th]:font-semibold [&_table_th]:text-left
-                           [&_table_td]:p-3 [&_table_td]:border [&_table_td]:border-border [&_table_td]:text-muted-foreground
-                           [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
-            </CardContent>
-          </Card>
+              <div className="mt-8 rounded-sm border border-border bg-white p-2 shadow-sm">
+                <div className="relative aspect-[1200/628] w-full overflow-hidden rounded-sm bg-white">
+                  <Image
+                    src={post.image || heroFence}
+                    alt={post.title}
+                    fill
+                    className="object-contain object-center bg-white"
+                    sizes="(max-width: 1024px) 100vw, 820px"
+                    priority
+                  />
+                </div>
+              </div>
+            </main>
 
-          {buyerSearchTerms.length > 0 && (
-            <Card className="mt-8 border border-border bg-background">
-              <CardContent className="p-6">
-                <h2 className="mb-3 text-2xl font-bold text-foreground">Helpful Related Topics</h2>
-                <div className="grid gap-2 sm:grid-cols-2">
+            <aside className="space-y-6 lg:pt-14">
+              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Search</h3>
+                <div className="mt-5 flex rounded-sm border border-border bg-background px-3 py-2">
+                  <input className="w-full bg-transparent text-sm outline-none" placeholder="Search articles..." />
+                  <Search className="h-5 w-5 text-muted-foreground" />
+                </div>
+              </div>
+
+              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Popular Topics</h3>
+                <div className="mt-5 flex flex-wrap gap-2">
                   {buyerSearchTerms.slice(0, 8).map((keyword) => (
-                    <span key={keyword} className="rounded-lg bg-muted px-3 py-2 text-sm font-semibold text-muted-foreground">
+                    <span key={keyword} className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground">
                       {keyword}
                     </span>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
-          )}
+              </div>
 
-          <div className="mt-12 flex items-center justify-between pt-8 border-t border-border">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              View All Articles
-            </Link>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                if (navigator.share) {
-                  navigator.share({
-                    title: post.title,
-                    text: post.description,
-                    url: window.location.href,
-                  });
-                } else {
-                  navigator.clipboard.writeText(window.location.href);
-                  alert('Link copied to clipboard!');
-                }
-              }}
-            >
-              <Share2 className="mr-2 h-4 w-4" />
-              Share
-            </Button>
+              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Recent Posts</h3>
+                <div className="mt-5 space-y-4">
+                  {recentPosts.map((item) => (
+                    <Link key={item.slug} href={`/blog/${item.slug}`} className="block text-sm font-semibold leading-6 text-foreground transition-colors hover:text-primary">
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-sm bg-primary p-6 text-white shadow-sm">
+                <h3 className="text-xl font-extrabold">Need a fencing quote?</h3>
+                <p className="mt-3 text-sm leading-6 text-white/90">Share your fence length, height, location and installation scope for a quick quotation.</p>
+                <Button asChild className="mt-5 w-full bg-white text-primary hover:bg-white/90">
+                  <Link href="/contact">Get a Quote</Link>
+                </Button>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-subtle relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Need Help Choosing the Right Fence?
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Our expert team can help you select the perfect fencing solution for your specific needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow"
+      <section className="bg-background py-12 sm:py-16">
+        <div className="container mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_330px] lg:px-8">
+          <main className="min-w-0">
+            <article
+              className="rounded-sm border border-border bg-white p-6 shadow-sm sm:p-8 lg:p-10
+                         [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-primary [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:leading-tight
+                         [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:leading-snug
+                         [&_p]:text-base [&_p]:text-muted-foreground [&_p]:mb-5 [&_p]:leading-8
+                         [&_ul]:my-5 [&_ul]:pl-7 [&_ul]:list-disc [&_ul]:text-muted-foreground
+                         [&_ol]:my-5 [&_ol]:pl-7 [&_ol]:list-decimal [&_ol]:text-muted-foreground
+                         [&_li]:mb-2 [&_li]:leading-7
+                         [&_strong]:text-foreground [&_strong]:font-semibold
+                         [&_table]:w-full [&_table]:my-6 [&_table]:border-collapse
+                         [&_table_th]:p-3 [&_table_th]:border [&_table_th]:border-border [&_table_th]:bg-muted [&_table_th]:text-foreground [&_table_th]:font-semibold [&_table_th]:text-left
+                         [&_table_td]:p-3 [&_table_td]:border [&_table_td]:border-border [&_table_td]:text-muted-foreground
+                         [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+
+            <div className="mt-10 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+              <Link
+                href="/blog"
+                className="inline-flex items-center font-semibold text-primary hover:text-primary/80 transition-colors"
               >
-                <Link href="/contact">
-                  Get a Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                View All Articles
+              </Link>
               <Button
-                asChild
-                size="lg"
                 variant="outline"
+                size="sm"
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: post.title,
+                      text: post.description,
+                      url: window.location.href,
+                    });
+                  } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Link copied to clipboard!');
+                  }
+                }}
               >
-                <Link href="/products">
-                  View Products
-                </Link>
+                <Share2 className="mr-2 h-4 w-4" />
+                Share
               </Button>
             </div>
-          </div>
+          </main>
+
+          <aside className="hidden space-y-6 lg:block">
+            <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+              <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Our Products</h3>
+              <div className="mt-5 divide-y divide-border">
+                {[
+                  ['Chain Link Fence', '/products/chain-link-fence'],
+                  ['Welded Mesh Fence', '/products/welded-mesh-fence'],
+                  ['Anti-Climb 358 Fence', '/products/anti-climb-358-fence'],
+                  ['Temporary Fence Panels', '/products/temporary-fence-panels'],
+                  ['Barbed Wire', '/products/barbed-wire'],
+                  ['Razor Wire', '/products/razor-wire'],
+                ].map(([label, href]) => (
+                  <Link key={href} href={href} className="block py-3 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
     </SiteLayout>

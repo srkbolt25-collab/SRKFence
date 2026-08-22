@@ -3,18 +3,12 @@
 import { useState, useEffect } from 'react';
 import SiteLayout from '@/components/SiteLayout';
 import StructuredData from '@/components/StructuredData';
-import HeroBannerSlider from '@/components/HeroBannerSlider';
-import { UNUSED_BANNERS_SLIDES } from '@/lib/unusedHeroBanners';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Calendar, Clock, BookOpen, Loader2 } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, Search, Loader2 } from 'lucide-react';
 import Image from 'next/image';
-import heroFence from '@/assets/hero-fence.jpg';
-import metalFence from '@/assets/metal-fence.jpg';
 import { apiClient } from '@/lib/api';
 import {
-  blogKeywordProfiles,
   buildItemListSchema,
   buildWebPageSchema,
   staticSeoProfiles,
@@ -23,148 +17,58 @@ import {
 const defaultBlogPosts = [
   {
     slug: 'fencing-supplier-abu-dhabi-guide',
-    title: "Planning a Fencing Project in Abu Dhabi: How to Choose the Right Supplier and System",
-    description: "Planning fencing in Abu Dhabi? Learn how to choose chain link, welded mesh, steel or security fencing and prepare a clear project quotation.",
+    title: 'Planning a Fencing Project in Abu Dhabi: How to Choose the Right Supplier and System',
+    description: 'Planning fencing in Abu Dhabi? Learn how to choose chain link, welded mesh, steel or security fencing and prepare a clear project quotation.',
     image: '/blog/fencing-supplier-abu-dhabi-guide.webp',
-    category: "Project Guide",
-    readTime: "13 min read",
-    date: "2026-08-21",
+    category: 'Project Guide',
+    readTime: '13 min read',
+    date: '2026-08-21',
   },
   {
     slug: 'how-to-compare-fencing-suppliers-uae',
-    title: "How to Compare Fencing Suppliers in the UAE: A Procurement Guide",
-    description: "Comparing fencing suppliers in the UAE? Use this practical procurement guide to assess specifications, quotations, gates, installation and technical support.",
+    title: 'How to Compare Fencing Suppliers in the UAE: A Procurement Guide',
+    description: 'Comparing fencing suppliers in the UAE? Use this practical procurement guide to assess specifications, quotations, gates, installation and technical support.',
     image: '/blog/how-to-compare-fencing-suppliers-uae.webp',
-    category: "Procurement Guide",
-    readTime: "14 min read",
-    date: "2026-08-20",
+    category: 'Procurement Guide',
+    readTime: '14 min read',
+    date: '2026-08-20',
   },
   {
     slug: 'chain-link-fencing-dubai-buyer-guide',
-    title: "Choosing Chain Link Fencing in Dubai: A Specification Guide for Buyers",
-    description: "Buying chain link fencing in Dubai? Learn what to check before ordering, including mesh size, wire diameter, coating, posts, gates and installation.",
+    title: 'Choosing Chain Link Fencing in Dubai: A Specification Guide for Buyers',
+    description: 'Buying chain link fencing in Dubai? Learn what to check before ordering, including mesh size, wire diameter, coating, posts, gates and installation.',
     image: '/blog/chain-link-fencing-dubai-buyer-guide.webp',
-    category: "Specification Guide",
-    readTime: "13 min read",
-    date: "2026-08-19",
+    category: 'Specification Guide',
+    readTime: '13 min read',
+    date: '2026-08-19',
   },
   {
     slug: 'steel-metal-fencing-dubai-guide',
-    title: "Steel Fencing in Dubai: How to Choose the Right System for Your Project",
-    description: "Choosing steel or metal fencing in Dubai? Learn how to compare designs, coatings, posts, gates and security requirements before requesting a quote.",
+    title: 'Steel Fencing in Dubai: How to Choose the Right System for Your Project',
+    description: 'Choosing steel or metal fencing in Dubai? Learn how to compare designs, coatings, posts, gates and security requirements before requesting a quote.',
     image: '/blog/steel-metal-fencing-dubai-guide.webp',
-    category: "Buyer Guide",
-    readTime: "13 min read",
-    date: "2026-08-18",
+    category: 'Buyer Guide',
+    readTime: '13 min read',
+    date: '2026-08-18',
   },
   {
     slug: 'fencing-cost-dubai-guide',
-    title: "How Much Does Fencing Cost in Dubai? A Practical Buyer’s Guide",
-    description: "Planning a fencing project in Dubai? Learn what affects fencing prices, how to compare quotations and what to send SRK Fence for an accurate project quote.",
+    title: 'How Much Does Fencing Cost in Dubai? A Practical Buyer’s Guide',
+    description: 'Planning a fencing project in Dubai? Learn what affects fencing prices, how to compare quotations and what to send SRK Fence for an accurate project quote.',
     image: '/blog/fencing-cost-dubai-guide.webp',
-    category: "Cost Guide",
-    readTime: "12 min read",
-    date: "2026-08-17",
+    category: 'Cost Guide',
+    readTime: '12 min read',
+    date: '2026-08-17',
   },
-  {
-    slug: 'how-to-choose-the-right-fence',
-    title: 'How to Choose the Right Fence?',
-    description: 'A comprehensive guide to selecting the perfect fencing solution for your property. Learn about materials, security levels, and design considerations.',
-    image: heroFence,
-    category: 'Guide',
-    readTime: '8 min read',
-    date: '2024-01-15',
-  },
-  {
-    slug: 'ppgi-vs-pvc-fencing-which-is-better',
-    title: 'PPGI vs PVC Fencing — Which is Better?',
-    description: 'Compare PPGI (Pre-Painted Galvanized Iron) and PVC fencing materials. Understand their differences, advantages, and best use cases.',
-    image: metalFence,
-    category: 'Comparison',
-    readTime: '6 min read',
-    date: '2024-01-10',
-  },
-  {
-    slug: 'fence-height-rules-in-uae',
-    title: 'Fence Height Rules in UAE',
-    description: 'Complete guide to fence height regulations in the United Arab Emirates. Learn about legal requirements, permits, and compliance standards.',
-    image: heroFence,
-    category: 'Regulations',
-    readTime: '5 min read',
-    date: '2024-01-08',
-  },
-  {
-    slug: 'best-fencing-for-data-centers',
-    title: 'Best Fencing for Data Centers',
-    description: 'Discover the optimal fencing solutions for data centers and critical IT infrastructure. Security standards, certifications, and best practices.',
-    image: metalFence,
-    category: 'Industry',
-    readTime: '7 min read',
-    date: '2024-01-05',
-  },
-  {
-    slug: 'difference-between-358-and-welded-mesh',
-    title: 'Difference Between 358 and Welded Mesh',
-    description: 'Understand the key differences between 358 prison mesh and welded mesh fencing. Learn which one suits your security requirements better.',
-    image: heroFence,
-    category: 'Technical',
-    readTime: '6 min read',
-    date: '2024-01-03',
-  },
-  {
-    slug: 'chain-link-vs-welded-mesh-fence',
-    title: 'Chain Link Fence vs Welded Mesh Fence',
-    description: 'Compare chain link and welded mesh fencing for UAE and GCC projects, including cost, strength, visibility, applications and RFQ details.',
-    image: heroFence,
-    category: 'Comparison',
-    readTime: '7 min read',
-    date: '2024-01-02',
-  },
-  {
-    slug: 'pvc-coated-vs-galvanized-chain-link-fence',
-    title: 'PVC Coated vs Galvanized Chain Link Fence',
-    description: 'Learn when to choose PVC coated chain link fence or galvanized GI chain link fence for outdoor, coastal, farm and commercial projects.',
-    image: metalFence,
-    category: 'Comparison',
-    readTime: '6 min read',
-    date: '2024-01-01',
-  },
-  {
-    slug: 'best-fencing-for-construction-sites-in-dubai',
-    title: 'Best Fencing for Construction Sites in Dubai',
-    description: 'A buyer guide to temporary fence panels, PVC hoarding, chain link fence and site boundary fencing for Dubai construction projects.',
-    image: heroFence,
-    category: 'Construction',
-    readTime: '7 min read',
-    date: '2023-12-29',
-  },
-  {
-    slug: 'warehouse-security-fencing-guide',
-    title: 'How to Choose Security Fencing for Warehouses',
-    description: 'Warehouse fencing guide covering chain link, welded mesh, anti-climb fence, steel fencing, gates, access control and RFQ details.',
-    image: metalFence,
-    category: 'Guide',
-    readTime: '7 min read',
-    date: '2023-12-28',
-  },
-  {
-    slug: 'barbed-wire-vs-razor-wire',
-    title: 'Barbed Wire vs Razor Wire',
-    description: 'Compare barbed wire and razor wire for farms, industrial boundaries, high-security perimeters and GCC project RFQs.',
-    image: heroFence,
-    category: 'Comparison',
-    readTime: '5 min read',
-    date: '2023-12-27',
-  },
-  {
-    slug: 'how-to-prepare-a-fencing-rfq',
-    title: 'How to Prepare a Fencing RFQ',
-    description: 'A practical RFQ checklist for fencing buyers: length, height, mesh opening, wire diameter, coating, gates, delivery and installation scope.',
-    image: metalFence,
-    category: 'RFQ',
-    readTime: '6 min read',
-    date: '2023-12-26',
-  },
+];
+
+const trendingProducts = [
+  { label: 'Chain Link Fence', href: '/products/chain-link-fence' },
+  { label: 'Welded Mesh Fence', href: '/products/welded-mesh-fence' },
+  { label: 'Anti-Climb 358 Fence', href: '/products/anti-climb-358-fence' },
+  { label: 'Temporary Fence Panels', href: '/products/temporary-fence-panels' },
+  { label: 'Barbed Wire', href: '/products/barbed-wire' },
+  { label: 'Razor Wire', href: '/products/razor-wire' },
 ];
 
 export default function BlogPage() {
@@ -194,6 +98,8 @@ export default function BlogPage() {
     }
   };
 
+  const recentPosts = blogPosts.length ? blogPosts.slice(0, 5) : defaultBlogPosts.slice(0, 5);
+
   return (
     <>
       <StructuredData
@@ -217,7 +123,7 @@ export default function BlogPage() {
               url: `https://www.srkfencing.com/blog/${post.slug}`,
               datePublished: post.date,
               dateModified: post.date,
-              image: typeof post.image === 'string' ? `https://www.srkfencing.com${post.image}` : undefined,
+              image: `https://www.srkfencing.com${post.image}`,
             })),
           },
           buildWebPageSchema(
@@ -233,140 +139,118 @@ export default function BlogPage() {
         ]}
       />
       <SiteLayout>
-      <HeroBannerSlider slides={UNUSED_BANNERS_SLIDES} altPrefix="Blog banner" />
-
-      <section className="bg-background py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-              <span className="text-sm font-bold text-primary uppercase tracking-[0.2em]">Knowledge Center</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
-              Blog & Knowledge Center
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Expert insights, guides, and articles to help you make informed decisions about fencing solutions
-            </p>
-          </div>
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-              <BookOpen className="w-4 h-4 text-primary" />
-              <span className="text-sm font-bold text-primary uppercase tracking-[0.2em]">Articles & Guides</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
-              Latest Articles
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Stay informed with our expert guides and industry insights
-            </p>
-          </div>
-
-          {loading ? (
-            <div className="flex items-center justify-center py-24">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            </div>
-          ) : (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {blogPosts.map((post) => {
-                const imageSrc = post.image || heroFence;
-                return (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <Card className="group h-full overflow-hidden border border-border bg-gradient-to-br from-background via-background/90 to-secondary/5 transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-hover cursor-pointer">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={imageSrc}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5">
-                        <span className="text-xs font-bold uppercase tracking-wide text-white">
-                          {post.category}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {post.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed line-clamp-3">
-                      {post.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-primary font-semibold text-sm group-hover:gap-2 transition-all">
-                      <span>Read Article</span>
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-                );
-              })}
-            </div>
-          )}
-
-          <div className="mt-16 rounded-lg border border-border bg-card p-6">
-            <div className="mb-6 max-w-3xl">
-              <h2 className="text-2xl font-extrabold text-foreground">Buyer Guide Topics</h2>
-              <p className="mt-3 text-muted-foreground">
-                Use these guides to compare fence types, understand security applications and prepare a clearer RFQ
-                before requesting chain link, welded mesh, PVC, temporary, barbed wire or razor wire pricing.
+        <section className="border-b border-border/70 bg-white py-12 sm:py-16">
+          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <span className="text-sm font-bold uppercase tracking-[0.25em] text-primary">Blog</span>
+              <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+                Fencing Blog & Project Guides
+              </h1>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
+                Practical guides for fencing cost, supplier comparison, chain link specifications and project planning across Dubai, Abu Dhabi and the UAE.
               </p>
             </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {defaultBlogPosts.slice(5).map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="rounded-md border border-border p-4 transition hover:border-primary hover:shadow-sm">
-                  <h3 className="font-bold text-foreground">{post.title}</h3>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {(blogKeywordProfiles[post.slug] || []).slice(0, 4).map((keyword) => (
-                      <span key={keyword} className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
-                </Link>
-              ))}
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-20 bg-gradient-subtle relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Stay Updated
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Subscribe to our newsletter to receive the latest articles, guides, and industry insights directly in your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-8 py-4 text-base font-bold uppercase tracking-wide text-white shadow-glow transition-all duration-300 hover:shadow-hover hover:scale-105"
-              >
-                Contact Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </div>
+        <section className="bg-background py-12 sm:py-16">
+          <div className="container mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_320px] lg:px-8">
+            <main>
+              {loading ? (
+                <div className="flex items-center justify-center py-24">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                </div>
+              ) : (
+                <div className="grid gap-x-10 gap-y-12 md:grid-cols-2">
+                  {blogPosts.map((post) => {
+                    const imageSrc = post.image || '/blog/fencing-cost-dubai-guide.webp';
+                    return (
+                      <article key={post.slug} className="group border-b border-border/70 pb-10">
+                        <Link href={`/blog/${post.slug}`} className="block">
+                          <div className="relative aspect-[1200/628] w-full overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-border/70">
+                            <Image
+                              src={imageSrc}
+                              alt={post.title}
+                              fill
+                              className="object-contain object-center bg-white transition-transform duration-500 group-hover:scale-[1.01]"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 430px"
+                            />
+                          </div>
+                        </Link>
+                        <div className="mt-5">
+                          <div className="mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+                            {post.category}
+                          </div>
+                          <Link href={`/blog/${post.slug}`}>
+                            <h2 className="text-2xl font-extrabold leading-tight text-foreground transition-colors group-hover:text-primary">
+                              {post.title}
+                            </h2>
+                          </Link>
+                          <p className="mt-4 text-[15px] leading-7 text-muted-foreground line-clamp-3">
+                            {post.description}
+                          </p>
+                          <div className="mt-4 flex flex-wrap items-center gap-5 text-xs text-muted-foreground">
+                            <span className="inline-flex items-center gap-2">
+                              <Calendar className="h-4 w-4" />
+                              {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                            </span>
+                            <span className="inline-flex items-center gap-2">
+                              <Clock className="h-4 w-4" />
+                              {post.readTime}
+                            </span>
+                          </div>
+                          <Link href={`/blog/${post.slug}`} className="mt-4 inline-flex items-center text-sm font-bold text-primary hover:underline">
+                            Read More <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
+            </main>
+
+            <aside className="space-y-8 lg:sticky lg:top-28 lg:self-start">
+              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Search</h3>
+                <div className="mt-5 flex rounded-sm border border-border bg-background px-3 py-2">
+                  <input className="w-full bg-transparent text-sm outline-none" placeholder="Search articles..." />
+                  <Search className="h-5 w-5 text-muted-foreground" />
+                </div>
+              </div>
+
+              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Our Trending Products</h3>
+                <div className="mt-5 divide-y divide-border">
+                  {trendingProducts.map((item) => (
+                    <Link key={item.href} href={item.href} className="block py-3 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-sm border border-border bg-white p-6 shadow-sm">
+                <h3 className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">Recent Posts</h3>
+                <div className="mt-5 space-y-4">
+                  {recentPosts.map((post) => (
+                    <Link key={post.slug} href={`/blog/${post.slug}`} className="block text-sm font-semibold leading-6 text-foreground transition-colors hover:text-primary">
+                      {post.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-sm bg-primary p-6 text-white shadow-sm">
+                <h3 className="text-xl font-extrabold">Need fencing advice?</h3>
+                <p className="mt-3 text-sm leading-6 text-white/90">Send your project details and our team will help you choose the right fencing system.</p>
+                <Button asChild className="mt-5 w-full bg-white text-primary hover:bg-white/90">
+                  <Link href="/contact">Request a Quote</Link>
+                </Button>
+              </div>
+            </aside>
           </div>
-        </div>
-      </section>
+        </section>
       </SiteLayout>
     </>
   );
