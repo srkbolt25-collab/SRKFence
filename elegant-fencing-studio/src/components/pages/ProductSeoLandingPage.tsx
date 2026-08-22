@@ -26,7 +26,7 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
       <StructuredData
         data={[
           buildProductSchema(product),
-          buildFaqSchema(product.faqs),
+          buildFaqSchema([...product.faqs, ...(product.buyerQuestions || [])]),
           buildServiceSchema(product.h1, product.shortDescription, `/products/${product.slug}`, undefined, targetedKeywords),
           buildBreadcrumbSchema([
             { label: 'Home', href: '/' },
@@ -104,6 +104,58 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
                 </CardContent>
               </Card>
 
+              {product.imageGallery && product.imageGallery.length > 0 && (
+                <Card className="rounded-lg border-border">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Fence Post Options</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid gap-4 sm:grid-cols-3">
+                      {product.imageGallery.map((image) => (
+                        <div key={image.src} className="overflow-hidden rounded-lg border border-border bg-muted">
+                          <div className="relative h-44 w-full">
+                            <Image
+                              src={image.src}
+                              alt={image.alt}
+                              fill
+                              className="object-contain p-2"
+                              sizes="(max-width: 640px) 100vw, 33vw"
+                            />
+                          </div>
+                          <p className="border-t border-border bg-background px-3 py-3 text-sm font-semibold text-muted-foreground">
+                            {image.caption}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {product.materialOptions && product.materialOptions.length > 0 && (
+                <Card className="rounded-lg border-border">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Material & Finish Options</CardTitle>
+                  </CardHeader>
+                  <CardContent className="grid gap-4 md:grid-cols-3">
+                    {product.materialOptions.map((option) => (
+                      <div key={option.title} className="rounded-lg border border-border bg-muted/40 p-4">
+                        <h2 className="mb-2 text-lg font-bold text-foreground">{option.title}</h2>
+                        <p className="mb-3 text-sm leading-relaxed text-muted-foreground">{option.description}</p>
+                        <ul className="space-y-2 text-sm text-muted-foreground">
+                          {option.bullets.map((bullet) => (
+                            <li key={bullet} className="flex gap-2">
+                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+
               <Card className="rounded-lg border-border">
                 <CardHeader>
                   <CardTitle className="text-2xl">Technical Specification Guide</CardTitle>
@@ -123,6 +175,24 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
                   </div>
                 </CardContent>
               </Card>
+
+              {product.rfqChecklist && product.rfqChecklist.length > 0 && (
+                <Card className="rounded-lg border-border">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Fence Post RFQ Checklist</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {product.rfqChecklist.map((item) => (
+                        <div key={item} className="flex gap-3 rounded-md bg-muted px-3 py-3 text-sm text-muted-foreground">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
               <Card className="rounded-lg border-border">
                 <CardHeader>
@@ -158,6 +228,27 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
                 </CardContent>
               </Card>
 
+              {product.availableMarkets && product.availableMarkets.length > 0 && (
+                <Card className="rounded-lg border-border">
+                  <CardHeader>
+                    <CardTitle className="text-xl">This Product Is Available In</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-2 gap-2">
+                      {product.availableMarkets.map((market) => (
+                        <Link
+                          key={market.href}
+                          href={market.href}
+                          className="rounded-md border border-border px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
+                        >
+                          {market.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
               <Card className="rounded-lg border-border">
                 <CardHeader>
                   <CardTitle className="text-xl">Related Pages</CardTitle>
@@ -185,7 +276,7 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
               <p className="mt-3 text-muted-foreground">Answer-first guidance for procurement teams and project buyers.</p>
             </div>
             <div className="grid gap-4">
-              {product.faqs.map((faq) => (
+              {[...product.faqs, ...(product.buyerQuestions || [])].map((faq) => (
                 <Card key={faq.question} className="rounded-lg border-border bg-background">
                   <CardHeader>
                     <CardTitle className="text-xl">{faq.question}</CardTitle>

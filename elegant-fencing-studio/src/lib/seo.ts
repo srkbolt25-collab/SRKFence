@@ -58,6 +58,11 @@ export type ProductSeoPage = {
   internalLinks: LinkItem[];
   faqs: FaqItem[];
   rfqPrompt: string;
+  imageGallery?: Array<{ src: string; alt: string; caption: string }>;
+  materialOptions?: Array<{ title: string; description: string; bullets: string[] }>;
+  rfqChecklist?: string[];
+  availableMarkets?: LinkItem[];
+  buyerQuestions?: FaqItem[];
 };
 
 export const productSeoPages: ProductSeoPage[] = [
@@ -114,6 +119,155 @@ export const productSeoPages: ProductSeoPage[] = [
     ],
     rfqPrompt:
       'Need a chain link fencing quotation? Share fence length, height, mesh size, wire diameter, coating, posts, gates, delivery city and installation requirement for a tailored quote.',
+  },
+  {
+    slug: 'fence-posts-gi-ms-pvc',
+    name: 'Fence Posts (G.I. / M.S. / PVC)',
+    category: 'Fence Accessories & Post Systems',
+    primaryKeyword: 'fence posts supplier in Dubai UAE',
+    secondaryKeywords: [
+      'GI fence posts UAE',
+      'MS fence posts Dubai',
+      'PVC fence posts supplier UAE',
+      'galvanized fence posts Dubai',
+      'round square rectangular fence posts',
+      'chain link fence posts UAE',
+      'welded mesh fence posts UAE',
+      'fence post installation Dubai',
+    ],
+    metaTitle: 'Fence Posts Supplier in Dubai UAE | GI, MS & PVC Posts',
+    metaDescription:
+      'SRK Fence supplies G.I., M.S. and PVC fence posts in Dubai and UAE for chain-link, welded mesh, privacy, decorative, perimeter and security fencing projects across GCC markets.',
+    h1: 'Fence Posts Supplier in Dubai UAE',
+    shortDescription:
+      'G.I., M.S. and PVC fence posts for chain-link, welded mesh, privacy, decorative, perimeter and security fencing systems with custom profiles, colors, caps, clamps, brackets, rails and fixing accessories.',
+    intro:
+      'Fence posts are the main structural support of a fencing system. They hold the fence line, carry the mesh or panels, support gates and keep the installation stable over time. SRK Fence supplies G.I. fence posts, M.S. fence posts and PVC fence posts for Dubai, UAE and GCC projects with round, square, rectangular and customized profiles. Posts can be supplied with suitable caps, clamps, brackets, rails, fixings and installation options based on the fence type, site exposure and buyer specification.',
+    image: '/products/fence-posts/fence-posts-gi-ms-pvc-supplier-uae.webp',
+    imageGallery: [
+      {
+        src: '/products/fence-posts/gi-fence-post-supplier-dubai-uae.webp',
+        alt: 'Hot-dip galvanized G.I. fence posts for chain link and welded mesh fencing in UAE',
+        caption: 'G.I. fence posts for corrosion-resistant outdoor fencing',
+      },
+      {
+        src: '/products/fence-posts/ms-fence-post-supplier-dubai-uae.webp',
+        alt: 'M.S. fence posts with powder coated and PVC coated finish for Dubai UAE projects',
+        caption: 'M.S. fence posts with powder coated, PVC coated or painted finishes',
+      },
+      {
+        src: '/products/fence-posts/pvc-fence-post-supplier-dubai-uae.webp',
+        alt: 'PVC fence posts for privacy, decorative, garden and boundary fencing in UAE',
+        caption: 'PVC fence posts for decorative, privacy, garden and boundary applications',
+      },
+    ],
+    specs: [
+      { label: 'Material options', value: 'G.I. galvanized steel, M.S. mild steel and PVC fence post options' },
+      { label: 'Profile options', value: 'Round, square, rectangular and project-specific customized profiles' },
+      { label: 'G.I. finish', value: 'Hot-dip galvanized finish for corrosion resistance and outdoor performance' },
+      { label: 'M.S. finish', value: 'Powder coated, PVC coated or painted mild steel finish options' },
+      { label: 'PVC finish', value: 'Smooth PVC or PVC coated finish with multiple color options' },
+      { label: 'Color options', value: 'G.I. silver, green, black, white and custom colors by project requirement' },
+      { label: 'Accessories', value: 'Compatible caps, clamps, brackets, rails and fixing accessories' },
+      { label: 'Installation', value: 'Embedded or surface-mounted installation based on site condition' },
+      { label: 'Customization', value: 'Profile, thickness, length, color and finish can be reviewed for the project' },
+    ],
+    materialOptions: [
+      {
+        title: 'G.I. Fence Posts',
+        description: 'Hot-dip galvanized fence posts for long-term outdoor performance where corrosion resistance is a priority.',
+        bullets: ['Galvanized finish', 'Round or square profiles', 'Suitable for chain-link and welded mesh fencing'],
+      },
+      {
+        title: 'M.S. Fence Posts',
+        description: 'Mild steel posts for fabricated fencing systems, available with powder coated, PVC coated or painted finishes.',
+        bullets: ['Strong mild steel construction', 'Finish and color options', 'Suitable for security and perimeter fencing'],
+      },
+      {
+        title: 'PVC Fence Posts',
+        description: 'Smooth PVC finish posts for decorative, privacy, garden, residential and boundary fencing applications.',
+        bullets: ['Smooth low-maintenance finish', 'Green, black, white or custom colors', 'Suitable for privacy and decorative fencing'],
+      },
+    ],
+    applications: [
+      { label: 'Chain-Link Fencing', href: '/products/chain-link-fence' },
+      { label: 'Welded Mesh Fencing', href: '/products/welded-mesh-fence' },
+      { label: 'Perimeter Fencing', href: '/applications/boundary-security-fencing' },
+      { label: 'Security Fencing', href: '/products/anti-climb-358-fence' },
+      { label: 'Privacy Fencing', href: '/applications/residential-fencing' },
+      { label: 'Decorative Fencing', href: '/applications/residential-fencing' },
+      { label: 'Industrial Facilities', href: '/applications/commercial-industrial' },
+      { label: 'Sports & Recreational Areas', href: '/applications/schools-public-parks' },
+    ],
+    internalLinks: [
+      { label: 'Chain Link Fence', href: '/products/chain-link-fence' },
+      { label: 'GI Chain Link Fence', href: '/products/gi-chain-link-fence' },
+      { label: 'PVC Coated Chain Link Fence', href: '/products/pvc-coated-chain-link-fence' },
+      { label: 'Welded Mesh Fence', href: '/products/welded-mesh-fence' },
+      { label: 'Anti-Climb 358 Fence', href: '/products/anti-climb-358-fence' },
+      { label: 'Request a Fence Post Quote', href: '/contact' },
+    ],
+    rfqChecklist: [
+      'Fence type: chain-link, welded mesh, PVC, privacy, decorative or security fencing',
+      'Post material: G.I., M.S. or PVC',
+      'Post profile: round, square, rectangular or custom profile',
+      'Required height, length, thickness and finish',
+      'Color requirement: G.I., green, black, white or custom color',
+      'Accessories: caps, clamps, brackets, rails, fixings and gates',
+      'Installation type: embedded or surface mounted',
+      'Project location, drawings, BOQ and delivery timeline',
+    ],
+    availableMarkets: [
+      { label: 'UAE', href: '/countries/uae' },
+      { label: 'Bahrain', href: '/countries/bahrain' },
+      { label: 'Qatar', href: '/countries/qatar' },
+      { label: 'Kuwait', href: '/countries/kuwait' },
+      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+      { label: 'Iraq', href: '/countries/iraq' },
+      { label: 'Oman', href: '/countries/oman' },
+      { label: 'Jordan', href: '/countries/jordan' },
+    ],
+    faqs: [
+      {
+        question: 'What are fence posts used for?',
+        answer:
+          'Fence posts provide the main structural support for fencing systems. They help keep chain-link, welded mesh, privacy, decorative, perimeter and security fencing stable and securely installed.',
+      },
+      {
+        question: 'Which fence post material should I choose: G.I., M.S. or PVC?',
+        answer:
+          'Choose G.I. fence posts for corrosion-resistant outdoor performance, M.S. fence posts for strong fabricated or coated steel fencing systems, and PVC fence posts for decorative, privacy, garden and low-maintenance boundary applications.',
+      },
+      {
+        question: 'Can SRK Fence supply round, square and rectangular fence posts?',
+        answer:
+          'Yes, SRK Fence can supply round, square, rectangular and customized fence post profiles based on the fence type, required height, finish, installation method and project specification.',
+      },
+      {
+        question: 'What accessories can be supplied with fence posts?',
+        answer:
+          'Fence posts can be supplied with compatible caps, clamps, brackets, rails, fixings and gate-related accessories depending on the fencing system and site requirement.',
+      },
+      {
+        question: 'What information is needed for a fence post quotation?',
+        answer:
+          'Share the fence type, post material, post profile, required height, length, thickness, color, finish, accessories, installation type, delivery location and drawings or BOQ if available.',
+      },
+    ],
+    buyerQuestions: [
+      {
+        question: 'Are fence posts available for GCC projects?',
+        answer:
+          'Yes. SRK Fence supplies G.I., M.S. and PVC fence posts for UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan project enquiries from its Dubai/UAE base.',
+      },
+      {
+        question: 'Can one post type work for every fence?',
+        answer:
+          'Not always. Chain-link, welded mesh, PVC, privacy, decorative and security fencing may require different post profiles, fixing accessories, foundations and gate support. The post should match the fence system and site condition.',
+      },
+    ],
+    rfqPrompt:
+      'Request a fence post quotation with material, profile, height, length, thickness, color, finish, accessories, installation type, delivery country and project drawings or BOQ for accurate review.',
   },
   {
     slug: 'gi-chain-link-fence',
