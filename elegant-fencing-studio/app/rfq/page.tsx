@@ -289,9 +289,9 @@ export default function RFQPage() {
           <section className="min-h-screen bg-muted/30 py-16">
             <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
               <div className="mb-10 max-w-3xl">
-                <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-primary">Fencing Quote</p>
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-primary">Fencing RFQ</p>
                 <h1 className="text-4xl font-extrabold text-foreground sm:text-5xl">
-                  Fencing Quote Form for UAE and GCC Projects
+                  Fencing RFQ Form for UAE and GCC Projects
                 </h1>
                 <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                   Prepare a quote request for chain link fence, welded mesh fence, PVC fencing, anti-climb fence,
@@ -302,7 +302,7 @@ export default function RFQPage() {
               <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.8fr)]">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-2xl">Quote Checklist</CardTitle>
+                    <CardTitle className="text-2xl">RFQ Checklist</CardTitle>
                   </CardHeader>
                   <CardContent className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
                     {[
@@ -338,8 +338,12 @@ export default function RFQPage() {
                         </Link>
                       ))}
                     </div>
-                    <div className="rounded-lg bg-muted/70 p-3 text-sm leading-relaxed text-muted-foreground">
-                      Not sure where to start? Add the product you need, then share the site location, fence length, height, coating and gate requirement.
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {rfqKeywords.slice(0, 5).map((keyword) => (
+                        <span key={keyword} className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                          {keyword}
+                        </span>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
@@ -365,7 +369,7 @@ export default function RFQPage() {
       <div className="min-h-screen bg-muted/30 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-2">Fencing Quote Form UAE</h1>
+            <h1 className="text-4xl font-bold text-foreground mb-2">Fencing RFQ Form UAE</h1>
             <p className="text-lg text-muted-foreground">
               Complete your request for chain link, welded mesh, PVC, temporary, anti-climb, barbed wire, razor wire or steel fencing quotation.
             </p>
@@ -461,7 +465,7 @@ export default function RFQPage() {
                     className="w-full bg-gradient-to-r from-[#c5162a] to-[#e63946] hover:shadow-glow"
                     disabled={submitting}
                   >
-                    {submitting ? 'Submitting...' : 'Submit Quote Request'}
+                    {submitting ? 'Submitting...' : 'Submit RFQ'}
                   </Button>
                   <Button
                     type="button"
@@ -475,12 +479,12 @@ export default function RFQPage() {
               </CardContent>
             </Card>
 
-            {/* Right Section - Quote Details */}
+            {/* Right Section - RFQ Details */}
             <Card className="flex-1 min-w-0">
               <CardHeader className="bg-primary text-primary-foreground rounded-t-lg">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5" />
-                  <CardTitle className="text-white">Quote Details</CardTitle>
+                  <CardTitle className="text-white">RFQ Details</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="p-6 space-y-6">

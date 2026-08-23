@@ -19,8 +19,8 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${staticSeoProfiles.home.title} | SRK Fence`,
-    template: '%s',
+    default: `${staticSeoProfiles.home.title} - SRK Fence`,
+    template: '%s | SRK Fence',
   },
   description: staticSeoProfiles.home.description || entityDescription,
   keywords: staticSeoProfiles.home.keywords,
@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     images: ['/SRK FENCE Banners.webp'],
   },
   other: {
-    'google-site-verification': 'zAawJDJWiYNHxUS39Ori02q8wkXtLLZKxr6qmo9YPCo',
     'geo.region': 'AE-SH',
     'geo.placename': 'Dubai, Sharjah, United Arab Emirates',
     'business:contact_data:country_name': 'United Arab Emirates',
@@ -64,11 +63,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: '/favicon.ico?v=3' },
-      { url: '/favicon.png?v=3', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png?v=3',
+    icon: '/new_whitelogog.png',
+    apple: '/new_whitelogog.png',
   },
 };
 
@@ -81,15 +77,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <StructuredData data={[buildOrganizationSchema(), buildLocalBusinessSchema(), buildWebsiteSchema()]} />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4XRKFGTQEP" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-4XRKFGTQEP');
-          `}
-        </Script>
         <Script id="tawk-to-widget" strategy="afterInteractive">
           {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

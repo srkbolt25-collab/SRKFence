@@ -25,7 +25,7 @@ const applicationsData: Record<string, {
     keywords: 'industrial fencing UAE, commercial fencing Dubai, fence contractor Dubai, warehouse fencing UAE',
   },
   'oil-gas-sector': {
-    metaTitle: 'Oil and Gas Security Fencing UAE',
+    metaTitle: 'Oil and Gas Security Fencing UAE | SRK Fence',
     metaDescription: 'Oil and gas security fencing in UAE with anti-climb fence, razor wire, steel fencing, welded mesh, gates and perimeter security products.',
     keywords: 'oil and gas security fencing UAE, refinery fencing, energy facility security, razor wire UAE',
   },
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   
   if (!application) {
     return {
-      title: 'Application Not Found',
+      title: 'Application Not Found | SRK FENCE',
     };
   }
 
