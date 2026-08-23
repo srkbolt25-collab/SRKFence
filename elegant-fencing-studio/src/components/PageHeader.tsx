@@ -56,7 +56,7 @@ const PageHeader = ({
   return (
     <section
       className={cn(
-        "relative overflow-hidden -mt-20",
+        "relative overflow-hidden",
         /* flex + only absolute/abs-out-of-flow paint would collapse height vs aspect-ratio */
         fixedHero &&
           (hideContent
@@ -73,7 +73,7 @@ const PageHeader = ({
               src={backgroundImage}
               alt=""
               fill
-              className={cn("object-cover", imageClassName)}
+              className={cn("object-contain object-center bg-white", imageClassName)}
               sizes="100vw"
               priority={priority}
               loading={priority ? undefined : "lazy"}

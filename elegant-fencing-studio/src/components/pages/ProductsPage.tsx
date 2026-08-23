@@ -325,15 +325,6 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                   href={`/products/${product.slug}`}
                   className="group rounded-lg border border-border bg-card p-5 transition hover:-translate-y-1 hover:border-primary hover:shadow-hover"
                 >
-                  <div className="relative mb-4 h-40 w-full overflow-hidden rounded-md bg-muted">
-                    <Image
-                      src={product.image}
-                      alt={`${product.name} supplier in Dubai UAE`}
-                      fill
-                      className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-primary">{product.category}</div>
                   <h3 className="text-xl font-bold text-foreground group-hover:text-primary">{product.name}</h3>
                   <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">

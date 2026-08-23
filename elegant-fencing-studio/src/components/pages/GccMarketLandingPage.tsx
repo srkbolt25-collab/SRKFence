@@ -32,7 +32,7 @@ type Props =
   | { type: 'application'; country: CountryPage; applicationPage: GccApplicationPage };
 
 function countryBuyerLine(country: CountryPage) {
-  return `SRK Fence supports buyers in ${country.country} through Dubai/UAE-based quotation support, product specification guidance, and project-led supply coordination for ${country.cities.slice(0, 4).join(', ')} and other locations by requirement.`;
+  return `SRK Fence works with contractors, consultants and procurement teams in ${country.country}, helping them choose suitable fencing systems and prepare clear project quotations from its Dubai/UAE base.`;
 }
 
 function RfqBox({ country, checklist, title }: { country: CountryPage; checklist: string[]; title: string }) {
@@ -46,8 +46,7 @@ function RfqBox({ country, checklist, title }: { country: CountryPage; checklist
       </CardHeader>
       <CardContent className="space-y-5">
         <p className="leading-relaxed text-muted-foreground">
-          Request a quotation for {country.country}. Share project details clearly so the team can review the
-          correct fencing system, accessories, delivery scope and installation requirement.
+          Request a quotation for {country.country}. Share the site location, fence length, height and coating requirement so our team can recommend the right system, accessories, delivery scope and installation option.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           {checklist.map((item) => (
@@ -69,7 +68,7 @@ function CountryLinks({ country, currentSlug }: { country: CountryPage; currentS
   return (
     <Card className="rounded-2xl border-border bg-background shadow-sm">
       <CardHeader>
-        <CardTitle className="text-xl">Related {country.country} Pages</CardTitle>
+        <CardTitle className="text-xl">Products & Applications You May Need in {country.country}</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
         <Link className="rounded-lg border border-border px-4 py-3 font-semibold hover:border-primary hover:text-primary" href={`/countries/${country.slug}`}>
@@ -101,7 +100,7 @@ export default function GccMarketLandingPage(props: Props) {
     const faqs: FaqItem[] = [
       {
         question: `Does SRK Fence supply ${page.shortName} to ${country.country}?`,
-        answer: `Yes, SRK Fence supports ${page.shortName} RFQs for ${country.country} buyers from its Dubai/UAE base, including project review for length, height, material, coating, accessories, delivery city and installation scope.`,
+        answer: `Yes. SRK Fence can review ${page.shortName} requirements for ${country.country} projects, including fence length, height, material, coating, accessories, delivery city and installation scope.`,
       },
       {
         question: `What details are required for a ${page.shortName} quote in ${country.country}?`,
@@ -142,8 +141,8 @@ export default function GccMarketLandingPage(props: Props) {
                   </Button>
                 </div>
               </div>
-              <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm">
-                <Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} supplier in ${country.country}`} fill className="object-contain p-2" sizes="(max-width: 1024px) 100vw, 520px" priority />
+              <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
+                <Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} supplier in ${country.country}`} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" priority />
               </div>
             </div>
           </section>
@@ -154,7 +153,7 @@ export default function GccMarketLandingPage(props: Props) {
                 <Card className="rounded-2xl border-border bg-background shadow-sm">
                   <CardHeader><CardTitle className="text-2xl">Product Specification Guidance</CardTitle></CardHeader>
                   <CardContent className="space-y-5">
-                    <p className="leading-relaxed text-muted-foreground">For {country.country} projects, {page.shortName} should be specified based on site use, exposure, required height, security risk, maintenance expectations and access points. The table below helps procurement teams prepare a clear RFQ before final engineering review.</p>
+                    <p className="leading-relaxed text-muted-foreground">For {country.country} projects, the right {page.shortName} specification depends on the site use, exposure, required height, security level, maintenance expectations and access points. Use the points below to prepare clear information for quotation review.</p>
                     <div className="overflow-x-auto rounded-xl border border-border">
                       <table className="w-full min-w-[560px] text-left text-sm">
                         <tbody className="divide-y divide-border">
@@ -179,12 +178,12 @@ export default function GccMarketLandingPage(props: Props) {
                   </CardContent>
                 </Card>
 
-                <RfqBox country={country} checklist={page.quoteChecklist} title={`${page.name} RFQ Checklist`} />
+                <RfqBox country={country} checklist={page.quoteChecklist} title={`${page.name} Quote Checklist`} />
               </div>
 
               <aside className="space-y-6">
                 <Card className="rounded-2xl border-border bg-background shadow-sm">
-                  <CardHeader><CardTitle className="text-xl">Related Product Options</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-xl">Products You May Also Need</CardTitle></CardHeader>
                   <CardContent className="grid gap-2">
                     {getRelatedProductLinks(page).map((link) => <Link key={link.href} href={link.href} className="rounded-lg bg-muted px-4 py-3 font-semibold text-muted-foreground hover:bg-primary hover:text-primary-foreground">{link.label}</Link>)}
                   </CardContent>
@@ -216,7 +215,7 @@ export default function GccMarketLandingPage(props: Props) {
   const keywords = getCountryApplicationKeywords(country, page);
   const faqs = page.buyerQuestions.map((faq) => ({
     question: faq.question.replace(/\?$/, ` in ${country.country}?`),
-    answer: `${faq.answer} SRK Fence can review ${country.country} RFQs based on site layout, delivery city, material exposure and installation scope.`,
+    answer: `${faq.answer} SRK Fence can review ${country.country} project requirements based on site layout, delivery city, material exposure and installation scope.`,
   }));
   const productLinks = getApplicationProductLinks(page);
 
@@ -245,7 +244,7 @@ export default function GccMarketLandingPage(props: Props) {
                 <Button asChild size="lg" variant="outline" className="h-auto rounded-xl px-8 py-5 font-bold"><Link href="/applications">View Applications <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
               </div>
             </div>
-            <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm"><Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} in ${country.country}`} fill className="object-contain p-2" sizes="(max-width: 1024px) 100vw, 520px" priority /></div>
+            <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-border bg-white shadow-sm"><Image src={getCountryPageBanner(country, page.image)} alt={`${page.name} in ${country.country}`} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" priority /></div>
           </div>
         </section>
 
@@ -256,7 +255,7 @@ export default function GccMarketLandingPage(props: Props) {
 
               <Card className="rounded-2xl border-border bg-background shadow-sm"><CardHeader><CardTitle className="text-2xl">Recommended Fencing Systems</CardTitle></CardHeader><CardContent className="grid gap-3 sm:grid-cols-2">{productLinks.map((link) => <Link key={link.href} href={link.href} className="flex items-start gap-3 rounded-lg border border-border p-4 font-semibold hover:border-primary hover:text-primary"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />{link.label}</Link>)}</CardContent></Card>
 
-              <RfqBox country={country} checklist={page.projectRequirements} title={`${page.name} RFQ Checklist`} />
+              <RfqBox country={country} checklist={page.projectRequirements} title={`${page.name} Quote Checklist`} />
             </div>
             <aside className="space-y-6">
               <Card className="rounded-2xl border-border bg-background shadow-sm"><CardHeader><CardTitle className="text-xl">Service Areas</CardTitle></CardHeader><CardContent className="space-y-3">{country.cities.map((city) => <div key={city} className="flex items-center gap-3 rounded-lg border border-border px-4 py-3"><MapPin className="h-4 w-4 text-primary" /><span className="font-semibold text-foreground">{city}</span></div>)}</CardContent></Card>

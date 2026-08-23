@@ -16,9 +16,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
+  const cityFocus = country.cities.slice(0, 3).join(', ');
+  const secondaryFocus = country.secondaryKeywords.slice(0, 3).join(', ');
+
   return buildSeoMetadata({
     title: `Fencing Supplier in ${country.country} | Chain Link, Welded Mesh & Security Fencing`,
-    description: `SRK Fence supplies fencing products to ${country.country}, including chain link, welded mesh, anti-climb, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories.`,
+    description: `SRK Fence supplies fencing products to ${country.country} for ${cityFocus}, including chain link, welded mesh, anti-climb, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories. Also covering ${secondaryFocus}.`,
     path: `/countries/${country.slug}`,
     keywords: getCountryKeywordSet(country),
     image: '/Whyusnew/chain-link-fence-supplier-uae-saudi-gcc.png',
