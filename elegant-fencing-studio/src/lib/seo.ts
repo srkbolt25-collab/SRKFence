@@ -60,6 +60,7 @@ export type ProductSeoPage = {
   rfqPrompt: string;
   imageGallery?: Array<{ src: string; alt: string; caption: string }>;
   materialOptions?: Array<{ title: string; description: string; bullets: string[] }>;
+  keyFeatures?: string[];
   rfqChecklist?: string[];
   availableMarkets?: LinkItem[];
   buyerQuestions?: FaqItem[];
@@ -742,6 +743,613 @@ export const productSeoPages: ProductSeoPage[] = [
       'Request a steel fencing quote with drawings, fence length, height, finish, post and gate requirements, delivery location and installation scope.',
   },
   {
+    slug: 'gabion-wall-and-fencing',
+    name: 'Gabion Wall & Fencing',
+    category: 'Gabion Wall & Boundary Systems',
+    primaryKeyword: 'gabion wall and fencing supplier in UAE',
+    secondaryKeywords: [
+      'gabion wall supplier UAE',
+      'gabion fencing Dubai',
+      'stone filled gabion wall UAE',
+      'welded gabion mesh supplier Dubai',
+      'gabion retaining wall UAE',
+      'gabion boundary wall UAE',
+      'gabion wall with fence Dubai',
+      'PVC coated gabion mesh UAE',
+    ],
+    metaTitle: 'Gabion Wall & Fencing Supplier UAE | SRK Fence',
+    metaDescription:
+      'SRK Fence supplies gabion wall and fencing systems in UAE for retaining walls, boundary walls, landscaping, perimeter security and architectural projects.',
+    h1: 'Gabion Wall & Fencing Supplier in UAE',
+    shortDescription:
+      'Durable stone-filled gabion wall and fencing systems for retaining walls, boundary walls, landscape projects, perimeter security and architectural applications.',
+    intro:
+      'Gabion Wall & Fencing is a durable and versatile fencing and retaining solution made from high-strength wire mesh baskets filled with natural or selected stone. The gabion structure combines structural stability, security, durability and an attractive natural appearance for both functional and architectural applications. Gabion walls can be used as standalone retaining or boundary walls, or combined with steel fencing installed above the gabion structure to provide additional height and security.',
+    image: '/products/gabion-wall-and-fencing/gabion-wall-and-fencing-overview.webp',
+    imageGallery: [
+      {
+        src: '/products/gabion-wall-and-fencing/gabion-wall-and-fencing-overview.webp',
+        alt: 'Gabion wall and fencing supplier in UAE for retaining walls and boundary projects',
+        caption: 'Gabion wall and fencing systems for retaining, boundary and landscape applications',
+      },
+      {
+        src: '/products/gabion-wall-and-fencing/gabion-wall-and-fencing-applications.webp',
+        alt: 'Gabion wall applications with stone filled mesh baskets and boundary fencing',
+        caption: 'Stone-filled gabion wall applications for landscaping, boundaries and perimeter projects',
+      },
+    ],
+    specs: [
+      { label: 'Gabion type', value: 'Welded mesh / Woven mesh' },
+      { label: 'Mesh material', value: 'Galvanized steel wire' },
+      { label: 'Mesh finish', value: 'Galvanized / PVC coated' },
+      { label: 'Gabion shape', value: 'Rectangular / Custom' },
+      { label: 'Stone filling', value: 'Natural stone / Project-specified stone' },
+      { label: 'Gabion dimensions', value: 'Custom sizes available' },
+      { label: 'Wire diameter', value: 'As per project requirement' },
+      { label: 'Mesh opening', value: 'As per project requirement' },
+      { label: 'Fencing above gabion', value: 'Welded mesh / Chain link / Security fence' },
+      { label: 'Fence finish', value: 'Hot-dip galvanized / PVC coated / Powder coated' },
+      { label: 'Fence color', value: 'Green / Black / Grey / White / Custom RAL' },
+    ],
+    materialOptions: [
+      {
+        title: 'Welded Gabion Mesh',
+        description:
+          'Rigid welded gabion mesh panels for clean appearance, dimensional stability and strong gabion wall construction.',
+        bullets: [
+          'Suitable for retaining walls and boundary walls',
+          'Provides a uniform and architectural appearance',
+          'Can be supplied in custom sizes as per project requirement',
+          'Compatible with galvanized or PVC coated mesh finishes',
+        ],
+      },
+      {
+        title: 'Woven Gabion Mesh',
+        description:
+          'Flexible woven wire mesh gabion option for applications where adaptability and site-specific forming are required.',
+        bullets: [
+          'Flexible mesh construction for adaptable site conditions',
+          'Suitable for landscape and erosion-control applications',
+          'Available with corrosion-protection coating options',
+          'Can use natural or project-specified stone filling',
+        ],
+      },
+      {
+        title: 'Gabion Wall + Fence System',
+        description:
+          'Gabion wall combined with chain link, welded mesh, 3D V-bending, high-security or decorative fencing above the gabion base.',
+        bullets: [
+          'Useful for additional boundary height and security',
+          'Compatible with chain link and welded mesh fencing',
+          'Fence finish options include HDG, PVC coated and powder coated',
+          'Available colors include green, black, grey, white, blue and custom RAL colors',
+        ],
+      },
+    ],
+    applications: [
+      { label: 'Retaining Walls', href: '/applications/boundary-security-fencing' },
+      { label: 'Boundary Walls', href: '/applications/boundary-security-fencing' },
+      { label: 'Perimeter Security', href: '/applications/security-fencing' },
+      { label: 'Landscape Projects', href: '/applications/residential-villa-fencing' },
+      { label: 'Roads & Infrastructure', href: '/applications/government-infrastructure' },
+      { label: 'Commercial Developments', href: '/applications/commercial-building-fencing' },
+    ],
+    internalLinks: [
+      { label: 'Welded Mesh Fence', href: '/products/welded-mesh-fence' },
+      { label: 'Chain Link Fence', href: '/products/chain-link-fence' },
+      { label: '3D V-Bending Welded Fence', href: '/products/3d-v-bending-welded-fence' },
+      { label: 'Anti-Climb 358 Fence', href: '/products/anti-climb-358-fence' },
+      { label: 'Colors & Coating Options', href: '/products/colors-and-coating-options' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    keyFeatures: [
+      'Strong welded or woven wire mesh construction',
+      'Excellent structural stability',
+      'Suitable for retaining and boundary applications',
+      'High resistance to outdoor weather conditions',
+      'Long service life with suitable corrosion protection',
+      'Natural stone-filled appearance',
+      'Can be combined with steel fencing',
+      'Low maintenance',
+      'Suitable for landscaping and architectural applications',
+      'Custom configurations available according to project requirements',
+    ],
+    rfqChecklist: [
+      'Project type: retaining wall, boundary wall, landscape wall, perimeter security or gabion with fence above',
+      'Required gabion height, length, width and layout drawing if available',
+      'Mesh type preference: welded mesh or woven mesh',
+      'Mesh finish requirement: galvanized or PVC coated',
+      'Stone filling requirement: natural stone or project-specified stone',
+      'Fence above gabion: chain link, welded mesh, 3D V-bending, high-security or decorative fence',
+      'Fence finish and color requirement: HDG, PVC coated, powder coated or custom RAL',
+      'Delivery city, project location and installation support requirement',
+    ],
+    faqs: [
+      {
+        question: 'What is a gabion wall and fencing system?',
+        answer:
+          'A gabion wall and fencing system uses high-strength wire mesh baskets filled with natural or selected stone. It can be used as a retaining wall, boundary wall, landscape wall or as a gabion base combined with steel fencing above.',
+      },
+      {
+        question: 'Can gabion walls be combined with fence systems?',
+        answer:
+          'Yes, gabion walls can be combined with chain link fencing, welded mesh fencing, 3D V-bending welded fence, high-security fencing or decorative architectural fencing depending on the required height, security level and appearance.',
+      },
+      {
+        question: 'Which gabion mesh and finish options are available?',
+        answer:
+          'Gabion mesh options include welded gabion mesh and woven gabion mesh. Finish options include galvanized and PVC coated mesh, with fence-above-gabion finishes such as hot-dip galvanized, PVC coated and powder coated.',
+      },
+      {
+        question: 'What details are needed for a gabion wall quotation?',
+        answer:
+          'Share the wall length, height, width, mesh type, mesh finish, stone filling requirement, fence-above-gabion requirement, color, delivery city, installation requirement and drawings if available.',
+      },
+    ],
+    rfqPrompt:
+      'Request gabion wall and fencing pricing with wall dimensions, mesh type, mesh finish, stone filling, fence-above-gabion requirement, color, quantity, delivery city and installation support requirement.',
+    availableMarkets: [
+      { label: 'UAE', href: '/countries/uae' },
+      { label: 'Bahrain', href: '/countries/bahrain' },
+      { label: 'Qatar', href: '/countries/qatar' },
+      { label: 'Kuwait', href: '/countries/kuwait' },
+      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+      { label: 'Iraq', href: '/countries/iraq' },
+      { label: 'Oman', href: '/countries/oman' },
+      { label: 'Jordan', href: '/countries/jordan' },
+    ],
+  },
+  {
+    slug: 'clamps-and-connectors',
+    name: 'Clamps & Connectors',
+    category: 'Fence Accessories & Connection Hardware',
+    primaryKeyword: 'clamps and connectors supplier in Dubai UAE',
+    secondaryKeywords: [
+      'fence clamps supplier UAE',
+      'chain link fence clamps Dubai',
+      'welded mesh fence connectors UAE',
+      'powder coated fence clamps Dubai',
+      'galvanized clamps and connectors UAE',
+      'U bolt clamps supplier Dubai',
+      'saddle clamps for fencing UAE',
+      'rail clamps and post connectors UAE',
+    ],
+    metaTitle: 'Clamps & Connectors Supplier in Dubai UAE | SRK Fence',
+    metaDescription:
+      'SRK Fence supplies clamps and connectors in Dubai UAE for chain-link fence, welded mesh fence, posts, rails, panels and fencing support structures.',
+    h1: 'Clamps & Connectors Supplier in Dubai UAE',
+    shortDescription:
+      'Fence clamps, connectors, brackets, U-bolts, saddle clamps, rail clamps and joining accessories for secure chain-link and welded mesh fence assembly.',
+    intro:
+      'Clamps & Connectors are essential components used for the secure assembly and connection of chain-link and welded mesh fence systems. They provide strong connections between fence posts, rails, mesh panels and supporting structures while helping create a stable and durable fence installation. SRK Fence supplies post clamps, rail clamps, U-bolt clamps, saddle clamps, band clamps, corner clamps, T-clamps, cross connectors, panel connectors, mesh fixing clamps, rail-to-post connectors, pipe-to-pipe connectors, joining clamps, brackets, fixing plates and customized connectors in M.S. / galvanized, powder-coated and PVC-coated finishes.',
+    image: '/products/clamps-and-connectors/clamps-and-connectors-overview.webp',
+    imageGallery: [
+      {
+        src: '/products/clamps-and-connectors/clamps-and-connectors-overview.webp',
+        alt: 'Clamps and connectors supplier in Dubai UAE for chain link and welded mesh fence systems',
+        caption: 'Powder-coated and galvanized clamps and connectors for chain-link and welded fence systems',
+      },
+      {
+        src: '/products/clamps-and-connectors/clamps-and-connectors-application.webp',
+        alt: 'Fence clamps and connectors installed on chain link and welded mesh fence posts',
+        caption: 'Application views showing post-to-mesh and post-to-rail connection hardware',
+      },
+    ],
+    specs: [
+      { label: 'Application', value: 'Chain-link and welded mesh fencing' },
+      { label: 'Material', value: 'M.S. / Steel / G.I.' },
+      { label: 'Finish', value: 'Galvanized / Powder Coated / PVC Coated' },
+      { label: 'Colors', value: 'G.I. / Green / Black / Custom' },
+      { label: 'Types', value: 'U-Bolt / Saddle / Band / Rail / T / Corner / Cross' },
+      { label: 'Compatible posts', value: 'Round / Square / Rectangular' },
+      { label: 'Compatible rails', value: 'Top rail / Bottom rail / Intermediate rail' },
+      { label: 'Fasteners', value: 'Bolts / Nuts / Washers' },
+      { label: 'Installation', value: 'Mechanical fixing' },
+      { label: 'Customization', value: 'Size, profile, thickness, hole pattern and finish' },
+    ],
+    materialOptions: [
+      {
+        title: 'M.S. / Galvanized Clamps',
+        description:
+          'Galvanized and M.S. clamp options for outdoor fence systems where corrosion resistance, strength and reliable mechanical fixing are required.',
+        bullets: [
+          'Suitable for chain-link and welded mesh fencing',
+          'Available in post, rail, U-bolt, saddle and band clamp styles',
+          'Compatible with round, square and rectangular posts',
+          'Used for strong post-to-mesh, post-to-rail and rail-to-rail connections',
+        ],
+      },
+      {
+        title: 'Powder-Coated Connectors',
+        description:
+          'Powder-coated connectors and brackets for fence systems that need a durable colored finish, with green and black common project options.',
+        bullets: [
+          'Green and black powder-coated finish options',
+          'Durable colored finish for matched fence systems',
+          'Suitable for commercial, perimeter and security fencing',
+          'Custom colors can be reviewed as per project requirement',
+        ],
+      },
+      {
+        title: 'Custom Fixing Accessories',
+        description:
+          'Project-specific connectors, brackets, fixing plates and joining clamps for fence layouts, special post sizes and custom connection requirements.',
+        bullets: [
+          'Corner, T, cross, panel and joining connector options',
+          'Custom size, profile, thickness and hole pattern support',
+          'Compatible with bolts, nuts and washers',
+          'Useful for intersections, direction changes and framework extension',
+        ],
+      },
+    ],
+    applications: [
+      { label: 'Chain-Link Fence Systems', href: '/products/chain-link-fence' },
+      { label: 'Welded Mesh Fence Systems', href: '/products/welded-mesh-fence' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Security Fencing', href: '/applications/security-fencing' },
+      { label: 'Perimeter Fencing', href: '/applications/boundary-security-fencing' },
+    ],
+    internalLinks: [
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Gate Hinges & Locks', href: '/products/gate-hinges-and-locks' },
+      { label: 'Colors & Coating Options', href: '/products/colors-and-coating-options' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    keyFeatures: [
+      'Strong and secure connections',
+      'Suitable for chain-link and welded mesh fencing',
+      'Durable steel construction',
+      'Galvanized corrosion-resistant options',
+      'Powder-coated color options',
+      'Easy installation and maintenance',
+      'Multiple connection configurations',
+      'Suitable for round and square posts',
+      'Available in different sizes',
+      'Customized designs available',
+    ],
+    rfqChecklist: [
+      'Fence system type: chain-link, welded mesh, panel system or custom framework',
+      'Connection requirement: post-to-mesh, post-to-rail, rail-to-rail, panel-to-post, corner or T-connection',
+      'Post and rail profile: round, square or rectangular',
+      'Required clamp or connector type: U-bolt, saddle, band, rail, T, corner, cross or bracket',
+      'Material and finish requirement: M.S., G.I., galvanized, powder coated, PVC coated, green or black',
+      'Hole pattern, bolt size, thickness or drawing if available',
+      'Quantity, delivery city and project location',
+    ],
+    faqs: [
+      {
+        question: 'What are clamps and connectors used for in fencing?',
+        answer:
+          'Clamps and connectors are used to securely connect fence posts, rails, mesh panels and supporting structures in chain-link and welded mesh fence systems.',
+      },
+      {
+        question: 'Which clamp and connector types are available?',
+        answer:
+          'Available types include post clamps, rail clamps, U-bolt clamps, saddle clamps, band clamps, corner clamps, T-clamps, cross connectors, panel connectors, mesh fixing clamps, rail-to-post connectors, pipe-to-pipe connectors, joining clamps, brackets and fixing plates.',
+      },
+      {
+        question: 'Which finishes are available for fence clamps and connectors?',
+        answer:
+          'Clamps and connectors can be supplied in M.S. / galvanized, powder-coated, PVC-coated, green powder-coated, black powder-coated and other colors upon request.',
+      },
+    ],
+    rfqPrompt:
+      'Request clamps and connectors pricing with fence type, connection type, post/rail profile, material, finish, hole pattern, bolt requirement, quantity and delivery city.',
+    availableMarkets: [
+      { label: 'UAE', href: '/countries/uae' },
+      { label: 'Bahrain', href: '/countries/bahrain' },
+      { label: 'Qatar', href: '/countries/qatar' },
+      { label: 'Kuwait', href: '/countries/kuwait' },
+      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+      { label: 'Iraq', href: '/countries/iraq' },
+      { label: 'Oman', href: '/countries/oman' },
+      { label: 'Jordan', href: '/countries/jordan' },
+    ],
+  },
+  {
+    slug: 'gate-hinges-and-locks',
+    name: 'Gate Hinges & Locks',
+    category: 'Gate Hardware & Fence Accessories',
+    primaryKeyword: 'gate hinges and locks supplier in Dubai UAE',
+    secondaryKeywords: [
+      'gate hinges supplier UAE',
+      'fence gate hinges Dubai',
+      'GI gate hinges UAE',
+      'SS 304 gate hinges Dubai',
+      'green powder coated gate hinges UAE',
+      'weld on gate hinges supplier',
+      'bolt on gate hinges UAE',
+      'heavy duty gate hinges Dubai',
+    ],
+    metaTitle: 'Gate Hinges & Locks Supplier in Dubai UAE | SRK Fence',
+    metaDescription:
+      'SRK Fence supplies gate hinges and gate hardware in Dubai UAE for chain-link gates, welded mesh gates, steel gates and fencing systems.',
+    h1: 'Gate Hinges & Locks Supplier in Dubai UAE',
+    shortDescription:
+      'Robust gate hinges and related gate hardware for chain-link fence gates, welded mesh gates, steel gates and fencing systems, available in G.I., SS 304, M.S. and green powder-coated finishes.',
+    intro:
+      'SRK Gate Hinges are robust and reliable hardware components designed for the smooth and secure operation of chain-link fence gates, welded mesh gates, steel gates and other fencing systems. Gate hinges can be supplied in G.I., Stainless Steel 304, M.S. and green powder-coated finishes, with different designs and sizes selected for light, medium and heavy-duty applications.',
+    image: '/products/gate-hinges-and-locks/gate-hinges-and-locks-overview.webp',
+    imageGallery: [
+      {
+        src: '/products/gate-hinges-and-locks/gate-hinges-and-locks-overview.webp',
+        alt: 'Gate hinges and locks supplier in Dubai UAE for chain link welded mesh and steel fence gates',
+        caption: 'Gate hinges, lock hardware and accessories for fencing gate systems',
+      },
+    ],
+    specs: [
+      { label: 'Product', value: 'Gate hinges and related gate hardware' },
+      { label: 'Application', value: 'Chain-link gates, welded mesh gates, steel gates and fencing systems' },
+      { label: 'Types', value: 'Butt hinges, heavy-duty hinges, weld-on hinges, adjustable hinges, T-hinges, strap hinges, pivot hinges, spring hinges and more' },
+      { label: 'Material options', value: 'G.I., Stainless Steel 304 and M.S.' },
+      { label: 'Finish options', value: 'Hot-dip galvanized, zinc coated, green powder coated and SS finish' },
+      { label: 'Construction', value: 'Heavy-duty steel or stainless steel construction' },
+      { label: 'Sizes', value: 'Various sizes available as per gate weight and application' },
+      { label: 'Mounting', value: 'Weld-on, bolt-on and plate-mounted options' },
+      { label: 'Adjustment', value: 'Fixed or adjustable designs available' },
+      { label: 'Pin type', value: 'Fixed, removable or adjustable as per hinge type' },
+      { label: 'Load capacity', value: 'Available according to gate size and weight' },
+      { label: 'Customization', value: 'Size, material, finish and configuration as per requirement' },
+    ],
+    materialOptions: [
+      {
+        title: 'G.I. / Zinc Coated Hinges',
+        description:
+          'Galvanized and zinc coated gate hinges for outdoor fence gate systems where corrosion protection and reliable operation are required.',
+        bullets: [
+          'Suitable for chain-link and welded mesh gate systems',
+          'Hot-dip galvanized or zinc coated finish options',
+          'Available in weld-on, bolt-on and plate-mounted designs',
+          'Good option for perimeter and security gate projects',
+        ],
+      },
+      {
+        title: 'SS 304 / M.S. Gate Hinges',
+        description:
+          'Stainless Steel 304 and M.S. hinge options for steel gates and fencing systems with project-specific strength, finish and size requirements.',
+        bullets: [
+          'Heavy-duty steel or stainless steel construction',
+          'Suitable for light, medium and heavy-duty gates',
+          'Available in fixed or adjustable designs',
+          'Size and load selection based on gate weight',
+        ],
+      },
+      {
+        title: 'Powder Coated Gate Hardware',
+        description:
+          'Green powder-coated hinge and gate hardware options for fence systems that need corrosion protection with a matching professional finish.',
+        bullets: [
+          'Green powder-coated finish option',
+          'Weather-resistant finish for outdoor fencing systems',
+          'Suitable for chain-link, welded mesh and steel gates',
+          'Custom configuration available as per requirement',
+        ],
+      },
+    ],
+    applications: [
+      { label: 'Chain-Link Fence Gates', href: '/products/chain-link-fence' },
+      { label: 'Welded Mesh Gates', href: '/products/welded-mesh-fence' },
+      { label: 'High-Security Gate Systems', href: '/products/high-security-gate-systems' },
+      { label: 'Steel Gates', href: '/products/steel-metal-fencing' },
+      { label: 'Perimeter Fencing', href: '/applications/boundary-security-fencing' },
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+    ],
+    internalLinks: [
+      { label: 'High-Security Gate Systems', href: '/products/high-security-gate-systems' },
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Clamps & Connectors', href: '/products/clamps-and-connectors' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    keyFeatures: [
+      'Strong and durable construction',
+      'Designed for smooth gate movement',
+      'Suitable for light to heavy-duty gates',
+      'G.I., SS 304 and green powder-coated options',
+      'Excellent corrosion and weather resistance',
+      'Weld-on and bolt-on options available',
+      'Adjustable designs available for accurate gate alignment',
+      'Suitable for both chain-link and welded mesh fencing systems',
+    ],
+    rfqChecklist: [
+      'Gate type: chain-link, welded mesh, steel gate or custom gate',
+      'Gate size, approximate weight and single/double leaf requirement',
+      'Required hinge type: butt, heavy-duty, weld-on, adjustable, pivot or spring hinge',
+      'Material and finish requirement: G.I., SS 304, M.S., zinc coated or powder coated',
+      'Mounting requirement: weld-on, bolt-on or plate-mounted',
+      'Quantity, delivery city and project location',
+      'Drawings or photos if available',
+    ],
+    faqs: [
+      {
+        question: 'What types of gate hinges can SRK Fence supply?',
+        answer:
+          'SRK Fence can supply butt hinges, heavy-duty hinges, weld-on hinges, adjustable hinges, T-hinges, strap hinges, pivot hinges, spring hinges and project-specific hinge designs.',
+      },
+      {
+        question: 'Which finishes are available for fence gate hinges?',
+        answer:
+          'Gate hinges can be supplied in hot-dip galvanized, zinc coated, green powder coated and stainless steel finish options depending on application and project requirement.',
+      },
+      {
+        question: 'What information is needed for gate hinge pricing?',
+        answer:
+          'Share the gate type, gate size, approximate gate weight, hinge type, mounting method, material, finish, quantity and delivery location so the correct hinge configuration can be reviewed.',
+      },
+    ],
+    rfqPrompt:
+      'Request gate hinge and lock hardware pricing with gate type, gate size, approximate weight, hinge type, finish, mounting method, quantity and delivery city.',
+    availableMarkets: [
+      { label: 'UAE', href: '/countries/uae' },
+      { label: 'Bahrain', href: '/countries/bahrain' },
+      { label: 'Qatar', href: '/countries/qatar' },
+      { label: 'Kuwait', href: '/countries/kuwait' },
+      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+      { label: 'Iraq', href: '/countries/iraq' },
+      { label: 'Oman', href: '/countries/oman' },
+      { label: 'Jordan', href: '/countries/jordan' },
+    ],
+  },
+  {
+    slug: 'base-plates',
+    name: 'Base Plates',
+    category: 'Fence Accessories & Mounting Systems',
+    primaryKeyword: 'base plates supplier in Dubai UAE',
+    secondaryKeywords: [
+      'fence base plates UAE',
+      'post base plates Dubai',
+      'GI base plates supplier UAE',
+      'MS base plates Dubai',
+      'powder coated base plates UAE',
+      'fence post base plates GCC',
+      'gate post base plates supplier UAE',
+      'custom base plates Dubai',
+    ],
+    metaTitle: 'Base Plates Supplier in Dubai UAE | SRK Fence',
+    metaDescription:
+      'SRK Fence supplies base plates and post base plates in Dubai UAE for fence posts, gate posts, railing posts, steel structures and custom mounting requirements.',
+    h1: 'Base Plates Supplier in Dubai UAE',
+    shortDescription:
+      'Strong and durable base plates for fence posts, gate posts, railing posts and steel structures, available in G.I., hot-dipped G.I., M.S. and green powder-coated finishes.',
+    intro:
+      'SRK Base Plates are strong and durable mounting components designed to provide a secure connection between fence posts, gate posts, railing posts and supporting structures. Available in G.I., hot-dipped G.I., M.S. and green powder-coated finishes, they are suitable for chain-link fencing, welded mesh fencing, steel fencing, gate systems, railing systems and perimeter projects across Dubai, UAE and GCC markets.',
+    image: '/products/base-plates/base-plates-overview.webp',
+    imageGallery: [
+      {
+        src: '/products/base-plates/base-plates-overview.webp',
+        alt: 'Base plates supplier in Dubai UAE with GI MS hot dipped galvanized and green powder coated options',
+        caption: 'Base plate range with G.I., hot-dipped G.I., M.S. and green powder-coated finish options',
+      },
+      {
+        src: '/products/base-plates/base-plate-mounting-details.webp',
+        alt: 'Fence post base plate mounting details for galvanized and powder coated base plates',
+        caption: 'Base plate mounting and post connection detail options for fence and gate systems',
+      },
+    ],
+    specs: [
+      { label: 'Product', value: 'Base plates / post base plates' },
+      { label: 'Application', value: 'Fence posts, gate posts, railing posts and steel structures' },
+      { label: 'Types', value: 'Square base plates, round base plates, socket base plates, U-brackets, gusseted base plates and custom designs' },
+      { label: 'Material options', value: 'G.I., hot-dipped G.I. and M.S.' },
+      { label: 'Finish options', value: 'Galvanized, hot-dip galvanized and green powder coated' },
+      { label: 'Shape', value: 'Square, round, rectangular and custom' },
+      { label: 'Post compatibility', value: 'Round and square posts / tubes' },
+      { label: 'Mounting', value: 'Anchor bolt, chemical anchor or bolted fixing' },
+      { label: 'Bolt holes', value: 'Available in various hole patterns and diameters' },
+      { label: 'Thickness', value: 'Available as per post size and load requirement' },
+      { label: 'Dimensions', value: 'Various sizes available' },
+      { label: 'Welding', value: 'Continuous / reinforced welding as required' },
+      { label: 'Customization', value: 'Size, thickness, hole pattern, socket diameter and finish as per requirement' },
+    ],
+    materialOptions: [
+      {
+        title: 'G.I. / Hot-Dipped G.I. Base Plates',
+        description:
+          'Galvanized and hot-dip galvanized base plates for outdoor fencing and post mounting where corrosion resistance and long service life are important.',
+        bullets: [
+          'Suitable for fence posts and gate posts',
+          'Strong zinc-based protection for outdoor use',
+          'Available for round and square post compatibility',
+          'Good option for chain-link and welded mesh fencing',
+        ],
+      },
+      {
+        title: 'M.S. Base Plates',
+        description:
+          'Mild steel base plates for heavy-duty fence, gate, railing and steel structure applications, with finish selection based on project requirement.',
+        bullets: [
+          'Heavy-duty and durable construction',
+          'Suitable for steel fencing and gate applications',
+          'Can be supplied in square, round and custom shapes',
+          'Custom thickness and hole pattern options available',
+        ],
+      },
+      {
+        title: 'Powder Coated Base Plates',
+        description:
+          'Green powder-coated base plates for projects that need durable finish protection with a clean, professional appearance.',
+        bullets: [
+          'Corrosion and weather-resistant finish',
+          'Clean green finish for matching fence systems',
+          'Suitable for bolt-down and anchored installations',
+          'Custom sizes and configurations available',
+        ],
+      },
+    ],
+    applications: [
+      { label: 'Chain-Link Fencing', href: '/products/chain-link-fence' },
+      { label: 'Welded Mesh Fencing', href: '/products/welded-mesh-fence' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Gate Systems', href: '/products/high-security-gate-systems' },
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Perimeter Fencing', href: '/applications/boundary-security-fencing' },
+    ],
+    internalLinks: [
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Clamps and Connectors', href: '/products/fence-accessories' },
+      { label: 'Colors & Coating Options', href: '/products/colors-and-coating-options' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    rfqChecklist: [
+      'Base plate type: square, round, socket, U-bracket, gusseted or custom design',
+      'Post type and size: round post, square post or tube size',
+      'Material requirement: G.I., hot-dipped G.I. or M.S.',
+      'Finish requirement: galvanized, hot-dip galvanized or powder coated',
+      'Plate thickness, dimensions, socket diameter and hole pattern',
+      'Quantity, delivery city and installation or supply-only requirement',
+    ],
+    availableMarkets: [
+      { label: 'UAE', href: '/countries/uae' },
+      { label: 'Bahrain', href: '/countries/bahrain' },
+      { label: 'Qatar', href: '/countries/qatar' },
+      { label: 'Kuwait', href: '/countries/kuwait' },
+      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+      { label: 'Iraq', href: '/countries/iraq' },
+      { label: 'Oman', href: '/countries/oman' },
+      { label: 'Jordan', href: '/countries/jordan' },
+    ],
+    faqs: [
+      {
+        question: 'What are base plates used for in fencing projects?',
+        answer:
+          'Base plates are mounting components used to connect fence posts, gate posts, railing posts and supporting structures securely to the ground or another structure.',
+      },
+      {
+        question: 'Which base plate finishes are available?',
+        answer:
+          'SRK Fence can supply base plates in G.I., hot-dipped G.I., M.S. and green powder-coated finishes depending on the project requirement.',
+      },
+      {
+        question: 'Can base plates be customized?',
+        answer:
+          'Yes, base plates can be customized by size, thickness, hole pattern, socket diameter, shape and finish based on post size and load requirement.',
+      },
+      {
+        question: 'Are base plates suitable for round and square posts?',
+        answer:
+          'Yes, base plates can be supplied for both round and square posts or tubes, with multiple hole patterns and mounting options.',
+      },
+    ],
+    buyerQuestions: [
+      {
+        question: 'What details should be shared for a base plate quotation?',
+        answer:
+          'Share base plate type, post size, material, finish, hole pattern, thickness, quantity, delivery city and whether the requirement is supply-only or installation support.',
+      },
+      {
+        question: 'Can SRK Fence supply base plates with fence posts and accessories?',
+        answer:
+          'Yes, base plates can be quoted with fence posts, caps, clamps, brackets, rails, fixings and other related fencing accessories as a complete package.',
+      },
+    ],
+    rfqPrompt:
+      'Request base plate pricing with plate type, post size, material, finish, thickness, dimensions, hole pattern, quantity, delivery city and installation requirement.',
+  },
+  {
     slug: 'fence-accessories',
     name: 'Fence Accessories',
     category: 'Fence Accessories',
@@ -792,6 +1400,346 @@ export const productSeoPages: ProductSeoPage[] = [
     ],
     rfqPrompt:
       'Request fence accessory pricing with fence type, accessory list, quantities, coating, gate details, drawings and delivery city.',
+  },
+  {
+    slug: 'coating-materials',
+    name: 'Coating Materials',
+    category: 'Coating Materials & Protective Finishes',
+    primaryKeyword: 'coating materials supplier in Dubai UAE',
+    secondaryKeywords: [
+      'PVC coating materials UAE',
+      'PE coating materials Dubai',
+      'powder coating materials for fencing UAE',
+      'zinc coating galvanizing UAE',
+      'hot dip galvanizing coating for fences',
+      'green powder coating fence materials',
+      'protective coating materials for steel fencing GCC',
+      'fence coating materials supplier UAE',
+    ],
+    metaTitle: 'Coating Materials Supplier in Dubai UAE | SRK Fence',
+    metaDescription:
+      'SRK Fence supplies PVC, PE, powder coating, zinc coating and hot-dip galvanizing coating materials for chain-link, welded mesh, posts, gates and steel structures.',
+    h1: 'Coating Materials Supplier in Dubai UAE',
+    shortDescription:
+      'Protective coating materials for fencing products and steel components, designed to improve durability, corrosion resistance, weather protection and appearance.',
+    intro:
+      'SRK Coating Materials offer a range of protective coating solutions designed to enhance the durability, corrosion resistance and appearance of fencing products and steel components. These coatings are suitable for chain-link fences, welded mesh, fence wires, steel pipes, fence posts, gates and other metal structures, providing protection against outdoor and environmental conditions.',
+    image: '/products/coating-materials/coating-materials-overview.webp',
+    imageGallery: [
+      {
+        src: '/products/coating-materials/coating-materials-overview.webp',
+        alt: 'Coating materials supplier in Dubai UAE for PVC PE powder zinc and galvanized fence finishes',
+        caption: 'Coating materials overview for fencing wires, posts, pipes, gates and steel structures',
+      },
+      {
+        src: '/products/coating-materials/coating-materials-options.webp',
+        alt: 'PVC PE powder coating zinc galvanizing primer touch up paint thinner cleaner and packaging options',
+        caption: 'PVC coating, PE coating, powder coating, zinc galvanizing, primer, touch-up paint and support materials',
+      },
+      {
+        src: '/products/coating-materials/different-coatings-protection.webp',
+        alt: 'Different coatings for strong protection and long lasting fencing performance',
+        caption: 'Coating comparison for PVC, PE, powder coating, zinc coating, hot-dip galvanized and green powder coated finishes',
+      },
+    ],
+    specs: [
+      { label: 'Product', value: 'Protective coating materials' },
+      { label: 'Applications', value: 'Chain-link fence, welded mesh, fence wires, pipes, posts, gates and steel structures' },
+      { label: 'PVC coating', value: 'Available in various thicknesses and colours as per requirement' },
+      { label: 'PE coating', value: 'Available in various thicknesses and colours as per requirement' },
+      { label: 'Powder coating', value: 'Polyester powder coating, available in multiple colours' },
+      { label: 'Zinc coating', value: 'Galvanized finish for corrosion protection' },
+      { label: 'Hot-dip galvanizing', value: 'Heavy-duty zinc coating for enhanced outdoor protection' },
+      { label: 'Green powder coating', value: 'Green finish, with custom colours available' },
+      { label: 'Colours', value: 'Green, black, silver and other colours as required' },
+      { label: 'Finish', value: 'Smooth, gloss or matt depending on coating type' },
+      { label: 'Application method', value: 'PVC/PE extrusion, powder coating, electrostatic coating or galvanizing as applicable' },
+      { label: 'Customization', value: 'Coating type, colour, thickness and finish can be provided as per project requirement' },
+    ],
+    materialOptions: [
+      {
+        title: 'PVC Coating',
+        description:
+          'Flexible protective coating providing corrosion resistance, weather protection and a smooth finish for fencing products and steel components.',
+        bullets: [
+          'Available in various thicknesses and colours',
+          'Suitable for chain-link fence, welded mesh and fence wires',
+          'Helps improve outdoor protection and appearance',
+        ],
+      },
+      {
+        title: 'PE Coating',
+        description:
+          'Polyethylene coating offering good adhesion, weather resistance and a durable protective layer for project-specific fencing requirements.',
+        bullets: [
+          'Available in different thicknesses and colours',
+          'Good adhesion and weather-resistant performance',
+          'Useful for protective fencing and metal component finishes',
+        ],
+      },
+      {
+        title: 'Powder Coating (Polyester)',
+        description:
+          'Electrostatic powder coating with excellent durability, attractive finish and good resistance to weather and corrosion.',
+        bullets: [
+          'Polyester powder coating for premium finish',
+          'Available in multiple colours',
+          'Suitable for posts, gates, panels and visible steel components',
+        ],
+      },
+      {
+        title: 'Zinc Coating / Galvanizing',
+        description:
+          'Zinc protective coating designed to protect steel against rust and corrosion for galvanized fence and metal components.',
+        bullets: [
+          'Galvanized finish for corrosion protection',
+          'Suitable for steel pipes, posts and fence structures',
+          'Common option for durable metallic finish requirements',
+        ],
+      },
+      {
+        title: 'Hot-Dip Galvanizing',
+        description:
+          'Immersion-based zinc coating providing a thicker and highly durable protective layer for demanding outdoor applications.',
+        bullets: [
+          'Heavy-duty zinc coating for enhanced outdoor protection',
+          'Suitable for demanding environmental conditions',
+          'Helps extend service life of fencing products',
+        ],
+      },
+      {
+        title: 'Green Powder Coating',
+        description:
+          'Green polyester powder coating providing a durable, attractive finish with additional protection against corrosion and weathering.',
+        bullets: [
+          'Green finish with custom colours available',
+          'Designed for attractive and durable fence systems',
+          'Suitable for fencing products, posts, gates and accessories',
+        ],
+      },
+    ],
+    keyFeatures: [
+      'Excellent corrosion and rust protection',
+      'UV and weather resistance',
+      'Durable and long-lasting finish',
+      'Strong adhesion to metal surfaces',
+      'Available in multiple colours and finishes',
+      'Suitable for indoor and outdoor applications',
+      'Helps extend the service life of fencing products',
+      'Suitable for industrial, commercial and residential projects',
+    ],
+    applications: [
+      { label: 'Chain-Link Fencing', href: '/products/chain-link-fence' },
+      { label: 'Welded Mesh Fencing', href: '/products/welded-mesh-fence' },
+      { label: 'Fence Wires', href: '/products/barbed-wire' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Gates', href: '/products/high-security-gate-systems' },
+      { label: 'Security & Perimeter Fencing', href: '/applications/boundary-security-fencing' },
+      { label: 'Sports Fencing', href: '/applications/sports-court-fencing' },
+      { label: 'Steel Structures', href: '/products/steel-metal-fencing' },
+    ],
+    internalLinks: [
+      { label: 'Colors & Coating Options', href: '/products/colors-and-coating-options' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Chain Link Fence', href: '/products/chain-link-fence' },
+      { label: 'Welded Mesh Fence', href: '/products/welded-mesh-fence' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    rfqChecklist: [
+      'Coating type: PVC, PE, powder coating, zinc coating, hot-dip galvanizing or green powder coating',
+      'Product type: chain-link fence, welded mesh, wire, pipe, post, gate or steel structure',
+      'Required colour, finish and thickness',
+      'Indoor, outdoor, coastal or industrial exposure conditions',
+      'Quantity, project location and delivery country',
+      'Any required drawings, BOQ or finish specification',
+    ],
+    availableMarkets: [
+      { label: 'UAE', href: '/countries/uae' },
+      { label: 'Bahrain', href: '/countries/bahrain' },
+      { label: 'Qatar', href: '/countries/qatar' },
+      { label: 'Kuwait', href: '/countries/kuwait' },
+      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+      { label: 'Iraq', href: '/countries/iraq' },
+      { label: 'Oman', href: '/countries/oman' },
+      { label: 'Jordan', href: '/countries/jordan' },
+    ],
+    faqs: [
+      {
+        question: 'What coating materials does SRK Fence offer?',
+        answer:
+          'SRK Fence offers protective coating solutions including PVC coating, PE coating, polyester powder coating, zinc coating / galvanizing, hot-dip galvanizing and green powder coating for fencing products and steel components.',
+      },
+      {
+        question: 'Where are coating materials used in fencing projects?',
+        answer:
+          'Coating materials are used for chain-link fences, welded mesh, fence wires, steel pipes, fence posts, gates and other metal structures to improve durability, corrosion resistance and appearance.',
+      },
+      {
+        question: 'Can coating thickness and colour be customized?',
+        answer:
+          'Yes, coating type, colour, thickness and finish can be provided as per project requirement, depending on the product type and available coating process.',
+      },
+    ],
+    buyerQuestions: [
+      {
+        question: 'Which coating is suitable for demanding outdoor fencing?',
+        answer:
+          'For demanding outdoor applications, hot-dip galvanizing, zinc coating, PVC coating and powder coating can be reviewed based on the product type, exposure level, required appearance and project specification.',
+      },
+      {
+        question: 'What details should be shared for a coating materials quotation?',
+        answer:
+          'Share the product type, coating requirement, colour, thickness, finish, quantity, exposure conditions, delivery country and any BOQ or drawing details.',
+      },
+    ],
+    rfqPrompt:
+      'Request coating materials pricing with product type, coating type, colour, thickness, finish requirement, quantity, project exposure and delivery country.',
+  },
+  {
+    slug: 'colors-and-coating-options',
+    name: 'Colors & Coating Options',
+    category: 'Coating & Finish Options',
+    primaryKeyword: 'colors and coating options for fencing UAE',
+    secondaryKeywords: [
+      'fence coating options UAE',
+      'galvanized fence coating UAE',
+      'PVC coated fence colors UAE',
+      'powder coated fence colors UAE',
+      'hot dip galvanized fencing Dubai',
+      'custom RAL fence colors UAE',
+      'corrosion resistant fence coating GCC',
+    ],
+    metaTitle: 'Colors & Coating Options for Fencing UAE | SRK Fence',
+    metaDescription:
+      'SRK Fence offers electro galvanized, hot-dip galvanized, PVC coated and powder coated fencing finishes with green, black, white, grey, blue and custom colors.',
+    h1: 'Colors & Coating Options for Fencing in UAE & GCC',
+    shortDescription:
+      'Durable surface protection and color finishes for chain-link, welded mesh, gates, posts and fencing systems, including electro galvanized, hot-dip galvanized, PVC coated and powder coated options.',
+    intro:
+      'Colors and coating options help fencing systems achieve the right balance of corrosion resistance, service life, project appearance and site suitability. SRK Fence supplies coating and finish options for UAE and GCC fencing projects, including electro galvanized, hot-dip galvanized, PVC coated and powder coated systems. The final coating can be selected based on product type, outdoor exposure, coastal conditions, security requirement, architectural appearance and required color finish.',
+    image: '/products/colors-and-coating-options/colors-and-coating-options-overview.webp',
+    imageGallery: [
+      {
+        src: '/products/colors-and-coating-options/colors-and-coating-options-overview.webp',
+        alt: 'Colors and coating options for galvanized PVC coated and powder coated fencing in UAE',
+        caption: 'Overview of galvanized, PVC coated, powder coated and custom color fencing finishes',
+      },
+      {
+        src: '/products/colors-and-coating-options/fence-color-and-coating-options-srk-fencing.webp',
+        alt: 'Fence color and coating options with galvanized PVC coated powder coated and custom colors',
+        caption: 'Coating comparison and color swatches for fencing, gates and post systems',
+      },
+    ],
+    specs: [
+      { label: 'Wire diameter', value: '1.8 mm to 6.0 mm, depending on product type and project requirement' },
+      { label: 'Mesh opening', value: 'Available in various sizes as per fencing system and specification' },
+      { label: 'Coating options', value: 'Electro galvanized, hot-dip galvanized, PVC coated and powder coated' },
+      { label: 'Zinc coating', value: 'Available as per required specification' },
+      { label: 'PVC coating', value: 'Available in various thicknesses and colors' },
+      { label: 'Powder coating', value: 'Available in a wide range of RAL colors' },
+      { label: 'Colors', value: 'Green, black, white, grey, blue and custom colors' },
+      { label: 'Material', value: 'Galvanized steel, PVC coated steel or as specified' },
+      { label: 'Finish', value: 'Smooth, uniform and colored finish options' },
+    ],
+    materialOptions: [
+      {
+        title: 'Hot-Dip Galvanized / G.I.',
+        description:
+          'Steel is immersed in molten zinc to create a durable protective coating with strong resistance against corrosion and weather exposure.',
+        bullets: [
+          'Excellent corrosion protection',
+          'Zinc / metallic appearance',
+          'Best for outdoor fencing, industrial projects and boundary fencing',
+        ],
+      },
+      {
+        title: 'PVC Coated',
+        description:
+          'Galvanized steel wire is coated with a protective PVC layer for additional corrosion resistance, weather protection and an attractive colored finish.',
+        bullets: [
+          'Available in green, black and other project colors',
+          'UV and weather-resistant options',
+          'Best for security, residential, sports, landscaping and coastal/outdoor applications',
+        ],
+      },
+      {
+        title: 'Powder Coated',
+        description:
+          'A dry powder coating is electrostatically applied and cured to create a durable, uniform and premium colored surface.',
+        bullets: [
+          'Wide range of RAL color options',
+          'Smooth and professional finish',
+          'Best for architectural fencing, decorative fencing, gates and commercial projects',
+        ],
+      },
+    ],
+    applications: [
+      { label: 'Security Fencing', href: '/applications/boundary-security-fencing' },
+      { label: 'Residential Fencing', href: '/applications/residential-villa-fencing' },
+      { label: 'Sports Facilities', href: '/applications/sports-court-fencing' },
+      { label: 'Commercial Projects', href: '/applications/commercial-industrial' },
+      { label: 'Industrial Projects', href: '/applications/commercial-industrial' },
+      { label: 'Coastal & Outdoor Fencing', href: '/countries/uae' },
+    ],
+    internalLinks: [
+      { label: 'Chain Link Fence', href: '/products/chain-link-fence' },
+      { label: 'Welded Mesh Fence', href: '/products/welded-mesh-fence' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    availableMarkets: [
+      { label: 'UAE', href: '/countries/uae' },
+      { label: 'Bahrain', href: '/countries/bahrain' },
+      { label: 'Qatar', href: '/countries/qatar' },
+      { label: 'Kuwait', href: '/countries/kuwait' },
+      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+      { label: 'Iraq', href: '/countries/iraq' },
+      { label: 'Oman', href: '/countries/oman' },
+      { label: 'Jordan', href: '/countries/jordan' },
+    ],
+    rfqChecklist: [
+      'Fence or product type',
+      'Required coating option',
+      'Preferred color or RAL shade',
+      'Wire diameter or section size',
+      'Mesh opening or panel style',
+      'Indoor, outdoor or coastal exposure',
+      'Quantity, running meters or BOQ',
+      'Delivery country and project location',
+    ],
+    faqs: [
+      {
+        question: 'What coating options are available for SRK Fence products?',
+        answer:
+          'Available coating options include electro galvanized, hot-dip galvanized, PVC coated and powder coated finishes, depending on the fencing product and project requirement.',
+      },
+      {
+        question: 'Which coating is suitable for outdoor and heavy-duty fencing?',
+        answer:
+          'Hot-dip galvanized and PVC coated options are commonly selected for outdoor fencing, boundary fencing, industrial projects and demanding environments where corrosion resistance is important.',
+      },
+      {
+        question: 'Can fencing products be supplied in custom colors?',
+        answer:
+          'Yes, PVC coated and powder coated products can be reviewed in green, black, white, grey, blue and custom RAL colors according to project requirement and availability.',
+      },
+    ],
+    buyerQuestions: [
+      {
+        question: 'What is the difference between galvanized, PVC coated and powder coated fencing?',
+        answer:
+          'Galvanized finishes focus on zinc-based corrosion protection, PVC coating adds a protective colored layer over galvanized steel, and powder coating provides a durable premium colored finish for appearance-led fencing, gates and commercial projects.',
+      },
+      {
+        question: 'What details are needed to quote coating and color options?',
+        answer:
+          'Share the fence product type, wire diameter or profile size, mesh opening, coating requirement, preferred color, site exposure, quantity, delivery country and any BOQ or drawings.',
+      },
+    ],
+    rfqPrompt:
+      'Request coating and color option pricing with product type, required finish, preferred color, wire diameter or profile size, quantity, delivery country and project exposure details.',
   },
 ];
 

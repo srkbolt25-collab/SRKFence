@@ -19,7 +19,6 @@ import { apiClient } from "@/lib/api";
 import { useRFQ } from "@/contexts/RFQContext";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getProductSlug } from "@/lib/productSlug";
-import { productSeoPages } from "@/lib/seo";
 
 // Fallback products for when database is empty
 const fallbackProducts = [
@@ -109,6 +108,260 @@ const fallbackProducts = [
     icon: Building2,
   },
 ];
+
+
+
+const pdfProductArchiveCards = [
+  {
+    id: "pdf-fence-posts-gi-ms-pvc",
+    hrefSlug: "fence-posts-gi-ms-pvc",
+    title: "Fence Posts (G.I. / M.S. / PVC)",
+    category: "Fence Accessories & Post Systems",
+    description: "G.I., M.S. and PVC fence posts for chain-link, welded mesh, privacy, decorative, perimeter and security fencing systems.",
+    image: "/products/pdf-mapped/fence-posts-gi-ms-pvc/fence-posts-gi-ms-pvc-01.webp",
+    features: ["G.I. / M.S. / PVC", "Round, square and rectangular profiles", "Custom finishes available"],
+    icon: Building2,
+    displayOrder: 1,
+  },
+  {
+    id: "pdf-panel-post-system",
+    hrefSlug: "panel-post-system",
+    title: "Panel & Post System",
+    category: "Panel & Post Systems",
+    description: "Modular welded mesh panel and post systems for secure boundary, perimeter and commercial fencing applications.",
+    image: "/products/pdf-mapped/panel-post-system/panel-post-system-01.webp",
+    features: ["Panel and post system", "Secure fixing", "Multiple installation types"],
+    icon: Building2,
+    displayOrder: 2,
+  },
+  {
+    id: "pdf-high-security-gate-systems",
+    hrefSlug: "high-security-gate-systems",
+    title: "High-Security Gate Systems",
+    category: "Gate Systems",
+    description: "High-security swing and sliding gate systems for controlled access, perimeter protection and heavy-duty fence lines.",
+    image: "/products/pdf-mapped/high-security-gate-systems/high-security-gate-systems-01.webp",
+    features: ["Swing and sliding gates", "Manual or automated options", "Heavy-duty construction"],
+    icon: ShieldCheck,
+    displayOrder: 3,
+  },
+  {
+    id: "pdf-base-plates",
+    hrefSlug: "base-plates",
+    title: "Base Plates",
+    category: "Fence Accessories & Mounting Systems",
+    description: "G.I., hot-dipped G.I., M.S. and powder-coated base plates for fence posts, gate posts and steel structures.",
+    image: "/products/pdf-mapped/base-plates/base-plates-01.webp",
+    features: ["G.I. / M.S. / powder coated", "Round and square post options", "Custom hole patterns"],
+    icon: Wrench,
+    displayOrder: 4,
+  },
+  {
+    id: "pdf-gate-hinges-and-locks",
+    hrefSlug: "gate-hinges-and-locks",
+    title: "Gate Hinges",
+    category: "Gate Hardware & Fence Accessories",
+    description: "Gate hinges for chain-link gates, welded mesh gates, steel gates and fencing systems in G.I., SS 304 and coated finishes.",
+    image: "/products/pdf-mapped/gate-hinges/gate-hinges-01.webp",
+    features: ["G.I. / SS 304 / M.S.", "Weld-on and bolt-on options", "Light to heavy-duty gates"],
+    icon: Wrench,
+    displayOrder: 5,
+  },
+  {
+    id: "pdf-post-and-railing-system",
+    hrefSlug: "post-and-railing-system",
+    title: "Post & Rail System",
+    category: "Post & Rail Systems",
+    description: "Post and rail systems for chain-link fencing, boundary fencing and perimeter fencing with compatible accessories.",
+    image: "/products/pdf-mapped/post-and-railing-system/post-and-railing-system-01.webp",
+    features: ["Post and rail framework", "Chain-link support", "G.I. and coated finishes"],
+    icon: Building2,
+    displayOrder: 6,
+  },
+  {
+    id: "pdf-pvc-decorative-fence",
+    hrefSlug: "pvc-decorative-fence",
+    title: "PVC Decorative Fence",
+    category: "PVC Fencing",
+    description: "PVC decorative fencing for residential, commercial, garden, pool, park and boundary applications.",
+    image: "/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-01.webp",
+    features: ["Decorative PVC panels", "Multiple style options", "Low maintenance"],
+    icon: Layers,
+    displayOrder: 7,
+  },
+  {
+    id: "pdf-pvc-privacy-fence",
+    hrefSlug: "pvc-privacy-fence",
+    title: "PVC Privacy Fence",
+    category: "PVC Fencing",
+    description: "PVC privacy fencing for residential properties, villas, gardens, patios, outdoor spaces and boundary screening.",
+    image: "/products/pdf-mapped/pvc-privacy-fence/pvc-privacy-fence-01.webp",
+    features: ["Privacy panels", "UV protected", "Custom colors available"],
+    icon: Layers,
+    displayOrder: 8,
+  },
+  {
+    id: "pdf-anti-climb-358-security-fence",
+    hrefSlug: "anti-climb-358-fence",
+    title: "Anti Climb 358 Security Fence",
+    category: "High Security Fencing",
+    description: "Anti-climb 358 security fence systems for perimeter protection, industrial sites, airports and high-security applications.",
+    image: "/products/pdf-mapped/anti-climb-358-fence/anti-climb-358-fence-01.webp",
+    features: ["Anti-climb mesh", "High visibility", "Corrosion resistant"],
+    icon: ShieldCheck,
+    displayOrder: 9,
+  },
+  {
+    id: "pdf-rectangle-mesh-fence",
+    hrefSlug: "rectangle-mesh-fence",
+    title: "Rectangle Mesh Fence",
+    category: "Welded Mesh Fencing",
+    description: "Rectangle mesh fence systems with durable welded mesh panels for long-lasting perimeter and boundary applications.",
+    image: "/products/pdf-mapped/rectangle-mesh-fence/rectangle-mesh-fence-01.webp",
+    features: ["Strong and durable", "Corrosion resistant", "Multiple applications"],
+    icon: Building2,
+    displayOrder: 10,
+  },
+  {
+    id: "pdf-gabion-wall-and-fencing",
+    hrefSlug: "gabion-wall-and-fencing",
+    title: "Gabion Wall & Fencing",
+    category: "Gabion Wall & Boundary Systems",
+    description: "Gabion wall and fencing systems using wire mesh baskets with natural or project-specified stone filling.",
+    image: "/products/pdf-mapped/gabion-wall/gabion-wall-01.webp",
+    features: ["Welded or woven mesh", "Natural stone-filled appearance", "Retaining and boundary use"],
+    icon: Building2,
+    displayOrder: 11,
+  },
+  {
+    id: "pdf-clamps-and-connectors",
+    hrefSlug: "clamps-and-connectors",
+    title: "Clamps & Connectors",
+    category: "Fence Accessories & Connection Hardware",
+    description: "Clamps and connectors for secure assembly of chain-link and welded mesh fence systems.",
+    image: "/products/pdf-mapped/clamps-and-connectors/clamps-and-connectors-01.webp",
+    features: ["Post, rail and U-bolt clamps", "Galvanized and powder coated", "Custom connectors"],
+    icon: Wrench,
+    displayOrder: 12,
+  },
+  {
+    id: "pdf-fence-accessories",
+    hrefSlug: "fence-accessories",
+    title: "Fence Accessories",
+    category: "Fence Accessories",
+    description: "Complete range of accessories for chain-link and welded fence systems in G.I. and PVC coated finishes.",
+    image: "/products/pdf-mapped/fence-accessories/fence-accessories-01.webp",
+    features: ["Clamps, post caps and fasteners", "G.I. and PVC coated finishes", "Wide compatibility"],
+    icon: Wrench,
+    displayOrder: 13,
+  },
+  {
+    id: "pdf-fasteners-bolts",
+    hrefSlug: "fasteners-bolts",
+    title: "Fasteners / Bolts",
+    category: "Fence Accessories",
+    description: "Fasteners, bolts, nuts, washers, screws, anchors and threaded rods for fencing and steel fixing applications.",
+    image: "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
+    features: ["Bolts, nuts and washers", "Anchors and screws", "Stainless and steel options"],
+    icon: Wrench,
+    displayOrder: 14,
+  },
+  {
+    id: "pdf-coating-materials",
+    hrefSlug: "coating-materials",
+    title: "Coating Materials",
+    category: "Coating Materials & Protective Finishes",
+    description: "Protective coating materials for fencing products, wires, pipes, posts, gates and steel structures.",
+    image: "/products/pdf-mapped/coating-materials/coating-materials-01.webp",
+    features: ["PVC, PE and powder coating", "Zinc and hot-dip galvanizing", "Multiple colors and finishes"],
+    icon: Layers,
+    displayOrder: 15,
+  },
+  {
+    id: "pdf-colors-and-coating-options",
+    hrefSlug: "colors-and-coating-options",
+    title: "Colors & Coating Options",
+    category: "Coating & Finish Options",
+    description: "Durable coating and color options for corrosion resistance, long service life and a professional fence finish.",
+    image: "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-01.webp",
+    features: ["Galvanized, PVC and powder coated", "Green, black, white, grey and custom RAL", "Outdoor and indoor options"],
+    icon: Layers,
+    displayOrder: 16,
+  },
+  {
+    id: "pdf-barbed-wire",
+    hrefSlug: "barbed-wire",
+    title: "G.I. & PVC Coated Barbed Wire",
+    category: "Security Wire",
+    description: "G.I. and PVC coated barbed wire for security fencing, perimeter fencing, industrial and boundary applications.",
+    image: "/products/pdf-mapped/barbed-wire/barbed-wire-01.webp",
+    features: ["G.I. and PVC coated options", "Weather resistant", "Security boundary use"],
+    icon: ShieldCheck,
+    displayOrder: 17,
+  },
+  {
+    id: "pdf-razor-wire",
+    hrefSlug: "razor-wire",
+    title: "Razor Wire",
+    category: "Security Wire",
+    description: "Razor wire systems for high-security perimeter protection on fences, walls, gates and security arms.",
+    image: "/products/pdf-mapped/razor-wire/razor-wire-01.webp",
+    features: ["G.I. and S.S. material options", "Multiple diameters", "High-security perimeter use"],
+    icon: ShieldCheck,
+    displayOrder: 18,
+  },
+  {
+    id: "pdf-temporary-fence-panels",
+    hrefSlug: "temporary-fence-panels",
+    title: "Temporary Fence Panels",
+    category: "Temporary Fencing",
+    description: "Temporary fence panels for construction sites, events, road works, security perimeters and crowd control.",
+    image: "/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-01.webp",
+    features: ["Portable and reusable", "Quick setup", "Concrete base and clamps"],
+    icon: Building2,
+    displayOrder: 19,
+  },
+];
+
+const normalizeProductText = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const identifyPdfArchiveSlug = (product: { title?: string; name?: string; category?: string; description?: string }) => {
+  const haystack = normalizeProductText(`${product.title || ""} ${product.name || ""} ${product.category || ""} ${product.description || ""}`);
+
+  const exact = pdfProductArchiveCards.find((card) => {
+    const title = normalizeProductText(card.title);
+    const slug = normalizeProductText(card.hrefSlug);
+    return haystack === title || haystack.includes(title) || haystack.includes(slug);
+  });
+  if (exact) return exact.hrefSlug;
+
+  if (haystack.includes("fence post") || haystack.includes("gi ms pvc")) return "fence-posts-gi-ms-pvc";
+  if (haystack.includes("panel post")) return "panel-post-system";
+  if (haystack.includes("high security gate") || haystack.includes("sliding gate") || haystack.includes("swing gate")) return "high-security-gate-systems";
+  if (haystack.includes("base plate")) return "base-plates";
+  if (haystack.includes("gate hinge")) return "gate-hinges-and-locks";
+  if (haystack.includes("post rail") || haystack.includes("railing system")) return "post-and-railing-system";
+  if (haystack.includes("pvc decorative")) return "pvc-decorative-fence";
+  if (haystack.includes("pvc privacy")) return "pvc-privacy-fence";
+  if (haystack.includes("anti climb") || haystack.includes("358 security")) return "anti-climb-358-fence";
+  if (haystack.includes("rectangle mesh")) return "rectangle-mesh-fence";
+  if (haystack.includes("gabion")) return "gabion-wall-and-fencing";
+  if (haystack.includes("clamps") || haystack.includes("connectors")) return "clamps-and-connectors";
+  if (haystack.includes("fence accessories")) return "fence-accessories";
+  if (haystack.includes("fastener") || haystack.includes("bolts") || haystack.includes("nuts")) return "fasteners-bolts";
+  if (haystack.includes("coating materials")) return "coating-materials";
+  if (haystack.includes("color") && haystack.includes("coating")) return "colors-and-coating-options";
+  if (haystack.includes("barbed wire")) return "barbed-wire";
+  if (haystack.includes("razor wire")) return "razor-wire";
+  if (haystack.includes("temporary fence")) return "temporary-fence-panels";
+
+  return null;
+};
 
 // Icon mapping based on category
 const getIconForCategory = (category: string) => {
@@ -214,16 +467,15 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
           highlight: false,
         }));
 
-      // Use database products if available, otherwise fallback
-      if (transformedProducts.length > 0) {
-        setProducts(transformedProducts);
-      } else {
-        setProducts(fallbackProducts);
-      }
+      // Always show the PDF-based product cards first so archive names and thumbnails match the uploaded PDFs.
+      // Database products that duplicate those PDF pages are filtered out to avoid old thumbnails/titles showing on /products.
+      const filteredDatabaseProducts = transformedProducts.filter((product: any) => !identifyPdfArchiveSlug(product));
+
+      setProducts([...pdfProductArchiveCards, ...filteredDatabaseProducts]);
     } catch (error) {
       console.error('Error loading products:', error);
-      // Fallback to static products on error
-      setProducts(fallbackProducts);
+      // Fallback to PDF-based product cards first, then static products on error
+      setProducts([...pdfProductArchiveCards, ...fallbackProducts]);
     } finally {
       setLoading(false);
     }
@@ -273,8 +525,8 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
     });
   };
 
-  const handleViewDetails = (product: { id: string; title?: string; name?: string }) => {
-    const productSlug = getProductSlug(product);
+  const handleViewDetails = (product: { id: string; title?: string; name?: string; hrefSlug?: string }) => {
+    const productSlug = product.hrefSlug || getProductSlug(product);
     // Navigate to product details page
     router.push(`/products/${encodeURIComponent(productSlug)}`);
   };
@@ -319,20 +571,31 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {productSeoPages.map((product) => (
+              {pdfProductArchiveCards.map((product) => (
                 <Link
-                  key={product.slug}
-                  href={`/products/${product.slug}`}
-                  className="group rounded-lg border border-border bg-card p-5 transition hover:-translate-y-1 hover:border-primary hover:shadow-hover"
+                  key={product.hrefSlug}
+                  href={`/products/${product.hrefSlug}`}
+                  className="group overflow-hidden rounded-lg border border-border bg-card transition hover:-translate-y-1 hover:border-primary hover:shadow-hover"
                 >
-                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-primary">{product.category}</div>
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary">{product.name}</h3>
+                  <div className="relative h-40 w-full overflow-hidden bg-muted">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-contain bg-white p-2 transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <div className="mb-3 text-xs font-bold uppercase tracking-wide text-primary">{product.category}</div>
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary">{product.title}</h3>
                   <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                    {product.shortDescription}
+                    {product.description}
                   </p>
-                  <div className="mt-4 flex items-center text-sm font-bold text-primary">
-                    View Product Page
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <div className="mt-4 flex items-center text-sm font-bold text-primary">
+                      View Product Page
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </Link>
               ))}

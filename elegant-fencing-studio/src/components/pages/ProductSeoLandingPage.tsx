@@ -107,7 +107,7 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
               {product.imageGallery && product.imageGallery.length > 0 && (
                 <Card className="rounded-lg border-border">
                   <CardHeader>
-                    <CardTitle className="text-2xl">Fence Post Options</CardTitle>
+                    <CardTitle className="text-2xl">Product Options & Images</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="grid gap-4 sm:grid-cols-3">
@@ -156,6 +156,24 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
                 </Card>
               )}
 
+              {product.keyFeatures && product.keyFeatures.length > 0 && (
+                <Card className="rounded-lg border-border">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Key Features</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {product.keyFeatures.map((feature) => (
+                        <div key={feature} className="flex gap-3 rounded-md bg-muted px-3 py-3 text-sm text-muted-foreground">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
               <Card className="rounded-lg border-border">
                 <CardHeader>
                   <CardTitle className="text-2xl">Technical Specification Guide</CardTitle>
@@ -179,7 +197,7 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
               {product.rfqChecklist && product.rfqChecklist.length > 0 && (
                 <Card className="rounded-lg border-border">
                   <CardHeader>
-                    <CardTitle className="text-2xl">Fence Post RFQ Checklist</CardTitle>
+                    <CardTitle className="text-2xl">RFQ Checklist</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -201,8 +219,8 @@ export default function ProductSeoLandingPage({ product }: ProductSeoLandingPage
                 <CardContent className="space-y-4 text-muted-foreground">
                   <p>
                     SRK Fence can support supply-only and project installation discussions for Dubai, UAE and GCC
-                    markets. The final recommendation depends on site risk, location, material exposure, required
-                    security level and access-control needs.
+                    markets. The final recommendation depends on product type, site risk, location, material exposure,
+                    required security level, coating requirement and access-control needs.
                   </p>
                   <p>{product.rfqPrompt}</p>
                 </CardContent>
