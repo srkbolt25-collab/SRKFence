@@ -6,6 +6,7 @@ import Contact from '@/components/Contact';
 import QuickLinks from '@/components/QuickLinks';
 import ProjectHighlights from '@/components/ProjectHighlights';
 import HomeSeoSection from '@/components/HomeSeoSection';
+import HomeBlogSection from '@/components/HomeBlogSection';
 import StructuredData from '@/components/StructuredData';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -61,6 +62,12 @@ export default function Home() {
         <section className="relative">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           <ProjectHighlights />
+        </section>
+
+        {/* Latest Blog Posts */}
+        <section className="relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <HomeBlogSection />
         </section>
         
         {/* Why Choose Us */}

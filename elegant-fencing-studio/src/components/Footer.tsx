@@ -116,7 +116,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <h4 className="text-lg font-extrabold text-white mb-4 mt-8">Country Pages</h4>
+            <h4 className="text-lg font-extrabold text-white mb-4 mt-8">Countries We Serve</h4>
             <ul className="space-y-3 text-white/80">
               {countryLinks.map((item) => (
                 <li key={item.label}>
@@ -140,7 +140,7 @@ const Footer = () => {
                   <MapPin className="h-3 w-3 text-white" />
                 </div>
                 <span className="font-medium leading-relaxed group-hover:text-white transition-colors">
-                  SRK FENCE Industries
+                  <a href="https://www.srkfencing.com/" className="hover:underline">SRK FENCE Industries</a>
                   <br />
                   Sharjah Publication City (SPC)
                   <br />
@@ -156,9 +156,9 @@ const Footer = () => {
                   <Phone className="h-3 w-3 text-white" />
                 </div>
                 <span className="font-medium group-hover:text-white transition-colors">
-                  <a href="tel:+971522160874" className="hover:underline">M: +971 52 216 0874</a>
+                  <a href="tel:+971586600183" className="hover:underline">Sales & Purchase Team: +971 58 660 0183</a>
                   <br />
-                  <a href="tel:+971528489775" className="hover:underline">+971 52 848 9775</a>
+                  <a href="tel:+971522160874" className="hover:underline">Quick Support: +971 52 216 0874</a>
                 </span>
               </li>
               <li className="flex items-start gap-3 group">
@@ -189,13 +189,13 @@ const Footer = () => {
 
       <div className="bg-[#050a1f] border-t border-white/10">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-white/70 sm:flex-row sm:px-6 lg:px-8">
-          <p className="font-medium">&copy; {currentYear} SRK FENCE Industries. All rights reserved.</p>
+          <p className="font-medium">&copy; {currentYear} <a href="https://www.srkfencing.com/" className="hover:underline">SRK FENCE Industries</a>. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="transition-all duration-300 hover:text-white hover:underline font-medium">
+            <a href="/privacy-policy" className="transition-all duration-300 hover:text-white hover:underline font-medium">
               Privacy Policy
             </a>
-            <a href="#" className="transition-all duration-300 hover:text-white hover:underline font-medium">
-              Terms of Service
+            <a href="/terms-of-use" className="transition-all duration-300 hover:text-white hover:underline font-medium">
+              Terms of Use
             </a>
             <a href="/sitemap.xml" className="transition-all duration-300 hover:text-white hover:underline font-medium">
               Sitemap

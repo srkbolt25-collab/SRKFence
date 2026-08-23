@@ -44,7 +44,7 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
               </h1>
               <p className="text-lg leading-relaxed text-muted-foreground">{country.intro}</p>
               <p className="leading-relaxed text-muted-foreground">
-                SRK Fence helps contractors, consultants, facility managers and procurement teams compare fencing options for supply, installation, accessories, delivery and quotation scope.
+                SRK Fence works with contractors, consultants, facility managers and procurement teams to select practical fencing options for supply, installation, accessories, delivery and quotation scope.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="h-auto rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-8 py-5 font-bold uppercase tracking-wide text-white">
@@ -104,10 +104,10 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
                 <CardHeader><CardTitle className="text-2xl">Request a Fencing Quote</CardTitle></CardHeader>
                 <CardContent className="space-y-4 text-muted-foreground">
                   <p>
-                    Request a fencing quotation for {country.country}. Share fence length, height, mesh size, wire diameter, coating requirement, delivery city, gate requirement, installation scope, project timeline and any drawings or specifications.
+                    Request a fencing quotation for {country.country}. Share the fence length, height, mesh size, wire diameter, coating requirement, delivery city, gate requirement, installation scope, timeline and any drawings or specifications.
                   </p>
                   <p>
-                    Typical project requirements include {country.buyerIntent.toLowerCase()} SRK Fence can review supply-only and installation discussions based on the final site requirement.
+                    Typical project needs include {country.buyerIntent.toLowerCase()} SRK Fence can discuss supply-only or installation support once the final site requirement is clear.
                   </p>
                 </CardContent>
               </Card>
@@ -144,7 +144,7 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 text-center">
               <h2 className="text-3xl font-extrabold text-foreground">Explore Fencing Options for {country.country}</h2>
-              <p className="mt-3 text-muted-foreground">Select a fencing product or project application to view details, quote requirements and suitable systems for this market.</p>
+              <p className="mt-3 text-muted-foreground">Select a fencing product or project application to see suitable systems, useful specifications and quote details for this market.</p>
             </div>
             <div className="grid gap-8 lg:grid-cols-2">
               <Card className="rounded-2xl border-border bg-background shadow-sm">
@@ -175,7 +175,7 @@ export default function CountryLandingPage({ country }: CountryLandingPageProps)
           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 text-center">
               <h2 className="text-3xl font-extrabold text-foreground">Common Buyer Questions for {country.country}</h2>
-              <p className="mt-3 text-muted-foreground">Helpful answers for contractors, procurement teams and project owners planning fencing requirements.</p>
+              <p className="mt-3 text-muted-foreground">Practical answers for contractors, procurement teams and project owners planning fencing requirements.</p>
             </div>
             <div className="grid gap-4">
               {country.faqs.map((faq) => (

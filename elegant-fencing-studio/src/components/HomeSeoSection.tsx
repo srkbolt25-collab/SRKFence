@@ -27,7 +27,7 @@ export default function HomeSeoSection() {
             </div>
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               <p>
-                {entityDescription} The company supports buyers who need practical RFQ guidance, product
+                {entityDescription} The company works with project teams that need practical quotation guidance, product
                 specifications, delivery coordination and installation support for demanding site conditions.
               </p>
               <p>
@@ -82,7 +82,7 @@ export default function HomeSeoSection() {
             </div>
 
             <div className="rounded-lg border border-border bg-card p-5">
-              <h3 className="mb-4 text-xl font-bold text-foreground">Country Pages</h3>
+              <h3 className="mb-4 text-xl font-bold text-foreground">Countries We Serve</h3>
               <div className="flex flex-wrap gap-2">
                 {priorityCountries.map((country) => (
                   <Link
