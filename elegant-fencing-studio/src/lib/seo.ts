@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 export const siteUrl = 'https://www.srkfencing.com';
 export const companyName = 'SRK Fence';
 export const companyLegalName = 'SRK FENCE Industries';
-export const primaryPhone = '+971586600183';
-export const secondaryPhone = '+971522160874';
+export const primaryPhone = '+971522160874';
+export const secondaryPhone = '+971528489775';
 export const primaryEmail = 'info@srkfencing.com';
 export const salesEmail = 'Sales@srkmetals.com';
 
@@ -53,19 +53,15 @@ export type ProductSeoPage = {
   shortDescription: string;
   intro: string;
   image: string;
+  galleryImages?: Array<{ src: string; alt: string; caption: string }>;
   specs: Array<{ label: string; value: string }>;
   applications: LinkItem[];
   internalLinks: LinkItem[];
   faqs: FaqItem[];
   rfqPrompt: string;
-  imageGallery?: Array<{ src: string; alt: string; caption: string }>;
-  materialOptions?: Array<{ title: string; description: string; bullets: string[] }>;
-  rfqChecklist?: string[];
-  availableMarkets?: LinkItem[];
-  buyerQuestions?: FaqItem[];
 };
 
-export const productSeoPages: ProductSeoPage[] = [
+const baseProductSeoPages: ProductSeoPage[] = [
   {
     slug: 'chain-link-fence',
     name: 'Chain Link Fence',
@@ -119,155 +115,6 @@ export const productSeoPages: ProductSeoPage[] = [
     ],
     rfqPrompt:
       'Need a chain link fencing quotation? Share fence length, height, mesh size, wire diameter, coating, posts, gates, delivery city and installation requirement for a tailored quote.',
-  },
-  {
-    slug: 'fence-posts-gi-ms-pvc',
-    name: 'Fence Posts (G.I. / M.S. / PVC)',
-    category: 'Fence Accessories & Post Systems',
-    primaryKeyword: 'fence posts supplier in Dubai UAE',
-    secondaryKeywords: [
-      'GI fence posts UAE',
-      'MS fence posts Dubai',
-      'PVC fence posts supplier UAE',
-      'galvanized fence posts Dubai',
-      'round square rectangular fence posts',
-      'chain link fence posts UAE',
-      'welded mesh fence posts UAE',
-      'fence post installation Dubai',
-    ],
-    metaTitle: 'Fence Posts Supplier in Dubai UAE | GI, MS & PVC Posts',
-    metaDescription:
-      'SRK Fence supplies G.I., M.S. and PVC fence posts in Dubai and UAE for chain-link, welded mesh, privacy, decorative, perimeter and security fencing projects across GCC markets.',
-    h1: 'Fence Posts Supplier in Dubai UAE',
-    shortDescription:
-      'G.I., M.S. and PVC fence posts for chain-link, welded mesh, privacy, decorative, perimeter and security fencing systems with custom profiles, colors, caps, clamps, brackets, rails and fixing accessories.',
-    intro:
-      'Fence posts are the main structural support of a fencing system. They hold the fence line, carry the mesh or panels, support gates and keep the installation stable over time. SRK Fence supplies G.I. fence posts, M.S. fence posts and PVC fence posts for Dubai, UAE and GCC projects with round, square, rectangular and customized profiles. Posts can be supplied with suitable caps, clamps, brackets, rails, fixings and installation options based on the fence type, site exposure and buyer specification.',
-    image: '/products/fence-posts/fence-posts-gi-ms-pvc-supplier-uae.webp',
-    imageGallery: [
-      {
-        src: '/products/fence-posts/gi-fence-post-supplier-dubai-uae.webp',
-        alt: 'Hot-dip galvanized G.I. fence posts for chain link and welded mesh fencing in UAE',
-        caption: 'G.I. fence posts for corrosion-resistant outdoor fencing',
-      },
-      {
-        src: '/products/fence-posts/ms-fence-post-supplier-dubai-uae.webp',
-        alt: 'M.S. fence posts with powder coated and PVC coated finish for Dubai UAE projects',
-        caption: 'M.S. fence posts with powder coated, PVC coated or painted finishes',
-      },
-      {
-        src: '/products/fence-posts/pvc-fence-post-supplier-dubai-uae.webp',
-        alt: 'PVC fence posts for privacy, decorative, garden and boundary fencing in UAE',
-        caption: 'PVC fence posts for decorative, privacy, garden and boundary applications',
-      },
-    ],
-    specs: [
-      { label: 'Material options', value: 'G.I. galvanized steel, M.S. mild steel and PVC fence post options' },
-      { label: 'Profile options', value: 'Round, square, rectangular and project-specific customized profiles' },
-      { label: 'G.I. finish', value: 'Hot-dip galvanized finish for corrosion resistance and outdoor performance' },
-      { label: 'M.S. finish', value: 'Powder coated, PVC coated or painted mild steel finish options' },
-      { label: 'PVC finish', value: 'Smooth PVC or PVC coated finish with multiple color options' },
-      { label: 'Color options', value: 'G.I. silver, green, black, white and custom colors by project requirement' },
-      { label: 'Accessories', value: 'Compatible caps, clamps, brackets, rails and fixing accessories' },
-      { label: 'Installation', value: 'Embedded or surface-mounted installation based on site condition' },
-      { label: 'Customization', value: 'Profile, thickness, length, color and finish can be reviewed for the project' },
-    ],
-    materialOptions: [
-      {
-        title: 'G.I. Fence Posts',
-        description: 'Hot-dip galvanized fence posts for long-term outdoor performance where corrosion resistance is a priority.',
-        bullets: ['Galvanized finish', 'Round or square profiles', 'Suitable for chain-link and welded mesh fencing'],
-      },
-      {
-        title: 'M.S. Fence Posts',
-        description: 'Mild steel posts for fabricated fencing systems, available with powder coated, PVC coated or painted finishes.',
-        bullets: ['Strong mild steel construction', 'Finish and color options', 'Suitable for security and perimeter fencing'],
-      },
-      {
-        title: 'PVC Fence Posts',
-        description: 'Smooth PVC finish posts for decorative, privacy, garden, residential and boundary fencing applications.',
-        bullets: ['Smooth low-maintenance finish', 'Green, black, white or custom colors', 'Suitable for privacy and decorative fencing'],
-      },
-    ],
-    applications: [
-      { label: 'Chain-Link Fencing', href: '/products/chain-link-fence' },
-      { label: 'Welded Mesh Fencing', href: '/products/welded-mesh-fence' },
-      { label: 'Perimeter Fencing', href: '/applications/boundary-security-fencing' },
-      { label: 'Security Fencing', href: '/products/anti-climb-358-fence' },
-      { label: 'Privacy Fencing', href: '/applications/residential-fencing' },
-      { label: 'Decorative Fencing', href: '/applications/residential-fencing' },
-      { label: 'Industrial Facilities', href: '/applications/commercial-industrial' },
-      { label: 'Sports & Recreational Areas', href: '/applications/schools-public-parks' },
-    ],
-    internalLinks: [
-      { label: 'Chain Link Fence', href: '/products/chain-link-fence' },
-      { label: 'GI Chain Link Fence', href: '/products/gi-chain-link-fence' },
-      { label: 'PVC Coated Chain Link Fence', href: '/products/pvc-coated-chain-link-fence' },
-      { label: 'Welded Mesh Fence', href: '/products/welded-mesh-fence' },
-      { label: 'Anti-Climb 358 Fence', href: '/products/anti-climb-358-fence' },
-      { label: 'Request a Fence Post Quote', href: '/contact' },
-    ],
-    rfqChecklist: [
-      'Fence type: chain-link, welded mesh, PVC, privacy, decorative or security fencing',
-      'Post material: G.I., M.S. or PVC',
-      'Post profile: round, square, rectangular or custom profile',
-      'Required height, length, thickness and finish',
-      'Color requirement: G.I., green, black, white or custom color',
-      'Accessories: caps, clamps, brackets, rails, fixings and gates',
-      'Installation type: embedded or surface mounted',
-      'Project location, drawings, BOQ and delivery timeline',
-    ],
-    availableMarkets: [
-      { label: 'UAE', href: '/countries/uae' },
-      { label: 'Bahrain', href: '/countries/bahrain' },
-      { label: 'Qatar', href: '/countries/qatar' },
-      { label: 'Kuwait', href: '/countries/kuwait' },
-      { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
-      { label: 'Iraq', href: '/countries/iraq' },
-      { label: 'Oman', href: '/countries/oman' },
-      { label: 'Jordan', href: '/countries/jordan' },
-    ],
-    faqs: [
-      {
-        question: 'What are fence posts used for?',
-        answer:
-          'Fence posts provide the main structural support for fencing systems. They help keep chain-link, welded mesh, privacy, decorative, perimeter and security fencing stable and securely installed.',
-      },
-      {
-        question: 'Which fence post material should I choose: G.I., M.S. or PVC?',
-        answer:
-          'Choose G.I. fence posts for corrosion-resistant outdoor performance, M.S. fence posts for strong fabricated or coated steel fencing systems, and PVC fence posts for decorative, privacy, garden and low-maintenance boundary applications.',
-      },
-      {
-        question: 'Can SRK Fence supply round, square and rectangular fence posts?',
-        answer:
-          'Yes, SRK Fence can supply round, square, rectangular and customized fence post profiles based on the fence type, required height, finish, installation method and project specification.',
-      },
-      {
-        question: 'What accessories can be supplied with fence posts?',
-        answer:
-          'Fence posts can be supplied with compatible caps, clamps, brackets, rails, fixings and gate-related accessories depending on the fencing system and site requirement.',
-      },
-      {
-        question: 'What information is needed for a fence post quotation?',
-        answer:
-          'Share the fence type, post material, post profile, required height, length, thickness, color, finish, accessories, installation type, delivery location and drawings or BOQ if available.',
-      },
-    ],
-    buyerQuestions: [
-      {
-        question: 'Are fence posts available for GCC projects?',
-        answer:
-          'Yes. SRK Fence supplies G.I., M.S. and PVC fence posts for UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan project enquiries from its Dubai/UAE base.',
-      },
-      {
-        question: 'Can one post type work for every fence?',
-        answer:
-          'Not always. Chain-link, welded mesh, PVC, privacy, decorative and security fencing may require different post profiles, fixing accessories, foundations and gate support. The post should match the fence system and site condition.',
-      },
-    ],
-    rfqPrompt:
-      'Request a fence post quotation with material, profile, height, length, thickness, color, finish, accessories, installation type, delivery country and project drawings or BOQ for accurate review.',
   },
   {
     slug: 'gi-chain-link-fence',
@@ -795,6 +642,796 @@ export const productSeoPages: ProductSeoPage[] = [
   },
 ];
 
+const pdfMappedProductPageUpdates: Array<Pick<ProductSeoPage, 'slug'> & Partial<Omit<ProductSeoPage, 'slug'>>> = [
+  {
+    slug: 'anti-climb-358-fence',
+    image: "/products/pdf-mapped/anti-climb-358-fence/anti-climb-358-fence-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/anti-climb-358-fence/anti-climb-358-fence-01.webp", alt: "Anti-climb 358 security fence details and specification", caption: "Anti-climb 358 security fence details and specification" },
+      { src: "/products/pdf-mapped/anti-climb-358-fence/anti-climb-358-fence-02.webp", alt: "Anti-climb welded mesh fence installation examples", caption: "Anti-climb welded mesh fence installation examples" }
+    ],
+  },
+  {
+    slug: 'barbed-wire',
+    image: "/products/pdf-mapped/barbed-wire/barbed-wire-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/barbed-wire/barbed-wire-01.webp", alt: "G.I. and PVC coated barbed wire details", caption: "G.I. and PVC coated barbed wire details" },
+      { src: "/products/pdf-mapped/barbed-wire/barbed-wire-02.webp", alt: "G.I. and PVC barbed wire application examples", caption: "G.I. and PVC barbed wire application examples" }
+    ],
+  },
+  {
+    slug: 'razor-wire',
+    image: "/products/pdf-mapped/razor-wire/razor-wire-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/razor-wire/razor-wire-01.webp", alt: "Razor wire product details and material options", caption: "Razor wire product details and material options" },
+      { src: "/products/pdf-mapped/razor-wire/razor-wire-02.webp", alt: "Razor wire coils and diameter options", caption: "Razor wire coils and diameter options" }
+    ],
+  },
+  {
+    slug: 'temporary-fence-panels',
+    image: "/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-01.webp", alt: "Temporary fence panel system overview", caption: "Temporary fence panel system overview" },
+      { src: "/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-02.webp", alt: "Temporary fence panels product details", caption: "Temporary fence panels product details" },
+      { src: "/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-03.webp", alt: "Temporary fencing applications and finish options", caption: "Temporary fencing applications and finish options" }
+    ],
+  },
+  {
+    slug: 'fence-accessories',
+    image: "/products/pdf-mapped/fence-accessories/fence-accessories-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/fence-accessories/fence-accessories-01.webp", alt: "Fence accessories range for G.I. and PVC coated systems", caption: "Fence accessories range for G.I. and PVC coated systems" },
+      { src: "/products/pdf-mapped/fence-accessories/fence-accessories-02.webp", alt: "Fence accessory components and post cap options", caption: "Fence accessory components and post cap options" }
+    ],
+  },
+];
+
+const pdfMappedAdditionalProductPages: ProductSeoPage[] = [
+  {
+    slug: "fence-posts-gi-ms-pvc",
+    name: "G.I., M.S. and PVC Fence Posts",
+    category: "Fence Posts",
+    primaryKeyword: "GI MS PVC fence posts supplier UAE",
+    secondaryKeywords: ["fence posts supplier in Dubai", "GI fence post", "MS fence post", "PVC fence post", "fence post installation UAE"],
+    metaTitle: "G.I., M.S. & PVC Fence Posts Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies G.I., M.S. and PVC fence posts in UAE for chain link, welded mesh, security, residential and commercial fencing systems.",
+    h1: "G.I., M.S. and PVC Fence Posts Supplier in UAE",
+    shortDescription: "Fence post options in G.I., M.S. and PVC coated finishes for strong, corrosion-resistant and project-specific fencing systems.",
+    intro: "Fence posts provide the main structural support for chain-link fence, welded mesh fence, PVC fence, perimeter security systems and gate lines. SRK Fence supplies G.I., M.S. and PVC fence posts for UAE and GCC projects with round, square, Y-arm, base-plate and custom post options selected according to fence height, coating, wind exposure, gates and installation method.",
+    image: "/products/pdf-mapped/fence-posts-gi-ms-pvc/fence-posts-gi-ms-pvc-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/fence-posts-gi-ms-pvc/fence-posts-gi-ms-pvc-01.webp", alt: "Fence posts overview: G.I., M.S. and PVC post options", caption: "Fence posts overview: G.I., M.S. and PVC post options" },
+      { src: "/products/pdf-mapped/fence-posts-gi-ms-pvc/fence-posts-gi-ms-pvc-02.webp", alt: "G.I., M.S. and PVC fence post comparison graphic", caption: "G.I., M.S. and PVC fence post comparison graphic" },
+      { src: "/products/pdf-mapped/fence-posts-gi-ms-pvc/fence-posts-gi-ms-pvc-03.webp", alt: "G.I. galvanized fence post options", caption: "G.I. galvanized fence post options" },
+      { src: "/products/pdf-mapped/fence-posts-gi-ms-pvc/fence-posts-gi-ms-pvc-04.webp", alt: "M.S. mild steel fence post options", caption: "M.S. mild steel fence post options" },
+      { src: "/products/pdf-mapped/fence-posts-gi-ms-pvc/fence-posts-gi-ms-pvc-05.webp", alt: "PVC coated fence post options", caption: "PVC coated fence post options" }
+    ],
+    specs: [
+      { label: "Product options", value: "G.I. hot-dip galvanized, M.S. mild steel, PVC coated and powder coated posts" },
+      { label: "Post profiles", value: "Round posts, square posts, Y-arm posts and project-specific profiles" },
+      { label: "Finish options", value: "Hot-dip galvanized, powder coated, PVC coated or painted finish" },
+      { label: "Applications", value: "Chain-link fence, welded mesh fence, PVC fence, perimeter fence and security fencing" },
+      { label: "Customization", value: "Height, thickness, hole positions, brackets and base plates as per project requirement" },
+    ],
+    applications: [
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Schools & Public Parks", href: "/applications/schools-public-parks" },
+      { label: "Warehouses & Logistic Centers", href: "/applications/warehouses-logistic-centers" },
+    ],
+    internalLinks: [
+      { label: "Panel & Post System", href: "/products/panel-post-system" },
+      { label: "Clamps and Connectors", href: "/products/clamps-and-connectors" },
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: "UAE", href: "/countries/uae" },
+    ],
+    faqs: [
+      {
+        question: "What are G.I., M.S. and PVC fence posts used for?",
+        answer: "They are used to support chain-link fencing, welded mesh fencing, PVC fencing, gate systems and perimeter security lines.",
+      },
+      {
+        question: "Which fence post finish should I choose?",
+        answer: "G.I. posts are selected for galvanized corrosion resistance, M.S. posts are selected for strength and coated finishes, and PVC coated posts are selected for a cleaner visual finish and added surface protection.",
+      },
+      {
+        question: "What details are needed for a fence post quotation?",
+        answer: "Share fence type, height, running metres, post spacing, coating, gate requirement, base plate or embedded installation and delivery location.",
+      },
+    ],
+    rfqPrompt: "For a fence post quotation, share the post type, fence height, length, coating, post spacing, accessories, gate requirement and delivery or installation location.",
+  },
+  {
+    slug: "panel-post-system",
+    name: "Panel & Post System",
+    category: "Panel Fencing",
+    primaryKeyword: "panel and post system supplier UAE",
+    secondaryKeywords: ["panel post fencing Dubai", "welded mesh panel post system", "modular fencing system UAE"],
+    metaTitle: "Panel & Post System Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies panel and post systems in UAE for welded mesh, chain-link, G.I. hoarding and PVC coated fencing applications.",
+    h1: "Panel & Post System Supplier in UAE",
+    shortDescription: "Complete modular panel and post fencing systems with posts, panels, clamps, base plates and fixing accessories.",
+    intro: "Panel and post systems combine rigid fence panels with compatible posts, base plates, clips, clamps and gates to create a stable perimeter solution. They are used for commercial, industrial, infrastructure, school, warehouse and residential projects where quick assembly, neat appearance and strong panel-to-post connection matter.",
+    image: "/products/pdf-mapped/panel-post-system/panel-post-system-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/panel-post-system/panel-post-system-01.webp", alt: "Panel and post system overview", caption: "Panel and post system overview" },
+      { src: "/products/pdf-mapped/panel-post-system/panel-post-system-02.webp", alt: "Panel and post installation and component details", caption: "Panel and post installation and component details" }
+    ],
+    specs: [
+      { label: "System type", value: "Welded mesh, chain-link, G.I. hoarding and PVC coated panel options" },
+      { label: "Post options", value: "Square, round or profile posts with base plate, embedded or wall-mount options" },
+      { label: "Finish", value: "G.I., hot-dip galvanized, PVC coated, powder coated or custom finish" },
+      { label: "Components", value: "Fence panels, posts, post caps, clamps, base plates, bolts and nuts" },
+      { label: "Customization", value: "Panel height, width, wire size, color, coating and gate openings" },
+    ],
+    applications: [
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Warehouses & Logistic Centers", href: "/applications/warehouses-logistic-centers" },
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+      { label: "Schools & Public Parks", href: "/applications/schools-public-parks" },
+    ],
+    internalLinks: [
+      { label: "Fence Posts", href: "/products/fence-posts-gi-ms-pvc" },
+      { label: "Rectangle Mesh Fence", href: "/products/rectangle-mesh-fence" },
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What is a panel and post fencing system?",
+        answer: "It is a modular fence system made from panels, posts and fixing accessories designed to create a stable perimeter.",
+      },
+      {
+        question: "Can the panel and post system be customized?",
+        answer: "Yes, panel height, post profile, coating, color, base plate, gate openings and accessories can be customized to project requirements.",
+      },
+      {
+        question: "Where is a panel and post system used?",
+        answer: "It is used for factories, warehouses, public areas, residential compounds, infrastructure and commercial boundaries.",
+      },
+    ],
+    rfqPrompt: "Send panel height, fence length, mesh or panel type, post type, coating, color, gate locations and installation scope for a panel and post system quote.",
+  },
+  {
+    slug: "high-security-gate-systems",
+    name: "High-Security Gate Systems",
+    category: "Gate Systems",
+    primaryKeyword: "high security gate systems UAE",
+    secondaryKeywords: ["security gate supplier Dubai", "industrial sliding gate UAE", "fence swing gate supplier"],
+    metaTitle: "High-Security Gate Systems UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies high-security swing gates, sliding gates and controlled access gate systems for industrial, commercial and security perimeters in UAE.",
+    h1: "High-Security Gate Systems Supplier in UAE",
+    shortDescription: "Swing and sliding gate systems for controlled access, heavy-duty construction and secure perimeter entry points.",
+    intro: "High-security gate systems help control vehicle and pedestrian access at industrial facilities, warehouses, commercial complexes, infrastructure perimeters and restricted zones. SRK Fence supports swing gates, sliding gates, compatible posts, hinges, drop bolts, locks, automation-ready designs and security accessories based on project specification.",
+    image: "/products/pdf-mapped/high-security-gate-systems/high-security-gate-systems-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/high-security-gate-systems/high-security-gate-systems-01.webp", alt: "High-security gate system overview", caption: "High-security gate system overview" },
+      { src: "/products/pdf-mapped/high-security-gate-systems/high-security-gate-systems-02.webp", alt: "High-security gate system installation options", caption: "High-security gate system installation options" }
+    ],
+    specs: [
+      { label: "Gate types", value: "Swing gates, sliding gates, pedestrian gates and vehicle gates" },
+      { label: "Compatibility", value: "Chain-link fence, welded mesh fence, panel and post systems and wall-top security" },
+      { label: "Finish", value: "Hot-dip galvanized, powder coated, PVC coated or painted finish" },
+      { label: "Hardware", value: "Hinges, locks, handles, drop rods, latches, rollers and brackets" },
+      { label: "Options", value: "Manual or automated gate provisions as per project requirement" },
+    ],
+    applications: [
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Warehouses & Logistic Centers", href: "/applications/warehouses-logistic-centers" },
+      { label: "Data Centers", href: "/applications/data-centers" },
+      { label: "Oil & Gas Sector", href: "/applications/oil-gas-sector" },
+    ],
+    internalLinks: [
+      { label: "Gate Hinges", href: "/products/gate-hinges" },
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: "Panel & Post System", href: "/products/panel-post-system" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What types of high-security gates are available?",
+        answer: "SRK Fence can support swing gates, sliding gates, pedestrian gates and vehicle access gates depending on site layout.",
+      },
+      {
+        question: "Can gates be supplied with fence systems?",
+        answer: "Yes, gates can be integrated with chain-link, welded mesh, panel and post and high-security fence systems.",
+      },
+      {
+        question: "What details are required for a gate quote?",
+        answer: "Share gate opening width, height, type, manual or automation requirement, fence system, finish, lock hardware and site location.",
+      },
+    ],
+    rfqPrompt: "For a high-security gate quote, share gate width, height, swing or sliding type, finish, hardware, access-control requirement and drawings if available.",
+  },
+  {
+    slug: "base-plates",
+    name: "Base Plates",
+    category: "Fence Accessories",
+    primaryKeyword: "fence base plates supplier UAE",
+    secondaryKeywords: ["post base plate Dubai", "galvanized base plate", "powder coated base plate"],
+    metaTitle: "Fence Base Plates Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies G.I., hot-dip galvanized, M.S. and powder coated base plates for fence posts, gates, railings and panel systems.",
+    h1: "Fence Base Plates Supplier in UAE",
+    shortDescription: "Strong base plates for secure post mounting in G.I., hot-dip galvanized, M.S. and powder coated finishes.",
+    intro: "Base plates are used to fix fence posts, gates, railings and support sections to concrete, steel, masonry or other prepared surfaces. SRK Fence supplies base plate options for round posts, square posts, angled supports and custom fixing arrangements, with finish selection based on exposure and project requirement.",
+    image: "/products/pdf-mapped/base-plates/base-plates-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/base-plates/base-plates-01.webp", alt: "Base plates product range and finish options", caption: "Base plates product range and finish options" },
+      { src: "/products/pdf-mapped/base-plates/base-plates-02.webp", alt: "Base plate and mounting detail options", caption: "Base plate and mounting detail options" }
+    ],
+    specs: [
+      { label: "Finish options", value: "G.I. galvanized, hot-dip galvanized, M.S. mild steel and powder coated green" },
+      { label: "Post compatibility", value: "Round posts, square posts, plate posts and custom post sections" },
+      { label: "Use case", value: "Fence post mounting, gate posts, railings and support brackets" },
+      { label: "Installation", value: "Bolt-down, weld-on or project-specific fixing method" },
+      { label: "Customization", value: "Plate size, thickness, hole pattern, post sleeve and gusset design" },
+    ],
+    applications: [
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Warehouses & Logistic Centers", href: "/applications/warehouses-logistic-centers" },
+    ],
+    internalLinks: [
+      { label: "Fence Posts", href: "/products/fence-posts-gi-ms-pvc" },
+      { label: "Panel & Post System", href: "/products/panel-post-system" },
+      { label: "Fasteners / Bolts", href: "/products/fasteners-bolts" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What are fence base plates used for?",
+        answer: "Base plates are used to mount fence posts, gate posts and railing supports to prepared surfaces.",
+      },
+      {
+        question: "Can base plates be customized?",
+        answer: "Yes, plate size, thickness, holes, post sleeve and finish can be customized by requirement.",
+      },
+      {
+        question: "Which finish is suitable for outdoor base plates?",
+        answer: "G.I., hot-dip galvanized or powder coated finishes are commonly reviewed for outdoor projects.",
+      },
+    ],
+    rfqPrompt: "Share post size, base plate type, plate thickness, hole pattern, finish, quantity and mounting surface for a base plate quote.",
+  },
+  {
+    slug: "gate-hinges",
+    name: "Gate Hinges",
+    category: "Gate Hardware",
+    primaryKeyword: "fence gate hinges supplier UAE",
+    secondaryKeywords: ["gate hinge Dubai", "heavy duty gate hinge", "spring loaded gate hinge"],
+    metaTitle: "Fence Gate Hinges Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies heavy-duty, adjustable, spring-loaded and weld-on gate hinges for secure fence gates and industrial access points.",
+    h1: "Fence Gate Hinges Supplier in UAE",
+    shortDescription: "Heavy-duty gate hinge options for swing gates, chain-link gates, welded mesh gates and secure fence access points.",
+    intro: "Gate hinges are critical hardware components that allow fence gates to open, close and align correctly. SRK Fence supplies hinge options for chain-link gates, welded mesh gates, security gates and industrial access points, including heavy-duty, adjustable, spring-loaded and weld-on hinge designs.",
+    image: "/products/pdf-mapped/gate-hinges/gate-hinges-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/gate-hinges/gate-hinges-01.webp", alt: "Fence gate hinges overview and hinge types", caption: "Fence gate hinges overview and hinge types" }
+    ],
+    specs: [
+      { label: "Hinge types", value: "Heavy-duty, adjustable, spring-loaded and weld-on gate hinges" },
+      { label: "Material", value: "Galvanized steel, M.S. and coated options by requirement" },
+      { label: "Compatibility", value: "Chain-link gates, welded mesh gates, panel gates and security gates" },
+      { label: "Applications", value: "Top and bottom hinges for pedestrian and vehicle gate systems" },
+      { label: "Options", value: "Custom hole spacing, pin sizes, mounting plates and coating finishes" },
+    ],
+    applications: [
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Warehouses & Logistic Centers", href: "/applications/warehouses-logistic-centers" },
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+    ],
+    internalLinks: [
+      { label: "High-Security Gate Systems", href: "/products/high-security-gate-systems" },
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: "Fasteners / Bolts", href: "/products/fasteners-bolts" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What gate hinges does SRK Fence supply?",
+        answer: "SRK Fence can supply heavy-duty, adjustable, spring-loaded and weld-on hinges for fence gates.",
+      },
+      {
+        question: "Are gate hinges available in galvanized finish?",
+        answer: "Yes, galvanized and coated hinge options can be reviewed based on project requirement.",
+      },
+      {
+        question: "What details are needed for gate hinges?",
+        answer: "Share gate size, weight, post type, hinge type, finish and quantity.",
+      },
+    ],
+    rfqPrompt: "For gate hinge pricing, share gate dimensions, gate weight, post type, hinge style, finish and project quantity.",
+  },
+  {
+    slug: "post-and-railing-system",
+    name: "Post & Rail System",
+    category: "Chain-Link Accessories",
+    primaryKeyword: "chain link fence post and rail system UAE",
+    secondaryKeywords: ["post rail system Dubai", "chain link top rail", "fence rail system supplier"],
+    metaTitle: "Post & Rail System UAE | Chain-Link Fence Posts & Rails",
+    metaDescription: "SRK Fence supplies post and rail systems for chain-link fencing with G.I., PVC coated and powder coated options for UAE projects.",
+    h1: "Post & Rail System for Chain-Link Fencing",
+    shortDescription: "Fence posts, top rails, clamps and support rails for durable chain-link perimeter systems.",
+    intro: "A chain-link fence post and rail system uses vertical posts, top rails, clamps and connectors to provide structure and alignment for chain-link mesh. The system can be supplied in G.I. finish, PVC coated or powder coated finishes depending on project exposure, visual requirement and installation method.",
+    image: "/products/pdf-mapped/post-and-railing-system/post-and-railing-system-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/post-and-railing-system/post-and-railing-system-01.webp", alt: "Post and rail chain-link fencing installation examples", caption: "Post and rail chain-link fencing installation examples" },
+      { src: "/products/pdf-mapped/post-and-railing-system/post-and-railing-system-02.webp", alt: "G.I. finish and PVC coated post-and-rail comparison", caption: "G.I. finish and PVC coated post-and-rail comparison" }
+    ],
+    specs: [
+      { label: "System components", value: "Posts, top rails, tension bars, U-bolts, band clamps and fixing accessories" },
+      { label: "Finish options", value: "G.I. galvanized, PVC coated green and powder coated black or custom colors" },
+      { label: "Installation", value: "Embedded, bolt-down or project-specific mounting" },
+      { label: "Use case", value: "Chain-link fence lines, wall-top fencing and perimeter security" },
+      { label: "Customization", value: "Post diameter, rail diameter, height, bracket type and finish" },
+    ],
+    applications: [
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Farms & Animal Enclosures", href: "/applications/farms-animal-enclosures" },
+    ],
+    internalLinks: [
+      { label: "Chain Link Fence", href: "/products/chain-link-fence" },
+      { label: "G.I. Chain Link Fence", href: "/products/gi-chain-link-fence" },
+      { label: "Clamps and Connectors", href: "/products/clamps-and-connectors" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What is a post and rail system?",
+        answer: "It is a structural support system for chain-link fencing that uses posts, rails and fixing accessories.",
+      },
+      {
+        question: "Can post and rail systems be PVC coated?",
+        answer: "Yes, G.I., PVC coated and powder coated finishes can be reviewed.",
+      },
+      {
+        question: "What details are required for post and rail quotation?",
+        answer: "Share fence length, height, post spacing, rail diameter, coating and gate requirement.",
+      },
+    ],
+    rfqPrompt: "Request a post and rail quote with fence length, height, post profile, rail size, coating, clamps and delivery location.",
+  },
+  {
+    slug: "pvc-decorative-fence",
+    name: "PVC Decorative Fence",
+    category: "PVC Fencing",
+    primaryKeyword: "PVC decorative fence supplier UAE",
+    secondaryKeywords: ["decorative PVC fence Dubai", "PVC picket fence UAE", "PVC fence installation"],
+    metaTitle: "PVC Decorative Fence Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies PVC decorative fencing in UAE for villas, gardens, parks, pool areas, boundary walls and residential privacy applications.",
+    h1: "PVC Decorative Fence Supplier in UAE",
+    shortDescription: "Stylish, durable and low-maintenance PVC decorative fences with multiple panel styles, colors and height options.",
+    intro: "PVC decorative fencing is used where buyers need a clean, lightweight, corrosion-resistant and low-maintenance visual boundary. SRK Fence supports decorative, picket, rail, privacy and semi-privacy PVC fence panel options for residential, commercial, garden, pool and boundary applications.",
+    image: "/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-01.webp", alt: "PVC decorative fence details and style options", caption: "PVC decorative fence details and style options" },
+      { src: "/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-02.webp", alt: "PVC decorative fence applications and components", caption: "PVC decorative fence applications and components" },
+      { src: "/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-03.webp", alt: "PVC decorative fence landscape application", caption: "PVC decorative fence landscape application" }
+    ],
+    specs: [
+      { label: "Material", value: "High-quality PVC / virgin vinyl style material by requirement" },
+      { label: "Fence types", value: "Decorative, picket, rail, privacy and semi-privacy options" },
+      { label: "Common heights", value: "1200mm, 1500mm, 1800mm and 2000mm or custom" },
+      { label: "Colors", value: "White, beige, clay, grey, taupe, dark grey and custom colors" },
+      { label: "Components", value: "PVC panel, PVC post, top and bottom rails, caps, brackets and fixings" },
+    ],
+    applications: [
+      { label: "Residential Fencing", href: "/applications/residential-fencing" },
+      { label: "Schools & Public Parks", href: "/applications/schools-public-parks" },
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+    ],
+    internalLinks: [
+      { label: "PVC Privacy Fence", href: "/products/pvc-privacy-fence" },
+      { label: "PVC Coated Chain Link Fence", href: "/products/pvc-coated-chain-link-fence" },
+      { label: "Fence Posts", href: "/products/fence-posts-gi-ms-pvc" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "Where is PVC decorative fence used?",
+        answer: "It is used for villas, gardens, parks, pool areas, boundary walls and residential or commercial decorative screening.",
+      },
+      {
+        question: "Is PVC decorative fence low maintenance?",
+        answer: "Yes, PVC fence is generally selected for clean appearance, weather resistance and low maintenance compared with painted metal or timber-style systems.",
+      },
+      {
+        question: "Can PVC decorative fence be customized?",
+        answer: "Panel style, color, height, rails, posts and accessories can be reviewed by project requirement.",
+      },
+    ],
+    rfqPrompt: "For PVC decorative fence pricing, share fence length, height, panel style, color, post type, gates and installation location.",
+  },
+  {
+    slug: "pvc-privacy-fence",
+    name: "PVC Privacy Fence",
+    category: "PVC Fencing",
+    primaryKeyword: "PVC privacy fence supplier UAE",
+    secondaryKeywords: ["privacy fence Dubai", "PVC villa fence UAE", "PVC privacy panels"],
+    metaTitle: "PVC Privacy Fence Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies PVC privacy fence systems for villas, pools, gardens, residential boundaries and commercial screening projects in UAE.",
+    h1: "PVC Privacy Fence Supplier in UAE",
+    shortDescription: "PVC privacy fencing for clean visual screening, low maintenance, multiple colors and residential or commercial boundaries.",
+    intro: "PVC privacy fencing creates a solid visual boundary for villas, gardens, pool areas, patios and commercial screening projects. SRK Fence can review panel heights, post styles, color options, rail details and component supply for privacy-focused fence applications.",
+    image: "/products/pdf-mapped/pvc-privacy-fence/pvc-privacy-fence-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/pvc-privacy-fence/pvc-privacy-fence-01.webp", alt: "PVC privacy fence overview and color options", caption: "PVC privacy fence overview and color options" },
+      { src: "/products/pdf-mapped/pvc-privacy-fence/pvc-privacy-fence-02.webp", alt: "PVC privacy fence installation and applications", caption: "PVC privacy fence installation and applications" }
+    ],
+    specs: [
+      { label: "System components", value: "PVC posts, privacy panels, top and bottom rails, caps, brackets and fixings" },
+      { label: "Finish", value: "Smooth, clean and low-maintenance PVC finish" },
+      { label: "Color options", value: "White, beige, grey, brown, black and custom colors where available" },
+      { label: "Applications", value: "Villas, gardens, pool areas, patios, residential boundaries and commercial screening" },
+      { label: "Customization", value: "Panel height, panel style, color and gate arrangement" },
+    ],
+    applications: [
+      { label: "Residential Fencing", href: "/applications/residential-fencing" },
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Schools & Public Parks", href: "/applications/schools-public-parks" },
+    ],
+    internalLinks: [
+      { label: "PVC Decorative Fence", href: "/products/pvc-decorative-fence" },
+      { label: "PVC Fence Posts", href: "/products/fence-posts-gi-ms-pvc" },
+      { label: "PVC Coated Chain Link Fence", href: "/products/pvc-coated-chain-link-fence" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What is PVC privacy fence used for?",
+        answer: "PVC privacy fence is used to create visual screening and clean boundary separation for residential and commercial spaces.",
+      },
+      {
+        question: "What colors are available?",
+        answer: "Common color options include white, beige, grey, brown and black, with custom colors reviewed by project requirement.",
+      },
+      {
+        question: "Can PVC privacy fence be supplied with posts and rails?",
+        answer: "Yes, systems can include posts, panels, rails, caps, brackets and fixings.",
+      },
+    ],
+    rfqPrompt: "Share fence length, height, color, panel type, gate requirement and delivery or installation location for a PVC privacy fence quote.",
+  },
+  {
+    slug: "fasteners-bolts",
+    name: "Fasteners / Bolts",
+    category: "Fence Accessories",
+    primaryKeyword: "fence fasteners bolts supplier UAE",
+    secondaryKeywords: ["fence bolts Dubai", "stainless steel fasteners UAE", "hex bolts nuts washers fence"],
+    metaTitle: "Fence Fasteners & Bolts Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies fasteners, bolts, nuts, washers, anchors, U-bolts and threaded rods for fence systems, gates and accessories.",
+    h1: "Fence Fasteners and Bolts Supplier in UAE",
+    shortDescription: "Fasteners, bolts, nuts, washers, anchors and fixing hardware for secure fencing and gate installation.",
+    intro: "Fence fasteners and bolts are used to assemble posts, panels, clamps, base plates, gates, hinges and accessories. SRK Fence supports project-specific fastening hardware including hex bolts, nuts, washers, anchors, U-bolts, carriage bolts, machine screws, self-drilling screws and threaded rods.",
+    image: "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp", alt: "Fasteners and bolts product range", caption: "Fasteners and bolts product range" },
+      { src: "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-02.webp", alt: "Fence fastener and bolt options", caption: "Fence fastener and bolt options" }
+    ],
+    specs: [
+      { label: "Types", value: "Hex bolts, nuts, washers, U-bolts, carriage bolts, anchors, threaded rods and screws" },
+      { label: "Use case", value: "Fence posts, gate hardware, base plates, clamps, connectors and panels" },
+      { label: "Finish", value: "Galvanized, stainless steel or coated options by exposure requirement" },
+      { label: "Compatibility", value: "Chain-link, welded mesh, panel post systems, gates and accessories" },
+      { label: "Customization", value: "Size, length, thread, coating and pack quantity" },
+    ],
+    applications: [
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+      { label: "Warehouses & Logistic Centers", href: "/applications/warehouses-logistic-centers" },
+    ],
+    internalLinks: [
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: "Base Plates", href: "/products/base-plates" },
+      { label: "Gate Hinges", href: "/products/gate-hinges" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "Which fasteners are used in fence systems?",
+        answer: "Fence systems commonly use bolts, nuts, washers, anchors, U-bolts, self-drilling screws and threaded rods.",
+      },
+      {
+        question: "Can fasteners be supplied in galvanized finish?",
+        answer: "Yes, galvanized and stainless steel options can be reviewed depending on site exposure.",
+      },
+      {
+        question: "What information is needed for a fastener quote?",
+        answer: "Share fastener type, size, finish, quantity and application area.",
+      },
+    ],
+    rfqPrompt: "For fasteners and bolts, share item type, size, finish, quantity, application and delivery location.",
+  },
+  {
+    slug: "coating-materials",
+    name: "Coating Materials",
+    category: "Coating & Finish",
+    primaryKeyword: "fence coating materials supplier UAE",
+    secondaryKeywords: ["PVC coating material", "powder coating fence Dubai", "galvanized coating materials"],
+    metaTitle: "Fence Coating Materials UAE | SRK Fence",
+    metaDescription: "SRK Fence supports coating material requirements for PVC coating, PE coating, powder coating, galvanizing, primer, thinner, cleaner and touch-up paint.",
+    h1: "Fence Coating Materials Supplier in UAE",
+    shortDescription: "Protective coating materials and finishing support for fencing, posts, panels, wires and accessories.",
+    intro: "Coating materials help protect fence systems against weather, corrosion and handling wear. SRK Fence can review protective coating requirements including PVC coating, PE coating, powder coating, zinc coating, galvanizing, primer, touch-up paint, thinner, cleaner and packaging requirements based on project specification.",
+    image: "/products/pdf-mapped/coating-materials/coating-materials-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/coating-materials/coating-materials-01.webp", alt: "Coating materials, touch-up and finishing support", caption: "Coating materials, touch-up and finishing support" },
+      { src: "/products/pdf-mapped/coating-materials/coating-materials-02.webp", alt: "Different coatings for long-lasting protection", caption: "Different coatings for long-lasting protection" },
+      { src: "/products/pdf-mapped/coating-materials/coating-materials-03.webp", alt: "Coating process and component materials", caption: "Coating process and component materials" }
+    ],
+    specs: [
+      { label: "Coating options", value: "PVC coating, PE coating, powder coating, zinc coating and galvanizing" },
+      { label: "Support items", value: "Primer, touch-up paint, thinner, cleaner and packaging materials" },
+      { label: "Applications", value: "Chain-link fence, welded mesh fence, fence posts, wires, panels and accessories" },
+      { label: "Purpose", value: "Improved appearance, corrosion resistance and longer service life" },
+      { label: "Customization", value: "Color, coating type, project quantity and packaging" },
+    ],
+    applications: [
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+      { label: "Oil & Gas Sector", href: "/applications/oil-gas-sector" },
+    ],
+    internalLinks: [
+      { label: "Colors & Coating Options", href: "/products/color-and-coating-options" },
+      { label: "Fence Posts", href: "/products/fence-posts-gi-ms-pvc" },
+      { label: "Panel & Post System", href: "/products/panel-post-system" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "Why are coating materials important for fencing?",
+        answer: "Coatings help protect steel fencing products from corrosion and improve appearance in outdoor environments.",
+      },
+      {
+        question: "Which coating options are available?",
+        answer: "PVC coating, PE coating, powder coating, zinc coating and galvanizing can be reviewed by project requirement.",
+      },
+      {
+        question: "Can SRK Fence support custom coating colors?",
+        answer: "Yes, custom colors can be reviewed depending on product type, quantity and coating process.",
+      },
+    ],
+    rfqPrompt: "Share coating type, product application, color, quantity, finish requirement and packaging need for coating material support.",
+  },
+  {
+    slug: "color-and-coating-options",
+    name: "Color & Coating Options",
+    category: "Coating & Finish",
+    primaryKeyword: "fence color coating options UAE",
+    secondaryKeywords: ["galvanized fence coating", "PVC coated fence colors", "powder coated fencing UAE"],
+    metaTitle: "Fence Color & Coating Options UAE | SRK Fence",
+    metaDescription: "Compare galvanized, PVC coated, powder coated and custom color options for SRK Fence products in UAE and GCC projects.",
+    h1: "Fence Color and Coating Options",
+    shortDescription: "Visible comparison of galvanized, PVC coated, powder coated and custom color finishes for fence systems.",
+    intro: "Color and coating selection affects service life, appearance and maintenance planning for fence systems. SRK Fence can review galvanized, PVC coated, powder coated and custom RAL-style color finishes depending on the material, application, exposure and buyer requirements.",
+    image: "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-01.webp", alt: "Color and coating options overview", caption: "Color and coating options overview" },
+      { src: "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-02.webp", alt: "Fence coating and color swatches", caption: "Fence coating and color swatches" }
+    ],
+    specs: [
+      { label: "Finish options", value: "Galvanized G.I., PVC coated, powder coated and G.I. powder coated options" },
+      { label: "Color options", value: "Dark green, black, grey, white, blue, red, beige, ivory, brown and sandstone" },
+      { label: "Use case", value: "Fence and gate systems, posts, mesh panels, chain-link and accessories" },
+      { label: "Selection factors", value: "Site exposure, corrosion protection, visual finish and project budget" },
+      { label: "Customization", value: "Custom colors and coating thickness by project requirement" },
+    ],
+    applications: [
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Residential Fencing", href: "/applications/residential-fencing" },
+      { label: "Schools & Public Parks", href: "/applications/schools-public-parks" },
+    ],
+    internalLinks: [
+      { label: "Coating Materials", href: "/products/coating-materials" },
+      { label: "PVC Coated Chain Link Fence", href: "/products/pvc-coated-chain-link-fence" },
+      { label: "Fence Posts", href: "/products/fence-posts-gi-ms-pvc" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "Which fence coating is best for outdoor use?",
+        answer: "The best coating depends on exposure. Galvanizing provides corrosion resistance, while PVC and powder coating add finish options and visual appeal.",
+      },
+      {
+        question: "Can fence colors be customized?",
+        answer: "Yes, color options can be reviewed depending on product type, quantity and coating process.",
+      },
+      {
+        question: "Are coating options shown visibly on the page?",
+        answer: "Yes, the page includes visible color and coating images rather than hidden SEO text.",
+      },
+    ],
+    rfqPrompt: "For coating options, share product type, color, finish requirement, exposure condition, quantity and site location.",
+  },
+  {
+    slug: "rectangle-mesh-fence",
+    name: "Rectangle Mesh Fence",
+    category: "Welded Mesh Fencing",
+    primaryKeyword: "rectangle mesh fence supplier UAE",
+    secondaryKeywords: ["rectangular mesh fence Dubai", "welded rectangle mesh", "mesh panel fence UAE"],
+    metaTitle: "Rectangle Mesh Fence Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies rectangle mesh fence systems for boundary fencing, commercial projects, industrial sites and perimeter security in UAE.",
+    h1: "Rectangle Mesh Fence Supplier in UAE",
+    shortDescription: "Rectangular welded mesh fencing for strong, durable and corrosion-resistant perimeter protection.",
+    intro: "Rectangle mesh fence is a welded wire fencing system that uses rectangular openings to create a rigid, clean and durable boundary. It is commonly used for commercial, industrial, institutional, sports, boundary and security applications where visibility and panel stability are needed.",
+    image: "/products/pdf-mapped/rectangle-mesh-fence/rectangle-mesh-fence-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/rectangle-mesh-fence/rectangle-mesh-fence-01.webp", alt: "Rectangle mesh fence system and component views", caption: "Rectangle mesh fence system and component views" },
+      { src: "/products/pdf-mapped/rectangle-mesh-fence/rectangle-mesh-fence-02.webp", alt: "Rectangle mesh fence installation examples", caption: "Rectangle mesh fence installation examples" }
+    ],
+    specs: [
+      { label: "Mesh type", value: "Rectangular welded mesh panel or roll-based system by requirement" },
+      { label: "Finish", value: "Hot-dip galvanized, PVC coated, powder coated or custom coating" },
+      { label: "Post options", value: "Square, round or profile posts with base plates and clamps" },
+      { label: "Applications", value: "Boundary fencing, industrial fencing, sports facilities and commercial perimeters" },
+      { label: "Customization", value: "Mesh opening, wire diameter, panel height, color and post system" },
+    ],
+    applications: [
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Schools & Public Parks", href: "/applications/schools-public-parks" },
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+    ],
+    internalLinks: [
+      { label: "Welded Mesh Fence", href: "/products/welded-mesh-fence" },
+      { label: "Panel & Post System", href: "/products/panel-post-system" },
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What is rectangle mesh fence?",
+        answer: "Rectangle mesh fence is a welded mesh system with rectangular openings used for durable boundary and perimeter applications.",
+      },
+      {
+        question: "Can rectangle mesh be coated?",
+        answer: "Yes, galvanized, PVC coated and powder coated options can be reviewed.",
+      },
+      {
+        question: "Where is rectangle mesh fence used?",
+        answer: "It is used for factories, schools, parks, commercial sites, residential boundaries and general perimeter fencing.",
+      },
+    ],
+    rfqPrompt: "Share fence length, height, mesh opening, wire diameter, coating, post type and gate requirement for rectangle mesh fence pricing.",
+  },
+  {
+    slug: "gabion-wall",
+    name: "Gabion Wall & Fencing",
+    category: "Gabion Systems",
+    primaryKeyword: "gabion wall supplier UAE",
+    secondaryKeywords: ["gabion fencing UAE", "stone gabion wall Dubai", "gabion retaining wall"],
+    metaTitle: "Gabion Wall & Fencing Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies gabion wall and fencing solutions for retaining, landscape, boundary and security applications in UAE and GCC projects.",
+    h1: "Gabion Wall and Fencing Supplier in UAE",
+    shortDescription: "Gabion wall systems for durable retaining, landscape, boundary and integrated fence applications.",
+    intro: "Gabion wall and fencing systems use wire mesh baskets filled with stone to create robust retaining walls, landscape boundaries and architectural perimeter features. SRK Fence can review gabion wall layouts with welded mesh, chain-link, security fence or gate integration depending on the project requirement.",
+    image: "/products/pdf-mapped/gabion-wall/gabion-wall-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/gabion-wall/gabion-wall-01.webp", alt: "Gabion wall and fencing overview", caption: "Gabion wall and fencing overview" },
+      { src: "/products/pdf-mapped/gabion-wall/gabion-wall-02.webp", alt: "Gabion wall landscape and boundary applications", caption: "Gabion wall landscape and boundary applications" }
+    ],
+    specs: [
+      { label: "System type", value: "Wire mesh gabion baskets filled with stone or project-selected aggregate" },
+      { label: "Applications", value: "Retaining walls, boundary walls, landscape features and security fence bases" },
+      { label: "Fence integration", value: "Welded mesh, chain-link, panel systems or gate sections above gabion wall" },
+      { label: "Finish", value: "Galvanized or PVC coated mesh options based on exposure" },
+      { label: "Customization", value: "Basket size, mesh type, stone selection, wall height and fence integration" },
+    ],
+    applications: [
+      { label: "Residential Fencing", href: "/applications/residential-fencing" },
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+    ],
+    internalLinks: [
+      { label: "Welded Mesh Fence", href: "/products/welded-mesh-fence" },
+      { label: "Panel & Post System", href: "/products/panel-post-system" },
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What is a gabion wall?",
+        answer: "A gabion wall is made from wire mesh baskets filled with stone to form a durable retaining or boundary structure.",
+      },
+      {
+        question: "Can fencing be added above a gabion wall?",
+        answer: "Yes, welded mesh, chain-link or security fencing can be integrated above a gabion wall if the structure is designed accordingly.",
+      },
+      {
+        question: "What details are required for a gabion wall quote?",
+        answer: "Share wall length, height, basket size, mesh finish, stone requirement, fence integration and site location.",
+      },
+    ],
+    rfqPrompt: "For gabion wall pricing, share length, height, basket size, stone requirement, mesh finish, fence integration and project location.",
+  },
+  {
+    slug: "clamps-and-connectors",
+    name: "Clamps & Connectors",
+    category: "Fence Accessories",
+    primaryKeyword: "fence clamps connectors supplier UAE",
+    secondaryKeywords: ["chain link clamps Dubai", "welded fence connectors", "fence fixing accessories"],
+    metaTitle: "Fence Clamps & Connectors Supplier UAE | SRK Fence",
+    metaDescription: "SRK Fence supplies clamps and connectors for chain-link fence, welded mesh fence, posts, rails, gates and panel systems in UAE.",
+    h1: "Fence Clamps and Connectors Supplier in UAE",
+    shortDescription: "Powder coated and galvanized clamps, connectors and fixing accessories for chain-link and welded fence systems.",
+    intro: "Clamps and connectors are used to secure fence posts, rails, mesh panels, brackets, gate hardware and accessories. SRK Fence supplies clamp and connector options for chain-link, welded mesh, panel and post systems, G.I. finishes and powder coated applications.",
+    image: "/products/pdf-mapped/clamps-and-connectors/clamps-and-connectors-01.webp",
+    galleryImages: [
+      { src: "/products/pdf-mapped/clamps-and-connectors/clamps-and-connectors-01.webp", alt: "Clamps and connectors overview", caption: "Clamps and connectors overview" },
+      { src: "/products/pdf-mapped/clamps-and-connectors/clamps-and-connectors-02.webp", alt: "Powder coated and galvanized clamps and connectors", caption: "Powder coated and galvanized clamps and connectors" }
+    ],
+    specs: [
+      { label: "Types", value: "Rail clamps, band clamps, U-bolt clamps, saddle clamps, brackets and connector plates" },
+      { label: "Finish options", value: "M.S. galvanized, powder coated green and custom coatings by requirement" },
+      { label: "Compatibility", value: "Chain-link fencing, welded mesh fencing, posts, rails and gate systems" },
+      { label: "Use case", value: "Panel fixing, rail fixing, post connection and accessory mounting" },
+      { label: "Customization", value: "Size, hole pattern, coating, bolt compatibility and quantity" },
+    ],
+    applications: [
+      { label: "Boundary Security Fencing", href: "/applications/boundary-security-fencing" },
+      { label: "Commercial & Industrial", href: "/applications/commercial-industrial" },
+      { label: "Warehouses & Logistic Centers", href: "/applications/warehouses-logistic-centers" },
+    ],
+    internalLinks: [
+      { label: "Fence Accessories", href: "/products/fence-accessories" },
+      { label: "Fence Posts", href: "/products/fence-posts-gi-ms-pvc" },
+      { label: "Fasteners / Bolts", href: "/products/fasteners-bolts" },
+      { label: 'Available in UAE', href: '/countries/uae' },
+      { label: 'Available in Bahrain', href: '/countries/bahrain' },
+      { label: 'Available in Qatar', href: '/countries/qatar' },
+    ],
+    faqs: [
+      {
+        question: "What are fence clamps and connectors used for?",
+        answer: "They are used to secure posts, rails, panels, mesh, brackets and gate hardware in fence systems.",
+      },
+      {
+        question: "Are clamps available in powder coated finish?",
+        answer: "Yes, powder coated green and galvanized finishes can be reviewed based on requirement.",
+      },
+      {
+        question: "What details are needed for clamp quotation?",
+        answer: "Share clamp type, post or rail size, coating, bolt requirement and quantity.",
+      },
+    ],
+    rfqPrompt: "For clamps and connectors, share item type, post or rail size, finish, bolt requirement, quantity and delivery location.",
+  },
+];
+
+
+const mergedPdfProductUpdates = new Map(pdfMappedProductPageUpdates.map((product) => [product.slug, product]));
+
+export const productSeoPages: ProductSeoPage[] = [
+  ...baseProductSeoPages.map((product) => ({ ...product, ...(mergedPdfProductUpdates.get(product.slug) || {}) })),
+  ...pdfMappedAdditionalProductPages,
+];
+
+
+
 export type CountryPage = {
   slug: string;
   country: string;
@@ -820,7 +1457,7 @@ export const countryPages: CountryPage[] = [
       'SRK Fence supplies and installs fencing systems for contractors, consultants, facility managers and project owners across Dubai, Abu Dhabi, Sharjah and the wider UAE. Our range includes chain link fencing, welded mesh fencing, anti-climb fencing, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories for residential, commercial, industrial and high-security projects.',
     products: ['Chain link fence', 'Welded mesh fence', 'Anti-climb 358 fence', 'PVC fencing', 'Temporary fence panels', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Construction sites', 'Warehouses', 'Industrial facilities', 'Schools', 'Farms', 'Commercial properties', 'Residential communities', 'Security perimeters'],
-    whySource: ['Dubai and Sharjah based support', 'Wide fencing product range', 'Clear quotation support for custom specifications', 'Supply and installation coordination', 'GCC project experience'],
+    whySource: ['Dubai and Sharjah based support', 'Wide fencing product range', 'RFQ support for custom specifications', 'Supply and installation coordination', 'GCC project experience'],
     cities: ['Dubai', 'Sharjah', 'Abu Dhabi', 'Ajman', 'Ras Al Khaimah', 'Fujairah'],
     faqs: [
       {
@@ -845,12 +1482,12 @@ export const countryPages: CountryPage[] = [
     country: 'Bahrain',
     primaryKeyword: 'fencing supplier in Bahrain',
     secondaryKeywords: ['fence supplier Bahrain', 'chain link fence Bahrain', 'security fencing Bahrain', 'PVC fence Bahrain'],
-    buyerIntent: 'importers, contractors and project teams looking for practical fencing supply from the UAE.',
+    buyerIntent: 'Importer and project supply for fencing products.',
     intro:
-      'SRK Fence supplies fencing products and perimeter security solutions from the UAE for projects in Bahrain. Contractors and procurement teams can request chain link fence, welded mesh fence, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories for construction, commercial, school, industrial, farm and security requirements.',
+      'SRK Fence supplies fencing products and perimeter security solutions from UAE for Bahrain projects that need reliable product sourcing, specification support and RFQ response. The Bahrain page focuses on construction, commercial, school, industrial, farm and security fencing buyers looking for chain link fence, welded mesh fence, PVC fencing, temporary fencing, barbed wire, razor wire, gates and accessories for project delivery.',
     products: ['Chain link fence', 'Welded mesh fence', 'PVC coated fencing', 'Temporary fence panels', 'Barbed wire', 'Razor wire', 'Fence posts', 'Gates and accessories'],
     applications: ['Construction projects', 'Industrial sites', 'Commercial properties', 'Schools', 'Warehouses', 'Farms', 'Security boundaries'],
-    whySource: ['UAE-based regional sourcing', 'Product and accessory package support', 'Quotation support for project quantities', 'Custom height and coating options', 'GCC delivery coordination'],
+    whySource: ['UAE-based regional sourcing', 'Product and accessory package support', 'RFQ support for project quantities', 'Custom height and coating options', 'GCC delivery coordination'],
     cities: ['Manama', 'Riffa', 'Muharraq', 'Sitra', 'Hamad Town'],
     faqs: [
       {
@@ -861,7 +1498,7 @@ export const countryPages: CountryPage[] = [
       {
         question: 'What fencing products are commonly requested for Bahrain?',
         answer:
-          'Common Bahrain quote requests include chain link fence, welded mesh fence, PVC coated fencing, temporary fence panels, barbed wire, razor wire and fence accessories.',
+          'Common Bahrain RFQs include chain link fence, welded mesh fence, PVC coated fencing, temporary fence panels, barbed wire, razor wire and fence accessories.',
       },
       {
         question: 'How do I request a fencing quotation for Bahrain?',
@@ -875,12 +1512,12 @@ export const countryPages: CountryPage[] = [
     country: 'Qatar',
     primaryKeyword: 'fencing supplier in Qatar',
     secondaryKeywords: ['fencing supplier Doha', 'fence contractor Doha', 'chain link fence Qatar', 'security fencing Qatar'],
-    buyerIntent: 'construction, infrastructure, warehouse, oil and gas and Doha-based project requirements.',
+    buyerIntent: 'Construction, infrastructure, warehouse, oil and gas and Doha project supply.',
     intro:
-      'SRK Fence supplies fencing products from the UAE for projects in Qatar and Doha, including construction sites, warehouses, logistics yards, commercial properties, oil and gas facilities, infrastructure works and high-security perimeters. Project teams can compare chain link, welded mesh, anti-climb, temporary, PVC, barbed wire and razor wire options based on security level, coating, height, length and delivery requirements.',
+      'SRK Fence supports Qatar and Doha buyers with fencing products for construction sites, warehouses, logistics yards, commercial properties, oil and gas facilities, infrastructure works and high-security perimeters. From UAE, SRK Fence can help project teams compare chain link, welded mesh, anti-climb, temporary, PVC, barbed wire and razor wire options based on security level, coating, height, length and delivery requirements.',
     products: ['Chain link fence', 'Welded mesh fence', 'Anti-climb 358 fence', 'Temporary fence panels', 'PVC hoarding', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Doha construction sites', 'Warehouses', 'Oil and gas facilities', 'Industrial yards', 'Commercial compounds', 'Data centers', 'Infrastructure projects'],
-    whySource: ['Dubai/UAE product range', 'High-security and construction fencing focus', 'Specification-led quotation support', 'Custom coating and height options', 'Regional GCC project supply'],
+    whySource: ['Dubai/UAE product range', 'High-security and construction fencing focus', 'Specification-led RFQ support', 'Custom coating and height options', 'Regional GCC project supply'],
     cities: ['Doha', 'Al Rayyan', 'Al Wakrah', 'Lusail', 'Mesaieed', 'Ras Laffan'],
     faqs: [
       {
@@ -891,7 +1528,7 @@ export const countryPages: CountryPage[] = [
       {
         question: 'Does SRK Fence support fencing projects in Doha?',
         answer:
-          'Yes, SRK Fence can support quote requests for Doha construction, warehouse, commercial, infrastructure and security fencing projects with product and specification guidance.',
+          'Yes, SRK Fence can support RFQs for Doha construction, warehouse, commercial, infrastructure and security fencing projects with product and specification guidance.',
       },
       {
         question: 'What fence is best for Qatar construction sites?',
@@ -905,12 +1542,12 @@ export const countryPages: CountryPage[] = [
     country: 'Kuwait',
     primaryKeyword: 'fencing supplier in Kuwait',
     secondaryKeywords: ['fence supplier Kuwait', 'temporary fencing Kuwait', 'security fencing Kuwait', 'industrial fencing Kuwait'],
-    buyerIntent: 'industrial, security, temporary fencing and construction-site requirements.',
+    buyerIntent: 'Industrial, security, temporary fencing and construction project supply.',
     intro:
-      'SRK Fence supplies fencing systems from the UAE for Kuwait projects that need construction site control, industrial boundaries, temporary fencing, warehouse security and perimeter protection. Available options include chain link fencing, welded mesh fencing, anti-climb fencing, temporary fence panels, PVC hoarding, barbed wire, razor wire, gates and fence accessories with project-specific heights, coatings and quantities.',
+      'SRK Fence supplies fencing systems from UAE for Kuwait projects that require construction site control, industrial boundaries, temporary fencing, warehouse security and perimeter protection. Buyers can request chain link fencing, welded mesh fencing, anti-climb fencing, temporary fence panels, PVC hoarding, barbed wire, razor wire, gates and fence accessories with project-specific heights, coatings and quantities.',
     products: ['Temporary fence panels', 'PVC hoarding', 'Chain link fence', 'Welded mesh fence', 'Anti-climb fence', 'Barbed wire', 'Razor wire', 'Fence accessories'],
     applications: ['Construction sites', 'Industrial facilities', 'Warehouses', 'Oil and gas support sites', 'Commercial compounds', 'Security perimeters'],
-    whySource: ['Strong temporary and industrial fencing range', 'Quotation support for drawings and BOQs', 'Custom specification and coating options', 'UAE to Kuwait supply capability', 'Fencing accessories and gates support'],
+    whySource: ['Strong temporary and industrial fencing range', 'RFQ support for project drawings', 'Custom specification and coating options', 'UAE to Kuwait supply capability', 'Fencing accessories and gates support'],
     cities: ['Kuwait City', 'Ahmadi', 'Hawally', 'Farwaniya', 'Jahra'],
     faqs: [
       {
@@ -935,12 +1572,12 @@ export const countryPages: CountryPage[] = [
     country: 'Saudi Arabia',
     primaryKeyword: 'fencing supplier in Saudi Arabia',
     secondaryKeywords: ['fence supplier KSA', 'security fencing Saudi Arabia', 'perimeter fencing KSA'],
-    buyerIntent: 'large infrastructure, oil and gas, industrial and high-security perimeter projects.',
+    buyerIntent: 'Large-scale infrastructure, oil and gas, industrial and high-security project supply.',
     intro:
-      'SRK Fence supplies fencing products from the UAE for Saudi Arabia and KSA projects, including infrastructure, oil and gas, warehouses, logistics, construction, industrial sites and high-security perimeters. Project teams can source chain link, welded mesh, anti-climb 358 fence, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories based on drawings, BOQ and site security requirements.',
+      'SRK Fence supports Saudi Arabia and KSA project buyers with fencing products for infrastructure, oil and gas, warehouses, logistics, construction, industrial and high-security perimeter requirements. From UAE, SRK Fence can help project teams source chain link, welded mesh, anti-climb 358 fence, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories based on drawings, BOQ and site security requirements.',
     products: ['Anti-climb 358 fence', 'Welded mesh fence', 'Chain link fence', 'Steel fencing', 'Temporary fencing', 'Barbed wire', 'Razor wire', 'Gate systems and accessories'],
     applications: ['Infrastructure projects', 'Oil and gas facilities', 'Warehouses', 'Industrial cities', 'Construction sites', 'Data centers', 'Security perimeters'],
-    whySource: ['High-security product capability', 'UAE-based GCC supply support', 'Quotation support for BOQs and drawings', 'Custom heights, coatings and gates', 'Project-focused quotation process'],
+    whySource: ['High-security product capability', 'UAE-based GCC supply support', 'RFQ support for BOQs and drawings', 'Custom heights, coatings and gates', 'Project-focused quotation process'],
     cities: ['Riyadh', 'Jeddah', 'Dammam', 'Khobar', 'Jubail', 'Neom'],
     faqs: [
       {
@@ -965,12 +1602,12 @@ export const countryPages: CountryPage[] = [
     country: 'Iraq',
     primaryKeyword: 'fencing supplier in Iraq',
     secondaryKeywords: ['fence supplier Iraq', 'barbed wire Iraq', 'razor wire Iraq', 'perimeter fencing Iraq'],
-    buyerIntent: 'security, oil and gas, construction and perimeter-protection projects.',
+    buyerIntent: 'Security, oil and gas, construction and perimeter protection project supply.',
     intro:
-      'SRK Fence supplies fencing products from the UAE for Iraq projects where security, perimeter protection, oil and gas facilities, construction boundaries and industrial compounds are priorities. Project teams can request chain link fence, welded mesh fence, anti-climb fence, steel fencing, barbed wire, razor wire, gates, posts and accessories with project-specific security levels, heights, coatings and delivery requirements.',
+      'SRK Fence supplies fencing products from UAE for Iraq projects where security, perimeter protection, oil and gas facilities, construction boundaries and industrial compounds are priorities. Buyers can request chain link fence, welded mesh fence, anti-climb fence, steel fencing, barbed wire, razor wire, gates, posts and accessories with project-specific security levels, heights, coatings and delivery requirements.',
     products: ['Barbed wire', 'Razor wire', 'Chain link fence', 'Anti-climb fence', 'Welded mesh fence', 'Steel fencing', 'Gates and accessories'],
     applications: ['Oil and gas facilities', 'Security perimeters', 'Construction sites', 'Industrial yards', 'Warehouses', 'Infrastructure boundaries'],
-    whySource: ['Strong security wire and perimeter range', 'UAE sourcing for regional projects', 'Clear quotation support for custom specifications', 'High-security fence options', 'Project package support with accessories'],
+    whySource: ['Strong security wire and perimeter range', 'UAE sourcing for regional projects', 'RFQ support for custom specifications', 'High-security fence options', 'Project package support with accessories'],
     cities: ['Baghdad', 'Basra', 'Erbil', 'Mosul', 'Najaf', 'Kirkuk'],
     faqs: [
       {
@@ -984,9 +1621,9 @@ export const countryPages: CountryPage[] = [
           'Yes, SRK Fence can quote barbed wire, razor wire, support arms, posts and compatible fencing systems for Iraq perimeter security requirements.',
       },
       {
-        question: 'What details are needed for an Iraq fencing quote?',
+        question: 'What details are needed for an Iraq fencing RFQ?',
         answer:
-          'Share product type, fence length, height, mesh size, wire diameter, coating, security level, delivery city, timeline and drawings or a BOQ if available.',
+          'Share product type, fence length, height, mesh size, wire diameter, coating, security level, delivery city, timeline and drawings or BOQ if available.',
       },
     ],
   },
@@ -995,12 +1632,12 @@ export const countryPages: CountryPage[] = [
     country: 'Oman',
     primaryKeyword: 'fencing supplier in Oman',
     secondaryKeywords: ['fence supplier Oman', 'chain link fence Oman', 'security fencing Oman'],
-    buyerIntent: 'construction, industrial, marine, warehouse and farm fencing projects.',
+    buyerIntent: 'Construction, industrial, marine, warehouse and farm project supply.',
     intro:
-      'SRK Fence supplies chain link, welded mesh, steel, PVC, temporary, anti-climb, barbed wire and razor wire fencing products from the UAE for Oman projects. These systems can be specified for construction, industrial, warehouse, farm, commercial and coastal sites in Muscat, Sohar, Salalah and other project locations.',
+      'SRK Fence supports Oman fencing buyers with chain link, welded mesh, steel, PVC, temporary, anti-climb, barbed wire and razor wire products for construction, industrial, warehouse, farm, commercial and coastal projects. From UAE, SRK Fence can help buyers review coating, material and installation requirements for sites in Muscat, Sohar, Salalah and other project locations.',
     products: ['Chain link fence', 'Welded mesh fence', 'Steel fencing', 'PVC coated fencing', 'Temporary fencing', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Construction sites', 'Industrial facilities', 'Warehouses', 'Farms', 'Marine and coastal sites', 'Commercial compounds', 'Security perimeters'],
-    whySource: ['Regional UAE supply support', 'Coating guidance for coastal exposure', 'Farm and industrial fencing range', 'Custom quotation support', 'Fencing accessories and gate options'],
+    whySource: ['Regional UAE supply support', 'Coating guidance for coastal exposure', 'Farm and industrial fencing range', 'Custom RFQ support', 'Fencing accessories and gate options'],
     cities: ['Muscat', 'Sohar', 'Salalah', 'Nizwa', 'Duqm', 'Sur'],
     faqs: [
       {
@@ -1025,12 +1662,12 @@ export const countryPages: CountryPage[] = [
     country: 'Jordan',
     primaryKeyword: 'fencing supplier in Jordan',
     secondaryKeywords: ['fence supplier Jordan', 'industrial fencing Jordan', 'perimeter fencing Jordan'],
-    buyerIntent: 'industrial, commercial, construction and perimeter fencing projects.',
+    buyerIntent: 'Industrial, commercial, construction and perimeter fencing project supply.',
     intro:
-      'SRK Fence supplies fencing products from the UAE for Jordan projects that need industrial boundaries, commercial fencing, construction site control, warehouse security and perimeter protection. Available options include chain link fencing, welded mesh fencing, anti-climb fencing, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories with project-specific dimensions, coating and delivery requirements.',
+      'SRK Fence supplies fencing products from UAE for Jordan projects that need industrial boundaries, commercial fencing, construction site control, warehouse security and perimeter protection. Buyers can request chain link fencing, welded mesh fencing, anti-climb fencing, temporary fencing, steel fencing, barbed wire, razor wire, gates and accessories with project-specific dimensions, coating and delivery requirements.',
     products: ['Chain link fence', 'Welded mesh fence', 'Anti-climb fence', 'Temporary fence panels', 'Steel fencing', 'Barbed wire', 'Razor wire', 'Gates and accessories'],
     applications: ['Industrial sites', 'Commercial properties', 'Warehouses', 'Construction projects', 'Schools', 'Farms', 'Security perimeters'],
-    whySource: ['UAE regional sourcing support', 'Industrial and commercial product range', 'Clear quotation support for custom specifications', 'Accessory and gate package support', 'Project-focused quotation workflow'],
+    whySource: ['UAE regional sourcing support', 'Industrial and commercial product range', 'RFQ support for custom specifications', 'Accessory and gate package support', 'Project-focused quotation workflow'],
     cities: ['Amman', 'Zarqa', 'Irbid', 'Aqaba', 'Mafraq'],
     faqs: [
       {
@@ -1453,7 +2090,7 @@ export const staticSeoProfiles = {
     intent: 'RFQ and contact page for quote-ready fencing buyers.',
   },
   whyUs: {
-    title: 'UAE Fencing Supplier, Contractor & Installation Partner',
+    title: 'Why Choose SRK Fence | UAE Fencing Supplier, Contractor & Installation Partner',
     description:
       'Choose SRK Fence for UAE and GCC fencing projects: chain link, welded mesh, PVC, anti-climb, temporary fencing, barbed wire, razor wire, gates, accessories, RFQ support and installation guidance.',
     path: '/why-us',
@@ -1537,30 +2174,12 @@ export function getBlogKeywordSet(slug: string, fallbackKeywords: string[] = [])
   return dedupeKeywords([...(blogKeywordProfiles[slug] ?? []), ...fallbackKeywords]);
 }
 
-
-function cleanSeoTitle(title: string) {
-  return title
-    // Remove any existing brand suffix so Next.js never outputs "SRK Fence | SRK Fence".
-    .replace(/\s*[|—-]\s*SRK\s*FENCE\s*$/i, '')
-    .replace(/\s*[|—-]\s*SRK\s*Fence\s*$/i, '')
-    // If a title starts with the brand, replace that first brand mention with a buyer keyword.
-    .replace(/^SRK\s*Fence\s*[|—-]\s*/i, 'UAE Fencing Supplier | ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function withBrandSuffix(title: string) {
-  const cleanTitle = cleanSeoTitle(title);
-  return /\|\s*SRK\s*Fence$/i.test(cleanTitle) ? cleanTitle : `${cleanTitle} | SRK Fence`;
-}
-
 export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
   const keywords = dedupeKeywords(profile.keywords);
   const image = profile.image || '/SRK FENCE Banners.webp';
-  const displayTitle = withBrandSuffix(profile.title);
 
   return {
-    title: displayTitle,
+    title: profile.title,
     description: profile.description,
     keywords,
     alternates: {
@@ -1569,7 +2188,7 @@ export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
     openGraph: {
       type: 'website',
       url: profile.path,
-      title: displayTitle,
+      title: profile.title,
       description: profile.description,
       siteName: companyName,
       images: [
@@ -1577,13 +2196,13 @@ export function buildSeoMetadata(profile: StaticSeoProfile): Metadata {
           url: image,
           width: 1200,
           height: 630,
-          alt: `${companyName} - ${displayTitle}`,
+          alt: `${companyName} - ${profile.title}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: displayTitle,
+      title: profile.title,
       description: profile.description,
       images: [image],
     },

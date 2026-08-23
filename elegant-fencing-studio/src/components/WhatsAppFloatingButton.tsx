@@ -1,6 +1,6 @@
 'use client';
 
-const WHATSAPP_NUMBER = "971586600183";
+const WHATSAPP_NUMBER = "971522160874";
 
 const WhatsAppFloatingButton = () => {
   return (

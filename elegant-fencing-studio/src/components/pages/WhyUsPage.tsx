@@ -23,8 +23,8 @@ const pillars = [
   },
   {
     icon: Handshake,
-    title: "Clear Quotation Process",
-    copy: "Our team helps confirm fence height, running meters, mesh opening, coating, posts, gates, delivery city and installation scope before quoting.",
+    title: "RFQ Clarity",
+    copy: "Our team helps buyers confirm fence height, running meters, mesh opening, coating, posts, gates, delivery city and installation scope.",
   },
   {
     icon: Globe2,
@@ -105,7 +105,7 @@ const WhyUsPage = () => {
           <div className="space-y-6">
             <h2 className="text-4xl font-bold text-foreground">Why choose SRK Fence?</h2>
             <p className="text-lg text-muted-foreground">
-              We help match each site requirement with the right fencing system. Whether the project needs chain link fence,
+              We connect buyer intent with the right fencing system. Whether the project needs chain link fence,
               welded mesh fence, anti-climb 358 fence, temporary fencing, barbed wire, razor wire or gate accessories,
               the quotation starts with site use, security level, dimensions and delivery requirements.
             </p>
@@ -139,7 +139,7 @@ const WhyUsPage = () => {
           <div className="space-y-6">
             <h2 className="text-4xl font-bold text-foreground">Project-ready fencing recommendations</h2>
             <p className="text-lg text-muted-foreground">
-              SRK Fence helps project teams compare practical options for boundary security, warehouse protection,
+              SRK Fence helps buyers compare practical options for boundary security, warehouse protection,
               construction site control, data center security, oil and gas facilities, farms and residential boundaries.
             </p>
             <ul className="space-y-4 text-muted-foreground">
@@ -207,7 +207,7 @@ const WhyUsPage = () => {
                       Our Heritage
                     </h4>
                     <p className="text-muted-foreground">
-                      SRK FENCE supports procurement teams, contractors, consultants and project owners with clear fencing quotations for residential, commercial, industrial, construction and security sites.
+                      SRK FENCE supports procurement teams, contractors, consultants and project owners with specification-led fencing quotations for residential, commercial, industrial, construction and security sites.
                     </p>
                   </div>
                   <div className="space-y-3">
@@ -256,7 +256,7 @@ const WhyUsPage = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                    To be a trusted UAE and GCC fencing supplier recognized for reliable product quality, clear quotation support and practical perimeter security solutions.
+                    To be a trusted UAE and GCC fencing supplier recognized for reliable product quality, clear RFQ support and practical perimeter security solutions.
                   </p>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-3">
@@ -265,7 +265,7 @@ const WhyUsPage = () => {
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Serving UAE, GCC and Middle East projects with consistent project communication</span>
+                      <span>Serving UAE, GCC and Middle East buyers with consistent project communication</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -295,7 +295,7 @@ const WhyUsPage = () => {
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Help customers prepare quote requests with dimensions, materials, coating, gates and delivery details</span>
+                      <span>Help customers prepare clear RFQs with dimensions, materials, coating, gates and delivery details</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
