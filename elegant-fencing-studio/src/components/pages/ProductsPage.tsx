@@ -526,7 +526,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
               )}
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 xl:grid-cols-3">
               {sortedFilteredProducts.map((product) => {
                 const Icon = product.icon;
                 const featureTags = Array.isArray(product.features) ? product.features.slice(0, 3) : [];
@@ -544,7 +544,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                         handleViewDetails(product);
                       }
                     }}
-                    className="group relative flex h-full flex-col rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="group relative flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     <div className="relative aspect-[16/9] w-full bg-white">
                       {typeof product.image === 'string' ? (
@@ -566,11 +566,8 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                       </div>
                     </div>
 
-                    <CardHeader className="space-y-3 p-5 pb-3">
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="rounded-md bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
-                          {product.category || 'General'}
-                        </span>
+                    <CardHeader className="flex-none space-y-3 p-5 pb-3">
+                      <div className="flex items-center justify-end">
                         <span className="shrink-0 rounded-md bg-[#e85d3a] px-3 py-1 text-sm font-semibold text-white">
                           {product.price || 'Enquire'}
                         </span>
@@ -584,7 +581,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                     </CardHeader>
 
                     <CardContent className="flex flex-1 flex-col space-y-4 p-5 pt-0">
-                      <div className="min-h-[2.25rem] overflow-hidden flex flex-wrap gap-2">
+                      <div className="h-[2.75rem] overflow-hidden flex flex-wrap gap-2">
                         {featureTags.length > 0 ? (
                           featureTags.map((feature: string, idx: number) => (
                             <span
