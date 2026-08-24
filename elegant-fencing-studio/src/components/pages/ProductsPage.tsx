@@ -544,71 +544,71 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                         handleViewDetails(product);
                       }
                     }}
-                    className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="group relative flex h-full flex-col rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
-                    <div className="relative w-full overflow-hidden bg-muted">
+                    <div className="relative aspect-[16/9] w-full bg-white">
                       {typeof product.image === 'string' ? (
                         <img
                           src={product.image}
                           alt={product.title}
-                          className="block h-auto w-full bg-muted object-contain transition-opacity duration-300 group-hover:opacity-95"
+                          className="h-full w-full bg-white object-contain transition-opacity duration-300 group-hover:opacity-95"
                         />
                       ) : (
                         <Image
                           src={product.image}
                           alt={product.title}
-                          className="block h-auto w-full bg-muted object-contain transition-opacity duration-300 group-hover:opacity-95"
+                          className="h-full w-full bg-white object-contain transition-opacity duration-300 group-hover:opacity-95"
                           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         />
                       )}
-                      <div className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm">
+                      <div className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-md bg-black/45 text-white backdrop-blur-sm">
                         <Icon className="h-4 w-4" />
                       </div>
                     </div>
 
                     <CardHeader className="space-y-3 p-5 pb-3">
                       <div className="flex items-center justify-between gap-3">
-                        <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
+                        <span className="rounded-md bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
                           {product.category || 'General'}
                         </span>
-                        <span className="shrink-0 rounded-full bg-[#e85d3a] px-3 py-1 text-sm font-semibold text-white">
+                        <span className="shrink-0 rounded-md bg-[#e85d3a] px-3 py-1 text-sm font-semibold text-white">
                           {product.price || 'Enquire'}
                         </span>
                       </div>
-                      <CardTitle className="line-clamp-1 text-xl font-bold text-foreground">
+                      <CardTitle className="line-clamp-2 min-h-[3.5rem] text-xl font-bold leading-tight text-foreground">
                         {product.title}
                       </CardTitle>
-                      <CardDescription className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                      <CardDescription className="line-clamp-2 min-h-[2.75rem] text-sm leading-relaxed text-muted-foreground">
                         {product.description}
                       </CardDescription>
                     </CardHeader>
 
-                    <CardContent className="space-y-4 p-5 pt-0">
-                      <div className="flex flex-wrap gap-2">
+                    <CardContent className="flex flex-1 flex-col space-y-4 p-5 pt-0">
+                      <div className="min-h-[2.25rem] overflow-hidden flex flex-wrap gap-2">
                         {featureTags.length > 0 ? (
                           featureTags.map((feature: string, idx: number) => (
                             <span
                               key={idx}
-                              className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground"
+                              className="rounded-md bg-muted px-2.5 py-1 text-xs text-muted-foreground"
                             >
                               {feature}
                             </span>
                           ))
                         ) : (
-                          <span className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
+                          <span className="rounded-md bg-muted px-2.5 py-1 text-xs text-muted-foreground">
                             Premium fencing solution
                           </span>
                         )}
                       </div>
 
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="mt-auto grid grid-cols-2 gap-2 pt-2">
                         <Button
                           onClick={(event) => {
                             event.stopPropagation();
                             handleViewDetails(product);
                           }}
                           variant="outline"
-                          className="h-10 rounded-full border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
+                          className="h-10 rounded-md border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
                         >
                           <Eye className="mr-1.5 h-4 w-4" />
                           View
@@ -618,7 +618,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                             event.stopPropagation();
                             handleAddToRFQ(product.id, product.title);
                           }}
-                          className="h-10 rounded-full bg-gradient-to-r from-[#c5162a] to-[#e63946] text-white hover:shadow-glow"
+                          className="h-10 rounded-md bg-gradient-to-r from-[#c5162a] to-[#e63946] text-white hover:shadow-glow"
                         >
                           <FileText className="mr-1.5 h-4 w-4" />
                           Add RFQ
