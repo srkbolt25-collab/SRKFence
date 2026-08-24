@@ -1757,6 +1757,544 @@ export type CountryPage = {
   cities: string[];
 };
 
+
+
+const gccAvailableMarkets: LinkItem[] = [
+  { label: 'UAE', href: '/countries/uae' },
+  { label: 'Bahrain', href: '/countries/bahrain' },
+  { label: 'Qatar', href: '/countries/qatar' },
+  { label: 'Kuwait', href: '/countries/kuwait' },
+  { label: 'Saudi Arabia', href: '/countries/saudi-arabia' },
+  { label: 'Iraq', href: '/countries/iraq' },
+  { label: 'Oman', href: '/countries/oman' },
+  { label: 'Jordan', href: '/countries/jordan' },
+];
+
+const productSeoPageEnhancements: Record<string, Partial<ProductSeoPage>> = {
+  'fence-posts-gi-ms-pvc': {
+    keyFeatures: [
+      'Strong support for chain-link, welded mesh, gates and boundary fencing systems',
+      'Available in G.I., M.S. and PVC finish options',
+      'Suitable for outdoor, industrial, commercial and residential projects',
+      'Compatible with caps, clamps, brackets, rails and fixing accessories',
+      'Round, square, rectangular and customized profile options',
+      'Embedded and surface-mounted installation options',
+      'Weather-resistant finish choices for long service life',
+      'Custom sizes and colours available as per project requirement',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'anti-climb-358-fence': {
+    image: '/products/pdf-mapped/anti-climb-358-fence/anti-climb-358-fence-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/anti-climb-358-fence/anti-climb-358-fence-01.webp', alt: 'Anti climb 358 security fence system for high security perimeter projects', caption: 'Anti-climb 358 mesh fence system for high-security perimeter protection' },
+      { src: '/products/pdf-mapped/anti-climb-358-fence/anti-climb-358-fence-02.webp', alt: 'Anti climb fence mesh options posts coating and security fencing details', caption: 'Mesh, posts, coating and accessory details for anti-climb fencing' },
+    ],
+    materialOptions: [
+      { title: '358 Mesh Panel', description: 'Tight aperture welded mesh panel designed to make climbing and cutting difficult while maintaining visibility.', bullets: ['High-security mesh configuration', 'Suitable for critical perimeter zones', 'Clean visible boundary appearance'] },
+      { title: 'Post & Fixing System', description: 'Compatible post and fixing arrangements for stable perimeter security installations.', bullets: ['Steel post support', 'Secure clamp and fixing options', 'Custom height requirements supported'] },
+      { title: 'Coating Options', description: 'Galvanized and coated finish options help improve outdoor corrosion resistance and visual finish.', bullets: ['Galvanized steel options', 'Powder or PVC coated finish choices', 'Colours can be aligned to project specification'] },
+    ],
+    keyFeatures: [
+      'Anti-climb mesh design for high-security areas',
+      'High visibility for surveillance and perimeter monitoring',
+      'Strong welded mesh construction',
+      'Suitable for airports, utilities, industrial sites and secure facilities',
+      'Compatible with gates and access-control areas',
+      'Galvanized and coated finish options',
+      'Custom heights and project-specific configurations',
+      'Low-maintenance perimeter security solution',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'temporary-fence-panels': {
+    image: '/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-01.webp', alt: 'Temporary fence panels for construction events and movable site boundaries', caption: 'Temporary fence panels for construction and short-term site security' },
+      { src: '/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-02.webp', alt: 'Temporary fencing panels base support clamps and portable fence details', caption: 'Portable panel, base and clamp support options' },
+      { src: '/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-03.webp', alt: 'Temporary fencing system for event industrial and project boundaries', caption: 'Temporary fencing system for project, event and industrial boundaries' },
+    ],
+    materialOptions: [
+      { title: 'Temporary Mesh Panels', description: 'Portable mesh panels for movable boundary and site-control requirements.', bullets: ['Quick project boundary setup', 'Reusable panel system', 'Suitable for construction and events'] },
+      { title: 'Bases & Clamps', description: 'Support bases and connecting clamps help align and stabilize temporary fencing runs.', bullets: ['Portable base support', 'Panel-to-panel clamp options', 'Practical for short-term deployment'] },
+      { title: 'Coated Finish', description: 'Galvanized or coated finishes can be selected for outdoor project requirements.', bullets: ['Galvanized finish options', 'Coated finish choices', 'Custom project specification support'] },
+    ],
+    keyFeatures: [
+      'Portable and reusable fencing system',
+      'Suitable for temporary construction and event boundaries',
+      'Fast site separation and crowd-control support',
+      'Panel, base and clamp system options',
+      'Easy relocation for changing site layouts',
+      'Outdoor finish options available',
+      'Project-specific heights and sizes can be reviewed',
+      'Suitable for supply and installation discussions',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'barbed-wire': {
+    image: '/products/pdf-mapped/barbed-wire/barbed-wire-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/barbed-wire/barbed-wire-01.webp', alt: 'Barbed wire fencing roll for agricultural industrial and boundary fencing', caption: 'Barbed wire rolls for boundary, agricultural and industrial fencing' },
+      { src: '/products/pdf-mapped/barbed-wire/barbed-wire-02.webp', alt: 'Galvanized and PVC coated barbed wire fencing options', caption: 'Galvanized and coated barbed wire finish options' },
+    ],
+    materialOptions: [
+      { title: 'G.I. Barbed Wire', description: 'Galvanized barbed wire for boundary fencing and outdoor perimeter applications.', bullets: ['Galvanized steel wire', 'Outdoor boundary use', 'Compatible with fence posts and brackets'] },
+      { title: 'PVC Coated Barbed Wire', description: 'PVC coated barbed wire option for added visual finish and corrosion resistance.', bullets: ['Green and custom colour options', 'Protective coated finish', 'Suitable for boundary and agricultural fencing'] },
+      { title: 'Custom Roll Requirements', description: 'Roll length, wire diameter and spacing can be discussed based on project requirement.', bullets: ['Custom roll quantity', 'Project-specific wire size', 'Delivery support across GCC'] },
+    ],
+    keyFeatures: [
+      'Boundary security and livestock fencing support',
+      'Galvanized and PVC coated options available',
+      'Suitable for farms, open plots and industrial boundaries',
+      'Can be used with chain-link or post fencing systems',
+      'Custom roll quantity and wire specification support',
+      'Weather-resistant finish choices',
+      'Cost-effective perimeter deterrent component',
+      'Suitable for UAE and GCC project supply',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'razor-wire': {
+    image: '/products/pdf-mapped/razor-wire/razor-wire-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/razor-wire/razor-wire-01.webp', alt: 'Razor wire coil for high security perimeter fencing', caption: 'Razor wire coil for high-security perimeter fencing' },
+      { src: '/products/pdf-mapped/razor-wire/razor-wire-02.webp', alt: 'Concertina razor wire coil options for fence top security', caption: 'Concertina coil options for fence-top and boundary security' },
+    ],
+    materialOptions: [
+      { title: 'Concertina Coil', description: 'Razor wire coil configuration for high-security boundary and fence-top applications.', bullets: ['Fence-top perimeter use', 'Coil format options', 'Suitable for secure sites'] },
+      { title: 'Galvanized Finish', description: 'Galvanized finish options help improve corrosion resistance for outdoor exposure.', bullets: ['Outdoor perimeter application', 'Corrosion protection', 'Project-specific supply quantities'] },
+      { title: 'Security Fence Integration', description: 'Can be reviewed with chain-link, welded mesh, anti-climb and boundary fencing systems.', bullets: ['Compatible with security fencing', 'Suitable for industrial boundaries', 'RFQ support by site length and coil quantity'] },
+    ],
+    keyFeatures: [
+      'High-security perimeter deterrent component',
+      'Concertina coil format options',
+      'Suitable for fence-top and boundary security use',
+      'Can be paired with chain-link and welded mesh fencing',
+      'Galvanized finish options available',
+      'Project-specific coil quantity support',
+      'Suitable for industrial and high-risk perimeters',
+      'Available for UAE and GCC supply requests',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'base-plates': {
+    keyFeatures: [
+      'Strong mounting support for fence, gate and railing posts',
+      'Available in G.I., hot-dip G.I., M.S. and green powder-coated options',
+      'Round, square and custom plate shapes can be reviewed',
+      'Bolt-hole and thickness options based on project requirement',
+      'Suitable for chain-link, welded mesh, steel fencing and gates',
+      'Custom welding and fabrication support available',
+      'Stable surface-mounted post installation support',
+      'Outdoor finish options for long-term use',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'fence-accessories': {
+    image: '/products/pdf-mapped/fence-accessories/fence-accessories-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/fence-accessories/fence-accessories-01.webp', alt: 'Fence accessories clamps caps brackets tension wire and fixing components', caption: 'Fence accessories for posts, rails, mesh fixing, gates and boundary systems' },
+      { src: '/products/pdf-mapped/fence-accessories/fence-accessories-02.webp', alt: 'Fence accessories galvanized powder coated and PVC coated hardware options', caption: 'Galvanized, powder coated and PVC coated accessory options' },
+    ],
+    materialOptions: [
+      { title: 'Post & Rail Accessories', description: 'Caps, brackets, clamps and rail supports for fence post and rail systems.', bullets: ['Post caps and brackets', 'Rail supports', 'Custom accessory requirements'] },
+      { title: 'Mesh Fixing Accessories', description: 'Tension wire, tie wire, clips and mesh fixing parts for chain-link and welded mesh fencing.', bullets: ['Mesh fixing support', 'Tension and tie components', 'Suitable for repair and installation'] },
+      { title: 'Gate Hardware Support', description: 'Hinges, latches and gate hardware options can be matched to fencing systems.', bullets: ['Gate accessory options', 'Galvanized and coated finishes', 'Project-based selection'] },
+    ],
+    keyFeatures: [
+      'Complete accessory support for fence installation and repair',
+      'Suitable for chain-link, welded mesh and steel fencing systems',
+      'Galvanized, powder coated and PVC coated finish options',
+      'Compatible with posts, rails, gates and mesh fixing details',
+      'Custom accessory selection based on drawings and BOQ',
+      'Supports supply-only and project installation discussions',
+      'Useful for replacement and new fence projects',
+      'Available across UAE and GCC markets',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'colors-and-coating-options': {
+    keyFeatures: [
+      'Electro galvanized, hot-dip galvanized, PVC coated and powder coated options',
+      'Improves corrosion resistance and service life of fencing products',
+      'Multiple colour choices including green, black, white, grey, blue and custom colours',
+      'Suitable for chain-link, welded mesh, posts, gates and accessories',
+      'Smooth professional finish for visible fence systems',
+      'Weather and UV resistance depending on coating type',
+      'Low-maintenance finish choices for outdoor applications',
+      'Specification support for industrial, commercial and residential projects',
+    ],
+    availableMarkets: gccAvailableMarkets,
+  },
+  'chain-link-fence': { availableMarkets: gccAvailableMarkets },
+  'gi-chain-link-fence': { availableMarkets: gccAvailableMarkets },
+  'pvc-coated-chain-link-fence': { availableMarkets: gccAvailableMarkets },
+  'welded-mesh-fence': { availableMarkets: gccAvailableMarkets },
+  'steel-metal-fencing': { availableMarkets: gccAvailableMarkets },
+};
+
+for (const product of productSeoPages) {
+  const enhancement = productSeoPageEnhancements[product.slug];
+  if (enhancement) {
+    Object.assign(product, enhancement);
+  }
+}
+
+productSeoPages.push(
+  {
+    slug: 'panel-post-system',
+    name: 'Panel & Post System',
+    category: 'Fence Panels & Posts',
+    primaryKeyword: 'panel and post fence system supplier in Dubai UAE',
+    secondaryKeywords: ['panel post fencing UAE', 'steel panel and post fence Dubai', 'boundary panel fence GCC', 'fence panel post system supplier'],
+    metaTitle: 'Panel & Post System Supplier in Dubai UAE | SRK Fence',
+    metaDescription: 'SRK Fence supplies panel and post fencing systems for commercial, industrial, residential and perimeter projects across Dubai, UAE and GCC.',
+    h1: 'Panel & Post System Supplier in Dubai UAE',
+    shortDescription: 'Panel and post fencing systems for neat, strong and durable boundary fencing across commercial, industrial and residential projects.',
+    intro: 'SRK Panel & Post System is a structured fencing solution using fence panels fixed to compatible steel posts. It is suitable for boundary fencing, commercial premises, residential communities, warehouses, schools, parks and industrial areas where a clean appearance, stable structure and project-specific coating are required.',
+    image: '/products/pdf-mapped/panel-post-system/panel-post-system-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/panel-post-system/panel-post-system-01.webp', alt: 'Panel and post fencing system for boundary and security projects', caption: 'Panel and post fencing system overview' },
+      { src: '/products/pdf-mapped/panel-post-system/panel-post-system-02.webp', alt: 'Panel post fence details coating posts and installation options', caption: 'Panel, post, coating and fixing details' },
+    ],
+    specs: [
+      { label: 'Product', value: 'Panel & Post System' },
+      { label: 'Applications', value: 'Commercial boundaries, industrial sites, schools, parks, residential communities and perimeter fencing' },
+      { label: 'Panel type', value: 'Welded mesh, steel panel or project-specified fence panel options' },
+      { label: 'Post type', value: 'Steel posts with matching fixing and clamp options' },
+      { label: 'Finish options', value: 'Galvanized, powder coated, PVC coated or project-specified finish' },
+      { label: 'Colour options', value: 'Green, black, grey, white or custom colours as required' },
+      { label: 'Customization', value: 'Panel size, post size, height, colour, coating and accessory requirements can be reviewed' },
+    ],
+    materialOptions: [
+      { title: 'Fence Panels', description: 'Panel options for clean boundary and perimeter fencing applications.', bullets: ['Welded mesh or steel panel choices', 'Custom height and width support', 'Suitable for visible boundary lines'] },
+      { title: 'Post System', description: 'Compatible posts designed to support fence panels and maintain system alignment.', bullets: ['Steel post support', 'Surface or embedded fixing discussion', 'Compatible with clamps and brackets'] },
+      { title: 'Coating & Colour', description: 'Finish options selected according to exposure, appearance and project specification.', bullets: ['Galvanized and coated options', 'Green, black, grey and custom colours', 'Outdoor durability support'] },
+    ],
+    keyFeatures: ['Clean panel-and-post appearance', 'Strong and stable boundary fencing system', 'Suitable for commercial, industrial and residential projects', 'Custom height and coating options', 'Compatible with gates and accessories', 'Low-maintenance outdoor finish choices', 'Project-specific dimensions available', 'UAE and GCC supply support'],
+    applications: [
+      { label: 'Boundary Security Fencing', href: '/applications/boundary-security-fencing' },
+      { label: 'Residential Communities', href: '/applications/residential-villa-fencing' },
+      { label: 'Schools & Parks', href: '/applications/school-playground-fencing' },
+      { label: 'Industrial Sites', href: '/applications/warehouses-logistic-centers' },
+    ],
+    internalLinks: [
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Colors & Coating Options', href: '/products/colors-and-coating-options' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    faqs: [
+      { question: 'Where is a panel and post system used?', answer: 'Panel and post systems are used for commercial boundaries, industrial sites, residential communities, schools, parks and perimeter fencing projects.' },
+      { question: 'Can panel size and coating be customized?', answer: 'Yes, panel size, post size, height, colour, coating and accessories can be reviewed based on project requirements.' },
+      { question: 'What details are needed for quotation?', answer: 'Share fence length, height, panel type, post type, coating, colour, gate requirement, drawings and delivery location.' },
+    ],
+    rfqPrompt: 'Request panel and post system pricing with fence height, running meters, panel type, post size, coating, colour, gate details and delivery location.',
+    availableMarkets: gccAvailableMarkets,
+  },
+  {
+    slug: 'high-security-gate-systems',
+    name: 'High-Security Gate Systems',
+    category: 'Gate Systems',
+    primaryKeyword: 'high security gate systems supplier in Dubai UAE',
+    secondaryKeywords: ['sliding gate system UAE', 'swing gate system Dubai', 'industrial security gates GCC', 'fence gate supplier UAE'],
+    metaTitle: 'High-Security Gate Systems Supplier in Dubai UAE | SRK Fence',
+    metaDescription: 'SRK Fence supplies high-security gate systems for industrial sites, utilities, warehouses, perimeter fencing and controlled access projects in UAE and GCC.',
+    h1: 'High-Security Gate Systems Supplier in Dubai UAE',
+    shortDescription: 'High-security gate systems for controlled access, industrial perimeters, boundary fencing and secure project entrances.',
+    intro: 'SRK High-Security Gate Systems are designed for secure entry and exit points in perimeter fencing projects. Gate options can be reviewed for industrial sites, warehouses, utilities, commercial premises, boundary fencing and high-security access areas where strength, reliable operation and finish quality matter.',
+    image: '/products/pdf-mapped/high-security-gate-systems/high-security-gate-systems-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/high-security-gate-systems/high-security-gate-systems-01.webp', alt: 'High security gate systems for perimeter fencing and access control', caption: 'High-security gate system overview' },
+      { src: '/products/pdf-mapped/high-security-gate-systems/high-security-gate-systems-02.webp', alt: 'Sliding swing and industrial gate system details for fencing projects', caption: 'Gate configuration, frame, panel and finish details' },
+    ],
+    specs: [
+      { label: 'Product', value: 'High-Security Gate Systems' },
+      { label: 'Gate options', value: 'Sliding gates, swing gates, pedestrian gates and project-specified gate systems' },
+      { label: 'Applications', value: 'Industrial sites, warehouses, utilities, commercial properties, boundary fencing and controlled access areas' },
+      { label: 'Frame material', value: 'Steel frame and fence-compatible infill options' },
+      { label: 'Finish options', value: 'Galvanized, powder coated, PVC coated or custom finish' },
+      { label: 'Customization', value: 'Size, opening type, infill, posts, hinges, locking, colour and project specification can be reviewed' },
+    ],
+    materialOptions: [
+      { title: 'Sliding Gate', description: 'Sliding gate configuration for vehicle access areas and industrial entrances.', bullets: ['Suitable for wide openings', 'Compatible with perimeter fencing', 'Project-specific size support'] },
+      { title: 'Swing Gate', description: 'Swing gate options for pedestrian, vehicle and site access-control points.', bullets: ['Single or double leaf discussion', 'Steel frame options', 'Fence-compatible infill choices'] },
+      { title: 'Gate Hardware & Finish', description: 'Hardware and coating options can be matched to the gate duty and exposure conditions.', bullets: ['Hinges, locking and support posts', 'Galvanized and coated finishes', 'Custom colour options'] },
+    ],
+    keyFeatures: ['Designed for controlled access areas', 'Sliding and swing gate options', 'Suitable for industrial and high-security sites', 'Fence-compatible infill choices', 'Steel frame construction', 'Custom size and finish support', 'Compatible with posts and hardware', 'UAE and GCC project support'],
+    applications: [
+      { label: 'Industrial Site Security', href: '/applications/warehouses-logistic-centers' },
+      { label: 'Boundary Security Fencing', href: '/applications/boundary-security-fencing' },
+      { label: 'Utilities & Infrastructure', href: '/applications/critical-infrastructure-fencing' },
+      { label: 'Commercial Properties', href: '/applications/commercial-fencing' },
+    ],
+    internalLinks: [
+      { label: 'Gate Hinges and Locks', href: '/products/gate-hinges-and-locks' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    faqs: [
+      { question: 'What types of gate systems are available?', answer: 'Sliding, swing, pedestrian and project-specified gate systems can be reviewed based on opening size and application.' },
+      { question: 'Can the gate finish match the fence?', answer: 'Yes, galvanized, powder coated, PVC coated and custom colours can be discussed to match the fencing system.' },
+      { question: 'What information is needed for gate RFQ?', answer: 'Share opening width, height, gate type, infill, posts, finish, hardware and site location for quotation.' },
+    ],
+    rfqPrompt: 'Request high-security gate pricing with opening size, gate type, infill, frame, posts, coating, hardware and delivery location.',
+    availableMarkets: gccAvailableMarkets,
+  },
+  {
+    slug: 'post-and-railing-system',
+    name: 'Post & Railing System',
+    category: 'Fence Posts & Rail Systems',
+    primaryKeyword: 'post and railing system supplier in Dubai UAE',
+    secondaryKeywords: ['post rail fence UAE', 'railing fencing system Dubai', 'steel post rail system GCC', 'boundary railing fence supplier'],
+    metaTitle: 'Post & Railing System Supplier in Dubai UAE | SRK Fence',
+    metaDescription: 'SRK Fence supplies post and railing systems for boundaries, walkways, parks, commercial projects and perimeter fencing across UAE and GCC.',
+    h1: 'Post & Railing System Supplier in Dubai UAE',
+    shortDescription: 'Post and railing systems for boundaries, walkways, parks, commercial areas and organized perimeter fencing projects.',
+    intro: 'SRK Post & Railing System provides a neat rail-based fencing solution for projects requiring strong posts, horizontal rails and clean boundary lines. It can be used for commercial properties, parks, walkways, residential communities, public areas and industrial support zones.',
+    image: '/products/pdf-mapped/post-and-railing-system/post-and-railing-system-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/post-and-railing-system/post-and-railing-system-01.webp', alt: 'Post and railing system for boundary fencing and walkways', caption: 'Post and railing system overview' },
+      { src: '/products/pdf-mapped/post-and-railing-system/post-and-railing-system-02.webp', alt: 'Steel post rail fencing components and finish options', caption: 'Post, rail, fixing and finish options' },
+    ],
+    specs: [
+      { label: 'Product', value: 'Post & Railing System' },
+      { label: 'Applications', value: 'Boundaries, parks, walkways, commercial projects, residential communities and industrial areas' },
+      { label: 'Components', value: 'Steel posts, rails, brackets, base plates and fixing accessories' },
+      { label: 'Finish options', value: 'Galvanized, powder coated, painted or custom finish' },
+      { label: 'Colour options', value: 'Green, black, grey, white and custom colours' },
+      { label: 'Customization', value: 'Height, rail spacing, post size, colour, finish and fixing details can be reviewed' },
+    ],
+    materialOptions: [
+      { title: 'Steel Posts', description: 'Post options for stable rail support and boundary line formation.', bullets: ['Round or square post discussion', 'Embedded or surface fixing support', 'Custom height options'] },
+      { title: 'Horizontal Rails', description: 'Rail components for clean, organized boundary appearance.', bullets: ['Rail spacing options', 'Suitable for parks and walkways', 'Compatible with brackets and accessories'] },
+      { title: 'Finish Options', description: 'Finish can be selected based on appearance and exposure requirement.', bullets: ['Galvanized or powder coated', 'Custom colours available', 'Outdoor durability support'] },
+    ],
+    keyFeatures: ['Clean post-and-rail appearance', 'Suitable for public, commercial and residential areas', 'Custom height and rail spacing support', 'Strong steel post system', 'Compatible with base plates and brackets', 'Multiple finish and colour options', 'Low-maintenance outdoor use', 'UAE and GCC quotation support'],
+    applications: [
+      { label: 'Parks & Public Areas', href: '/applications/parks-public-areas' },
+      { label: 'Residential Communities', href: '/applications/residential-villa-fencing' },
+      { label: 'Commercial Fencing', href: '/applications/commercial-fencing' },
+      { label: 'Boundary Fencing', href: '/applications/boundary-security-fencing' },
+    ],
+    internalLinks: [
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Clamps and Connectors', href: '/products/clamps-and-connectors' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    faqs: [
+      { question: 'Where is a post and railing system used?', answer: 'It is used for boundaries, parks, walkways, commercial areas, residential communities and organized perimeter projects.' },
+      { question: 'Can height and rail spacing be customized?', answer: 'Yes, height, rail spacing, post size, finish and colour can be reviewed based on project requirements.' },
+      { question: 'What is needed for quotation?', answer: 'Share total length, height, post type, rail spacing, finish, colour, fixing type and delivery location.' },
+    ],
+    rfqPrompt: 'Request post and railing system pricing with length, height, post size, rail spacing, finish, colour and location.',
+    availableMarkets: gccAvailableMarkets,
+  },
+  {
+    slug: 'pvc-decorative-fence',
+    name: 'PVC Decorative Fence',
+    category: 'PVC Fencing',
+    primaryKeyword: 'PVC decorative fence supplier in Dubai UAE',
+    secondaryKeywords: ['decorative PVC fence UAE', 'PVC garden fence Dubai', 'vinyl decorative fencing GCC', 'white PVC fence supplier'],
+    metaTitle: 'PVC Decorative Fence Supplier in Dubai UAE | SRK Fence',
+    metaDescription: 'SRK Fence supplies PVC decorative fencing for villas, gardens, patios, landscapes and residential boundary projects across UAE and GCC.',
+    h1: 'PVC Decorative Fence Supplier in Dubai UAE',
+    shortDescription: 'Decorative PVC fencing for villas, gardens, patios, landscapes, outdoor spaces and residential boundary projects.',
+    intro: 'SRK PVC Decorative Fence is designed for projects that need an attractive, lightweight and low-maintenance boundary solution. It is suitable for villas, gardens, patios, landscapes, outdoor seating areas, parks and residential communities where clean aesthetics and easy upkeep are important.',
+    image: '/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-01.webp', alt: 'PVC decorative fence styles for villas gardens and landscapes', caption: 'PVC decorative fence style options' },
+      { src: '/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-02.webp', alt: 'Decorative PVC fence panels for outdoor and garden boundaries', caption: 'Decorative PVC panels for garden and boundary use' },
+      { src: '/products/pdf-mapped/pvc-decorative-fence/pvc-decorative-fence-03.webp', alt: 'PVC fence colours styles and residential applications', caption: 'PVC fence colours, layouts and residential applications' },
+    ],
+    specs: [
+      { label: 'Product', value: 'PVC Decorative Fence' },
+      { label: 'Applications', value: 'Villas, gardens, patios, landscapes, parks, outdoor seating areas and residential communities' },
+      { label: 'Material', value: 'PVC / vinyl fencing material' },
+      { label: 'Style options', value: 'Decorative panel, picket, privacy-style and project-specified layouts' },
+      { label: 'Colours', value: 'White and project-specified colour options' },
+      { label: 'Customization', value: 'Height, panel style, colour, post layout and project dimensions can be reviewed' },
+    ],
+    materialOptions: [
+      { title: 'Decorative Panels', description: 'Attractive PVC panel styles for gardens and visible boundaries.', bullets: ['Clean decorative appearance', 'Suitable for villas and landscapes', 'Custom style discussion'] },
+      { title: 'PVC Posts & Rails', description: 'Matching PVC post and rail components for neat system installation.', bullets: ['Coordinated post layout', 'Lightweight system', 'Low-maintenance material'] },
+      { title: 'Colour & Style', description: 'Colour and design can be selected to suit landscape and project requirements.', bullets: ['White and custom colour options', 'Multiple style choices', 'Residential-friendly finish'] },
+    ],
+    keyFeatures: ['Decorative residential appearance', 'Low-maintenance PVC material', 'Suitable for villas, gardens and patios', 'Lightweight and clean finish', 'Multiple style options', 'Custom height and layout support', 'Weather-friendly outdoor use', 'UAE and GCC supply support'],
+    applications: [
+      { label: 'Villa Fencing', href: '/applications/residential-villa-fencing' },
+      { label: 'Garden Fencing', href: '/applications/landscape-garden-fencing' },
+      { label: 'Parks & Outdoor Areas', href: '/applications/parks-public-areas' },
+      { label: 'Residential Communities', href: '/applications/residential-villa-fencing' },
+    ],
+    internalLinks: [
+      { label: 'PVC Privacy Fence', href: '/products/pvc-privacy-fence' },
+      { label: 'PVC Coated Chain Link Fence', href: '/products/pvc-coated-chain-link-fence' },
+      { label: 'Colors & Coating Options', href: '/products/colors-and-coating-options' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    faqs: [
+      { question: 'Where is PVC decorative fencing used?', answer: 'PVC decorative fencing is used for villas, gardens, patios, landscapes, parks and residential boundary projects.' },
+      { question: 'Can PVC fence style and height be customized?', answer: 'Yes, panel style, height, colour, post layout and project dimensions can be reviewed.' },
+      { question: 'What details are required for RFQ?', answer: 'Share total length, height, style preference, colour, site photos or drawings and delivery location.' },
+    ],
+    rfqPrompt: 'Request PVC decorative fence pricing with total length, height, style, colour, post layout and delivery location.',
+    availableMarkets: gccAvailableMarkets,
+  },
+  {
+    slug: 'pvc-privacy-fence',
+    name: 'PVC Privacy Fence',
+    category: 'PVC Fencing',
+    primaryKeyword: 'PVC privacy fence supplier in Dubai UAE',
+    secondaryKeywords: ['PVC privacy panels UAE', 'vinyl privacy fence Dubai', 'villa privacy fence GCC', 'garden privacy fence supplier'],
+    metaTitle: 'PVC Privacy Fence Supplier in Dubai UAE | SRK Fence',
+    metaDescription: 'SRK Fence supplies PVC privacy fencing for villas, gardens, patios, pools, residential boundaries and outdoor spaces across UAE and GCC.',
+    h1: 'PVC Privacy Fence Supplier in Dubai UAE',
+    shortDescription: 'PVC privacy fencing for villas, gardens, patios, pools, residential boundaries and outdoor spaces requiring visual screening.',
+    intro: 'SRK PVC Privacy Fence is suitable for residential and outdoor spaces where privacy, clean appearance and low maintenance are required. It can be used around villas, gardens, patios, pools, outdoor seating areas and residential boundary walls.',
+    image: '/products/pdf-mapped/pvc-privacy-fence/pvc-privacy-fence-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/pvc-privacy-fence/pvc-privacy-fence-01.webp', alt: 'PVC privacy fence panels for villas gardens patios and outdoor spaces', caption: 'PVC privacy fence panel options' },
+      { src: '/products/pdf-mapped/pvc-privacy-fence/pvc-privacy-fence-02.webp', alt: 'PVC privacy fence styles colours and residential applications', caption: 'Privacy fence styles, colours and residential applications' },
+    ],
+    specs: [
+      { label: 'Product', value: 'PVC Privacy Fence' },
+      { label: 'Applications', value: 'Villas, gardens, patios, pools, outdoor spaces and residential boundaries' },
+      { label: 'Material', value: 'PVC / vinyl privacy fencing material' },
+      { label: 'Panel type', value: 'Privacy panels and project-specified designs' },
+      { label: 'Colours', value: 'White and project-specified colour options' },
+      { label: 'Customization', value: 'Height, panel style, colour, post layout and project dimensions can be reviewed' },
+    ],
+    materialOptions: [
+      { title: 'Privacy Panels', description: 'PVC panels designed for visual screening and clean residential boundaries.', bullets: ['Privacy-focused panel layouts', 'Suitable for villas and patios', 'Clean low-maintenance finish'] },
+      { title: 'Post & Rail System', description: 'Matching posts and rails support panel alignment and installation.', bullets: ['Coordinated system look', 'Custom layout support', 'Residential boundary use'] },
+      { title: 'Style & Colour', description: 'Panel style and colour can be selected according to exterior design requirements.', bullets: ['White and custom colour options', 'Multiple panel styles', 'Project-specific dimensions'] },
+    ],
+    keyFeatures: ['Privacy-focused fencing system', 'Low-maintenance PVC material', 'Suitable for villas, gardens, patios and pools', 'Clean visual screening', 'Custom height and panel style support', 'Outdoor-friendly finish', 'Residential and community use', 'UAE and GCC supply support'],
+    applications: [
+      { label: 'Villa Fencing', href: '/applications/residential-villa-fencing' },
+      { label: 'Garden & Landscape Fencing', href: '/applications/landscape-garden-fencing' },
+      { label: 'Residential Communities', href: '/applications/residential-villa-fencing' },
+      { label: 'Outdoor Privacy Areas', href: '/applications/residential-villa-fencing' },
+    ],
+    internalLinks: [
+      { label: 'PVC Decorative Fence', href: '/products/pvc-decorative-fence' },
+      { label: 'PVC Coated Chain Link Fence', href: '/products/pvc-coated-chain-link-fence' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    faqs: [
+      { question: 'Where is PVC privacy fencing used?', answer: 'PVC privacy fencing is used for villas, gardens, patios, pools, residential boundaries and outdoor spaces requiring visual screening.' },
+      { question: 'Can the height and design be customized?', answer: 'Yes, height, panel design, colour and post layout can be reviewed as per project requirement.' },
+      { question: 'What details are needed for quotation?', answer: 'Share length, height, panel design, colour, site photos or drawings and delivery location.' },
+    ],
+    rfqPrompt: 'Request PVC privacy fence pricing with length, height, panel style, colour, post layout and delivery location.',
+    availableMarkets: gccAvailableMarkets,
+  },
+  {
+    slug: 'rectangle-mesh-fence',
+    name: 'Rectangle Mesh Fence',
+    category: 'Welded Mesh Fencing',
+    primaryKeyword: 'rectangle mesh fence supplier in Dubai UAE',
+    secondaryKeywords: ['rectangular mesh fence UAE', 'welded rectangle mesh Dubai', 'boundary mesh fence GCC', 'steel mesh panel supplier'],
+    metaTitle: 'Rectangle Mesh Fence Supplier in Dubai UAE | SRK Fence',
+    metaDescription: 'SRK Fence supplies rectangle mesh fencing for boundaries, industrial sites, residential areas, schools and commercial projects across UAE and GCC.',
+    h1: 'Rectangle Mesh Fence Supplier in Dubai UAE',
+    shortDescription: 'Rectangle mesh fencing for boundaries, industrial sites, residential communities, schools, parks and commercial perimeter projects.',
+    intro: 'SRK Rectangle Mesh Fence is a welded mesh fencing option designed for visible boundary separation, stable perimeter lines and clean appearance. It can be used for industrial sites, commercial premises, residential communities, schools, parks and general boundary fencing.',
+    image: '/products/pdf-mapped/rectangle-mesh-fence/rectangle-mesh-fence-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/rectangle-mesh-fence/rectangle-mesh-fence-01.webp', alt: 'Rectangle mesh fence panels for boundary and perimeter fencing', caption: 'Rectangle mesh fence panel overview' },
+      { src: '/products/pdf-mapped/rectangle-mesh-fence/rectangle-mesh-fence-02.webp', alt: 'Rectangular welded mesh fence coating and installation details', caption: 'Mesh, coating and fixing details for rectangle mesh fencing' },
+    ],
+    specs: [
+      { label: 'Product', value: 'Rectangle Mesh Fence' },
+      { label: 'Applications', value: 'Boundaries, industrial sites, residential communities, schools, parks and commercial perimeters' },
+      { label: 'Mesh type', value: 'Rectangular welded mesh panel or project-specified mesh opening' },
+      { label: 'Material', value: 'Steel wire / welded mesh panel options' },
+      { label: 'Finish options', value: 'Galvanized, powder coated, PVC coated or project-specified finish' },
+      { label: 'Customization', value: 'Mesh opening, wire diameter, panel size, post type, colour and coating can be reviewed' },
+    ],
+    materialOptions: [
+      { title: 'Rectangular Mesh Panels', description: 'Welded mesh panel option with rectangular openings for boundary fencing.', bullets: ['Clean mesh pattern', 'Visible perimeter line', 'Custom panel size discussion'] },
+      { title: 'Post & Fixing System', description: 'Compatible posts and fixing accessories for stable installation.', bullets: ['Post and clamp support', 'Fence height options', 'Gate compatibility'] },
+      { title: 'Coated Finish', description: 'Finish options selected according to corrosion resistance and appearance needs.', bullets: ['Galvanized or coated finish', 'Custom colours available', 'Outdoor durability support'] },
+    ],
+    keyFeatures: ['Rectangular welded mesh appearance', 'Suitable for boundary and perimeter fencing', 'Custom mesh opening and panel size support', 'Galvanized and coated finish options', 'Compatible with posts and gates', 'Useful for industrial, commercial and residential projects', 'Clean visibility and airflow', 'UAE and GCC quotation support'],
+    applications: [
+      { label: 'Boundary Fencing', href: '/applications/boundary-security-fencing' },
+      { label: 'Industrial Sites', href: '/applications/warehouses-logistic-centers' },
+      { label: 'Schools & Parks', href: '/applications/school-playground-fencing' },
+      { label: 'Residential Communities', href: '/applications/residential-villa-fencing' },
+    ],
+    internalLinks: [
+      { label: 'Welded Mesh Fence', href: '/products/welded-mesh-fence' },
+      { label: 'Fence Posts', href: '/products/fence-posts-gi-ms-pvc' },
+      { label: 'Colors & Coating Options', href: '/products/colors-and-coating-options' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    faqs: [
+      { question: 'Where is rectangle mesh fencing used?', answer: 'Rectangle mesh fencing is used for boundaries, industrial sites, residential communities, schools, parks and commercial perimeters.' },
+      { question: 'Can the mesh opening and panel size be customized?', answer: 'Yes, mesh opening, wire diameter, panel size, post type, colour and finish can be reviewed.' },
+      { question: 'What details should be shared for RFQ?', answer: 'Share length, height, mesh opening, wire diameter, panel size, post type, coating, colour and delivery location.' },
+    ],
+    rfqPrompt: 'Request rectangle mesh fence pricing with running meters, height, mesh opening, wire diameter, panel size, coating and location.',
+    availableMarkets: gccAvailableMarkets,
+  },
+  {
+    slug: 'fasteners-bolts',
+    name: 'Fasteners & Bolts',
+    category: 'Fence Accessories',
+    primaryKeyword: 'fasteners and bolts supplier in Dubai UAE',
+    secondaryKeywords: ['fence bolts UAE', 'galvanized fasteners Dubai', 'fencing nuts bolts GCC', 'steel fasteners supplier UAE'],
+    metaTitle: 'Fasteners & Bolts Supplier in Dubai UAE | SRK Fence',
+    metaDescription: 'SRK Fence supplies fasteners, bolts, nuts, washers and fixing hardware for fence posts, gates, panels and accessories across UAE and GCC.',
+    h1: 'Fasteners & Bolts Supplier in Dubai UAE',
+    shortDescription: 'Fasteners, bolts, nuts, washers and fixing hardware for fence posts, gates, panels, clamps and accessories.',
+    intro: 'SRK Fasteners & Bolts support fencing projects that require reliable fixing hardware for posts, panels, gates, clamps, brackets, base plates and accessories. Options can be reviewed based on material, finish, size, quantity and project exposure conditions.',
+    image: '/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp',
+    imageGallery: [
+      { src: '/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp', alt: 'Fasteners bolts nuts washers and fixing hardware for fencing projects', caption: 'Fasteners, bolts, nuts and washers for fencing systems' },
+      { src: '/products/pdf-mapped/fasteners-bolts/fasteners-bolts-02.webp', alt: 'Galvanized and coated fence fasteners and bolts options', caption: 'Galvanized and coated fixing hardware options' },
+    ],
+    specs: [
+      { label: 'Product', value: 'Fasteners & Bolts' },
+      { label: 'Applications', value: 'Fence posts, panels, gates, base plates, clamps, brackets and accessories' },
+      { label: 'Types', value: 'Bolts, nuts, washers, anchors, screws and project-specified fasteners' },
+      { label: 'Material options', value: 'M.S., G.I., stainless steel or project-specified material options' },
+      { label: 'Finish options', value: 'Galvanized, zinc plated, powder coated or custom finish' },
+      { label: 'Customization', value: 'Size, thread, length, finish, grade, quantity and packing can be reviewed' },
+    ],
+    materialOptions: [
+      { title: 'Bolts & Nuts', description: 'Bolt and nut options for connecting fence components and hardware.', bullets: ['Multiple sizes and lengths', 'Suitable for posts and brackets', 'Project quantity support'] },
+      { title: 'Washers & Anchors', description: 'Washers and anchor fixing options for base plates and surface-mounted hardware.', bullets: ['Base plate fixing support', 'Anchor options', 'Installation hardware supply'] },
+      { title: 'Finish Options', description: 'Finish and material can be selected according to corrosion resistance and site exposure.', bullets: ['G.I. and stainless options', 'Zinc plated or coated finishes', 'Custom project specification'] },
+    ],
+    keyFeatures: ['Fixing hardware for fencing systems', 'Suitable for posts, panels, gates and base plates', 'Bolts, nuts, washers and anchors available', 'Galvanized, zinc plated and coated options', 'Custom size and quantity support', 'Useful for installation and repair projects', 'Compatible with clamps and accessories', 'UAE and GCC supply support'],
+    applications: [
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Gate Systems', href: '/products/high-security-gate-systems' },
+      { label: 'Panel & Post Systems', href: '/products/panel-post-system' },
+    ],
+    internalLinks: [
+      { label: 'Fence Accessories', href: '/products/fence-accessories' },
+      { label: 'Base Plates', href: '/products/base-plates' },
+      { label: 'Clamps and Connectors', href: '/products/clamps-and-connectors' },
+      { label: 'Request a Quote', href: '/contact' },
+    ],
+    faqs: [
+      { question: 'Where are fasteners and bolts used in fencing?', answer: 'They are used for fence posts, panels, gates, base plates, clamps, brackets and accessory fixing.' },
+      { question: 'Can fastener size and finish be customized?', answer: 'Yes, size, thread, length, finish, grade, quantity and packing can be reviewed as per requirement.' },
+      { question: 'What information is required for RFQ?', answer: 'Share fastener type, size, material, finish, grade, quantity, application and delivery location.' },
+    ],
+    rfqPrompt: 'Request fasteners and bolts pricing with type, size, material, finish, grade, quantity and delivery location.',
+    availableMarkets: gccAvailableMarkets,
+  }
+);
+
 export const countryPages: CountryPage[] = [
   {
     slug: 'uae',
@@ -2560,7 +3098,17 @@ export function normalizeSlug(slug = '') {
 
 export function getProductSeoBySlug(slug: string) {
   const normalized = normalizeSlug(slug);
-  return productSeoPages.find((product) => product.slug === normalized);
+  const aliases: Record<string, string> = {
+    'anti-climb-358-security-fence': 'anti-climb-358-fence',
+    'gate-hinges': 'gate-hinges-and-locks',
+    'post-and-rail-system': 'post-and-railing-system',
+    'gabion-wall': 'gabion-wall-and-fencing',
+    'color-and-coating-options': 'colors-and-coating-options',
+    'fasteners': 'fasteners-bolts',
+    'bolts': 'fasteners-bolts',
+  };
+  const canonicalSlug = aliases[normalized] || normalized;
+  return productSeoPages.find((product) => product.slug === canonicalSlug);
 }
 
 export function getCountryBySlug(slug: string) {

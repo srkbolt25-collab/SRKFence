@@ -133,12 +133,35 @@ const pdfMappedThumbnails: Record<string, string> = {
   "fasteners-bolts": "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
   "fasteners": "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
   "bolts": "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
-  "coating-materials": "/products/pdf-mapped/coating-materials/coating-materials-01.webp",
+  "coating-materials": "/products/pdf-mapped/coating-materials/coating-materials-02.webp",
   "colors-and-coating-options": "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-01.webp",
   "color-and-coating-options": "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-01.webp",
   "barbed-wire": "/products/pdf-mapped/barbed-wire/barbed-wire-01.webp",
   "razor-wire": "/products/pdf-mapped/razor-wire/razor-wire-01.webp",
   "temporary-fence-panels": "/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-01.webp",
+};
+
+
+const pdfMappedDescriptions: Record<string, string> = {
+  "fence-posts-gi-ms-pvc": "G.I., M.S. and PVC fence posts for chain-link, welded mesh, gates, boundaries and outdoor fencing systems.",
+  "panel-post-system": "Panel and post fencing systems for strong, neat and durable boundary fencing projects.",
+  "high-security-gate-systems": "High-security gate systems for controlled access, industrial perimeters and secure project entrances.",
+  "base-plates": "Base plates for mounting fence posts, gate posts, railing posts and supporting steel structures.",
+  "gate-hinges-and-locks": "Gate hinges and locks for chain-link gates, welded mesh gates, steel gates and fencing systems.",
+  "post-and-railing-system": "Post and railing systems for boundaries, walkways, parks, commercial projects and organized perimeter fencing.",
+  "pvc-decorative-fence": "Decorative PVC fencing for villas, gardens, patios, landscapes and residential boundary projects.",
+  "pvc-privacy-fence": "PVC privacy fencing for villas, gardens, patios, pools and outdoor spaces requiring visual screening.",
+  "anti-climb-358-fence": "Anti-climb 358 security fence systems for high-security perimeter protection and controlled site boundaries.",
+  "rectangle-mesh-fence": "Rectangle mesh fencing for boundaries, industrial sites, residential communities, schools and commercial perimeters.",
+  "gabion-wall-and-fencing": "Gabion wall and fencing systems using wire mesh baskets with natural or project-specified stone filling.",
+  "clamps-and-connectors": "Clamps and connectors for secure fence posts, rails, panels, mesh fixing and steel fencing assemblies.",
+  "fence-accessories": "Fence accessories including caps, clamps, brackets, tension wire, tie wire, clips and gate hardware support.",
+  "fasteners-bolts": "Fasteners, bolts, nuts, washers and fixing hardware for fence posts, gates, panels and accessories.",
+  "coating-materials": "Protective coating materials for chain-link fences, welded mesh, fence wires, pipes, posts, gates and steel structures.",
+  "colors-and-coating-options": "Colour and coating finish options for fencing products, wires, mesh, posts, gates and accessories.",
+  "barbed-wire": "Barbed wire rolls for boundary fencing, agricultural fencing, industrial perimeters and security fence toppings.",
+  "razor-wire": "Razor wire and concertina coil options for high-security fence-top and boundary protection.",
+  "temporary-fence-panels": "Temporary fence panels for construction sites, events, short-term boundaries and movable project fencing.",
 };
 
 const normalizeProductText = (value: string) =>
@@ -157,7 +180,25 @@ const stringifyProductDescription = (description: unknown) => {
   return typeof description === "string" ? description : "";
 };
 
-const getPdfMappedThumbnailForProduct = (product: {
+const coatingMaterialsArchiveDescription =
+  "Protective coating materials for chain-link fences, welded mesh, fence wires, pipes, posts, gates and steel structures.";
+
+const shouldUseCoatingMaterialsArchiveDescription = (product: {
+  id?: string;
+  title?: string;
+  name?: string;
+  category?: string;
+  description?: unknown;
+}) => {
+  const slug = getProductSlug({ title: product.title, name: product.name, id: product.id });
+  const haystack = normalizeProductText(
+    `${product.title || ""} ${product.name || ""} ${product.category || ""} ${stringifyProductDescription(product.description)}`
+  );
+
+  return slug === "coating-materials" || haystack.includes("coating materials");
+};
+
+const getPdfMappedProductSlugForProduct = (product: {
   id?: string;
   title?: string;
   name?: string;
@@ -169,35 +210,57 @@ const getPdfMappedThumbnailForProduct = (product: {
     product.id || "",
   ];
 
-  for (const slug of slugCandidates) {
-    if (pdfMappedThumbnails[slug]) return pdfMappedThumbnails[slug];
+  const aliasToCanonical: Record<string, string> = {
+    "gate-hinges": "gate-hinges-and-locks",
+    "post-and-rail-system": "post-and-railing-system",
+    "gabion-wall": "gabion-wall-and-fencing",
+    "color-and-coating-options": "colors-and-coating-options",
+    "anti-climb-358-security-fence": "anti-climb-358-fence",
+    "fasteners": "fasteners-bolts",
+    "bolts": "fasteners-bolts",
+  };
+
+  for (const rawSlug of slugCandidates) {
+    const slug = aliasToCanonical[rawSlug] || rawSlug;
+    if (pdfMappedThumbnails[slug] || pdfMappedDescriptions[slug]) return slug;
   }
 
   const haystack = normalizeProductText(
     `${product.title || ""} ${product.name || ""} ${product.category || ""} ${stringifyProductDescription(product.description)}`
   );
 
-  if (haystack.includes("fence post") || haystack.includes("gi ms pvc")) return pdfMappedThumbnails["fence-posts-gi-ms-pvc"];
-  if (haystack.includes("panel post")) return pdfMappedThumbnails["panel-post-system"];
-  if (haystack.includes("high security gate") || haystack.includes("sliding gate") || haystack.includes("swing gate")) return pdfMappedThumbnails["high-security-gate-systems"];
-  if (haystack.includes("base plate")) return pdfMappedThumbnails["base-plates"];
-  if (haystack.includes("gate hinge")) return pdfMappedThumbnails["gate-hinges-and-locks"];
-  if (haystack.includes("post rail") || haystack.includes("railing system")) return pdfMappedThumbnails["post-and-railing-system"];
-  if (haystack.includes("pvc decorative")) return pdfMappedThumbnails["pvc-decorative-fence"];
-  if (haystack.includes("pvc privacy")) return pdfMappedThumbnails["pvc-privacy-fence"];
-  if (haystack.includes("anti climb") || haystack.includes("358 security")) return pdfMappedThumbnails["anti-climb-358-fence"];
-  if (haystack.includes("rectangle mesh")) return pdfMappedThumbnails["rectangle-mesh-fence"];
-  if (haystack.includes("gabion")) return pdfMappedThumbnails["gabion-wall-and-fencing"];
-  if (haystack.includes("clamps") || haystack.includes("connectors")) return pdfMappedThumbnails["clamps-and-connectors"];
-  if (haystack.includes("fence accessories")) return pdfMappedThumbnails["fence-accessories"];
-  if (haystack.includes("fastener") || haystack.includes("bolts") || haystack.includes("nuts")) return pdfMappedThumbnails["fasteners-bolts"];
-  if (haystack.includes("coating materials")) return pdfMappedThumbnails["coating-materials"];
-  if (haystack.includes("color") && haystack.includes("coating")) return pdfMappedThumbnails["colors-and-coating-options"];
-  if (haystack.includes("barbed wire")) return pdfMappedThumbnails["barbed-wire"];
-  if (haystack.includes("razor wire")) return pdfMappedThumbnails["razor-wire"];
-  if (haystack.includes("temporary fence")) return pdfMappedThumbnails["temporary-fence-panels"];
+  if (haystack.includes("fence post") || haystack.includes("gi ms pvc")) return "fence-posts-gi-ms-pvc";
+  if (haystack.includes("panel post")) return "panel-post-system";
+  if (haystack.includes("high security gate") || haystack.includes("sliding gate") || haystack.includes("swing gate")) return "high-security-gate-systems";
+  if (haystack.includes("base plate")) return "base-plates";
+  if (haystack.includes("gate hinge") || haystack.includes("gate lock")) return "gate-hinges-and-locks";
+  if (haystack.includes("post rail") || haystack.includes("railing system")) return "post-and-railing-system";
+  if (haystack.includes("pvc decorative")) return "pvc-decorative-fence";
+  if (haystack.includes("pvc privacy")) return "pvc-privacy-fence";
+  if (haystack.includes("anti climb") || haystack.includes("358 security")) return "anti-climb-358-fence";
+  if (haystack.includes("rectangle mesh")) return "rectangle-mesh-fence";
+  if (haystack.includes("gabion")) return "gabion-wall-and-fencing";
+  if (haystack.includes("clamps") || haystack.includes("connectors")) return "clamps-and-connectors";
+  if (haystack.includes("fence accessories")) return "fence-accessories";
+  if (haystack.includes("fastener") || haystack.includes("bolts") || haystack.includes("nuts")) return "fasteners-bolts";
+  if (haystack.includes("coating materials")) return "coating-materials";
+  if (haystack.includes("color") && haystack.includes("coating")) return "colors-and-coating-options";
+  if (haystack.includes("barbed wire")) return "barbed-wire";
+  if (haystack.includes("razor wire")) return "razor-wire";
+  if (haystack.includes("temporary fence")) return "temporary-fence-panels";
 
   return null;
+};
+
+const getPdfMappedThumbnailForProduct = (product: {
+  id?: string;
+  title?: string;
+  name?: string;
+  category?: string;
+  description?: unknown;
+}) => {
+  const pdfMappedSlug = getPdfMappedProductSlugForProduct(product);
+  return pdfMappedSlug ? pdfMappedThumbnails[pdfMappedSlug] || null : null;
 };
 
 // Icon mapping based on category
@@ -284,21 +347,33 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
         .filter((p: any) => p.status === 'Active')
         .map((p: any) => {
           const title = p.title || p.name;
-          const pdfMappedThumbnail = getPdfMappedThumbnailForProduct({
+          const pdfProductLookup = {
             id: p.id,
             title,
             name: p.name,
             category: p.category,
             description: p.description,
-          });
+          };
+          const pdfMappedSlug = getPdfMappedProductSlugForProduct(pdfProductLookup);
+          const pdfMappedThumbnail = pdfMappedSlug ? pdfMappedThumbnails[pdfMappedSlug] : getPdfMappedThumbnailForProduct(pdfProductLookup);
+          const pdfMappedDescription = pdfMappedSlug ? pdfMappedDescriptions[pdfMappedSlug] : null;
 
           return {
             id: p.id,
             title,
             subtitle: p.subtitle || '',
-            description: Array.isArray(p.description) && p.description.length > 0
-              ? p.description.map((d: { title: string; content: string }) => `${d.title}: ${d.content}`).join(' ')
-              : (p.description || ''),
+            detailSlug: pdfMappedSlug || getProductSlug({ title, name: p.name, id: p.id }),
+            description: pdfMappedDescription || (shouldUseCoatingMaterialsArchiveDescription({
+              id: p.id,
+              title,
+              name: p.name,
+              category: p.category,
+              description: p.description,
+            })
+              ? coatingMaterialsArchiveDescription
+              : Array.isArray(p.description) && p.description.length > 0
+                ? p.description.map((d: { title: string; content: string }) => `${d.title}: ${d.content}`).join(' ')
+                : (p.description || '')),
             image: pdfMappedThumbnail || (p.images && p.images.length > 0 ? p.images[0] : heroFence),
             images: p.images || [],
             features: p.specifications ? [
@@ -344,7 +419,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
       if (!selectedCategory) {
         const aCategoryOrder = categoryOrderMap.get(a.category || "") ?? 9999;
         const bCategoryOrder = categoryOrderMap.get(b.category || "") ?? 9999;
-        if (aCategoryOrder !== bCategoryOrder) return aCategoryOrder - bCategoryOrder;
+        if (aCategoryOrder !== bCategoryOrder) return Number(aCategoryOrder) - Number(bCategoryOrder);
       }
 
       const aOrder = typeof a.displayOrder === 'number' ? a.displayOrder : 9999;
@@ -374,8 +449,8 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
     });
   };
 
-  const handleViewDetails = (product: { id: string; title?: string; name?: string }) => {
-    const productSlug = getProductSlug(product);
+  const handleViewDetails = (product: { id: string; title?: string; name?: string; detailSlug?: string }) => {
+    const productSlug = product.detailSlug || getProductSlug(product);
     // Navigate to product details page
     router.push(`/products/${encodeURIComponent(productSlug)}`);
   };
