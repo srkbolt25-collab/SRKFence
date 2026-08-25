@@ -626,7 +626,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                     }}
                     className="group relative flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
-                    <div className="relative aspect-[16/9] w-full bg-white">
+                    <div className="relative h-52 w-full overflow-hidden bg-white">
                       {typeof product.image === 'string' ? (
                         <img
                           src={product.image}
