@@ -101,10 +101,20 @@ export default function HomeSeoSection() {
           </aside>
         </div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          <div className="rounded-lg border border-border bg-card p-5">
-            <h3 className="mb-4 text-xl font-bold text-foreground">Recommended Product by Application</h3>
-            <div className="overflow-x-auto">
+        <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-8 lg:grid-cols-2">
+          <div className="rounded-lg border border-border bg-card p-4 sm:p-5">
+            <h3 className="mb-4 text-lg font-bold text-foreground sm:text-xl">Recommended Product by Application</h3>
+
+            <div className="grid gap-3 md:hidden">
+              {productByApplicationRows.map((row) => (
+                <div key={row.application} className="rounded-lg border border-border/70 bg-background p-3">
+                  <p className="text-sm font-bold text-foreground">{row.application}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{row.products}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden overflow-x-auto md:block">
               <table className="w-full min-w-[520px] text-left text-sm">
                 <thead className="border-b border-border text-foreground">
                   <tr>
@@ -124,24 +134,24 @@ export default function HomeSeoSection() {
             </div>
           </div>
 
-          <div className="rounded-lg border border-border bg-card p-5">
-            <h3 className="mb-4 text-xl font-bold text-foreground">Buyer Questions</h3>
-            <div className="space-y-4">
+          <div className="rounded-lg border border-border bg-card p-4 sm:p-5">
+            <h3 className="mb-4 text-lg font-bold text-foreground sm:text-xl">Buyer Questions</h3>
+            <div className="space-y-3 sm:space-y-4">
               {homepageFaqs.map((faq) => (
-                <div key={faq.question} className="border-b border-border/70 pb-4 last:border-b-0 last:pb-0">
-                  <h4 className="font-bold text-foreground">{faq.question}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
+                <div key={faq.question} className="border-b border-border/70 pb-3 last:border-b-0 last:pb-0 sm:pb-4">
+                  <h4 className="text-sm font-bold leading-snug text-foreground sm:text-base">{faq.question}</h4>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">{faq.answer}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-6">
-              <h4 className="mb-3 font-bold text-foreground">Helpful comparisons</h4>
-              <div className="flex flex-wrap gap-2">
+            <div className="mt-5 sm:mt-6">
+              <h4 className="mb-3 text-sm font-bold text-foreground sm:text-base">Helpful comparisons</h4>
+              <div className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap">
                 {comparisonTopics.map((topic) => (
                   <Link
                     key={topic.label}
                     href={topic.href}
-                    className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary hover:text-primary"
+                    className="max-w-full rounded-full border border-border px-3 py-1.5 text-center text-[11px] font-semibold leading-snug text-muted-foreground transition hover:border-primary hover:text-primary sm:text-xs"
                   >
                     {topic.label}
                   </Link>
