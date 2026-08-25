@@ -470,7 +470,12 @@ export default function RFQPage() {
                     type="button"
                     variant="outline"
                     className="w-full border-[#c5162a] text-[#c5162a] hover:bg-[#c5162a]/10"
-                    onClick={() => router.push('/products')}
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new Event('rfq-updated'));
+                      }
+                      router.push('/products');
+                    }}
                   >
                     Continue Shopping
                   </Button>

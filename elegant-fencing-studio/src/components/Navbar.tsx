@@ -295,15 +295,33 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile RFQ and menu buttons */}
+          <div className="md:hidden flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => {
+                router.push('/rfq');
+                setIsOpen(false);
+              }}
+              aria-label="View RFQ cart"
+              className="relative text-[#c5162a] hover:bg-[#c5162a]/10"
+            >
+              <ShoppingCart className="h-5 w-5" />
+              {rfqItems.length > 0 && (
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-gradient-to-r from-[#c5162a] to-[#e63946] text-white text-xs border-0">
+                  {rfqItems.length}
+                </Badge>
+              )}
+            </Button>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
               className="text-[#c5162a] hover:bg-[#c5162a]/10"
+              aria-label="Open mobile menu"
             >
-              <Menu className="h-6 w-6" />
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
