@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import ProductRouteClientPage from '@/components/pages/ProductRouteClientPage';
 import ProductSeoLandingPage from '@/components/pages/ProductSeoLandingPage';
+import ProductPdfLandingPage from '@/components/pages/ProductPdfLandingPage';
+import { isPdfProductSlug } from '@/lib/pdfProductContent';
 import { buildSeoMetadata, getProductKeywordSet, getProductSeoBySlug, productSeoPages } from '@/lib/seo';
 
 export function generateStaticParams() {
@@ -31,6 +33,10 @@ export default function ProductIdPage({ params }: { params: { id: string } }) {
   const product = getProductSeoBySlug(params.id);
 
   if (product) {
+    if (isPdfProductSlug(product.slug)) {
+      return <ProductPdfLandingPage product={product} />;
+    }
+
     return <ProductSeoLandingPage product={product} />;
   }
 
