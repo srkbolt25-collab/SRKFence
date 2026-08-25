@@ -29,6 +29,7 @@ import metalFence from '@/assets/metal-fence.jpg';
 import vinylFence from '@/assets/vinyl-fence.jpg';
 import woodFence from '@/assets/wood-fence.jpg';
 import { buildWebPageSchema, productSeoPages, rfqKeywords, staticSeoProfiles } from '@/lib/seo';
+import { getRFQFallbackProduct } from '@/lib/rfqProductHelpers';
 
 // Static products data (for fallback)
 const staticProducts: Record<string, any> = {
@@ -147,6 +148,8 @@ export default function RFQPage() {
               };
             } catch (error) {
               console.error(`Error loading product ${id}:`, error);
+              const fallbackProduct = getRFQFallbackProduct(id);
+              if (fallbackProduct) return fallbackProduct;
               return {
                 id: id,
                 title: `Product ${id.slice(0, 8)}...`,

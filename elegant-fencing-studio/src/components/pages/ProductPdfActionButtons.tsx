@@ -1,11 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { apiClient } from '@/lib/api';
 import { getProductSlug } from '@/lib/productSlug';
+import { ToastAction } from '@/components/ui/toast';
 import { useRFQ } from '@/contexts/RFQContext';
 import { useToast } from '@/hooks/use-toast';
 
@@ -100,66 +102,91 @@ const getPdfSlugFromProduct = (product: any) => {
 };
 
 export default function ProductPdfActionButtons({ productSlug, productTitle }: ProductPdfActionButtonsProps) {
+  const router = useRouter();
   const { addToRFQ, isInRFQ } = useRFQ();
   const { toast } = useToast();
-  const [rfqProductId, setRfqProductId] = useState(productSlug);
+  const canonicalPageSlug = normalizeSlug(productSlug);
+  const [rfqProductId, setRfqProductId] = useState(canonicalPageSlug);
+  const [isAdding, setIsAdding] = useState(false);
+
+  const resolveProductId = useCallback(async () => {
+    try {
+      const response = await apiClient.getProducts();
+      const products = response.products || [];
+      const normalizedPageTitle = normalizeText(productTitle);
+
+      const matchedProduct = products.find((product: any) => {
+        const title = product?.title || product?.name || '';
+        const directSlug = normalizeSlug(getProductSlug({ title, name: product?.name, id: product?.id }));
+        const mappedSlug = normalizeSlug(getPdfSlugFromProduct(product));
+        const normalizedProductTitle = normalizeText(title);
+
+        return (
+          product?.id === productSlug ||
+          directSlug === canonicalPageSlug ||
+          mappedSlug === canonicalPageSlug ||
+          normalizedProductTitle === normalizedPageTitle ||
+          normalizedProductTitle.includes(normalizedPageTitle) ||
+          normalizedPageTitle.includes(normalizedProductTitle)
+        );
+      });
+
+      const resolvedId = matchedProduct?.id || canonicalPageSlug;
+      setRfqProductId(resolvedId);
+      return resolvedId;
+    } catch (error) {
+      console.error('Error resolving product for RFQ:', error);
+      setRfqProductId(canonicalPageSlug);
+      return canonicalPageSlug;
+    }
+  }, [canonicalPageSlug, productSlug, productTitle]);
 
   useEffect(() => {
     let mounted = true;
 
-    const resolveProductId = async () => {
-      try {
-        const response = await apiClient.getProducts();
-        const products = response.products || [];
-        const canonicalPageSlug = normalizeSlug(productSlug);
-        const normalizedPageTitle = normalizeText(productTitle);
-
-        const matchedProduct = products.find((product: any) => {
-          const title = product?.title || product?.name || '';
-          const directSlug = normalizeSlug(getProductSlug({ title, name: product?.name, id: product?.id }));
-          const mappedSlug = normalizeSlug(getPdfSlugFromProduct(product));
-          const normalizedProductTitle = normalizeText(title);
-
-          return (
-            product?.id === productSlug ||
-            directSlug === canonicalPageSlug ||
-            mappedSlug === canonicalPageSlug ||
-            normalizedProductTitle === normalizedPageTitle ||
-            normalizedProductTitle.includes(normalizedPageTitle) ||
-            normalizedPageTitle.includes(normalizedProductTitle)
-          );
-        });
-
-        if (mounted && matchedProduct?.id) {
-          setRfqProductId(matchedProduct.id);
-        }
-      } catch (error) {
-        console.error('Error resolving product for RFQ:', error);
-      }
-    };
-
-    resolveProductId();
+    resolveProductId().then((resolvedId) => {
+      if (mounted) setRfqProductId(resolvedId);
+    });
 
     return () => {
       mounted = false;
     };
-  }, [productSlug, productTitle]);
+  }, [resolveProductId]);
 
-  const handleAddToRFQ = () => {
-    if (isInRFQ(rfqProductId)) {
+  const handleAddToRFQ = async () => {
+    if (isAdding) return;
+    setIsAdding(true);
+
+    try {
+      const targetProductId = await resolveProductId();
+
+      if (isInRFQ(targetProductId) || isInRFQ(canonicalPageSlug)) {
+        toast({
+          title: 'Already in RFQ',
+          description: `${productTitle} is already in your Request for Quote list.`,
+          action: (
+            <ToastAction altText="View RFQ" onClick={() => router.push('/rfq')}>
+              View RFQ
+            </ToastAction>
+          ),
+        });
+        return;
+      }
+
+      addToRFQ(targetProductId);
+
       toast({
-        title: 'Already in RFQ',
-        description: `${productTitle} is already in your Request for Quote list.`,
+        title: 'Added to RFQ',
+        description: `${productTitle} has been added to your Request for Quote list.`,
+        action: (
+          <ToastAction altText="View RFQ" onClick={() => router.push('/rfq')}>
+            View RFQ
+          </ToastAction>
+        ),
       });
-      return;
+    } finally {
+      setIsAdding(false);
     }
-
-    addToRFQ(rfqProductId);
-
-    toast({
-      title: 'Added to RFQ',
-      description: `${productTitle} has been added to your Request for Quote list.`,
-    });
   };
 
   return (
@@ -178,9 +205,10 @@ export default function ProductPdfActionButtons({ productSlug, productTitle }: P
         type="button"
         size="lg"
         onClick={handleAddToRFQ}
+        disabled={isAdding}
         className="h-auto min-w-0 rounded-xl bg-gradient-to-r from-[#c5162a] to-[#e63946] px-3 py-3 text-[11px] font-bold uppercase tracking-wide text-white hover:shadow-glow sm:px-8 sm:py-5 sm:text-sm"
       >
-        <span className="whitespace-nowrap">Add RFQ</span>
+        <span className="whitespace-nowrap">{isAdding ? 'Adding...' : 'Add RFQ'}</span>
         <FileText className="hidden sm:ml-2 sm:block sm:h-5 sm:w-5" />
       </Button>
     </div>

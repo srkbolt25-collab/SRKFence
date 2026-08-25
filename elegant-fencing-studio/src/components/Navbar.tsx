@@ -20,6 +20,7 @@ import metalFence from "@/assets/metal-fence.jpg";
 import vinylFence from "@/assets/vinyl-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
 import { getProductSlug } from "@/lib/productSlug";
+import { getRFQFallbackProduct } from "@/lib/rfqProductHelpers";
 
 // Static products data (for fallback)
 const staticProducts: Record<string, any> = {
@@ -114,6 +115,8 @@ const Navbar = () => {
               };
             } catch (error) {
               console.error(`Error loading product ${id}:`, error);
+              const fallbackProduct = getRFQFallbackProduct(id);
+              if (fallbackProduct) return fallbackProduct;
               // Return a fallback product if API fails
               return {
                 id: id,
