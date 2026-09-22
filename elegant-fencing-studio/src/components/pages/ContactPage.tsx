@@ -82,8 +82,11 @@ const contactInfo = {
     "Sharjah Publication City (SPC), City Center - E311 - opposite Al Zahia - Muwaileh Commercial - Al Zahia - Sharjah - United Arab Emirates",
   companyName: "SRK FENCE Industries",
   googleMapsUrl: "https://share.google/ytQQXOjnlhdIJSpCz",
+  // Use the Google Business Profile name shown on Maps so the embedded map
+  // opens on the business card/pin instead of showing an address-only result.
+  mapBusinessName: "SRK PVC ECO FENCE Chain Link Fence",
   mapLocation:
-    "https://www.google.com/maps?q=SRK%20FENCE%20Industries%2C%20Sharjah%20Publication%20City%20(SPC)%2C%20City%20Center%20-%20E311%20-%20opposite%20Al%20Zahia%20-%20Muwaileh%20Commercial%20-%20Al%20Zahia%20-%20Sharjah%20-%20United%20Arab%20Emirates&z=17&output=embed",
+    "https://www.google.com/maps?q=SRK%20PVC%20ECO%20FENCE%20Chain%20Link%20Fence%2C%20Sharjah%20Publication%20City%20(SPC)%2C%20City%20Center%20-%20E311%20-%20opposite%20Al%20Zahia%20-%20Muwaileh%20Commercial%20-%20Al%20Zahia%20-%20Sharjah%20-%20United%20Arab%20Emirates&z=17&output=embed",
 };
 
 const ContactPage = () => {
