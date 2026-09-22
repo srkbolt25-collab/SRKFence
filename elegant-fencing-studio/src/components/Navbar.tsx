@@ -20,7 +20,6 @@ import metalFence from "@/assets/metal-fence.jpg";
 import vinylFence from "@/assets/vinyl-fence.jpg";
 import woodFence from "@/assets/wood-fence.jpg";
 import { getProductSlug } from "@/lib/productSlug";
-import { getRFQFallbackProduct } from "@/lib/rfqProductHelpers";
 
 // Static products data (for fallback)
 const staticProducts: Record<string, any> = {
@@ -115,8 +114,6 @@ const Navbar = () => {
               };
             } catch (error) {
               console.error(`Error loading product ${id}:`, error);
-              const fallbackProduct = getRFQFallbackProduct(id);
-              if (fallbackProduct) return fallbackProduct;
               // Return a fallback product if API fails
               return {
                 id: id,
@@ -295,33 +292,15 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile RFQ and menu buttons */}
-          <div className="md:hidden flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => {
-                router.push('/rfq');
-                setIsOpen(false);
-              }}
-              aria-label="View RFQ cart"
-              className="relative text-[#c5162a] hover:bg-[#c5162a]/10"
-            >
-              <ShoppingCart className="h-5 w-5" />
-              {rfqItems.length > 0 && (
-                <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-gradient-to-r from-[#c5162a] to-[#e63946] text-white text-xs border-0">
-                  {rfqItems.length}
-                </Badge>
-              )}
-            </Button>
+          {/* Mobile menu button */}
+          <div className="md:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
               className="text-[#c5162a] hover:bg-[#c5162a]/10"
-              aria-label="Open mobile menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <Menu className="h-6 w-6" />
             </Button>
           </div>
         </div>

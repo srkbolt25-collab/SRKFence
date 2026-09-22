@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import GccMarketLandingPage from '@/components/pages/GccMarketLandingPage';
-import { buildSeoMetadata, countryPages } from '@/lib/seo';
+import PvcCoatedChainLinkPage from '@/components/pages/PvcCoatedChainLinkPage';
+import { buildSeoMetadata, countryPages, getProductSeoBySlug } from '@/lib/seo';
 import {
   countryNameForKeyword,
   gccApplicationPages,
@@ -80,6 +81,18 @@ export async function generateMetadata({ params }: { params: { slug: string; pag
   if (productResult) {
     const { country, productPage } = productResult;
     const market = countryNameForKeyword(country);
+
+    if (productPage.slug === 'pvc-coated-chain-link-fence') {
+      return buildSeoMetadata({
+        title: `PVC Coated Chain Link Fence in ${country.country} | SRK Fence`,
+        description: `PVC coated galvanized chain link fence for industrial, commercial, residential, construction, agricultural and sports perimeter projects in ${country.country}.`,
+        path: `/countries/${country.slug}/${productPage.slug}`,
+        keywords: getCountryProductKeywords(country, productPage),
+        image: productPage.image,
+        intent: `PVC coated chain link fence product page for ${country.country} project RFQs, specifications, accessories and installation enquiries.`,
+      });
+    }
+
     const title = `${productPage.name} Supplier in ${country.country} | ${productSeoModifier(productPage)}`;
     return buildSeoMetadata({
       title,
@@ -112,6 +125,12 @@ export async function generateMetadata({ params }: { params: { slug: string; pag
 export default function CountrySegmentPage({ params }: { params: { slug: string; page: string } }) {
   const productResult = getCountryProductPage(params.slug, params.page);
   if (productResult) {
+    if (productResult.productPage.slug === 'pvc-coated-chain-link-fence') {
+      const product = getProductSeoBySlug('pvc-coated-chain-link-fence');
+      if (!product) notFound();
+      return <PvcCoatedChainLinkPage product={product} country={productResult.country} />;
+    }
+
     return <GccMarketLandingPage type="product" country={productResult.country} productPage={productResult.productPage} />;
   }
 

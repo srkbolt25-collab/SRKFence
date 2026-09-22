@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import ProductRouteClientPage from '@/components/pages/ProductRouteClientPage';
 import ProductSeoLandingPage from '@/components/pages/ProductSeoLandingPage';
-import ProductPdfLandingPage from '@/components/pages/ProductPdfLandingPage';
-import { isPdfProductSlug } from '@/lib/pdfProductContent';
+import PvcCoatedChainLinkPage from '@/components/pages/PvcCoatedChainLinkPage';
 import { buildSeoMetadata, getProductKeywordSet, getProductSeoBySlug, productSeoPages } from '@/lib/seo';
 
 export function generateStaticParams() {
@@ -32,11 +31,11 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 export default function ProductIdPage({ params }: { params: { id: string } }) {
   const product = getProductSeoBySlug(params.id);
 
-  if (product) {
-    if (isPdfProductSlug(product.slug)) {
-      return <ProductPdfLandingPage product={product} />;
-    }
+  if (product?.slug === 'pvc-coated-chain-link-fence') {
+    return <PvcCoatedChainLinkPage product={product} />;
+  }
 
+  if (product) {
     return <ProductSeoLandingPage product={product} />;
   }
 

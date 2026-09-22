@@ -20,7 +20,6 @@ import { useRFQ } from "@/contexts/RFQContext";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getProductSlug } from "@/lib/productSlug";
 import { productSeoPages } from "@/lib/seo";
-import { pdfProductContents } from "@/lib/pdfProductContent";
 
 // Fallback products for when database is empty
 const fallbackProducts = [
@@ -134,18 +133,13 @@ const pdfMappedThumbnails: Record<string, string> = {
   "fasteners-bolts": "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
   "fasteners": "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
   "bolts": "/products/pdf-mapped/fasteners-bolts/fasteners-bolts-01.webp",
-  "coating-materials": "/products/pdf-mapped/coating-materials/coating-materials-02.webp",
+  "coating-materials": "/products/pdf-mapped/coating-materials/coating-materials-01.webp",
   "colors-and-coating-options": "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-01.webp",
   "color-and-coating-options": "/products/pdf-mapped/color-and-coating-options/color-and-coating-options-01.webp",
   "barbed-wire": "/products/pdf-mapped/barbed-wire/barbed-wire-01.webp",
   "razor-wire": "/products/pdf-mapped/razor-wire/razor-wire-01.webp",
   "temporary-fence-panels": "/products/pdf-mapped/temporary-fence-panels/temporary-fence-panels-01.webp",
 };
-
-
-const pdfMappedDescriptions: Record<string, string> = Object.fromEntries(
-  Object.entries(pdfProductContents).map(([slug, content]) => [slug, content.shortDescription])
-);
 
 const normalizeProductText = (value: string) =>
   value
@@ -163,78 +157,6 @@ const stringifyProductDescription = (description: unknown) => {
   return typeof description === "string" ? description : "";
 };
 
-const coatingMaterialsArchiveDescription =
-  "Protective coating materials for chain-link fences, welded mesh, fence wires, pipes, posts, gates and steel structures.";
-
-const shouldUseCoatingMaterialsArchiveDescription = (product: {
-  id?: string;
-  title?: string;
-  name?: string;
-  category?: string;
-  description?: unknown;
-}) => {
-  const slug = getProductSlug({ title: product.title, name: product.name, id: product.id });
-  const haystack = normalizeProductText(
-    `${product.title || ""} ${product.name || ""} ${product.category || ""} ${stringifyProductDescription(product.description)}`
-  );
-
-  return slug === "coating-materials" || haystack.includes("coating materials");
-};
-
-const getPdfMappedProductSlugForProduct = (product: {
-  id?: string;
-  title?: string;
-  name?: string;
-  category?: string;
-  description?: unknown;
-}) => {
-  const slugCandidates = [
-    getProductSlug({ title: product.title, name: product.name, id: product.id }),
-    product.id || "",
-  ];
-
-  const aliasToCanonical: Record<string, string> = {
-    "gate-hinges": "gate-hinges-and-locks",
-    "post-and-rail-system": "post-and-railing-system",
-    "gabion-wall": "gabion-wall-and-fencing",
-    "color-and-coating-options": "colors-and-coating-options",
-    "anti-climb-358-security-fence": "anti-climb-358-fence",
-    "fasteners": "fasteners-bolts",
-    "bolts": "fasteners-bolts",
-  };
-
-  for (const rawSlug of slugCandidates) {
-    const slug = aliasToCanonical[rawSlug] || rawSlug;
-    if (pdfMappedThumbnails[slug] || pdfMappedDescriptions[slug]) return slug;
-  }
-
-  const haystack = normalizeProductText(
-    `${product.title || ""} ${product.name || ""} ${product.category || ""} ${stringifyProductDescription(product.description)}`
-  );
-
-  if (haystack.includes("fence post") || haystack.includes("gi ms pvc")) return "fence-posts-gi-ms-pvc";
-  if (haystack.includes("panel post")) return "panel-post-system";
-  if (haystack.includes("high security gate") || haystack.includes("sliding gate") || haystack.includes("swing gate")) return "high-security-gate-systems";
-  if (haystack.includes("base plate")) return "base-plates";
-  if (haystack.includes("gate hinge") || haystack.includes("gate lock")) return "gate-hinges-and-locks";
-  if (haystack.includes("post rail") || haystack.includes("railing system")) return "post-and-railing-system";
-  if (haystack.includes("pvc decorative")) return "pvc-decorative-fence";
-  if (haystack.includes("pvc privacy")) return "pvc-privacy-fence";
-  if (haystack.includes("anti climb") || haystack.includes("358 security")) return "anti-climb-358-fence";
-  if (haystack.includes("rectangle mesh")) return "rectangle-mesh-fence";
-  if (haystack.includes("gabion")) return "gabion-wall-and-fencing";
-  if (haystack.includes("clamps") || haystack.includes("connectors")) return "clamps-and-connectors";
-  if (haystack.includes("fence accessories")) return "fence-accessories";
-  if (haystack.includes("fastener") || haystack.includes("bolts") || haystack.includes("nuts")) return "fasteners-bolts";
-  if (haystack.includes("coating materials")) return "coating-materials";
-  if (haystack.includes("color") && haystack.includes("coating")) return "colors-and-coating-options";
-  if (haystack.includes("barbed wire")) return "barbed-wire";
-  if (haystack.includes("razor wire")) return "razor-wire";
-  if (haystack.includes("temporary fence")) return "temporary-fence-panels";
-
-  return null;
-};
-
 const getPdfMappedThumbnailForProduct = (product: {
   id?: string;
   title?: string;
@@ -242,8 +164,66 @@ const getPdfMappedThumbnailForProduct = (product: {
   category?: string;
   description?: unknown;
 }) => {
-  const pdfMappedSlug = getPdfMappedProductSlugForProduct(product);
-  return pdfMappedSlug ? pdfMappedThumbnails[pdfMappedSlug] || null : null;
+  // These two archive products previously fell back to the generic wood-fence image.
+  // Match their display names explicitly before slug/description heuristics so the
+  // correct product-specific thumbnails are always used even if the API title/id changes.
+  const displayName = normalizeProductText(`${product.name || ""} ${product.title || ""}`);
+  if (displayName.includes("panel and post system") || displayName.includes("panel post system")) {
+    return `${pdfMappedThumbnails["panel-post-system"]}?v=20260922`;
+  }
+  if (displayName === "accessories" || displayName.includes("fence accessories")) {
+    return `${pdfMappedThumbnails["fence-accessories"]}?v=20260922`;
+  }
+
+  const slugCandidates = [
+    getProductSlug({ title: product.title, name: product.name, id: product.id }),
+    product.id || "",
+  ];
+
+  for (const slug of slugCandidates) {
+    if (pdfMappedThumbnails[slug]) return pdfMappedThumbnails[slug];
+  }
+
+  const haystack = normalizeProductText(
+    `${product.title || ""} ${product.name || ""} ${product.category || ""} ${stringifyProductDescription(product.description)}`
+  );
+
+  if (haystack.includes("fence post") || haystack.includes("gi ms pvc")) return pdfMappedThumbnails["fence-posts-gi-ms-pvc"];
+  if (haystack.includes("panel post") || haystack.includes("panel and post")) return pdfMappedThumbnails["panel-post-system"];
+  if (haystack.includes("high security gate") || haystack.includes("sliding gate") || haystack.includes("swing gate")) return pdfMappedThumbnails["high-security-gate-systems"];
+  if (haystack.includes("base plate")) return pdfMappedThumbnails["base-plates"];
+  if (haystack.includes("gate hinge")) return pdfMappedThumbnails["gate-hinges-and-locks"];
+  if (haystack.includes("post rail") || haystack.includes("railing system")) return pdfMappedThumbnails["post-and-railing-system"];
+  if (haystack.includes("pvc decorative")) return pdfMappedThumbnails["pvc-decorative-fence"];
+  if (haystack.includes("pvc privacy")) return pdfMappedThumbnails["pvc-privacy-fence"];
+  if (haystack.includes("anti climb") || haystack.includes("358 security")) return pdfMappedThumbnails["anti-climb-358-fence"];
+  if (haystack.includes("rectangle mesh")) return pdfMappedThumbnails["rectangle-mesh-fence"];
+  if (haystack.includes("gabion")) return pdfMappedThumbnails["gabion-wall-and-fencing"];
+  if (haystack.includes("clamps") || haystack.includes("connectors")) return pdfMappedThumbnails["clamps-and-connectors"];
+  if (haystack.includes("fence accessories") || haystack.includes("accessories")) return pdfMappedThumbnails["fence-accessories"];
+  if (haystack.includes("fastener") || haystack.includes("bolts") || haystack.includes("nuts")) return pdfMappedThumbnails["fasteners-bolts"];
+  if (haystack.includes("coating materials")) return pdfMappedThumbnails["coating-materials"];
+  if (haystack.includes("color") && haystack.includes("coating")) return pdfMappedThumbnails["colors-and-coating-options"];
+  if (haystack.includes("barbed wire")) return pdfMappedThumbnails["barbed-wire"];
+  if (haystack.includes("razor wire")) return pdfMappedThumbnails["razor-wire"];
+  if (haystack.includes("temporary fence")) return pdfMappedThumbnails["temporary-fence-panels"];
+
+  return null;
+};
+
+const getCleanProductCardTitle = (product: { name?: string; title?: string }) => {
+  const raw = (product.name || product.title || "").trim();
+  if (!raw) return "Product";
+
+  return raw
+    // Product archive should show only the product name, not SEO/location wording.
+    .replace(/\b(?:supplier|suppliers)\b.*$/i, "")
+    .replace(/\s+(?:in\s+)?dubai\s*,?\s*uae\b.*$/i, "")
+    .replace(/\s+(?:in\s+)?uae\b.*$/i, "")
+    .replace(/\s*[-–—|]\s*srk\s*fenc(?:e|ing)\b.*$/i, "")
+    .replace(/\s*[-–—|]\s*$/, "")
+    .replace(/\s+/g, " ")
+    .trim();
 };
 
 // Icon mapping based on category
@@ -329,34 +309,22 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
       const transformedProducts = dbProducts
         .filter((p: any) => p.status === 'Active')
         .map((p: any) => {
-          const title = p.title || p.name;
-          const pdfProductLookup = {
+          const title = getCleanProductCardTitle({ name: p.name, title: p.title });
+          const pdfMappedThumbnail = getPdfMappedThumbnailForProduct({
             id: p.id,
             title,
             name: p.name,
             category: p.category,
             description: p.description,
-          };
-          const pdfMappedSlug = getPdfMappedProductSlugForProduct(pdfProductLookup);
-          const pdfMappedThumbnail = pdfMappedSlug ? pdfMappedThumbnails[pdfMappedSlug] : getPdfMappedThumbnailForProduct(pdfProductLookup);
-          const pdfMappedDescription = pdfMappedSlug ? pdfMappedDescriptions[pdfMappedSlug] : null;
+          });
 
           return {
             id: p.id,
             title,
             subtitle: p.subtitle || '',
-            detailSlug: pdfMappedSlug || getProductSlug({ title, name: p.name, id: p.id }),
-            description: pdfMappedDescription || (shouldUseCoatingMaterialsArchiveDescription({
-              id: p.id,
-              title,
-              name: p.name,
-              category: p.category,
-              description: p.description,
-            })
-              ? coatingMaterialsArchiveDescription
-              : Array.isArray(p.description) && p.description.length > 0
-                ? p.description.map((d: { title: string; content: string }) => `${d.title}: ${d.content}`).join(' ')
-                : (p.description || '')),
+            description: Array.isArray(p.description) && p.description.length > 0
+              ? p.description.map((d: { title: string; content: string }) => `${d.title}: ${d.content}`).join(' ')
+              : (p.description || ''),
             image: pdfMappedThumbnail || (p.images && p.images.length > 0 ? p.images[0] : heroFence),
             images: p.images || [],
             features: p.specifications ? [
@@ -373,31 +341,9 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
           };
         });
 
-      const dedupedProducts = transformedProducts.reduce((acc: any[], product: any) => {
-        const productKey = product.detailSlug || getProductSlug({ title: product.title, id: product.id });
-        const existingIndex = acc.findIndex((item) => (item.detailSlug || item.id) === productKey);
-
-        if (existingIndex === -1) {
-          acc.push(product);
-          return acc;
-        }
-
-        const existing = acc[existingIndex];
-        const existingRawSlug = getProductSlug({ title: existing.title, id: existing.id });
-        const currentRawSlug = getProductSlug({ title: product.title, id: product.id });
-        const existingScore = (existingRawSlug === productKey ? 2 : 0) + (existing.image ? 1 : 0) + (existing.description ? 1 : 0);
-        const currentScore = (currentRawSlug === productKey ? 2 : 0) + (product.image ? 1 : 0) + (product.description ? 1 : 0);
-
-        if (currentScore > existingScore) {
-          acc[existingIndex] = product;
-        }
-
-        return acc;
-      }, []);
-
       // Use database products if available, otherwise fallback
-      if (dedupedProducts.length > 0) {
-        setProducts(dedupedProducts);
+      if (transformedProducts.length > 0) {
+        setProducts(transformedProducts);
       } else {
         setProducts(fallbackProducts);
       }
@@ -424,7 +370,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
       if (!selectedCategory) {
         const aCategoryOrder = categoryOrderMap.get(a.category || "") ?? 9999;
         const bCategoryOrder = categoryOrderMap.get(b.category || "") ?? 9999;
-        if (aCategoryOrder !== bCategoryOrder) return Number(aCategoryOrder) - Number(bCategoryOrder);
+        if (aCategoryOrder !== bCategoryOrder) return aCategoryOrder - bCategoryOrder;
       }
 
       const aOrder = typeof a.displayOrder === 'number' ? a.displayOrder : 9999;
@@ -454,8 +400,8 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
     });
   };
 
-  const handleViewDetails = (product: { id: string; title?: string; name?: string; detailSlug?: string }) => {
-    const productSlug = product.detailSlug || getProductSlug(product);
+  const handleViewDetails = (product: { id: string; title?: string; name?: string }) => {
+    const productSlug = getProductSlug(product);
     // Navigate to product details page
     router.push(`/products/${encodeURIComponent(productSlug)}`);
   };
@@ -626,7 +572,7 @@ const ProductsPage = ({ initialCategory }: { initialCategory?: string }) => {
                     }}
                     className="group relative flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
-                    <div className="relative h-52 w-full overflow-hidden bg-white">
+                    <div className="relative aspect-[16/9] w-full bg-white">
                       {typeof product.image === 'string' ? (
                         <img
                           src={product.image}

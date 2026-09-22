@@ -80,10 +80,10 @@ const contactInfo = {
   whatsapp: "+971586600183",
   address:
     "Sharjah Publication City (SPC), City Center - E311 - opposite Al Zahia - Muwaileh Commercial - Al Zahia - Sharjah - United Arab Emirates",
-  googleMapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Sharjah%20Publication%20City%20(SPC)%2C%20City%20Center%20-%20E311%20-%20opposite%20Al%20Zahia%20-%20Muwaileh%20Commercial%20-%20Al%20Zahia%20-%20Sharjah%20-%20United%20Arab%20Emirates",
+  companyName: "SRK FENCE Industries",
+  googleMapsUrl: "https://share.google/ytQQXOjnlhdIJSpCz",
   mapLocation:
-    "https://www.google.com/maps?q=Sharjah%20Publication%20City%20(SPC)%2C%20City%20Center%20-%20E311%20-%20opposite%20Al%20Zahia%20-%20Muwaileh%20Commercial%20-%20Al%20Zahia%20-%20Sharjah%20-%20United%20Arab%20Emirates&z=17&output=embed",
+    "https://www.google.com/maps?q=SRK%20FENCE%20Industries%2C%20Sharjah%20Publication%20City%20(SPC)%2C%20City%20Center%20-%20E311%20-%20opposite%20Al%20Zahia%20-%20Muwaileh%20Commercial%20-%20Al%20Zahia%20-%20Sharjah%20-%20United%20Arab%20Emirates&z=17&output=embed",
 };
 
 const ContactPage = () => {
@@ -508,7 +508,8 @@ const ContactPage = () => {
           <Card className="border border-border bg-background">
             <CardContent className="p-6">
               <div className="mb-4">
-                <p className="mb-2 font-medium text-foreground">Address:</p>
+                <p className="text-lg font-bold text-foreground">{contactInfo.companyName}</p>
+                <p className="mt-2 mb-1 font-medium text-foreground">Address:</p>
                 <p className="text-muted-foreground">{contactInfo.address}</p>
               </div>
               <div className="overflow-hidden rounded-lg border border-border">
@@ -520,7 +521,7 @@ const ContactPage = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="SRK FENCE Location"
+                  title="SRK FENCE Industries - Google Maps"
                 />
               </div>
               <div className="mt-4">
