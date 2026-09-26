@@ -1,17 +1,16 @@
 import type { MetadataRoute } from 'next';
+import { siteUrl } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: 'Googlebot', allow: '/' },
-      { userAgent: 'OAI-SearchBot', allow: '/' },
-      { userAgent: 'Claude-SearchBot', allow: '/' },
-      { userAgent: 'Claude-User', allow: '/' },
-      { userAgent: 'PerplexityBot', allow: '/' },
-      { userAgent: 'Perplexity-User', allow: '/' },
-      { userAgent: '*', allow: '/' },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/admin/', '/api/'],
+      },
     ],
-    sitemap: 'https://srksteel.com/sitemap.xml',
-    host: 'https://srksteel.com',
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }

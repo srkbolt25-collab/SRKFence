@@ -1,125 +1,124 @@
+import type { Metadata } from 'next';
+import SiteLayout from '@/components/SiteLayout';
+import Hero from '@/components/Hero'; 
+import Benefits from '@/components/Benefits';
+import Contact from '@/components/Contact';
+import QuickLinks from '@/components/QuickLinks';
+import ProjectHighlights from '@/components/ProjectHighlights';
+import HomeSeoSection from '@/components/HomeSeoSection';
+import HomeBlogSection from '@/components/HomeBlogSection';
+import StructuredData from '@/components/StructuredData';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import CategoryCard from '@/components/CategoryCard';
-import HeroSlider from '@/components/HeroSlider';
-import SectionHead from '@/components/SectionHead';
-import { applications, categoryInfo, countries } from '@/lib/data';
-import { buildMetadata } from '@/lib/seo';
+import { ArrowRight } from 'lucide-react';
+import {
+  buildSeoMetadata,
+  buildFaqSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  homepageFaqs,
+  productSeoPages,
+  countryPages,
+  staticSeoProfiles,
+} from '@/lib/seo';
 
-export const metadata = buildMetadata({
-  title: 'Steel Supplier in UAE | MS, SS, GI & Aluminium',
-  description: 'Steel supplier in UAE for mild steel, stainless steel, GI/PPGI and aluminium products. Call +971 58 660 0183 for project RFQs and supply enquiries.',
-  path: '/',
-  image: '/banners/hero-steel-2.webp',
-  keywords: ['steel supplier in UAE', 'mild steel supplier', 'stainless steel supplier', 'galvanized steel supplier', 'aluminium supplier UAE'],
-});
+export const metadata: Metadata = buildSeoMetadata(staticSeoProfiles.home);
 
-const buyerReasons = [
-  ['Documentation Support', 'Material certificates and product information can be reviewed where project documents require it.'],
-  ['Supply Efficiency', 'Product size, quantity, delivery city and timeline are checked early for smoother coordination.'],
-  ['Wide Product Range', 'Mild steel, stainless steel, galvanized steel and aluminium categories are organised in one catalogue.'],
-  ['Practical RFQ Support', 'The team helps buyers clarify grade, profile, thickness, finish, drawings and BOQ notes before quotation.'],
-];
-
-export default function HomePage() {
+export default function Home() {
   return (
     <>
-      <HeroSlider />
+      <StructuredData
+        data={[
+          buildFaqSchema(homepageFaqs),
+          buildItemListSchema(
+            'Priority SRK Fence product pages',
+            productSeoPages.map((product) => ({ label: product.name, href: `/products/${product.slug}` })),
+          ),
+          buildItemListSchema(
+            'SRK Fence country pages',
+            countryPages.map((country) => ({ label: `Fencing Supplier in ${country.country}`, href: `/countries/${country.slug}` })),
+          ),
+          buildWebPageSchema(
+            staticSeoProfiles.home.title,
+            staticSeoProfiles.home.description,
+            '/',
+            staticSeoProfiles.home.keywords,
+          ),
+        ]}
+      />
+      <SiteLayout>
+        {/* Hero Section - Full Width with Best Fencing Images */}
+        <Hero />
+        
+        {/* Quick Links to Main Products */}
+        <section className="relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <QuickLinks />
+        </section>
 
-      <section className="section soft intro-section">
-        <div className="container seo-two-col intro-two-col">
-          <div>
-            <p className="eyebrow">Who is SRK Steel?</p>
-            <h2 className="large-title">Steel Products for Contractors, Fabricators and MEP Teams</h2>
-            <p className="lead-copy">SRK Steel supplies commonly requested steel products for construction, roofing, cladding, interior fitout, fabrication and MEP support work. Buyers can review mild steel products, stainless steel products, galvanized steel products and aluminium products before sending a project RFQ.</p>
-            <p className="lead-copy">The team helps buyers confirm practical details such as grade, profile, thickness, finish, quantity, drawings or BOQ notes and delivery location. Enquiries are reviewed for UAE and selected GCC/Middle East markets including Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan.</p>
-            <div className="internal-links"><a href="/products">Products</a><a href="/categories">Categories</a><a href="/countries">Countries</a><a href="/contact">Request RFQ</a></div>
-          </div>
-          <aside className="homepage-image-panel">
-            <img src="/banners/products-banner.webp" alt="SRK Steel product range for construction and industrial projects" />
-          </aside>
-        </div>
-      </section>
+        <HomeSeoSection />
+        
+        {/* Project Highlights */}
+        <section className="relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <ProjectHighlights />
+        </section>
 
-      <section className="section soft category-section">
-        <div className="container">
-          <div className="section-row-head">
-            <SectionHead eyebrow="Product Categories" title="Explore Our Steel Product Range" text="We offer a wide range of mild steel, stainless steel, galvanized steel and aluminium products for project requirements." />
-            <Link href="/contact" className="btn category-quote">Get a Quote →</Link>
-          </div>
-          <div className="grid category-grid-new">
-            {categoryInfo.map((category) => <CategoryCard key={category.slug} category={category} />)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section applications-strip">
-        <div className="container">
-          <SectionHead eyebrow="Applications" title="Built for Industrial Projects" text="Match the right steel products to site requirements, fabrication needs and construction workflows." />
-          <div className="grid three">{applications.map((app) => <article className="application-card with-image" key={app.slug}><img src={app.image} alt={app.title} /><div><p>Application</p><h3>{app.title}</h3><span>{app.description}</span><Link href={`/applications/${app.slug}`}><b>Explore Application →</b></Link></div></article>)}</div>
-        </div>
-      </section>
-
-      <section className="section why-section soft">
-        <div className="container split why-grid">
-          <div>
-            <div className="factory-photo"><img src="/banners/homepage-stacked-steel-sheets.jpg" alt="Stacked coated steel sheets supplied by SRK Steel" /></div>
-            <div className="quote-card">“We don't just sell steel; we help buyers organise the right steel requirement for real project work.”</div>
-          </div>
-          <div>
-            <p className="eyebrow">Why Leaders Choose Us</p>
-            <h2 className="large-title">Reliable Supply Support for Industrial Buyers</h2>
-            <p className="lead-copy">SRK Steel works with contractors, fabricators, fitout teams and procurement departments that need clear product information, organised RFQs and dependable supply support before placing an order.</p>
-            <div className="feature-grid" style={{marginTop: 34}}>
-              {buyerReasons.map(([title, text]) => <div className="feature" key={title}><b>{title}</b><p>{text}</p></div>)}
+        {/* Latest Blog Posts */}
+        <section className="relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <HomeBlogSection />
+        </section>
+        
+        {/* Why Choose Us */}
+        <section className="relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <Benefits />
+        </section>
+        
+        {/* Get a Quote CTA Section */}
+        <section className="relative py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-primary-foreground">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(0_0%_100%/_0.1)_0%,transparent_50%)]" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative max-w-7xl">
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold">
+                Need a Custom Fencing Quotation?
+              </h2>
+              <p className="text-lg sm:text-xl text-primary-foreground/90 max-w-2xl mx-auto">
+                Send your fence length, height, mesh size, wire diameter, coating requirement, delivery location, installation requirement and project details.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 hover:shadow-glow px-8 py-6 h-auto rounded-xl font-bold uppercase tracking-wide"
+                >
+                  <Link href="/contact">
+                    Get a Quote
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 h-auto rounded-xl font-bold uppercase tracking-wide"
+                >
+                  <Link href="/products">
+                    View Products
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="section leading-section">
-        <div className="container leading-grid">
-          <div className="leading-image-card"><img src="/banners/hero-steel-2.webp" alt="SRK Steel industrial supply team and steel products" /></div>
-          <div className="leading-copy-card">
-            <p className="eyebrow">Why Choose Us</p>
-            <h2 className="large-title">Leading Suppliers,<br /><span>Since 1998</span></h2>
-            <p className="lead-copy">Since 1998, SRK Steel has served buyers who need practical steel product information, clear communication and dependable supply coordination for construction and industrial work.</p>
-            <p className="lead-copy">The range covers mild steel, stainless steel, galvanized steel and aluminium products including coils, sheets, panels, profiles, purlins, strut systems and fabrication materials. Share product sizes, drawings and delivery details so the team can review the requirement properly.</p>
-            <div className="leading-stats"><div><strong>25+</strong><span>Years</span></div><div><strong>250+</strong><span>Products</span></div><div><strong>10k+</strong><span>Projects</span></div><div><strong>500+</strong><span>Customers</span></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section soft testimonials-section">
-        <div className="container">
-          <SectionHead eyebrow="Client Feedback" title="What Our Customers Are Saying About Us" text="Feedback from project buyers and procurement teams who value clear communication and practical product guidance." />
-          <div className="reviews-track">
-            {[
-              ['Procurement Manager', 'SRK Steel helped us shortlist purlins and decking sheets quickly. The team asked the right technical questions before preparing a response.'],
-              ['MEP Contractor', 'The strut channel support was clear and practical. We received guidance on size, finish and accessory planning before confirming the enquiry.'],
-              ['Fitout Company', 'Drywall partition product information was easy to understand and helped our team prepare a cleaner BOQ-based request.'],
-              ['Fabrication Buyer', 'The stainless steel product pages made it easier to compare sheets, wire and coils before sending the final requirement.'],
-              ['Construction Contractor', 'Good communication for regional enquiries. The team understood delivery location, quantity and specification details from the beginning.'],
-              ['Project Engineer', 'SRK Steel gives product-focused answers instead of generic replies, which helps when a project needs quick technical clarification.']
-            ].map(([role, quote]) => <article className="review-card" key={role}><p>“{quote}”</p><b>{role}</b></article>)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section soft">
-        <div className="container">
-          <SectionHead eyebrow="Markets Served" title="Countries We Serve" text="SRK Steel supports steel product RFQs for UAE, Bahrain, Qatar, Kuwait, Saudi Arabia, Iraq, Oman and Jordan." />
-          <div className="country-grid">
-            {countries.map((country) => (
-              <Link href={`/countries/${country.slug}`} className="country-card" key={country.slug}>
-                <span>{country.name}</span>
-                <p>{country.cities}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section soft"><div className="container"><div className="banner"><div><h2>Need steel products for a project?</h2><p>Send product name, grade, thickness, finish, quantity and delivery location so the team can review your requirement.</p></div><Link href="/contact" className="btn" style={{background:'#111', borderColor:'#111'}}>Request RFQ</Link></div></div></section>
+        </section>
+        
+        {/* Contact Section */}
+        <section className="relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <Contact />
+        </section>
+      </SiteLayout>
     </>
   );
 }

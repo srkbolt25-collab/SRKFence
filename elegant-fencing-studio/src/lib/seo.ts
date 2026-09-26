@@ -2385,17 +2385,17 @@ export const applicationKeywordProfiles: Record<string, { secondaryKeywords: str
 };
 
 export const blogKeywordProfiles: Record<string, string[]> = {
-  'how-to-choose-the-right-fence': ['how to choose fence', 'fence selection guide', 'best fence for property', 'fence materials comparison', 'fence buying guide'],
-  'ppgi-vs-pvc-fencing-which-is-better': ['PPGI vs PVC fencing', 'PVC fencing comparison', 'galvanized iron vs PVC', 'fence material comparison'],
-  'fence-height-rules-in-uae': ['UAE fence height rules', 'fence regulations UAE', 'Dubai fence height', 'Abu Dhabi fence regulations'],
-  'best-fencing-for-data-centers': ['data center fencing', 'data center security', 'critical infrastructure fencing', 'anti climb 358 fence'],
-  'difference-between-358-and-welded-mesh': ['358 mesh vs welded mesh', 'prison mesh fencing', 'welded mesh comparison', 'anti-climb mesh'],
-  'chain-link-vs-welded-mesh-fence': ['chain link vs welded mesh fence', 'chain link fence UAE', 'welded mesh fence UAE', 'fencing comparison'],
-  'pvc-coated-vs-galvanized-chain-link-fence': ['PVC coated vs galvanized fence', 'PVC coated chain link fence', 'GI chain link fence', 'galvanized chain link fence'],
-  'best-fencing-for-construction-sites-in-dubai': ['construction site fencing Dubai', 'temporary fence supplier UAE', 'PVC hoarding fence Dubai', 'site boundary fence'],
-  'warehouse-security-fencing-guide': ['warehouse security fencing UAE', 'warehouse fencing Dubai', 'chain link fence warehouse', 'welded mesh warehouse fence'],
-  'barbed-wire-vs-razor-wire': ['barbed wire vs razor wire', 'barbed wire supplier UAE', 'razor wire supplier UAE', 'perimeter security wire'],
-  'how-to-prepare-a-fencing-rfq': ['fencing RFQ template', 'fence quotation UAE', 'fencing supplier RFQ', 'fence project specification'],
+  'how-to-choose-the-right-fence': ['how to choose fence UAE', 'fence selection guide UAE', 'chain link vs welded mesh', 'anti climb fence UAE', 'fence buying guide'],
+  'ppgi-vs-pvc-fencing-which-is-better': ['PPGI vs PVC fencing UAE', 'PVC hoarding UAE', 'metal hoarding vs PVC', 'construction site fence Dubai'],
+  'fence-height-rules-in-uae': ['fence height rules UAE', 'Dubai fence height rules', 'Abu Dhabi fence regulations', 'boundary wall UAE', 'fence permit UAE'],
+  'best-fencing-for-data-centers': ['data center security fencing UAE', 'data center fence Dubai', 'anti climb 358 data center', 'critical infrastructure fencing UAE'],
+  'difference-between-358-and-welded-mesh': ['358 mesh vs welded mesh UAE', 'anti climb 358 fence', 'welded mesh fence UAE', 'security mesh comparison'],
+  'chain-link-vs-welded-mesh-fence': ['chain link vs welded mesh fence UAE', 'chain link fence Dubai', 'welded mesh fence UAE', 'fence comparison UAE'],
+  'pvc-coated-vs-galvanized-chain-link-fence': ['PVC coated vs galvanized chain link fence UAE', 'PVC chain link fence Dubai', 'GI chain link fence UAE', 'green chain link fence'],
+  'best-fencing-for-construction-sites-in-dubai': ['construction site fencing Dubai', 'temporary fence Dubai', 'PVC hoarding Dubai', 'site hoarding UAE'],
+  'warehouse-security-fencing-guide': ['warehouse security fencing UAE', 'warehouse fence Dubai', 'logistics yard fencing UAE', 'welded mesh warehouse'],
+  'barbed-wire-vs-razor-wire': ['barbed wire vs razor wire', 'perimeter security safety', 'boundary deterrent comparison', 'security fencing compliance'],
+  'how-to-prepare-a-fencing-rfq': ['fencing RFQ template UAE', 'fence quotation request', 'fencing BOQ UAE', 'fence project specification'],
 };
 
 export const staticSeoProfiles = {
