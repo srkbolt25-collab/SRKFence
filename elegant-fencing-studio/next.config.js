@@ -1,34 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        pathname: '/**',
-      },
-    ],
-    formats: ['image/webp'],
-    minimumCacheTTL: 2678400,
-    unoptimized: false,
+  outputFileTracing: false,
+  staticPageGenerationTimeout: 600,
+  experimental: {
+    cpus: 1,
+    workerThreads: false,
   },
-  // Exclude src/pages from being treated as routes (we use App Router only)
-  pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
-  async headers() {
+  async redirects() {
     return [
       {
-        source: '/api/:path*',
-        headers: [
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT' },
-          { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization' },
-        ],
+        source: '/blogs/stainless-steel-hollow-section-selection-guide',
+        destination: '/blogs/stainless-steel-coil-sheet-wire-selection-guide',
+        permanent: true,
       },
     ];
   },
 };
-
 module.exports = nextConfig;
-

@@ -1,112 +1,42 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import Script from 'next/script';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import './globals.css';
-import Providers from './providers';
-import WhatsAppFloatingButton from '@/components/WhatsAppFloatingButton';
+import Script from 'next/script';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
+import TawkChatButton from '@/components/TawkChatButton';
 import StructuredData from '@/components/StructuredData';
-import {
-  buildLocalBusinessSchema,
-  buildOrganizationSchema,
-  buildWebsiteSchema,
-  entityDescription,
-  siteUrl,
-  staticSeoProfiles,
-} from '@/lib/seo';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: `${staticSeoProfiles.home.title} | SRK Fence`,
-    template: '%s',
-  },
-  description: staticSeoProfiles.home.description || entityDescription,
-  keywords: staticSeoProfiles.home.keywords,
-  openGraph: {
-    type: 'website',
-    url: siteUrl,
-    title: staticSeoProfiles.home.title,
-    description: staticSeoProfiles.home.description,
-    siteName: 'SRK Fence',
-    images: [
-      {
-        url: '/SRK FENCE Banners.webp',
-        width: 1200,
-        height: 630,
-        alt: 'SRK Fence chain link and security fencing supplier in Dubai UAE',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: staticSeoProfiles.home.title,
-    description: staticSeoProfiles.home.description,
-    images: ['/SRK FENCE Banners.webp'],
-  },
-  other: {
-    'google-site-verification': 'zAawJDJWiYNHxUS39Ori02q8wkXtLLZKxr6qmo9YPCo',
-    'geo.region': 'AE-SH',
-    'geo.placename': 'Dubai, Sharjah, United Arab Emirates',
-    'business:contact_data:country_name': 'United Arab Emirates',
-    'ai-search-intent': staticSeoProfiles.home.intent,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico?v=3' },
-      { url: '/favicon.png?v=3', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png?v=3',
-  },
+  metadataBase: new URL('https://srksteel.com'),
+  title: { default: 'Steel Supplier in UAE | SRK Steel', template: '%s | SRK Steel' },
+  description: 'SRK Steel supplies mild steel, stainless steel, galvanized steel and aluminium products for UAE, GCC and Middle East construction, roofing, cladding, MEP support, fitout and fabrication projects.',
+  keywords: ['steel supplier UAE', 'mild steel products', 'stainless steel supplier', 'galvanized steel supplier', 'aluminium coils UAE', 'GI decking sheets', 'C purlins', 'Z purlins', 'strut channels', 'drywall partition systems'],
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <StructuredData data={[buildOrganizationSchema(), buildLocalBusinessSchema(), buildWebsiteSchema()]} />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4XRKFGTQEP" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-4XRKFGTQEP');
-          `}
-        </Script>
+      <body>
+        <StructuredData />
+        <Header />
+        {children}
+        <Footer />
+        <WhatsAppFloat />
+        <TawkChatButton />
         <Script id="tawk-to-widget" strategy="afterInteractive">
-          {`
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/69f5ab526f23461c370f5ad9/1jnjqaf11';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-            })();
-          `}
+          {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.onLoad = function(){ if (Tawk_API.hideWidget) Tawk_API.hideWidget(); };
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6475a80f74285f0ec46e617d/1h1lph08d';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();`}
         </Script>
-        <Providers>
-          {children}
-          <WhatsAppFloatingButton />
-        </Providers>
       </body>
     </html>
   );

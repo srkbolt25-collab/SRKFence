@@ -1,0 +1,46 @@
+# Final Verification Report
+
+- PASS — Homepage slider deep-red CTA
+- PASS — Mobile typography boosted
+- PASS — Mobile height compact
+- PASS — No duplicate mobile/desktop CTA label classes
+- PASS — Banner asset mild-steel-desktop.webp
+- PASS — Banner asset mild-steel-mobile.webp
+- PASS — Banner asset stainless-steel-desktop.webp
+- PASS — Banner asset stainless-steel-mobile.webp
+- PASS — Banner asset galvanized-steel-desktop.webp
+- PASS — Banner asset galvanized-steel-mobile.webp
+- PASS — Banner asset aluminium-desktop.webp
+- PASS — Banner asset aluminium-mobile.webp
+- PASS — Layout order app/products/[slug]/page.tsx — [2570, 2777, 2917, 3121]
+- PASS — Layout order app/categories/[slug]/page.tsx — [2575, 2796, 3129, 3340]
+- PASS — Layout order app/countries/[slug]/products/[product]/page.tsx — [2940, 3195, 3365, 3615]
+- PASS — Layout order app/countries/[slug]/categories/[category]/page.tsx — [3179, 3442, 3761, 4010]
+- PASS — Category display Mild Steel (MS) Products
+- PASS — Category display Stainless Steel (SS) Products
+- PASS — Category display Galvanized Steel (GI) Products
+- PASS — Category display Aluminium Products
+- PASS — Thumbnail override ms-bars
+- PASS — Thumbnail override gi-pipe
+- PASS — Thumbnail override corrugated-roofing-sheet
+- PASS — Thumbnail override corrugated-fence-sheet-panel
+- PASS — Thumbnail override ppgi-plain-sheet
+- PASS — MS Bars exact WebP public/products/ms-bars.webp
+- PASS — MS Bars exact WebP public/products/catalog/ms-bars-supplier-gcc-srk-steel.webp
+- PASS — MS Bars JPEG public/products/ms-bars.jpg — (1537, 1023)
+- PASS — MS Bars JPEG public/products/catalog/ms-bars.jpg — (1537, 1023)
+- PASS — MS Bars JPEG public/products/gallery5/ms-bars/01.jpg — (1537, 1023)
+- PASS — 43 product gallery definitions — 43
+- PASS — Every gallery has 5 images — {}
+- PASS — Country category static params
+- PASS — Country product static params
+- PASS — Country product uses shared gallery
+- PASS — Main product uses shared gallery
+- PASS — Exact approved thumbnail public/products/catalog/gi-pipe-supplier-gcc-srk-steel.jpg
+- PASS — Exact approved thumbnail public/products/catalog/corrugated-roofing-sheet-supplier-gcc-srk-steel.jpeg
+- PASS — Exact approved thumbnail public/products/catalog/corrugated-fence-sheet-panel-supplier-gcc-srk-steel.jpeg
+- PASS — Exact approved thumbnail public/products/catalog/ppgi-plain-sheet-supplier-gcc-srk-steel.jpg
+- PASS — MS Bars central image path still points to replaced base asset
+
+Direct code references to `/products/ms-bars.jpg` (safe because the asset itself is corrected):
+- lib/data.ts

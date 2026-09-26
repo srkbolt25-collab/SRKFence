@@ -1,0 +1,236 @@
+# SRK Steel Product Image SEO Filename Audit — 2026-09-01
+
+## Scope
+
+- All 43 product gallery sliders renamed to SEO-friendly filenames.
+- 5 images per product = 215 slider images checked.
+- Existing descriptive user-supplied keyword filenames were preserved semantically and normalized to lowercase hyphen format.
+- Generic `01.jpg`–`05.jpg` names were replaced with descriptive product keyword filenames.
+- Five product catalogue/thumbnail override images were also renamed with SEO-friendly filenames.
+- Main and country product pages continue to use the shared `productGalleryImages` mapping, so both use the new filenames.
+
+## Generic gallery naming pattern
+
+1. `[product]-supplier-gcc-srk-steel`
+2. `[product]-product-view-srk-steel`
+3. `[product]-close-up-srk-steel`
+4. `[product]-warehouse-stock-srk-steel`
+5. `[product]-application-srk-steel`
+
+## Renamed gallery files
+
+- `/products/gallery5/ms-hollow-sections/01.jpg` → `/products/gallery5/ms-hollow-sections/ms-hollow-sections-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-hollow-sections/02.jpg` → `/products/gallery5/ms-hollow-sections/ms-hollow-sections-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-hollow-sections/03.jpg` → `/products/gallery5/ms-hollow-sections/ms-hollow-sections-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-hollow-sections/04.jpg` → `/products/gallery5/ms-hollow-sections/ms-hollow-sections-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-hollow-sections/05.jpg` → `/products/gallery5/ms-hollow-sections/ms-hollow-sections-application-srk-steel.jpg`
+- `/products/gallery5/ms-beams/01.jpg` → `/products/gallery5/ms-beams/ms-beams-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-beams/02.jpg` → `/products/gallery5/ms-beams/ms-beams-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-beams/03.jpg` → `/products/gallery5/ms-beams/ms-beams-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-beams/04.jpg` → `/products/gallery5/ms-beams/ms-beams-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-beams/05.jpg` → `/products/gallery5/ms-beams/ms-beams-application-srk-steel.jpg`
+- `/products/gallery5/ms-channels/01.jpg` → `/products/gallery5/ms-channels/ms-channels-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-channels/02.jpg` → `/products/gallery5/ms-channels/ms-channels-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-channels/03.jpg` → `/products/gallery5/ms-channels/ms-channels-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-channels/04.jpg` → `/products/gallery5/ms-channels/ms-channels-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-channels/05.jpg` → `/products/gallery5/ms-channels/ms-channels-application-srk-steel.jpg`
+- `/products/gallery5/ms-bars/01.jpg` → `/products/gallery5/ms-bars/ms-bars-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-bars/02.jpg` → `/products/gallery5/ms-bars/ms-bars-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-bars/03.jpg` → `/products/gallery5/ms-bars/ms-bars-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-bars/04.jpg` → `/products/gallery5/ms-bars/ms-bars-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-bars/05.jpg` → `/products/gallery5/ms-bars/ms-bars-application-srk-steel.jpg`
+- `/products/gallery5/ms-angles/01.jpg` → `/products/gallery5/ms-angles/ms-angles-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-angles/02.jpg` → `/products/gallery5/ms-angles/ms-angles-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-angles/03.jpg` → `/products/gallery5/ms-angles/ms-angles-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-angles/04.jpg` → `/products/gallery5/ms-angles/ms-angles-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-angles/05.jpg` → `/products/gallery5/ms-angles/ms-angles-application-srk-steel.jpg`
+- `/products/gallery5/hr-coils-ms/01.jpg` → `/products/gallery5/hr-coils-ms/hr-coils-ms-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/hr-coils-ms/02.jpg` → `/products/gallery5/hr-coils-ms/hr-coils-ms-product-view-srk-steel.jpg`
+- `/products/gallery5/hr-coils-ms/03.jpg` → `/products/gallery5/hr-coils-ms/hr-coils-ms-close-up-srk-steel.jpg`
+- `/products/gallery5/hr-coils-ms/04.jpg` → `/products/gallery5/hr-coils-ms/hr-coils-ms-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/hr-coils-ms/05.jpg` → `/products/gallery5/hr-coils-ms/hr-coils-ms-application-srk-steel.jpg`
+- `/products/gallery5/cr-coils-ms/01.jpg` → `/products/gallery5/cr-coils-ms/cr-coils-ms-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/cr-coils-ms/02.jpg` → `/products/gallery5/cr-coils-ms/cr-coils-ms-product-view-srk-steel.jpg`
+- `/products/gallery5/cr-coils-ms/03.jpg` → `/products/gallery5/cr-coils-ms/cr-coils-ms-close-up-srk-steel.jpg`
+- `/products/gallery5/cr-coils-ms/04.jpg` → `/products/gallery5/cr-coils-ms/cr-coils-ms-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/cr-coils-ms/05.jpg` → `/products/gallery5/cr-coils-ms/cr-coils-ms-application-srk-steel.jpg`
+- `/products/gallery5/ms-sheets/01.jpg` → `/products/gallery5/ms-sheets/ms-sheets-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-sheets/02.jpg` → `/products/gallery5/ms-sheets/ms-sheets-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-sheets/03.jpg` → `/products/gallery5/ms-sheets/ms-sheets-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-sheets/04.jpg` → `/products/gallery5/ms-sheets/ms-sheets-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-sheets/05.jpg` → `/products/gallery5/ms-sheets/ms-sheets-application-srk-steel.jpg`
+- `/products/gallery5/ms-plates/01.jpg` → `/products/gallery5/ms-plates/ms-plates-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-plates/02.jpg` → `/products/gallery5/ms-plates/ms-plates-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-plates/03.jpg` → `/products/gallery5/ms-plates/ms-plates-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-plates/04.jpg` → `/products/gallery5/ms-plates/ms-plates-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-plates/05.jpg` → `/products/gallery5/ms-plates/ms-plates-application-srk-steel.jpg`
+- `/products/gallery5/mild-steel-gratings/01.jpg` → `/products/gallery5/mild-steel-gratings/mild-steel-gratings-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/mild-steel-gratings/02.jpg` → `/products/gallery5/mild-steel-gratings/mild-steel-gratings-product-view-srk-steel.jpg`
+- `/products/gallery5/mild-steel-gratings/03.jpg` → `/products/gallery5/mild-steel-gratings/mild-steel-gratings-close-up-srk-steel.jpg`
+- `/products/gallery5/mild-steel-gratings/04.jpg` → `/products/gallery5/mild-steel-gratings/mild-steel-gratings-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/mild-steel-gratings/05.jpg` → `/products/gallery5/mild-steel-gratings/mild-steel-gratings-application-srk-steel.jpg`
+- `/products/gallery5/decking-sheets-ms/01.jpg` → `/products/gallery5/decking-sheets-ms/decking-sheets-ms-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/decking-sheets-ms/02.jpg` → `/products/gallery5/decking-sheets-ms/decking-sheets-ms-product-view-srk-steel.jpg`
+- `/products/gallery5/decking-sheets-ms/03.jpg` → `/products/gallery5/decking-sheets-ms/decking-sheets-ms-close-up-srk-steel.jpg`
+- `/products/gallery5/decking-sheets-ms/04.jpg` → `/products/gallery5/decking-sheets-ms/decking-sheets-ms-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/decking-sheets-ms/05.jpg` → `/products/gallery5/decking-sheets-ms/decking-sheets-ms-application-srk-steel.jpg`
+- `/products/gallery5/ms-shear-studs/01.jpg` → `/products/gallery5/ms-shear-studs/ms-shear-studs-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ms-shear-studs/02.jpg` → `/products/gallery5/ms-shear-studs/ms-shear-studs-product-view-srk-steel.jpg`
+- `/products/gallery5/ms-shear-studs/03.jpg` → `/products/gallery5/ms-shear-studs/ms-shear-studs-close-up-srk-steel.jpg`
+- `/products/gallery5/ms-shear-studs/04.jpg` → `/products/gallery5/ms-shear-studs/ms-shear-studs-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ms-shear-studs/05.jpg` → `/products/gallery5/ms-shear-studs/ms-shear-studs-application-srk-steel.jpg`
+- `/products/gallery5/ss-coil/01.jpg` → `/products/gallery5/ss-coil/ss-coil-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ss-coil/02.jpg` → `/products/gallery5/ss-coil/ss-coil-product-view-srk-steel.jpg`
+- `/products/gallery5/ss-coil/03.jpg` → `/products/gallery5/ss-coil/ss-coil-close-up-srk-steel.jpg`
+- `/products/gallery5/ss-coil/04.jpg` → `/products/gallery5/ss-coil/ss-coil-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ss-coil/05.jpg` → `/products/gallery5/ss-coil/ss-coil-application-srk-steel.jpg`
+- `/products/gallery5/ss-wire/01.jpg` → `/products/gallery5/ss-wire/ss-wire-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ss-wire/02.jpg` → `/products/gallery5/ss-wire/ss-wire-product-view-srk-steel.jpg`
+- `/products/gallery5/ss-wire/03.jpg` → `/products/gallery5/ss-wire/ss-wire-close-up-srk-steel.jpg`
+- `/products/gallery5/ss-wire/04.jpg` → `/products/gallery5/ss-wire/ss-wire-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ss-wire/05.jpg` → `/products/gallery5/ss-wire/ss-wire-application-srk-steel.jpg`
+- `/products/gallery5/ss-plain-sheet/01.jpg` → `/products/gallery5/ss-plain-sheet/ss-plain-sheet-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ss-plain-sheet/02.jpg` → `/products/gallery5/ss-plain-sheet/ss-plain-sheet-product-view-srk-steel.jpg`
+- `/products/gallery5/ss-plain-sheet/03.jpg` → `/products/gallery5/ss-plain-sheet/ss-plain-sheet-close-up-srk-steel.jpg`
+- `/products/gallery5/ss-plain-sheet/04.jpg` → `/products/gallery5/ss-plain-sheet/ss-plain-sheet-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ss-plain-sheet/05.jpg` → `/products/gallery5/ss-plain-sheet/ss-plain-sheet-application-srk-steel.jpg`
+- `/products/gallery5/ss-slitted-coil/01.jpg` → `/products/gallery5/ss-slitted-coil/ss-slitted-coil-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ss-slitted-coil/02.jpg` → `/products/gallery5/ss-slitted-coil/ss-slitted-coil-product-view-srk-steel.jpg`
+- `/products/gallery5/ss-slitted-coil/03.jpg` → `/products/gallery5/ss-slitted-coil/ss-slitted-coil-close-up-srk-steel.jpg`
+- `/products/gallery5/ss-slitted-coil/04.jpg` → `/products/gallery5/ss-slitted-coil/ss-slitted-coil-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ss-slitted-coil/05.jpg` → `/products/gallery5/ss-slitted-coil/ss-slitted-coil-application-srk-steel.jpg`
+- `/products/gallery5/gi-coil/01.jpg` → `/products/gallery5/gi-coil/gi-coil-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/gi-coil/02.jpg` → `/products/gallery5/gi-coil/gi-coil-product-view-srk-steel.jpg`
+- `/products/gallery5/gi-coil/03.jpg` → `/products/gallery5/gi-coil/gi-coil-close-up-srk-steel.jpg`
+- `/products/gallery5/gi-coil/04.jpg` → `/products/gallery5/gi-coil/gi-coil-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/gi-coil/05.jpg` → `/products/gallery5/gi-coil/gi-coil-application-srk-steel.jpg`
+- `/products/gallery5/ppgi-coil/01.jpg` → `/products/gallery5/ppgi-coil/ppgi-coil-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ppgi-coil/02.jpg` → `/products/gallery5/ppgi-coil/ppgi-coil-product-view-srk-steel.jpg`
+- `/products/gallery5/ppgi-coil/03.jpg` → `/products/gallery5/ppgi-coil/ppgi-coil-close-up-srk-steel.jpg`
+- `/products/gallery5/ppgi-coil/04.jpg` → `/products/gallery5/ppgi-coil/ppgi-coil-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ppgi-coil/05.jpg` → `/products/gallery5/ppgi-coil/ppgi-coil-application-srk-steel.jpg`
+- `/products/gallery5/aluzinc-coil/01.jpg` → `/products/gallery5/aluzinc-coil/aluzinc-coil-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/aluzinc-coil/02.jpg` → `/products/gallery5/aluzinc-coil/aluzinc-coil-product-view-srk-steel.jpg`
+- `/products/gallery5/aluzinc-coil/03.jpg` → `/products/gallery5/aluzinc-coil/aluzinc-coil-close-up-srk-steel.jpg`
+- `/products/gallery5/aluzinc-coil/04.jpg` → `/products/gallery5/aluzinc-coil/aluzinc-coil-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/aluzinc-coil/05.jpg` → `/products/gallery5/aluzinc-coil/aluzinc-coil-application-srk-steel.jpg`
+- `/products/gallery5/pvdf-coils/01.jpg` → `/products/gallery5/pvdf-coils/pvdf-coils-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/pvdf-coils/02.jpg` → `/products/gallery5/pvdf-coils/pvdf-coils-product-view-srk-steel.jpg`
+- `/products/gallery5/pvdf-coils/03.jpg` → `/products/gallery5/pvdf-coils/pvdf-coils-close-up-srk-steel.jpg`
+- `/products/gallery5/pvdf-coils/04.jpg` → `/products/gallery5/pvdf-coils/pvdf-coils-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/pvdf-coils/05.jpg` → `/products/gallery5/pvdf-coils/pvdf-coils-application-srk-steel.jpg`
+- `/products/gallery5/gi-plain-sheet/01.jpg` → `/products/gallery5/gi-plain-sheet/gi-plain-sheet-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/gi-plain-sheet/02.jpg` → `/products/gallery5/gi-plain-sheet/gi-plain-sheet-product-view-srk-steel.jpg`
+- `/products/gallery5/gi-plain-sheet/03.jpg` → `/products/gallery5/gi-plain-sheet/gi-plain-sheet-close-up-srk-steel.jpg`
+- `/products/gallery5/gi-plain-sheet/04.jpg` → `/products/gallery5/gi-plain-sheet/gi-plain-sheet-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/gi-plain-sheet/05.jpg` → `/products/gallery5/gi-plain-sheet/gi-plain-sheet-application-srk-steel.jpg`
+- `/products/gallery5/gi-slitted-coils/01.jpg` → `/products/gallery5/gi-slitted-coils/gi-slitted-coils-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/gi-slitted-coils/02.jpg` → `/products/gallery5/gi-slitted-coils/gi-slitted-coils-product-view-srk-steel.jpg`
+- `/products/gallery5/gi-slitted-coils/03.jpg` → `/products/gallery5/gi-slitted-coils/gi-slitted-coils-close-up-srk-steel.jpg`
+- `/products/gallery5/gi-slitted-coils/04.jpg` → `/products/gallery5/gi-slitted-coils/gi-slitted-coils-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/gi-slitted-coils/05.jpg` → `/products/gallery5/gi-slitted-coils/gi-slitted-coils-application-srk-steel.jpg`
+- `/products/gallery5/ppgi-slitted-coils/01.jpg` → `/products/gallery5/ppgi-slitted-coils/ppgi-slitted-coils-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ppgi-slitted-coils/02.jpg` → `/products/gallery5/ppgi-slitted-coils/ppgi-slitted-coils-product-view-srk-steel.jpg`
+- `/products/gallery5/ppgi-slitted-coils/03.jpg` → `/products/gallery5/ppgi-slitted-coils/ppgi-slitted-coils-close-up-srk-steel.jpg`
+- `/products/gallery5/ppgi-slitted-coils/04.jpg` → `/products/gallery5/ppgi-slitted-coils/ppgi-slitted-coils-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ppgi-slitted-coils/05.jpg` → `/products/gallery5/ppgi-slitted-coils/ppgi-slitted-coils-application-srk-steel.jpg`
+- `/products/gallery5/ppgi-plain-sheet/01.jpg` → `/products/gallery5/ppgi-plain-sheet/ppgi-plain-sheet-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/ppgi-plain-sheet/02.jpg` → `/products/gallery5/ppgi-plain-sheet/ppgi-plain-sheet-product-view-srk-steel.jpg`
+- `/products/gallery5/ppgi-plain-sheet/03.jpg` → `/products/gallery5/ppgi-plain-sheet/ppgi-plain-sheet-close-up-srk-steel.jpg`
+- `/products/gallery5/ppgi-plain-sheet/04.jpg` → `/products/gallery5/ppgi-plain-sheet/ppgi-plain-sheet-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/ppgi-plain-sheet/05.jpg` → `/products/gallery5/ppgi-plain-sheet/ppgi-plain-sheet-application-srk-steel.jpg`
+- `/products/gallery5/roof-insulated-panels/01.jpg` → `/products/gallery5/roof-insulated-panels/roof-insulated-panels-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/roof-insulated-panels/02.jpg` → `/products/gallery5/roof-insulated-panels/roof-insulated-panels-product-view-srk-steel.jpg`
+- `/products/gallery5/roof-insulated-panels/03.jpg` → `/products/gallery5/roof-insulated-panels/roof-insulated-panels-close-up-srk-steel.jpg`
+- `/products/gallery5/roof-insulated-panels/04.jpg` → `/products/gallery5/roof-insulated-panels/roof-insulated-panels-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/roof-insulated-panels/05.jpg` → `/products/gallery5/roof-insulated-panels/roof-insulated-panels-application-srk-steel.jpg`
+- `/products/gallery5/wall-insulated-panels/01.jpg` → `/products/gallery5/wall-insulated-panels/wall-insulated-panels-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/wall-insulated-panels/02.jpg` → `/products/gallery5/wall-insulated-panels/wall-insulated-panels-product-view-srk-steel.jpg`
+- `/products/gallery5/wall-insulated-panels/03.jpg` → `/products/gallery5/wall-insulated-panels/wall-insulated-panels-close-up-srk-steel.jpg`
+- `/products/gallery5/wall-insulated-panels/04.jpg` → `/products/gallery5/wall-insulated-panels/wall-insulated-panels-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/wall-insulated-panels/05.jpg` → `/products/gallery5/wall-insulated-panels/wall-insulated-panels-application-srk-steel.jpg`
+- `/products/gallery5/corrugated-roofing-sheet/Galvanized corrugated roofing sheet dubai uae-srk steel(1).jpeg` → `/products/gallery5/corrugated-roofing-sheet/galvanized-corrugated-roofing-sheet-dubai-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-roofing-sheet/Corrugated sheet price in UAE-srk steel.jpeg` → `/products/gallery5/corrugated-roofing-sheet/corrugated-sheet-price-in-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-roofing-sheet/Corrugated roofing sheet dubai uae price-srk steel.jpeg` → `/products/gallery5/corrugated-roofing-sheet/corrugated-roofing-sheet-dubai-uae-price-srk-steel.jpeg`
+- `/products/gallery5/corrugated-roofing-sheet/corrugated roofing sheet dubai uae-srk steel.jpeg` → `/products/gallery5/corrugated-roofing-sheet/corrugated-roofing-sheet-dubai-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-roofing-sheet/05.jpg` → `/products/gallery5/corrugated-roofing-sheet/corrugated-roofing-sheet-application-srk-steel.jpg`
+- `/products/gallery5/corrugated-wall-sheet/corrugated-wall sheet dubai uae-srk steel(1).jpeg` → `/products/gallery5/corrugated-wall-sheet/corrugated-wall-sheet-dubai-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-wall-sheet/Corrugated wall sheet dubai uae price-srk steel(1).jpeg` → `/products/gallery5/corrugated-wall-sheet/corrugated-wall-sheet-dubai-uae-price-srk-steel.jpeg`
+- `/products/gallery5/corrugated-wall-sheet/Galvanized corrugated wall sheet dubai uae-srk steel(1).jpeg` → `/products/gallery5/corrugated-wall-sheet/galvanized-corrugated-wall-sheet-dubai-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-wall-sheet/Corrugated wall sheet suppliers in dubai-srk steel(1).jpeg` → `/products/gallery5/corrugated-wall-sheet/corrugated-wall-sheet-suppliers-in-dubai-srk-steel.jpeg`
+- `/products/gallery5/corrugated-wall-sheet/GI Corrugated sheet suppliers in UAE-srk steel(1).jpeg` → `/products/gallery5/corrugated-wall-sheet/gi-corrugated-sheet-suppliers-in-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-fence-sheet-panel/01.jpg` → `/products/gallery5/corrugated-fence-sheet-panel/corrugated-fence-sheet-panel-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/corrugated-fence-sheet-panel/02.jpg` → `/products/gallery5/corrugated-fence-sheet-panel/corrugated-fence-sheet-panel-product-view-srk-steel.jpg`
+- `/products/gallery5/corrugated-fence-sheet-panel/03.jpg` → `/products/gallery5/corrugated-fence-sheet-panel/corrugated-fence-sheet-panel-close-up-srk-steel.jpg`
+- `/products/gallery5/corrugated-fence-sheet-panel/04.jpg` → `/products/gallery5/corrugated-fence-sheet-panel/corrugated-fence-sheet-panel-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/corrugated-fence-sheet-panel/05.jpg` → `/products/gallery5/corrugated-fence-sheet-panel/corrugated-fence-sheet-panel-application-srk-steel.jpg`
+- `/products/gallery5/corrugated-curve/Best corrugated curved roofing sheets supplier dubai-srk steel(1).jpeg` → `/products/gallery5/corrugated-curve/best-corrugated-curved-roofing-sheets-supplier-dubai-srk-steel.jpeg`
+- `/products/gallery5/corrugated-curve/corrugated curved roofing sheets supplier dubai-srk steel(1).jpeg` → `/products/gallery5/corrugated-curve/corrugated-curved-roofing-sheets-supplier-dubai-srk-steel.jpeg`
+- `/products/gallery5/corrugated-curve/Galvanised corrugated curved roofing sheets supplier dubai-srk steel(1).jpeg` → `/products/gallery5/corrugated-curve/galvanised-corrugated-curved-roofing-sheets-supplier-dubai-srk-steel.jpeg`
+- `/products/gallery5/corrugated-curve/Corrugated curved roofing sheets supplier dubai price-srk steel(1).jpeg` → `/products/gallery5/corrugated-curve/corrugated-curved-roofing-sheets-supplier-dubai-price-srk-steel.jpeg`
+- `/products/gallery5/corrugated-curve/Galvanized corrugated curved roofing sheets supplier dubai(1).jpeg` → `/products/gallery5/corrugated-curve/galvanized-corrugated-curved-roofing-sheets-supplier-dubai-srk-steel.jpeg`
+- `/products/gallery5/corrugated-ridge/Corrugated sheet suppliers in dubai.jpeg` → `/products/gallery5/corrugated-ridge/corrugated-sheet-suppliers-in-dubai-srk-steel.jpeg`
+- `/products/gallery5/corrugated-ridge/Galvanised corrugated ridge sheet dubai uae-srk steel(1).jpeg` → `/products/gallery5/corrugated-ridge/galvanised-corrugated-ridge-sheet-dubai-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-ridge/Corrugated ridge sheet dubai uae price-srk steel.jpg` → `/products/gallery5/corrugated-ridge/corrugated-ridge-sheet-dubai-uae-price-srk-steel.jpg`
+- `/products/gallery5/corrugated-ridge/Galvanized corrugated ridge sheet dubai uae.jpeg` → `/products/gallery5/corrugated-ridge/galvanized-corrugated-ridge-sheet-dubai-uae-srk-steel.jpeg`
+- `/products/gallery5/corrugated-ridge/GI Corrugated sheet suppliers in UAE.jpeg` → `/products/gallery5/corrugated-ridge/gi-corrugated-sheet-suppliers-in-uae-srk-steel.jpeg`
+- `/products/gallery5/gutter-and-flashing/01.jpg` → `/products/gallery5/gutter-and-flashing/gutter-and-flashing-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/gutter-and-flashing/02.jpg` → `/products/gallery5/gutter-and-flashing/gutter-and-flashing-product-view-srk-steel.jpg`
+- `/products/gallery5/gutter-and-flashing/03.jpg` → `/products/gallery5/gutter-and-flashing/gutter-and-flashing-close-up-srk-steel.jpg`
+- `/products/gallery5/gutter-and-flashing/04.jpg` → `/products/gallery5/gutter-and-flashing/gutter-and-flashing-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/gutter-and-flashing/05.jpg` → `/products/gallery5/gutter-and-flashing/gutter-and-flashing-application-srk-steel.jpg`
+- `/products/gallery5/gi-decking-sheet/01.jpg` → `/products/gallery5/gi-decking-sheet/gi-decking-sheet-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/gi-decking-sheet/02.jpg` → `/products/gallery5/gi-decking-sheet/gi-decking-sheet-product-view-srk-steel.jpg`
+- `/products/gallery5/gi-decking-sheet/03.jpg` → `/products/gallery5/gi-decking-sheet/gi-decking-sheet-close-up-srk-steel.jpg`
+- `/products/gallery5/gi-decking-sheet/04.jpg` → `/products/gallery5/gi-decking-sheet/gi-decking-sheet-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/gi-decking-sheet/05.jpg` → `/products/gallery5/gi-decking-sheet/gi-decking-sheet-application-srk-steel.jpg`
+- `/products/gallery5/shear-studs/01.jpg` → `/products/gallery5/shear-studs/shear-studs-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/shear-studs/02.jpg` → `/products/gallery5/shear-studs/shear-studs-product-view-srk-steel.jpg`
+- `/products/gallery5/shear-studs/03.jpg` → `/products/gallery5/shear-studs/shear-studs-close-up-srk-steel.jpg`
+- `/products/gallery5/shear-studs/04.jpg` → `/products/gallery5/shear-studs/shear-studs-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/shear-studs/05.jpg` → `/products/gallery5/shear-studs/shear-studs-application-srk-steel.jpg`
+- `/products/gallery5/c-purlins/01.jpg` → `/products/gallery5/c-purlins/c-purlins-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/c-purlins/02.jpg` → `/products/gallery5/c-purlins/c-purlins-product-view-srk-steel.jpg`
+- `/products/gallery5/c-purlins/03.jpg` → `/products/gallery5/c-purlins/c-purlins-close-up-srk-steel.jpg`
+- `/products/gallery5/c-purlins/04.jpg` → `/products/gallery5/c-purlins/c-purlins-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/c-purlins/05.jpg` → `/products/gallery5/c-purlins/c-purlins-application-srk-steel.jpg`
+- `/products/gallery5/z-purlins/01.jpg` → `/products/gallery5/z-purlins/z-purlins-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/z-purlins/02.jpg` → `/products/gallery5/z-purlins/z-purlins-product-view-srk-steel.jpg`
+- `/products/gallery5/z-purlins/03.jpg` → `/products/gallery5/z-purlins/z-purlins-close-up-srk-steel.jpg`
+- `/products/gallery5/z-purlins/04.jpg` → `/products/gallery5/z-purlins/z-purlins-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/z-purlins/05.jpg` → `/products/gallery5/z-purlins/z-purlins-application-srk-steel.jpg`
+- `/products/gallery5/drywall-partition-systems/01.jpg` → `/products/gallery5/drywall-partition-systems/drywall-partition-systems-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/drywall-partition-systems/02.jpg` → `/products/gallery5/drywall-partition-systems/drywall-partition-systems-product-view-srk-steel.jpg`
+- `/products/gallery5/drywall-partition-systems/03.jpg` → `/products/gallery5/drywall-partition-systems/drywall-partition-systems-close-up-srk-steel.jpg`
+- `/products/gallery5/drywall-partition-systems/04.jpg` → `/products/gallery5/drywall-partition-systems/drywall-partition-systems-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/drywall-partition-systems/05.jpg` → `/products/gallery5/drywall-partition-systems/drywall-partition-systems-application-srk-steel.jpg`
+- `/products/gallery5/strut-track/01.jpg` → `/products/gallery5/strut-track/strut-track-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/strut-track/02.jpg` → `/products/gallery5/strut-track/strut-track-product-view-srk-steel.jpg`
+- `/products/gallery5/strut-track/03.jpg` → `/products/gallery5/strut-track/strut-track-close-up-srk-steel.jpg`
+- `/products/gallery5/strut-track/04.jpg` → `/products/gallery5/strut-track/strut-track-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/strut-track/05.jpg` → `/products/gallery5/strut-track/strut-track-application-srk-steel.jpg`
+- `/products/gallery5/gi-pipe/01.jpg` → `/products/gallery5/gi-pipe/gi-pipe-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/gi-pipe/02.jpg` → `/products/gallery5/gi-pipe/gi-pipe-product-view-srk-steel.jpg`
+- `/products/gallery5/gi-pipe/03.jpg` → `/products/gallery5/gi-pipe/gi-pipe-close-up-srk-steel.jpg`
+- `/products/gallery5/gi-pipe/04.jpg` → `/products/gallery5/gi-pipe/gi-pipe-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/gi-pipe/05.jpg` → `/products/gallery5/gi-pipe/gi-pipe-application-srk-steel.jpg`
+- `/products/gallery5/aluminium-coil/01.jpg` → `/products/gallery5/aluminium-coil/aluminium-coil-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/aluminium-coil/02.jpg` → `/products/gallery5/aluminium-coil/aluminium-coil-product-view-srk-steel.jpg`
+- `/products/gallery5/aluminium-coil/03.jpg` → `/products/gallery5/aluminium-coil/aluminium-coil-close-up-srk-steel.jpg`
+- `/products/gallery5/aluminium-coil/04.jpg` → `/products/gallery5/aluminium-coil/aluminium-coil-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/aluminium-coil/05.jpg` → `/products/gallery5/aluminium-coil/aluminium-coil-application-srk-steel.jpg`
+- `/products/gallery5/aluminium-plain-sheet/01.jpg` → `/products/gallery5/aluminium-plain-sheet/aluminium-plain-sheet-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/aluminium-plain-sheet/02.jpg` → `/products/gallery5/aluminium-plain-sheet/aluminium-plain-sheet-product-view-srk-steel.jpg`
+- `/products/gallery5/aluminium-plain-sheet/03.jpg` → `/products/gallery5/aluminium-plain-sheet/aluminium-plain-sheet-close-up-srk-steel.jpg`
+- `/products/gallery5/aluminium-plain-sheet/04.jpg` → `/products/gallery5/aluminium-plain-sheet/aluminium-plain-sheet-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/aluminium-plain-sheet/05.jpg` → `/products/gallery5/aluminium-plain-sheet/aluminium-plain-sheet-application-srk-steel.jpg`
+- `/products/gallery5/pre-painted-aluminium-coils/01.jpg` → `/products/gallery5/pre-painted-aluminium-coils/pre-painted-aluminium-coils-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/pre-painted-aluminium-coils/02.jpg` → `/products/gallery5/pre-painted-aluminium-coils/pre-painted-aluminium-coils-product-view-srk-steel.jpg`
+- `/products/gallery5/pre-painted-aluminium-coils/03.jpg` → `/products/gallery5/pre-painted-aluminium-coils/pre-painted-aluminium-coils-close-up-srk-steel.jpg`
+- `/products/gallery5/pre-painted-aluminium-coils/04.jpg` → `/products/gallery5/pre-painted-aluminium-coils/pre-painted-aluminium-coils-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/pre-painted-aluminium-coils/05.jpg` → `/products/gallery5/pre-painted-aluminium-coils/pre-painted-aluminium-coils-application-srk-steel.jpg`
+- `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/01.jpg` → `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/pfmb-psmr-aluminium-alloy-3003-h14-coils-supplier-gcc-srk-steel.jpg`
+- `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/02.jpg` → `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/pfmb-psmr-aluminium-alloy-3003-h14-coils-product-view-srk-steel.jpg`
+- `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/03.jpg` → `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/pfmb-psmr-aluminium-alloy-3003-h14-coils-close-up-srk-steel.jpg`
+- `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/04.jpg` → `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/pfmb-psmr-aluminium-alloy-3003-h14-coils-warehouse-stock-srk-steel.jpg`
+- `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/05.jpg` → `/products/gallery5/pfmb-psmr-aluminium-alloy-3003-h14-coils/pfmb-psmr-aluminium-alloy-3003-h14-coils-application-srk-steel.jpg`

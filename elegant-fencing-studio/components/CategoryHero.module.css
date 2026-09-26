@@ -1,0 +1,161 @@
+.hero {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 72px 0;
+}
+
+.grid {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(440px, .98fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.copy {
+  min-width: 0;
+  max-width: 600px;
+}
+
+.copy :global(.eyebrow) {
+  margin-bottom: 12px;
+}
+
+.copy h1 {
+  margin: 14px 0 18px;
+  color: var(--navy);
+  font-size: clamp(38px, 4.6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.35px;
+}
+
+.copy p:not(:global(.eyebrow)) {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 16.5px;
+  line-height: 1.68;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.actions :global(.btn) {
+  min-width: 170px;
+  justify-content: center;
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: 430px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.media::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid rgba(153, 30, 32, .12);
+}
+
+.media img {
+  object-fit: cover !important;
+  object-position: center !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+@media (max-width: 1050px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, .9fr);
+    gap: 38px;
+  }
+
+  .media {
+    height: 390px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 52px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .copy {
+    max-width: none;
+  }
+
+  .media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 42px 0;
+  }
+
+  .grid {
+    width: min(100% - 28px, 1180px);
+    gap: 22px;
+  }
+
+  .copy h1 {
+    font-size: 34px;
+    line-height: 1.05;
+    margin: 10px 0 14px;
+  }
+
+  .copy p:not(:global(.eyebrow)) {
+    font-size: 15px;
+    line-height: 1.58;
+    margin-bottom: 11px;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .actions :global(.btn) {
+    min-width: 0;
+    padding: 12px 10px;
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+
+  .media::before {
+    inset: 8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .actions :global(.btn) {
+    width: 100%;
+  }
+}

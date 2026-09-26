@@ -1,63 +1,47 @@
 import type { MetadataRoute } from 'next';
-import { countryPages, productSeoPages, siteUrl } from '@/lib/seo';
-import { getAllGccLandingPaths } from '@/lib/gccPages';
+import { applications, categoryInfo, countries, products } from '@/lib/data';
+import { blogPosts } from '@/lib/blogs';
 
-const staticRoutes = [
-  '',
-  '/products',
-  '/applications',
-  '/countries',
-  '/projects',
-  '/blog',
-  '/rfq',
-  '/why-us',
-  '/contact',
-  '/privacy-policy',
-  '/terms-of-use',
-];
+const base = 'https://srksteel.com';
+const LAST_CONTENT_UPDATE = '2026-08-27';
 
-const applicationRoutes = [
-  '/applications/residential-fencing',
-  '/applications/commercial-industrial',
-  '/applications/oil-gas-sector',
-  '/applications/data-centers',
-  '/applications/schools-public-parks',
-  '/applications/farms-animal-enclosures',
-  '/applications/boundary-security-fencing',
-  '/applications/warehouses-logistic-centers',
-  '/applications/country-border-fencing',
-];
+function routePriority(path: string) {
+  if (path === '/') return 1;
+  if (path === '/products' || path === '/categories') return 0.92;
+  if (path.startsWith('/products/') || path.startsWith('/categories/')) return 0.9;
+  if (path.startsWith('/applications/')) return 0.86;
+  if (path.startsWith('/countries/')) return 0.84;
+  if (path.startsWith('/blogs/')) return 0.78;
+  return 0.75;
+}
 
-const blogRoutes = [
-  '/blog/fencing-supplier-abu-dhabi-guide',
-  '/blog/how-to-compare-fencing-suppliers-uae',
-  '/blog/chain-link-fencing-dubai-buyer-guide',
-  '/blog/steel-metal-fencing-dubai-guide',
-  '/blog/fencing-cost-dubai-guide',
-  '/blog/how-to-choose-the-right-fence',
-  '/blog/ppgi-vs-pvc-fencing-which-is-better',
-  '/blog/fence-height-rules-in-uae',
-  '/blog/best-fencing-for-data-centers',
-  '/blog/difference-between-358-and-welded-mesh',
-  '/blog/chain-link-vs-welded-mesh-fence',
-  '/blog/pvc-coated-vs-galvanized-chain-link-fence',
-  '/blog/best-fencing-for-construction-sites-in-dubai',
-  '/blog/warehouse-security-fencing-guide',
-  '/blog/barbed-wire-vs-razor-wire',
-  '/blog/how-to-prepare-a-fencing-rfq',
-];
+function changeFrequency(path: string): MetadataRoute.Sitemap[number]['changeFrequency'] {
+  if (path === '/') return 'weekly';
+  if (path === '/products' || path === '/categories' || path === '/blogs') return 'weekly';
+  return 'monthly';
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  const productRoutes = productSeoPages.map((product) => `/products/${product.slug}`);
-  const baseCountryRoutes = countryPages.map((country) => `/countries/${country.slug}`);
-  const gccLandingRoutes = getAllGccLandingPaths();
-  const routes = Array.from(new Set([...staticRoutes, ...productRoutes, ...applicationRoutes, ...baseCountryRoutes, ...gccLandingRoutes, ...blogRoutes]));
+  const routes = [
+    '/', '/products', '/categories', '/applications', '/countries', '/services', '/blogs', '/about', '/contact',
+    ...blogPosts.map((post) => `/blogs/${post.slug}`),
+    ...products.map((product) => `/products/${product.slug}`),
+    ...categoryInfo.map((category) => `/categories/${category.slug}`),
+    ...applications.map((application) => `/applications/${application.slug}`),
+    ...countries.map((country) => `/countries/${country.slug}`),
+    ...countries.flatMap((country) => products.map((product) => `/countries/${country.slug}/products/${product.slug}`)),
+    ...countries.flatMap((country) => categoryInfo.map((category) => `/countries/${country.slug}/categories/${category.slug}`)),
+    ...countries.flatMap((country) => applications.map((application) => `/countries/${country.slug}/applications/${application.slug}`)),
+  ];
 
-  return routes.map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: now,
-    changeFrequency: route === '' ? ('weekly' as const) : ('monthly' as const),
-    priority: route === '' ? 1 : route.startsWith('/countries') ? 0.9 : route.startsWith('/products') ? 0.85 : 0.7,
-  }));
+  return routes.map((path) => {
+    const blog = blogPosts.find((post) => path === `/blogs/${post.slug}`);
+    return {
+    url: `${base}${path}`,
+    // Blog URLs use their real editorial update date; other URLs keep the prior content release date.
+    lastModified: blog?.dateModified || (path === '/blogs' ? '2026-08-28' : LAST_CONTENT_UPDATE),
+    changeFrequency: changeFrequency(path),
+    priority: routePriority(path),
+  };
+  });
 }

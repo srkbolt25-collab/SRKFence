@@ -1,0 +1,315 @@
+# SRK Steel — Full Product Reference
+
+This file is a concise machine-readable reference to the public SRK Steel catalogue. The canonical source for each product is its linked product page. Engineering and procurement decisions should follow project drawings, BOQ notes and approved specifications.
+
+## Company Scope
+SRK Steel reviews project enquiries for mild steel, stainless steel, galvanized steel and aluminium products across UAE, GCC and selected Middle East markets.
+
+## Products
+### MS Hollow Sections
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-hollow-sections
+- Summary: Mild steel hollow sections for fabrication, structural frames, supports and general engineering work.
+- Buyer context: MS hollow sections are used for frames, supports, gates, sheds, fabrication packages and general engineering work. Share section type, size, wall thickness, length and quantity for a clear RFQ.
+
+### MS Beams
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-beams
+- Summary: Mild steel beams for structural support, fabrication and industrial construction packages.
+- Buyer context: MS beams are requested for structural frames, platforms, support members and industrial construction packages. Include beam type, size, length, grade and quantity with your RFQ.
+
+### MS Channels
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-channels
+- Summary: Mild steel channels for bracing, support frames, fabrication and construction work.
+- Buyer context: MS channels are used in support frames, bracing, platforms, industrial structures and fabrication. Confirm size, length, finish and quantity before sending the requirement.
+
+### MS Bars
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-bars
+- Summary: Mild steel bars for fabrication, machining, general engineering and construction use.
+- Buyer context: MS bars are suitable for fabrication, machine components, supports, brackets and general engineering work. Send bar type, diameter or size, length, grade and quantity for review.
+
+### MS Angles
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-angles
+- Summary: Mild steel angles for bracing, frames, supports, racks and fabrication work.
+- Buyer context: MS angles are practical for frames, racks, bracing, edge supports and fabrication. Include angle size, thickness, length, quantity and finish requirement when requesting pricing.
+
+### HR Coils - MS
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/hr-coils-ms
+- Summary: Hot rolled mild steel coils for processing, fabrication and sheet conversion requirements.
+- Buyer context: HR coils are used for processing, fabrication and conversion where hot rolled mild steel is suitable. Share thickness, width, grade, coil weight or tonnage and delivery location.
+
+### CR Coils - MS
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/cr-coils-ms
+- Summary: Cold rolled mild steel coils for smoother finish, forming and precision sheet applications.
+- Buyer context: CR coils are used where smoother surface quality, closer thickness control or forming support is needed. Include thickness, width, grade, surface requirement, quantity and delivery city.
+
+### MS Sheets
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-sheets
+- Summary: Mild steel sheets for fabrication, panels, general construction and industrial use.
+- Buyer context: MS sheets are used for panels, covers, trays, enclosures, fabrication and general construction requirements. Send sheet thickness, size, grade, quantity and cutting details.
+
+### MS Plates
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-plates
+- Summary: Mild steel plates for base plates, fabrication, structural parts and heavy-duty applications.
+- Buyer context: MS plates are requested for base plates, brackets, structural parts, machine bases and heavy-duty fabrication. Confirm thickness, size, grade, cutting requirement and quantity.
+
+### Mild Steel Gratings
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/mild-steel-gratings
+- Summary: MS gratings for walkways, platforms, drainage covers and industrial flooring areas.
+- Buyer context: Mild steel gratings are used in industrial walkways, platforms, drainage covers, maintenance areas and open-grid flooring zones. Share grating size, load requirement, finish and quantity.
+
+### Decking Sheets (MS)
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/decking-sheets-ms
+- Summary: Mild steel decking sheets for composite flooring, mezzanine and slab support requirements.
+- Buyer context: MS decking sheets are used where drawings call for mild steel deck profiles or related composite flooring components. Share profile type, thickness, length, quantity and drawing reference.
+
+### MS Shear Studs
+- Category: Mild Steel Products
+- Canonical URL: https://srksteel.com/products/ms-shear-studs
+- Summary: Mild steel shear studs for composite decking and structural slab connection requirements.
+- Buyer context: MS shear studs are used with composite deck slab systems to support shear connection requirements. Send diameter, height, quantity, decking profile and drawing reference.
+
+### SS Coil
+- Category: Stainless Steel
+- Canonical URL: https://srksteel.com/products/ss-coil
+- Summary: Stainless steel coils for fabrication, processing, cladding and industrial production.
+- Buyer context: SS coils are supplied by grade, thickness, width, finish and quantity for fabrication, cladding, processing and industrial supply requirements.
+
+### SS Wire
+- Category: Stainless Steel
+- Canonical URL: https://srksteel.com/products/ss-wire
+- Summary: Stainless steel wire for fabrication, mesh, tying, forming and industrial applications.
+- Buyer context: SS wire is requested for fabrication, mesh work, tying, forming and industrial applications where corrosion resistance and clean finish are important.
+
+### SS Plain Sheet
+- Category: Stainless Steel
+- Canonical URL: https://srksteel.com/products/ss-plain-sheet
+- Summary: Stainless steel plain sheets for fabrication, cladding, panels and interior/exterior finishing.
+- Buyer context: SS plain sheets are used for panels, cladding, fabrication, kitchen/industrial work and architectural finishing. Confirm grade, thickness, finish and sheet size before RFQ.
+
+### SS Slitted Coil
+- Category: Stainless Steel
+- Canonical URL: https://srksteel.com/products/ss-slitted-coil
+- Summary: Stainless steel slitted coils for strip processing, fabrication and production requirements.
+- Buyer context: SS slitted coils are used when narrow strip widths are required for fabrication, forming, profiles and production work. Share grade, parent thickness, slit width and quantity.
+
+### GI Coil - 60gsm to 275gsm
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/gi-coil
+- Summary: Galvanized steel coils with zinc coating range from 60gsm to 275gsm for roofing, cladding and fabrication.
+- Buyer context: GI coils are requested for coated steel applications where zinc coating, thickness and width must match project requirements. Share GSM coating, grade, thickness and coil quantity.
+
+### PPGI Coil
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/ppgi-coil
+- Summary: Pre-painted galvanized steel coils for roofing, cladding, panels and colour-coated applications.
+- Buyer context: PPGI coils are used where a pre-painted surface is required for roofing, cladding, panels and architectural steel work. Confirm colour, coating, thickness and quantity.
+
+### Aluzinc Coil
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/aluzinc-coil
+- Summary: Aluzinc coated coils for roofing, cladding and corrosion-resistant sheet applications.
+- Buyer context: Aluzinc coils are selected for roofing, cladding and sheet applications where aluminium-zinc coating performance is specified by the project.
+
+### PVDF Coils
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/pvdf-coils
+- Summary: PVDF coated steel coils for premium façade, roofing and cladding applications.
+- Buyer context: PVDF coils are used where durable colour coating, exterior performance and architectural finish are required. Share colour, coating system, thickness and project quantity.
+
+### GI Plain Sheet
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/gi-plain-sheet
+- Summary: Galvanized plain sheets for fabrication, panels, ducting, cladding and general steel work.
+- Buyer context: GI plain sheets are practical for ducting, panels, fabrication, covers and general steel work where a galvanized finish is required.
+
+### GI Slitted Coils
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/gi-slitted-coils
+- Summary: Galvanized slitted coils for strip production, profiles and fabrication use.
+- Buyer context: GI slitted coils are supplied for strip processing, profile making, components and fabrication where a narrower coil width is required.
+
+### PPGI Slitted Coils
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/ppgi-slitted-coils
+- Summary: Pre-painted galvanized slitted coils for colour-coated strips, flashings and profile production.
+- Buyer context: PPGI slitted coils are used when colour-coated steel strip is needed for flashings, profiles, edge trims and production work.
+
+### PPGI Plain Sheet
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/ppgi-plain-sheet
+- Summary: Pre-painted galvanized plain sheets for roofing accessories, panels, cladding and fabrication.
+- Buyer context: PPGI plain sheets are selected when a flat colour-coated sheet is required for panels, cladding accessories, flashings and fabrication.
+
+### Roof Insulated Panels - GI/PPGI
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/roof-insulated-panels
+- Summary: GI/PPGI roof insulated panels for industrial roofing, warehouses and controlled interior areas.
+- Buyer context: Roof insulated panels combine coated steel skins with insulation for roofing systems that require faster installation and thermal performance.
+
+### Wall Insulated Panels
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/wall-insulated-panels
+- Summary: Insulated wall panels for industrial buildings, warehouses, partitions and exterior wall systems.
+- Buyer context: Wall insulated panels are used for building envelopes, partitions and wall systems where insulation and clean panel installation are required.
+
+### Corrugated Roofing Sheet
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/corrugated-roofing-sheet
+- Summary: Corrugated galvanized or colour-coated roofing sheets for industrial and commercial roofing.
+- Buyer context: Corrugated roofing sheets are used for sheds, warehouses, industrial roofs and general roof covering where profile, coating and length are specified by project.
+
+### Corrugated Wall Sheet
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/corrugated-wall-sheet
+- Summary: Corrugated wall sheets for cladding, partitions and exterior wall covering.
+- Buyer context: Corrugated wall sheets are used for exterior cladding, partitions and wall covering where a profiled steel finish is required.
+
+### Corrugated Fence Sheet / Panel
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/corrugated-fence-sheet-panel
+- Summary: Corrugated fence sheets and panels for site fencing, boundary panels and temporary works.
+- Buyer context: Corrugated fence sheets are used for site fencing, boundary panels, enclosures and temporary works where durable steel sheet covering is required.
+
+### Corrugated Curve
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/corrugated-curve
+- Summary: Curved corrugated sheets for special roofing, canopy and architectural profile requirements.
+- Buyer context: Corrugated curved sheets are required for curved roof sections, canopies and special profile applications where radius and profile must match drawings.
+
+### Corrugated Ridge
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/corrugated-ridge
+- Summary: Corrugated ridge pieces for roofing sheet junctions, ridges and finishing details.
+- Buyer context: Corrugated ridge pieces are used at roof peaks and junctions to complete profiled roofing systems and improve weather protection at sheet intersections.
+
+### Gutter and Flashing
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/gutter-and-flashing
+- Summary: Gutters and flashings for roofing edges, drainage lines and sheet metal finishing details.
+- Buyer context: Gutters and flashings are sheet metal accessories used to manage roof edges, drainage, corners and junctions in roofing and cladding packages.
+
+### GI Decking Sheet - 45/150 and 75/305
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/gi-decking-sheet
+- Summary: GI decking sheets in 45/150 and 75/305 profiles for composite slab and floor decking.
+- Buyer context: GI decking sheets are used in composite flooring, mezzanine slabs and structural deck applications. Common profile references include 45/150 and 75/305 where specified.
+
+### Shear Studs
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/shear-studs
+- Summary: Shear studs for composite floor decking and structural slab connection systems.
+- Buyer context: Shear studs are coordinated with metal decking systems where drawings require shear connection between steel beams and composite slabs.
+
+### C Purlins
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/c-purlins
+- Summary: Cold formed C purlins for roofing, wall girts and secondary steel framing.
+- Buyer context: C purlins are supplied for warehouses, sheds, roofing, cladding and secondary framing. Share section size, thickness, length and punching schedule for RFQ review.
+
+### Z Purlins
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/z-purlins
+- Summary: Z section purlins for roofing and cladding support in steel buildings.
+- Buyer context: Z purlins support roof sheets and wall cladding in steel structures and are suitable for overlapping spans and long industrial roofing systems.
+
+### Dry Wall Partition Systems
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/drywall-partition-systems
+- Summary: Galvanized studs, tracks and channels for drywall partitions and ceiling framing.
+- Buyer context: Dry wall partition systems include GI studs, tracks, channels and accessories for fitout contractors, interior partitions and ceiling frameworks.
+
+### Strut & Track
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/strut-track
+- Summary: Strut channels and track systems for MEP, HVAC, cable tray and pipe support work.
+- Buyer context: Strut and track systems provide modular support for MEP, HVAC, electrical, cable tray and pipe support installations.
+
+### GI Pipe
+- Category: Galvanized Steel
+- Canonical URL: https://srksteel.com/products/gi-pipe
+- Summary: Galvanized pipes for support, fabrication, fencing, frames and industrial applications.
+- Buyer context: GI pipes are used in support frames, fabrication, fencing, light structures and general industrial applications where galvanized coating is required.
+
+### Aluminium Coil
+- Category: Aluminium
+- Canonical URL: https://srksteel.com/products/aluminium-coil
+- Summary: Aluminium coils for roofing, cladding, fabrication and light industrial applications.
+- Buyer context: Aluminium coils are used for roofing accessories, cladding, fabrication, insulation jacketing and applications where lightweight corrosion resistance is useful.
+
+### Aluminium Plain Sheet
+- Category: Aluminium
+- Canonical URL: https://srksteel.com/products/aluminium-plain-sheet
+- Summary: Aluminium plain sheets for panels, cladding, fabrication and lightweight covering work.
+- Buyer context: Aluminium plain sheets are selected for panels, covers, cladding, insulation works and fabrication where lighter weight is preferred.
+
+### Pre-painted Aluminium Coils
+- Category: Aluminium
+- Canonical URL: https://srksteel.com/products/pre-painted-aluminium-coils
+- Summary: Pre-painted aluminium coils for colour-coated cladding, panels and roofing accessories.
+- Buyer context: Pre-painted aluminium coils are used for colour-coated panels, cladding, roofing accessories and architectural sheet applications.
+
+### PFMB/PSMR Aluminium Alloy 3003-H14 Coils
+- Category: Aluminium
+- Canonical URL: https://srksteel.com/products/pfmb-psmr-aluminium-alloy-3003-h14-coils
+- Summary: Aluminium alloy 3003-H14 coils with PSMR 75 micron coating for coated sheet, cladding and fabrication requirements.
+- Buyer context: PFMB/PSMR aluminium alloy 3003-H14 coils are used where a coated aluminium coil is required for cladding, roofing accessories, panels and fabrication work. Share alloy, coating system, micron requirement, thickness, width, colour and quantity for RFQ review.
+
+## RFQ Minimum Information
+Product name; exact size/profile; grade/material; thickness; length/width; finish/coating; quantity; drawing or BOQ reference; delivery country/city; timeline; and any cutting, punching, slitting, packing or certificate requirement.
+
+## Canonical Navigation
+- Products: https://srksteel.com/products
+- Categories: https://srksteel.com/categories
+- Applications: https://srksteel.com/applications
+- Countries: https://srksteel.com/countries
+- Guides: https://srksteel.com/blogs
+- Contact/RFQ: https://srksteel.com/contact
+
+## Buyer Guides — Detailed Answer Sources
+
+### GI Metal Decking Sheets: How to Choose Profile, Thickness and Span
+- Canonical URL: https://srksteel.com/blogs/how-to-choose-gi-metal-decking-sheets
+- Primary topic: GI metal decking sheets
+- Related queries: GI decking sheet UAE, galvanized decking sheet, metal decking sheet, composite floor decking, 45/150 decking sheet, 75/305 decking sheet, decking sheet thickness, decking sheet supplier UAE
+- Direct answer: Choose GI metal decking sheets from the approved floor design, not from price or profile name alone. Confirm deck profile, base-metal thickness, coating, span and support layout, concrete slab requirement, shear-stud coordination, sheet lengths and delivery sequence. For engineered floors, the structural drawing and approved load tables should control the final selection.
+
+### C Purlins vs Z Purlins: Which Profile Fits Your Roof or Wall System?
+- Canonical URL: https://srksteel.com/blogs/c-purlins-vs-z-purlins
+- Primary topic: C purlins vs Z purlins
+- Related queries: C purlin, Z purlin, galvanized purlins, roof purlins, wall girts, purlin supplier UAE, cold formed purlins, C and Z purlin sizes
+- Direct answer: C purlins are often used where a straightforward channel section and simple-span or wall-girt arrangement fits the structural design. Z purlins are commonly selected for multi-bay roof runs because their geometry can suit lapped continuity at supports. Final selection must follow the engineer's span, load, connection, bracing and cladding design.
+
+### Strut Channel Buying Guide for MEP, HVAC, Cable Tray and Pipe Supports
+- Canonical URL: https://srksteel.com/blogs/strut-channel-buying-guide
+- Primary topic: strut channel buying guide
+- Related queries: MEP strut channel, strut channel UAE, galvanized strut channel, slotted strut channel, 41x41 strut channel, 41x21 strut channel, pipe support channel, cable tray support
+- Direct answer: Choose strut channel from the support load, span, orientation, installation environment and connection system—not from channel width alone. Confirm profile size, steel thickness, slotted or plain configuration, finish, length, support spacing, brackets, channel nuts, rods and clamps. For loaded supports, use engineer-approved or manufacturer load data for the exact channel configuration.
+
+### Stainless Steel Coil, Sheet, Slit Coil and Wire: A Buyer Selection Guide
+- Canonical URL: https://srksteel.com/blogs/stainless-steel-coil-sheet-wire-selection-guide
+- Primary topic: stainless steel coil sheet wire selection guide
+- Related queries: stainless steel coil UAE, stainless steel sheet UAE, stainless steel wire supplier, SS slit coil, stainless steel grades, stainless steel finishes, 304 stainless steel, 316 stainless steel
+- Direct answer: Start by defining the stainless product form—coil, plain sheet, slit coil or wire—then state the exact grade or standard, thickness or wire diameter, width or sheet size, surface finish, quantity, processing, packing and certificate requirements. Grade and finish are separate decisions, and any substitution should be approved against the project's service environment and fabrication process.
+
+### Drywall Partition System Buying Guide: GI Studs, Tracks and Framing
+- Canonical URL: https://srksteel.com/blogs/drywall-partition-system-buying-guide
+- Primary topic: drywall partition system buying guide
+- Related queries: GI studs and tracks UAE, metal stud partition, drywall framing, galvanized stud track, partition track, fitout steel framing, drywall partition supplier UAE, fire rated drywall framing
+- Direct answer: Buy drywall GI studs and tracks as part of an approved wall or ceiling assembly. Confirm profile type, section size, steel thickness, stud spacing, wall height, board layers, insulation, deflection-head detail, fire/acoustic requirement and accessories. Fire resistance and sound performance belong to the complete tested assembly, not to the metal framing alone.
+
+### Steel RFQ Checklist for Contractors and Procurement Teams
+- Canonical URL: https://srksteel.com/blogs/steel-rfq-checklist-for-contractors
+- Primary topic: steel RFQ checklist
+- Related queries: steel quotation request, steel supplier RFQ UAE, steel procurement checklist, steel BOQ, material grade specification, mill certificate, steel delivery UAE, steel supplier quotation
+- Direct answer: A strong steel RFQ gives every bidder the same technical and commercial basis: product form, grade or standard, dimensions, thickness, finish or coating, quantity, drawings/BOQ revision, certificates, processing, packing, delivery location and required date. Separate mandatory requirements from acceptable alternatives and record supplier deviations before comparing price.
+
