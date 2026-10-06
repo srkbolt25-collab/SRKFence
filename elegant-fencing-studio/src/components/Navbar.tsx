@@ -69,6 +69,7 @@ const navigationLinks = [
   { label: "Projects", to: "/projects" },
   { label: "Blog", to: "/blog" },
   { label: "Why Us", to: "/why-us" },
+  { label: "Certifications", to: "/certifications" },
   { label: "Contact Us", to: "/contact" },
 ];
 

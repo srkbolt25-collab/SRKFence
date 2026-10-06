@@ -25,6 +25,7 @@ const quickLinks = [
   { label: "Applications", to: "/applications" },
   { label: "Countries", to: "/countries" },
   { label: "Why Us", to: "/why-us" },
+  { label: "Certifications", to: "/certifications" },
   { label: "Contact", to: "/contact" },
   { label: "Get a Quote", to: "/contact" },
 ];
