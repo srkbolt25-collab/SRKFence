@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   comparisonTopics,
@@ -96,6 +97,23 @@ export default function HomeSeoSection() {
               </div>
               <Link href="/countries" className="mt-4 inline-block text-sm font-bold text-primary hover:underline">
                 View all GCC markets
+              </Link>
+            </div>
+
+            <div className="rounded-lg border border-border bg-card p-5">
+              <h3 className="mb-4 text-xl font-bold text-foreground">Certifications & Accreditations</h3>
+              <Link
+                href="/certifications"
+                aria-label="View SRK Fence certifications and accreditations"
+                className="group block overflow-hidden rounded-md bg-white"
+              >
+                <Image
+                  src="/certifications/iaf-eiac-iso-accreditation.webp"
+                  alt="IAF and Emirates International Accreditation Centre marks with ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018"
+                  width={1973}
+                  height={797}
+                  className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                />
               </Link>
             </div>
           </aside>
