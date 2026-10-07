@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import SiteLayout from '@/components/SiteLayout';
@@ -65,16 +66,33 @@ export default function CertificationsPage() {
         <section className="relative overflow-hidden bg-gradient-to-r from-[#101b3e] via-[#16345c] to-[#234f72] py-16 text-white sm:py-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_30%,rgba(255,255,255,0.12),transparent_36%)]" />
           <div className="container relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/75">
-                Trust · Compliance · International Standards
-              </p>
-              <h1 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                Certifications & Accreditations
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg">
-                SRK METALS FZE-LLC is certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018, reflecting our commitment to consistent quality, responsible environmental practices and a safe, healthy workplace across our operations.
-              </p>
+            <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(360px,0.75fr)] lg:gap-14">
+              <div className="max-w-3xl">
+                <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/75">
+                  Trust · Compliance · International Standards
+                </p>
+                <h1 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                  Certifications & Accreditations
+                </h1>
+                <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg">
+                  SRK METALS FZE-LLC is certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018,
+                  reflecting our commitment to consistent quality, responsible environmental practices and a safe,
+                  healthy workplace across our operations.
+                </p>
+              </div>
+
+              <div className="mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
+                <div className="overflow-hidden rounded-xl border border-white/15 bg-white p-3 shadow-2xl shadow-black/20 sm:p-4">
+                  <Image
+                    src="/certifications/iaf-eiac-iso-accreditation.webp"
+                    alt="IAF and Emirates International Accreditation Centre marks with ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018"
+                    width={1973}
+                    height={797}
+                    className="h-auto w-full object-contain"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -87,12 +105,18 @@ export default function CertificationsPage() {
               <span className="font-semibold text-foreground">Certifications & Accreditations</span>
             </nav>
 
-            <div className="mb-10 max-w-4xl">
+            <div className="mb-10 max-w-5xl">
               <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                 Our Certifications & Accreditations
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Our certifications demonstrate that defined management practices are in place for quality, environmental responsibility and occupational health & safety. Select any certificate preview to view a larger, readable copy and access the original PDF document.
+                SRK METALS FZE-LLC is certified to internationally recognized ISO standards for quality,
+                environmental responsibility, and occupational health & safety. These certifications reflect our
+                commitment to consistent processes, responsible operations, safer workplaces, and dependable project
+                support for clients across the UAE and GCC.
+              </p>
+              <p className="mt-3 text-sm font-medium text-muted-foreground sm:text-base">
+                View each certificate for full details, certificate number, validity, and the original PDF document.
               </p>
             </div>
 
