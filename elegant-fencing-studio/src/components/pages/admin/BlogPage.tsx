@@ -32,6 +32,7 @@ import {
 import Image from "next/image";
 import { apiClient } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 
 const BlogPage = () => {
   const { toast } = useToast();
@@ -490,17 +491,14 @@ const BlogPage = () => {
 
             <div className="space-y-2">
               <Label htmlFor="content">Content (optional)</Label>
-              <Textarea
-                id="content"
-                name="content"
+              <RichTextEditor
                 value={formData.content}
-                onChange={handleInputChange}
-                placeholder="Blog post content (HTML supported)"
-                rows={12}
-                className="font-mono text-sm"
+                onChange={(content) => setFormData((current) => ({ ...current, content }))}
+                placeholder="Write the blog article here…"
+                minHeight={520}
               />
               <p className="text-xs text-muted-foreground">
-                You can use HTML tags like &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;table&gt; etc.
+                Visual editor output is saved as clean HTML. Use “HTML source” when you need to review or edit the markup directly.
               </p>
             </div>
 
